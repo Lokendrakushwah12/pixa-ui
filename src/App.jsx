@@ -1,13 +1,11 @@
 import { useState } from 'react'
+import Hero from './pages/Hero'
 
 function App() {
-    const [count, setCount] = useState(0)
 
     return (
         <>
-            <button className='border border-[#ffffff41] p-2 rounded-lg' onPointerMove={() => setCount((count) => count + 1)}>
-                count is {count}
-            </button>
+            <Hero />
         </>
     )
 }
