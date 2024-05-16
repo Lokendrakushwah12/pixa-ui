@@ -50,7 +50,7 @@ const Button = () => {
                     <div
                         key={index}
                         onClick={() => openSheet(data)}
-                        className={`cursor-pointer flex w-[400px] h-[300px] overflow-hidden items-center justify-center border border-[#d0d0d0] rounded-2xl`}>
+                        className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border border-[#d0d0d0] rounded-2xl`}>
                         {data.buttonComponent === "ButtonV1" && <ButtonV1 title={data.title} />}
                         {data.buttonComponent === "ButtonV2" && <ButtonV2 title={data.title} />}
                     </div>

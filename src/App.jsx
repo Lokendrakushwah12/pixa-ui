@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Hero from './pages/Hero'
 
 function App() {

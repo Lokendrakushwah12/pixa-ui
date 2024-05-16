@@ -16,3 +16,33 @@ body {
     margin: 0;
     padding: 0;
 }
+
+::selection {
+    background: #121212;
+    color: #f9f9f9;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* scrollbar-width: none;  */
+}
+
+.hide-scrollbar:hover::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.hide-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}

@@ -20,7 +20,7 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col gap-4 w-full max-w[1440px] px-auto items-center justify-start h-screen">
-                <div className="flex items-center justify-center mt-8">
+                <div className="flex items-center justify-center x-sm:justify-start mt-8 w-full overflow-x-auto hide-scrollbar transition-all">
                     <button className={`text-lg font-[500] px-4 border-b-2 hover:text-[#212121] transition-all ${active === 0 ? 'border-blue-500 text-[#212121]' : 'border-[#ffffff86] text-[#818181]'}`} onClick={() => setActive(0)}>Button</button>
                     <button className={`text-lg font-[500] px-4 border-b-2 hover:text-[#212121] transition-all ${active === 1 ? 'border-blue-500 text-[#212121]' : 'border-[#ffffff86] text-[#818181]'}`} onClick={() => setActive(1)}>Cards</button>
                     <button className={`text-lg font-[500] px-4 border-b-2 hover:text-[#212121] transition-all ${active === 2 ? 'border-blue-500 text-[#212121]' : 'border-[#ffffff86] text-[#818181]'}`} onClick={() => setActive(2)}>Tabs</button>
@@ -29,7 +29,7 @@ const Hero = () => {
                 </div>
                 {active === 0 && <Button />}
                 {active === 1 && <Card />}
-                
+
             </div>
         </>
     )

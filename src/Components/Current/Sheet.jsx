@@ -4,7 +4,7 @@ import ButtonV1 from '../Buttons/ButtonV1';
 import ButtonV2 from '../Buttons/ButtonV2';
 
 const Sheet = ({ closeSheet, selectedData }) => {
-    const [copied, setCopied] = useState({ installation: false, snippet: false, snippet2: false });
+    const [copied, setCopied] = useState({ installation: false, snippet: false });
 
     const handleClose = (e) => {
         if (e.target.classList.contains('fixed')) {
@@ -45,16 +45,15 @@ const Sheet = ({ closeSheet, selectedData }) => {
     );
 
     return (
-        <div onClick={handleClose} className="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center">
+        <div onClick={handleClose} className="fixed backdrop-blur-[8px] inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center transition-all">
             <motion.div
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
                 transition={{ type: 'spring', stiffness: 1000, damping: 100 }}
-                className='absolute z-50 bottom-0  border-t left-0 w-full h-1/2 overflow-auto bg-white p-4 flex flex-col gap-2 items-start justify-start'
+                className='absolute z-50 bottom-0  border-t left-0 w-full h-3/4 overflow-auto bg-white p-4 flex flex-col gap-2 items-start justify-start'
             >
-                {/* <div className="flex flex-col justify-center items-center w-full gap-8"> */}
-                <div className="px-4 w-full lg:w-1/2 md:px-0 flex flex-col items-start justify-center gap-1">
+                <div className="px-4 w-full lg:w-1/2 md:px-2 flex flex-col items-start justify-start gap-1">
                     <h1 className="text-xl text-gray-900 font-bold">Install the package</h1>
                     <div className='p-2 text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
                         <pre>{selectedData.installationCmd}</pre>
@@ -63,14 +62,14 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex-row w-full gap-4">
+                <div className="flex flex-col md:flex-row w-full gap-4">
                     {/* Usage 1 */}
-                    <div className="w-full px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
+                    <div className="w-full relative px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
-                        <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
-                            <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-2 top-2'>
-                                {renderCopyIcon(copied.snippet)}
-                            </div>
+                        <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-6 top-10'>
+                            {renderCopyIcon(copied.snippet)}
+                        </div>
+                        <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
                             <pre>{selectedData.snippetData}</pre>
                         </div>
                     </div>
