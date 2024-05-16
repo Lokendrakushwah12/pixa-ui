@@ -1,0 +1,15 @@
+[
+    {
+        "buttonComponent": "ButtonV1",
+        "title": "Button V1",
+        "installationCmd": "npm install @pixa/ButtonV1",
+        "snippetData": "import ButtonV1 from '../Components/ui/ButtonV1'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV1 title='Button V1' />\n    </>\n  );\n};",
+        "snippetData2": "import ButtonV1 from '../Components/ui/ButtonV1'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV1 color= title='Button V1' />\n    </>\n  );\n};"
+    },
+    {
+        "buttonComponent": "ButtonV2",
+        "title": "Button V2",
+        "installationCmd": "npm install @pixa/ButtonV2",
+        "snippetData": "import ButtonV2 from '../Components/ui/ButtonV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV2 />\n    </>\n  );\n};"
+    }
+]
