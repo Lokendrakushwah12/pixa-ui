@@ -51,7 +51,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
                 transition={{ type: 'spring', stiffness: 1000, damping: 100 }}
-                className='absolute z-50 bottom-0  border-t left-0 w-full h-[80vh] overflow-auto bg-white p-4 flex flex-col gap-2 items-start justify-start'
+                className='absolute z-50 bottom-0  border-t left-0 w-full h-1/2 overflow-auto bg-white p-4 flex flex-col gap-2 items-start justify-start'
             >
                 {/* <div className="flex flex-col justify-center items-center w-full gap-8"> */}
                 <div className="px-4 w-full lg:w-1/2 md:px-0 flex flex-col items-start justify-center gap-1">
@@ -66,7 +66,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                 <div className="flex flex-col lg:flex-row w-full gap-4">
                     {/* Usage 1 */}
                     <div className="w-full px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
-                        <h1 className="text-xl text-gray-900 font-bold">Usage 1</h1>
+                        <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
                         <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
                             <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-2 top-2'>
                                 {renderCopyIcon(copied.snippet)}
@@ -75,43 +75,14 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         </div>
                     </div>
                     {/* Preview */}
-                    <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
+                    <div className="w-full px-4 md:px-0 h-[200px] lg:h-full flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex justify-center items-center w-full rounded-lg'>
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title={selectedData.title} />}
-                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 color="#8221a6" textColor="#f0f0f0" title={selectedData.title} />}
+                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 color="#8de1a6" textColor="#212121" title={selectedData.title} />}
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex-row w-full gap-4">
-                    {/* Usage 2 */}
-                    <div className="w-full px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
-                        <h1 className="text-xl text-gray-900 font-bold">Usage 2</h1>
-                        <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
-                            <div onClick={() => handleCopyToClipboard(selectedData.snippetData2, 'snippet2')} className='absolute z-50 right-2 top-2'>
-                                {renderCopyIcon(copied.snippet2)}
-                            </div>
-                            <pre>{selectedData.snippetData2}</pre>
-                        </div>
-                    </div>
-                    {/* Preview */}
-                    <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
-                        <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-                        <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex justify-center items-center w-full rounded-lg'>
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title={selectedData.title} color="#0fc7ff" border="#1d82a1" />}
-                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} />}
-                        </div>
-                    </div>
-                </div>
-                {/* </div> */}
-                {/* button preview */}
-                {/* <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
-                    <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-                    <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex justify-center items-center w-full rounded-lg'>
-                        {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title={selectedData.title} />}
-                        {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} />}
-                    </div>
-                </div> */}
             </motion.div>
         </div>
     )
