@@ -1,3 +1,5 @@
-# React + Vite + TailwindCSS
+# Pixa UI
 
-This template provides a minimal setup to get React + TailwindCSS working in Vite with HMR and some ESLint rules.
+## Description
+
+Pixa UI is a collection of simple and clean UI components that are easy to use.

@@ -6,7 +6,7 @@ import CardV2 from '../Components/Cards/CardV2'
 const Card = () => {
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px] h-screen">
                 <Preview el={<CardV1 />} />
                 <Preview el={<CardV2 />} />
                 <Preview el={<CardV2 />} />

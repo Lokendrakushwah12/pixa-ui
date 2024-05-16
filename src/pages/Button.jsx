@@ -6,13 +6,91 @@ import Preview from '../Components/Current/Preview'
 const Button = () => {
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <Preview el={<ButtonV1 />} />
-                <Preview el={<ButtonV2 />} />
-                <Preview el={<ButtonV2 />} />
-                <Preview el={<ButtonV2 />} />
-                <Preview el={<ButtonV2 />} />
-                <Preview el={<ButtonV2 />} />
+            <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px] h-screen">
+                <Preview
+                    el={<ButtonV1 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV1 from '../Components/ui/ButtonV1'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV1/>
+            </>
+        )
+    }" />
+                <Preview
+                    el={<ButtonV2 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV2 from '../Components/ui/ButtonV2'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV2/>
+            </>
+        )
+    }" />
+                <Preview
+                    el={<ButtonV2 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV2 from '../Components/ui/ButtonV2'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV2/>
+            </>
+        )
+    }" />
+                <Preview
+                    el={<ButtonV2 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV2 from '../Components/ui/ButtonV2'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV2/>
+            </>
+        )
+    }" />
+                <Preview
+                    el={<ButtonV2 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV2 from '../Components/ui/ButtonV2'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV2/>
+            </>
+        )
+    }" />
+                <Preview
+                    el={<ButtonV2 />}
+                    installationCmd="npm install @pixa/ui"
+                    snippetData="
+    import ButtonV2 from '../Components/ui/ButtonV2'
+
+    const App=()=>{
+
+    return(
+            <>
+                <ButtonV2/>
+            </>
+        )
+    }" />
             </div>
         </>
     )
