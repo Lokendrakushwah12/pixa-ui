@@ -65,7 +65,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                 </div>
                 <div className="flex flex-col md:flex-row w-full gap-4">
                     {/* Usage 1 */}
-                    <div className="w-full relative px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
+                    <div className="w-full md:w-1/2 relative px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
                         <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-6 top-10'>
                             {renderCopyIcon(copied.snippet)}
@@ -75,7 +75,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         </div>
                     </div>
                     {/* Preview */}
-                    <div className="w-full px-4 md:px-0 h-[200px] lg:h-full flex flex-col items-start justify-center gap-1">
+                    <div className="w-full md:w-1/2 px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex flex-col gap-2 justify-center items-center w-full rounded-lg'>
                             {/* Button V1 */}
