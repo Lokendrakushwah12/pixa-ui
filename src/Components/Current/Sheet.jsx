@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import ButtonV1 from '../Buttons/ButtonV1';
 import ButtonV2 from '../Buttons/ButtonV2';
 
+
 const Sheet = ({ closeSheet, selectedData }) => {
     const [copied, setCopied] = useState({ installation: false, snippet: false });
 
@@ -76,9 +77,15 @@ const Sheet = ({ closeSheet, selectedData }) => {
                     {/* Preview */}
                     <div className="w-full px-4 md:px-0 h-[200px] lg:h-full flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-                        <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex justify-center items-center w-full rounded-lg'>
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 color="#8221a6" textColor="#f0f0f0" title={selectedData.title} />}
-                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 color="#8de1a6" textColor="#212121" title={selectedData.title} />}
+                        <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex flex-col gap-2 justify-center items-center w-full rounded-lg'>
+                            {/* Button V1 */}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={1} />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={1} />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
+                            {/* Button V2 */}
+                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
                         </div>
                     </div>
                 </div>

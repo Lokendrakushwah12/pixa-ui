@@ -1,23 +1,32 @@
 import React from 'react';
 
-const ButtonV1 = ({ title, color, textColor }) => {
+const ButtonV1 = ({ title, color, textColor, icon, disabled }) => {
     // Default background color
     const bgColor = color ? color : '#212121';
     const txtColor = textColor ? textColor : '#f0f0f0';
 
     const { h, s, l } = hexToHSL(bgColor);
     const borderColor = HSLToHex(h, s, l - 10);
-    const hoverColor = HSLToHex(h, s, l + 10);
+
+    const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer group';
 
     return (
-        <div className="relative group cursor-pointer">
+        <div className={`relative ${disabledStyles}`}>
             <div style={{ borderColor, backgroundColor: bgColor }} className="border rounded-[8px]">
-                <div className="border-t border-[#ffffff80] rounded-[7px]">
-                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-75 group-hover:opacity-50 -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all"></div>
-                    <div className="absolute w-full h-full bg-white opacity-0 group-hover:opacity-10 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 transition-all"></div>
-                    <h3 className={`rounded-[7px] p-2 text-[${txtColor}] transition-all font-[500] text-[16px] leading-[19px] group-hover:bg-[${hoverColor}]`}>
+                <div className="border-t p-2 flex items-center justify-center gap-1 border-[#ffffff80] rounded-[7px]">
+                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-75 group-hover:opacity-0 -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all"></div>
+                    <h3 className={`rounded-[7px] text-[${txtColor}] transition-all font-[500] text-[16px] leading-[19px]`}>
                         {title}
                     </h3>
+                    {/* arrow right icon */}
+                    {icon !== 0 && icon && (
+                        <div className="h-5 w-5 text-[#ffffff80] group-hover:text-[#ffffff] transition-all">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round" />
+                                <path d="M4 10.0699L15 10.0699" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
