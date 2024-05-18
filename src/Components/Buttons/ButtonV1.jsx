@@ -11,10 +11,10 @@ const ButtonV1 = ({ title, color, textColor, icon, disabled }) => {
     const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer group';
 
     return (
-        <div className={`relative ${disabledStyles}`}>
+        <div className={`relative ${disabledStyles}  overflow-hidden`}>
             <div style={{ borderColor, backgroundColor: bgColor }} className="border rounded-[8px]">
-                <div className="border-t p-2 flex items-center justify-center gap-1 border-[#ffffff80] rounded-[7px]">
-                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-75 group-hover:opacity-0 -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all"></div>
+                <div className="border-t p-2 flex items-center justify-center gap-1 border-[#ffffff60] rounded-[7px]">
+                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-75 group-hover:opacity-25 -translate-x-1/2 -translate-y-1/2 left-1/2 transition-all"></div>
                     <h3 className={`rounded-[7px] text-[${txtColor}] transition-all font-[500] text-[16px] leading-[19px]`}>
                         {title}
                     </h3>
