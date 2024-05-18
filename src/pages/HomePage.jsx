@@ -12,7 +12,7 @@ const HomePage = () => {
                     <h2 className="text-lg text-[#414141] text-center mt-2">A Collection of Open Source React+TailwindCSS UI Components for Your Project</h2>
                 </div>
                 <div className="bg-white w-full h-14 absolute -top-4 z-10 left-1/2 blur-[10px] -translate-x-1/2"></div>
-                <div className="bg-white w-full h-12 absolute -bottom-4 z-10 left-1/2 blur-[10px] -translate-x-1/2"></div>
+                <div className="bg-white w-full h-20 absolute -bottom-4 z-10 left-1/2 blur-[12px] -translate-x-1/2"></div>
                 <div
                     className="circular-fadeout grid h-[400px] w-full place-items-center overflow-clip bg-white"
                 >
