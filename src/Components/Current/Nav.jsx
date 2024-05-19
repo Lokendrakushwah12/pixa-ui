@@ -14,7 +14,7 @@ const Nav = () => {
         <div className="flex items-center gap-4 mr-4">
           <Link to='/about' className="text-[14px] p-1 rounded-[4px] font-[500] text-[#313131] hover:text-[#212121] transition-all cursor-pointer">About</Link>
           <Link to='https://github.com/Lokendrakushwah12/pixa-ui' target='_blank' rel="noopener noreferrer" className="text-[14px] p-1 rounded-[4px] font-[500] text-[#313131] hover:text-[#212121] transition-all cursor-pointer">GitHub</Link>
-          <Link to='' className="text-[14px] p-1 rounded-[4px] font-[500] text-[#313131] hover:text-[#212121] transition-all cursor-pointer border bg-[#f9f9f9] flex gap-1 justify-center items-center">Submit your Components <img src={UploadSVG} alt="uploadIcon" /></Link>
+          <Link to='' className="text-[14px] p-1 rounded-[8px] shadow-md shadow-[rgba(0,0,0,0.08)] hover:shadow-[rgba(0,0,0,0.15)] font-[500] text-[#313131] hover:text-[#212121] transition-all cursor-pointer border hover:bg-[#f9f9fa] flex gap-1 justify-center items-center">Submit your Components <img src={UploadSVG} alt="uploadIcon" /></Link>
         </div>
       </div>
     </>

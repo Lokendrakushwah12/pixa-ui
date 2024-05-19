@@ -3,7 +3,7 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
     backgroundImage: {
-      "primary-gradient": "linear-gradient(to bottom, #515151, #919191 48%, #515151 68%, #919191 100%)",
+      "primary-gradient": "linear-gradient(to bottom, #121212, #d9d9d9 98%, #121212 68%, #d9d9d9 00%)",
       frost: "repeating-linear-gradient(to right, rgba(0,0,0,.04) 0%, rgba(255,255,255,.39) 49%, rgba(0,0,0,.27) 100%)"
     },
     extend: {},

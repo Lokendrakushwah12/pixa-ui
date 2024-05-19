@@ -52,20 +52,21 @@ const Sheet = ({ closeSheet, selectedData }) => {
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
                 transition={{ type: 'spring', stiffness: 1000, damping: 100 }}
-                className='absolute z-50 bottom-0  border-t left-0 w-full h-3/4 overflow-auto bg-white p-4 flex flex-col gap-2 items-start justify-start'
+                className='absolute z-50 bottom-0 border-t left-0 w-full h-3/4 px-4 xl:px-8 overflow-auto bg-white p-4 flex flex-col lg:flex-row gap-2 xl:gap-8 items-start justify-start'
             >
-                <div className="px-4 w-full lg:w-1/2 md:px-2 flex flex-col items-start justify-start gap-1">
-                    <h1 className="text-xl text-gray-900 font-bold">Install the package</h1>
-                    <div className='p-2 text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
-                        <pre>{selectedData.installationCmd}</pre>
-                        <div onClick={() => handleCopyToClipboard(selectedData.installationCmd, 'installation')}>
-                            {renderCopyIcon(copied.installation)}
+                <div className="lg:w-1/2 w-full flex flex-col items-start justify-start gap-4">
+                    {/* Install */}
+                    <div className="w-full relative flex flex-col items-start justify-center gap-1">
+                        <h1 className="text-xl text-gray-900 font-bold">Install the package</h1>
+                        <div className='p-2 text-sm text-gray-900 border bg-gray-100 border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
+                            <pre>{selectedData.installationCmd}</pre>
+                            <div onClick={() => handleCopyToClipboard(selectedData.installationCmd, 'installation')}>
+                                {renderCopyIcon(copied.installation)}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="flex flex-col md:flex-row w-full gap-4">
                     {/* Usage 1 */}
-                    <div className="w-full md:w-1/2 relative px-4 md:px-0 sm:px-2 flex flex-col items-start justify-center gap-1">
+                    <div className="w-full relative flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
                         <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-6 top-10'>
                             {renderCopyIcon(copied.snippet)}
@@ -74,14 +75,18 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             <pre>{selectedData.snippetData}</pre>
                         </div>
                     </div>
+
+                </div>
+                <div className="flex flex-col md:flex-row h-full w-full gap-4">
                     {/* Preview */}
-                    <div className="w-full md:w-1/2 px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
+                    <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex flex-col gap-2 justify-center items-center w-full rounded-lg'>
                             {/* Button V1 */}
                             {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={1} />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={1} />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
+                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={true} />}
                             {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />}
                             {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
                             {/* Button V2 */}
