@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import ButtonV1 from '../Buttons/ButtonV1';
 import ButtonV2 from '../Buttons/ButtonV2';
+import ButtonV3 from '../Buttons/ButtonV3';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -91,6 +92,9 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
                             {/* Button V2 */}
                             {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
+                            {/* Button V3 */}
+                            {selectedData.buttonComponent === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
+                            {selectedData.buttonComponent === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
                         </div>
                     </div>
                 </div>
