@@ -4,7 +4,7 @@
 @import 'tailwindcss/utilities';
 
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Haskoy', system-ui, Avenir, Helvetica, Arial, sans-serif;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -21,31 +21,31 @@ body {
 @font-face {
     font-family: 'Haskoy';
     font-weight: 300;
-    src: url('./src/assets/fonts/Haskoy-Light.woff2') format('woff');
+    src: url('./src/assets/fonts/Haskoy-Light.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Haskoy';
     font-weight: 400;
-    src: url('./src/assets/fonts/Haskoy-Regular.woff2') format('woff');
+    src: url('./src/assets/fonts/Haskoy-Regular.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Haskoy';
     font-weight: 500;
-    src: url('./src/assets/fonts/Haskoy-Medium.woff2') format('woff');
+    src: url('./src/assets/fonts/Haskoy-Medium.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Haskoy';
     font-weight: 600;
-    src: url('./src/assets/fonts/Haskoy-SemiBold.woff2') format('woff');
+    src: url('./src/assets/fonts/Haskoy-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Haskoy';
     font-weight: 700;
-    src: url('./src/assets/fonts/Haskoy-Bold.woff2') format('woff');
+    src: url('./src/assets/fonts/Haskoy-Bold.woff2') format('woff2');
 }
 
 ::selection {
