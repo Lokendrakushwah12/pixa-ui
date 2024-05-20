@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import UploadSVG from '../../assets/icons/upload.svg';
 
 const Nav = () => {

@@ -9,7 +9,7 @@ const HomePage = () => {
             <div {...pointerProps} className="relative w-full h-1/2 overflow-hidden">
                 <div className="absolute z-40 flex flex-col w-full items-center justify-center h-[300px]">
                     <h1 className="text-[68px] font-bold text-[#212121] text-center mt-8">Pixa UI</h1>
-                    <h2 className="text-lg text-[#414141] text-center mt-2">A Collection of Open Source React+TailwindCSS UI Components for Your Project</h2>
+                    <h2 className="text-lg text-[#414141] font-[500] text-center mt-2">A Collection of <span className='font-[600]'>Open Source</span> Components for <span className='border font-[600] shadow border-[#ebebeb42] rounded-[0.25rem] px-1 bg-[#dedede3f]'>React + TailwindCSS</span> for Your Project</h2>
                 </div>
                 <div className="bg-white w-full h-14 absolute -top-4 z-10 left-1/2 blur-[10px] -translate-x-1/2"></div>
                 <div className="bg-white w-full h-20 absolute -bottom-4 z-10 left-1/2 blur-[12px] -translate-x-1/2"></div>

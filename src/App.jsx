@@ -3,6 +3,7 @@ import Hero from './pages/Hero'
 import AboutPage from './pages/AboutPage'
 
 function App() {
+    
     return (
         <Router>
             <Routes>

@@ -11,6 +11,7 @@ export default {
       '2xl': { min: '1535px' }, // 1536px
       'xl': { min: '1279px' }, // 1280px
       'lg': { min: '1023px' }, // 1024px
+      'base': { min: '953px' }, // 954px
       'md': { min: '767px' }, // 768px
       'sm': { min: '639px' }, // 640px
       'x-sm': { max: '480px' }, // 481px

@@ -69,7 +69,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                     {/* Usage 1 */}
                     <div className="w-full relative flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
-                        <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-6 top-10'>
+                        <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-2 top-10'>
                             {renderCopyIcon(copied.snippet)}
                         </div>
                         <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
