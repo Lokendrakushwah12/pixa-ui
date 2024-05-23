@@ -5,7 +5,7 @@ import UploadSVG from '../../assets/icons/upload.svg';
 const Nav = () => {
   return (
     <>
-      <div className="flex items-center justify-between w-full h-[60px] border-b sm:px-12 lg:px-24 z-50 bg-white">
+      <div className="flex items-center justify-between w-full h-[60px] border-b sm:px-12 lg:px-24 z-50 bg-[#fefefe]">
         <div className="flex items-center gap-4 ml-4">
           <Link to="/">
             <h1 className="text-[20px] font-[600] text-[#313131] hover:text-[#212121] transition-all cursor-pointer">Pixa UI</h1>

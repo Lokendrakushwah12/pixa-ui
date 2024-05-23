@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react'
-import ButtonV1 from '../Components/Buttons/ButtonV1'
-import ButtonV2 from '../Components/Buttons/ButtonV2'
-import ButtonV3 from '../Components/Buttons/ButtonV3'
+import CardV1 from '../Components/Cards/CardV1'
 import Sheet from '../Components/Current/Sheet';
 import { AnimatePresence } from 'framer-motion'
+import Stalwarts from '../assets/icons/Stalwarts.svg';
 
-const Button = () => {
+const CardPage = () => {
     const [sheet, setSheet] = useState(false);
-    const [buttonData, setButtonData] = useState([]);
+    const [CardData, setCardData] = useState([]);
     const [selectedData, setSelectedData] = useState(null);
 
     useEffect(() => {
-        const fetchButtonData = async () => {
+        const fetchCardData = async () => {
             try {
-                const res = await fetch('./Data/buttonData.json');
+                const res = await fetch('./Data/cardData.json');
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await res.json();
-                setButtonData(data);
+                setCardData(data);
             } catch (error) {
                 console.error('Fetching error:', error);
             }
         };
 
-        fetchButtonData();
+        fetchCardData();
     }, []);
 
     const closeSheet = (e) => {
@@ -47,14 +46,12 @@ const Button = () => {
                     closeSheet={closeSheet} />}
             </AnimatePresence>
             <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]">
-                {buttonData.map((data, index) => (
+                {CardData.map((data, index) => (
                     <div
                         key={index}
                         onClick={() => openSheet(data)}
                         className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border hover:bg-[#f9f9f9] transition-all rounded-2xl`}>
-                        {data.buttonComponent === "ButtonV1" && <ButtonV1 title={data.title} />}
-                        {data.buttonComponent === "ButtonV2" && <ButtonV2 title={data.title} />}
-                        {data.buttonComponent === "ButtonV3" && <ButtonV3 title={data.title} />}
+                        {data.componentName === "CardV1" && <div className=' scale-[70%] flex justify-center items-center'> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} /></div>}
                     </div>
                 ))}
             </div>
@@ -62,4 +59,4 @@ const Button = () => {
     )
 }
 
-export default Button
+export default CardPage

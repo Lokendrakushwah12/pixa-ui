@@ -1,18 +1,18 @@
 [
     {
-        "buttonComponent": "ButtonV1",
+        "componentName": "ButtonV1",
         "title": "Button V1",
         "installationCmd": "npm install @pixa/ButtonV1",
         "snippetData": "import ButtonV1 from '../Components/ui/ButtonV1'\n\nconst App = () => {\n\n  return (\n    <>\n      <div className='flex flex-col gap-2 justify-center items-center'>\n        <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />\n        <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />\n        <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius='99px' />\n        <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={true} />\n        <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />\n        <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />\n      </div>\n    </>\n  );\n};"
     },
     {
-        "buttonComponent": "ButtonV2",
+        "componentName": "ButtonV2",
         "title": "Button V2",
         "installationCmd": "npm install @pixa/ButtonV2",
         "snippetData": "import ButtonV2 from '../Components/ui/ButtonV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV2 color='#8de1a6' textColor='#212121' title='Button V2' />\n    </>\n  );\n};"
     },
     {
-        "buttonComponent": "ButtonV3",
+        "componentName": "ButtonV3",
         "title": "Button V3",
         "installationCmd": "npm install @pixa/ButtonV3",
         "snippetData": "import ButtonV3 from '../Components/ui/ButtonV3'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV3 title='Black Magic' borderRadius='99px' />\n      <ButtonV3 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"

@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import ButtonV1 from '../Buttons/ButtonV1';
 import ButtonV2 from '../Buttons/ButtonV2';
 import ButtonV3 from '../Buttons/ButtonV3';
+import CardV1 from '../Cards/CardV1';
+import Stalwarts from '../../assets/icons/Stalwarts.svg';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -84,17 +86,19 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex flex-col gap-2 justify-center items-center w-full rounded-lg'>
                             {/* Button V1 */}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={true} />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />}
-                            {selectedData.buttonComponent === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={true} />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
                             {/* Button V2 */}
-                            {selectedData.buttonComponent === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
                             {/* Button V3 */}
-                            {selectedData.buttonComponent === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
-                            {selectedData.buttonComponent === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
+                            {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
+                            {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
+                            {/* CardV1 */}
+                            {selectedData.componentName === 'CardV1' && <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} />}
                         </div>
                     </div>
                 </div>

@@ -32,10 +32,10 @@ const ScrollToTop = () => {
                 <motion.button
                     onClick={scrollToTop}
                     className="w-10 h-10 bg-[#212121] text-white rounded-full shadow-lg hover:bg-[#121212] transition-all flex items-center justify-center"
-                    initial={{ y: '180%' }}
-                    animate={{ y: 1 }}
-                    exit={{ y: '100%' }}
-                    transition={{ type: 'spring', stiffness: 1000, damping: 1000 }}
+                    initial={{ y: '140%', opacity: 0.5 }}
+                    animate={{ y: 1, opacity: "100%" }}
+                    exit={{ y: '100%', opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
 
                     <button

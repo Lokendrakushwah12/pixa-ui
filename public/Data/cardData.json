@@ -1,0 +1,20 @@
+[
+    {
+        "componentName": "CardV1",
+        "title": "Button V1",
+        "installationCmd": "npm install @pixa/CardV1",
+        "snippetData": "import CardV1 from '../Components/ui/CardV1'\n\nconst App = () => {\n\n  return (\n    <>\n      <div className='flex flex-col gap-2 justify-center items-center'>\n        <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} />\n      </div>\n    </>\n  );\n};"
+    },
+    {
+        "componentName": "ButtonV2",
+        "title": "Button V2",
+        "installationCmd": "npm install @pixa/ButtonV2",
+        "snippetData": "import ButtonV2 from '../Components/ui/ButtonV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV2 color='#8de1a6' textColor='#212121' title='Button V2' />\n    </>\n  );\n};"
+    },
+    {
+        "componentName": "ButtonV3",
+        "title": "Button V3",
+        "installationCmd": "npm install @pixa/ButtonV3",
+        "snippetData": "import ButtonV3 from '../Components/ui/ButtonV3'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV3 title='Black Magic' borderRadius='99px' />\n      <ButtonV3 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"
+    }
+]
