@@ -6,10 +6,10 @@
         "snippetData": "import CardV1 from '../Components/ui/CardV1'\n\nconst App = () => {\n\n  return (\n    <>\n      <div className='flex flex-col gap-2 justify-center items-center'>\n        <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} />\n      </div>\n    </>\n  );\n};"
     },
     {
-        "componentName": "ButtonV2",
+        "componentName": "CardV2",
         "title": "Button V2",
-        "installationCmd": "npm install @pixa/ButtonV2",
-        "snippetData": "import ButtonV2 from '../Components/ui/ButtonV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV2 color='#8de1a6' textColor='#212121' title='Button V2' />\n    </>\n  );\n};"
+        "installationCmd": "npm install @pixa/CardV2",
+        "snippetData": "import CardV2 from '../Components/ui/CardV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <CardV2 color='#8de1a6' textColor='#212121' title='Button V2' />\n    </>\n  );\n};"
     },
     {
         "componentName": "ButtonV3",

@@ -4,6 +4,7 @@ import ButtonV1 from '../Buttons/ButtonV1';
 import ButtonV2 from '../Buttons/ButtonV2';
 import ButtonV3 from '../Buttons/ButtonV3';
 import CardV1 from '../Cards/CardV1';
+import CardV2 from '../Cards/CardV2';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 
 
@@ -84,7 +85,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                     {/* Preview */}
                     <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-                        <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-hidden flex flex-col gap-2 justify-center items-center w-full rounded-lg'>
+                        <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center w-full rounded-lg'>
                             {/* Button V1 */}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />}
@@ -98,7 +99,10 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
                             {/* CardV1 */}
-                            {selectedData.componentName === 'CardV1' && <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} />}
+                            {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
+                            {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
+                            {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' shadow={false} /> </div>}
+
                         </div>
                     </div>
                 </div>
