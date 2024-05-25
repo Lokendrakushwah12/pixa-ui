@@ -5,6 +5,7 @@ import ButtonV2 from '../Buttons/ButtonV2';
 import ButtonV3 from '../Buttons/ButtonV3';
 import CardV1 from '../Cards/CardV1';
 import CardV2 from '../Cards/CardV2';
+import CardV3 from '../Cards/CardV3';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 
 
@@ -102,6 +103,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
                             {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' shadow={false} /> </div>}
+                            {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
 
                         </div>
                     </div>

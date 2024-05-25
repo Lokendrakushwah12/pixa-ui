@@ -12,9 +12,9 @@
         "snippetData": "import CardV2 from '../Components/ui/CardV2'\n\nconst App = () => {\n\n  return (\n    <>\n      <CardV2 color='#8de1a6' textColor='#212121' title='Button V2' />\n    </>\n  );\n};"
     },
     {
-        "componentName": "ButtonV3",
+        "componentName": "CardV3",
         "title": "Button V3",
-        "installationCmd": "npm install @pixa/ButtonV3",
-        "snippetData": "import ButtonV3 from '../Components/ui/ButtonV3'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV3 title='Black Magic' borderRadius='99px' />\n      <ButtonV3 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"
+        "installationCmd": "npm install @pixa/CardV3",
+        "snippetData": "import CardV3 from '../Components/ui/CardV3'\n\nconst App = () => {\n\n  return (\n    <>\n      <CardV3 title='Black Magic' borderRadius='99px' />\n      <CardV3 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"
     }
 ]

@@ -55,3 +55,18 @@ body {
             rgba(255, 255, 255, 1) 75%);
     mask-size: cover;
 }
+
+.rectangle {
+    /* -webkit-backdrop-filter: blur(10px) brightness(100%); */
+    /* backdrop-filter: blur(10px) brightness(100%); */
+    /* gardient to down */
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%); */
+    inset: -8px 0px -92px;
+    /* border-radius: 298.5px; */
+    /* filter: blur(20px); */
+    position: absolute;
+    height: 59px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    }
