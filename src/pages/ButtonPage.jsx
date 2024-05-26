@@ -51,7 +51,7 @@ const ButtonPage = () => {
                     <div
                         key={index}
                         onClick={() => openSheet(data)}
-                        className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border hover:bg-[#f9f9f9] transition-all rounded-2xl`}>
+                        className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
                         {data.componentName === "ButtonV1" && <ButtonV1 title={data.title} />}
                         {data.componentName === "ButtonV2" && <ButtonV2 title={data.title} />}
                         {data.componentName === "ButtonV3" && <ButtonV3 title={data.title} />}
