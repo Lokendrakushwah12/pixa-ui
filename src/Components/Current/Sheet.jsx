@@ -8,6 +8,7 @@ import CardV2 from '../Cards/CardV2';
 import CardV3 from '../Cards/CardV3';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 import ButtonV4 from '../Buttons/ButtonV4';
+import ButtonV5 from '../Buttons/ButtonV5';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -102,6 +103,8 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
                             {/* Button V4 */}
                             {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#43acb6" />}
+                            {/* Button V5 */}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Learn More' borderRadius='99px' color='#0f6fff' />}
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
