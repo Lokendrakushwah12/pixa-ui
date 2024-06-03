@@ -91,11 +91,8 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center w-full rounded-lg'>
                             {/* Button V1 */}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Next' color='#A020F0' textColor='#f0f0f0' icon={true} />}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Disabled' color='#A020F0' textColor='#f0f0f0' disabled={true} />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Secondary' color='#f6f8fb' textColor='#212121' />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Destructive' color='#dc271f' textColor='#f0f0f0' />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' color='#A020F0' textColor='#f0f0f0' border={false} />}
                             {/* Button V2 */}
                             {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
                             {/* Button V3 */}
@@ -104,7 +101,11 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {/* Button V4 */}
                             {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#43acb6" />}
                             {/* Button V5 */}
-                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Learn More' borderRadius='99px' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' icon={false} />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Secondary' borderRadius='99px' color='#f6f8fb' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Disabled' borderRadius='99px' color='#0f6fff' disabled={true}  />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Destructive' borderRadius='99px' color='#dc271f' />}
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}

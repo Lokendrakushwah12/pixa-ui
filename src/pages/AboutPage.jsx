@@ -10,19 +10,19 @@ const AboutPage = () => {
                 <div className="xl:px-80 flex flex-col justify-start items-start ">
 
                     <h1 className="text-[48px] font-bold text-[#212121] text-center mt-8">About</h1>
-                    <p className='text-lg'>
+                    <p className='text-lg text-[#313131]'>
                         Pixa UI is React + TailwindCSS components library. It is a collection of unique components for your project.
                     </p>
                     <br />
-                    <p className='text-lg'>
+                    <p className='text-lg text-[#313131]'>
                         When I code, I often find it hard to find unique components for my projects, either because they are paid or not available. So, I decided to create a collection of components that I can use in my projects. And here we are!
                     </p>
                     <br />
-                    <p className='text-lg'>
+                    <p className='text-lg text-[#313131]'>
                         Pixa UI is open source, and you can use it in your projects. You can also contribute to this project by submitting your components.
                     </p>
                     <br />
-                    <p className='text-lg'>
+                    <p className='text-lg text-[#313131]'>
                         If you have any questions or suggestions, you can contact me
                     </p>
                     <div className='my-4 w-full border-b'></div>

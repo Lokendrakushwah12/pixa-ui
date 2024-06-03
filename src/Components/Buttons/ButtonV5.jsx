@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ButtonV5 = ({ title, color, textColor, disabled, borderRadius }) => {
+const ButtonV5 = ({ title, color, icon, textColor, disabled, borderRadius }) => {
     const [hovered, setHovered] = useState(false);
 
     // Default background color
@@ -14,6 +14,9 @@ const ButtonV5 = ({ title, color, textColor, disabled, borderRadius }) => {
     const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer group';
 
     const handleMouseEnter = () => {
+        if (disabled) {
+            return;
+        }
         setHovered(true);
         setTimeout(() => setHovered(false), 300); //hover is set to false after 300ms
     };
@@ -30,20 +33,22 @@ const ButtonV5 = ({ title, color, textColor, disabled, borderRadius }) => {
                         {title}
                     </h3>
                     {/* arrow right icon */}
-                    <div className="flex w-5 justify-end items-center overflow-hidden">
-                        <div className={`h-5 w-5 ${hovered ? 'translate-x-[100%] opacity-100 duration-300' : 'translate-x-[0%] opacity-0 duration-0'} text-[#ffffff80] group-hover:text-[#ffffff] transition-all`}>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke="#fff" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                                <path d="M4 10.0699L15 10.0699" stroke="#fff" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                            </svg>
+                    {icon!==false &&
+                        <div className="flex w-5 justify-end items-center overflow-hidden">
+                            <div className={`h-5 w-5 ${hovered ? 'translate-x-[100%] opacity-100 duration-300' : 'translate-x-[0%] opacity-0 duration-0'} text-[#ffffff80] group-hover:text-[#ffffff] transition-all`}>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke={txtColor} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                                    <path d="M4 10.0699L15 10.0699" stroke={txtColor} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <div className={`h-5 w-5 ${hovered ? 'translate-x-[100%] opacity-0 duration-300' : 'translate-x-[0%] opacity-100 duration-0'} text-[#ffffff80] group-hover:text-[#ffffff] transition-all`}>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke={txtColor} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                                    <path d="M4 10.0699L15 10.0699" stroke={txtColor} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
+                                </svg>
+                            </div>
                         </div>
-                        <div className={`h-5 w-5 ${hovered ? 'translate-x-[100%] opacity-0 duration-300' : 'translate-x-[0%] opacity-100 duration-0'} text-[#ffffff80] group-hover:text-[#ffffff] transition-all`}>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.42999 4L15.5 10.07L9.42999 16.14" stroke="#fff" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                                <path d="M4 10.0699L15 10.0699" stroke="#fff" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
