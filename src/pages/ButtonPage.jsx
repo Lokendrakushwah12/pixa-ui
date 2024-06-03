@@ -3,9 +3,10 @@ import ButtonV1 from '../Components/Buttons/ButtonV1'
 import ButtonV2 from '../Components/Buttons/ButtonV2'
 import ButtonV3 from '../Components/Buttons/ButtonV3'
 import ButtonV4 from '../Components/Buttons/ButtonV4'
+import ButtonV5 from '../Components/Buttons/ButtonV5'
+import ButtonV6 from '../Components/Buttons/ButtonV6'
 import Sheet from '../Components/Current/Sheet';
 import { AnimatePresence } from 'framer-motion'
-import ButtonV5 from '../Components/Buttons/ButtonV5'
 
 const ButtonPage = () => {
     const [sheet, setSheet] = useState(false);
@@ -59,6 +60,7 @@ const ButtonPage = () => {
                         {data.componentName === "ButtonV3" && <ButtonV3 title={data.title} />}
                         {data.componentName === "ButtonV4" && <ButtonV4 title={data.title} />}
                         {data.componentName === "ButtonV5" && <ButtonV5 title={data.title} />}
+                        {data.componentName === "ButtonV6" && <ButtonV6 title={data.title} />}
                     </div>
                 ))}
             </div>

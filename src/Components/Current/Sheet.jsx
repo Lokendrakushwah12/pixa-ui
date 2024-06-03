@@ -9,6 +9,7 @@ import CardV3 from '../Cards/CardV3';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 import ButtonV4 from '../Buttons/ButtonV4';
 import ButtonV5 from '../Buttons/ButtonV5';
+import ButtonV6 from '../Buttons/ButtonV6';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -94,7 +95,10 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' color='#A020F0' textColor='#f0f0f0' border={false} />}
                             {/* Button V2 */}
-                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#8de1a6' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title="Button" color='#8de1a6' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} borderRadius='99px' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' border={false} background={false} textColor='#212121' />}
                             {/* Button V3 */}
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
@@ -104,8 +108,13 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' />}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' icon={false} />}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Secondary' borderRadius='99px' color='#f6f8fb' textColor='#212121' />}
-                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Disabled' borderRadius='99px' color='#0f6fff' disabled={true}  />}
+                            {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Disabled' borderRadius='99px' color='#0f6fff' disabled={true} />}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Destructive' borderRadius='99px' color='#dc271f' />}
+                            {/* Button V6 */}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Button' borderRadius='8px' color='#212121' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounded' borderRadius='99px' color='#212121' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounafded' borderRadius='99px' color='#dc271f' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounafded' borderRadius='99px' border={false} txtColor='#d9d9d9' />}
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
