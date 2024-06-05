@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const ButtonV7 = ({ title, color, textColor }) => {
+const ButtonV7 = ({ title, color, borderRadius, textEffect, textColor }) => {
     const [hovered, setHovered] = useState(false);
     const [scrambledText, setScrambledText] = useState(title);
     const intervalRefs = useRef([]);
     const timeoutRefs = useRef([]);
 
     const txtColor = textColor ? textColor : '#212121';
-    const borderColor = color ? `rgba(${parseInt(color.slice(1, 3), 16)}, ${parseInt(color.slice(3, 5), 16)}, ${parseInt(color.slice(5, 7), 16)}, 0.15)` : 'rgba(33, 33, 33, 0.15)';
+    const colour = color ? color : "#212121";
 
     const scrambleText = (text, scrambleIndices) => {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$£€¥';
@@ -50,7 +50,7 @@ const ButtonV7 = ({ title, color, textColor }) => {
 
     return (
         <div
-            className="flex flex-col items-center hover:bg-[#212121] relative z-0 group cursor-pointer duration-300"
+            className="flex flex-col items-center hover:bg-[#212121] relative z-0 group cursor-pointer duration-300 overflow-hidden"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => {
                 intervalRefs.current.forEach(clearInterval);
@@ -58,21 +58,29 @@ const ButtonV7 = ({ title, color, textColor }) => {
                 setHovered(false);
                 setScrambledText(title);
             }}
-            style={{ width: '130px' }}
+            style={{ width: '100px', backgroundColor: hovered ? colour : '#fff', borderRadius: borderRadius ? borderRadius : '0px' }}
         >
             <div className="flex justify-between items-center w-full">
-                <div className="border-l-[1px] border-t-[1px] border-[#212121] w-2 h-2">‎</div>
-                <div className="border-r-[1px] border-t-[1px] border-[#212121] w-2 h-2">‎</div>
+                <div className="border-l-[1px] border-t-[1px] w-2 h-2"
+                    style={{ borderColor: colour, borderTopLeftRadius: borderRadius ? borderRadius : "0px", }}
+                >‎</div>
+                <div className="border-r-[1px] border-t-[1px] w-2 h-2"
+                    style={{ borderColor: colour, borderTopRightRadius: borderRadius ? borderRadius : "0px", }}
+                >‎</div>
             </div>
             <h3
-                style={{ color: color }}
+                style={{ color: hovered ? "#f2f2f4" : colour }}
                 className="z-20 text-[#212121] text-left group-hover:text-[#f2f2f4] transition-all font-[400] text-[16px] leading-[19px] duration-300"
             >
-                {hovered ? scrambledText : title}
+                {hovered && textEffect !== false ? scrambledText : title}
             </h3>
             <div className="flex justify-between items-center w-full">
-                <div className="border-l-[1px] border-b-[1px] border-[#212121] w-2 h-2">‎</div>
-                <div className="border-r-[1px] border-b-[1px] border-[#212121] w-2 h-2">‎</div>
+                <div className="border-l-[1px] border-b-[1px] w-2 h-2"
+                    style={{ borderColor: colour, borderBottomLeftRadius: borderRadius ? borderRadius : "0px", }}
+                >‎</div>
+                <div className="border-r-[1px] border-b-[1px] w-2 h-2"
+                    style={{ borderColor: colour, borderBottomRightRadius: borderRadius ? borderRadius : "0px", }}
+                >‎</div>
             </div>
         </div>
     );

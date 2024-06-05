@@ -50,12 +50,13 @@ const ButtonPage = () => {
                     selectedData={selectedData}
                     closeSheet={closeSheet} />}
             </AnimatePresence>
-            <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]">
+            <div className="grid responsiveSection">
+                {/* <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]"> */}
                 {buttonData.map((data, index) => (
                     <div
                         key={index}
                         onClick={() => openSheet(data)}
-                        className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
+                        className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
                         {data.componentName === "ButtonV1" && <ButtonV1 title={data.title} />}
                         {data.componentName === "ButtonV2" && <ButtonV2 title={data.title} />}
                         {data.componentName === "ButtonV3" && <ButtonV3 title={data.title} />}
