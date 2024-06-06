@@ -12,6 +12,7 @@ import CardV2 from '../Cards/CardV2';
 import CardV3 from '../Cards/CardV3';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 import GistEmbed from './GistEmbed.jsx';
+import ButtonV8 from '../Buttons/ButtonV8.jsx';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -94,19 +95,19 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center w-full rounded-lg'>
                             {/* Button V1 */}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#A020F0' textColor='#f0f0f0' />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' color='#A020F0' textColor='#f0f0f0' borderRadius="99px" />}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' color='#A020F0' textColor='#f0f0f0' border={false} />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#0f6fff'/>}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded'  borderRadius="99px" />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' border={false} />}
                             {/* Button V2 */}
-                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title="Button" color='#8de1a6' textColor='#212121' />}
+                            {selectedData.componentName === 'ButtonV2' && <ButtonV2 title="Button" color='#0f6fff' textColor='#0f6fff' />}
                             {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} textColor='#212121' />}
                             {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} borderRadius='99px' textColor='#212121' />}
                             {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' border={false} background={false} textColor='#212121' />}
                             {/* Button V3 */}
                             {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
-                            {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#43acb6" />}
+                            {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#0f6fff" />}
                             {/* Button V4 */}
-                            {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#43acb6" />}
+                            {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#0f6fff" />}
                             {/* Button V5 */}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' />}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' icon={false} />}
@@ -114,15 +115,20 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Disabled' borderRadius='99px' color='#0f6fff' disabled={true} />}
                             {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Destructive' borderRadius='99px' color='#dc271f' />}
                             {/* Button V6 */}
-                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Button' borderRadius='8px' color='#212121' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Button' borderRadius='8px' color='#0f6fff' />}
                             {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounded' borderRadius='99px' color='#212121' />}
-                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounafded' borderRadius='99px' color='#dc271f' />}
-                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Rounafded' borderRadius='99px' border={false} txtColor='#d9d9d9' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Danger' borderRadius='99px' color='#dc271f' />}
+                            {selectedData.componentName === 'ButtonV6' && <ButtonV6 title='Borderless' borderRadius='99px' border={false} txtColor='#d9d9d9' />}
                             {/* Button V7 */}
-                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='Button' color='#212121' />}
-                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='Rounded' color='#212121' borderRadius='4px' />}
+                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='Button' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='Rounded' color='#0f6fff' borderRadius='4px' />}
                             {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='Danger' color='#dc271f' />}
-                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='NoEffect' color='#dc271f' textEffect={false} />}
+                            {selectedData.componentName === 'ButtonV7' && <ButtonV7 title='NoEffect' color='#0f6fff' textEffect={false} />}
+                            {/* Button V8 */}
+                            {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='Button' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='Danger' color='#dc271f' />}
+                            {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='NoEffect' color='#0f6fff' textEffect={false} />}
+
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}

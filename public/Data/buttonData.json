@@ -40,5 +40,11 @@
         "title": "Button V7",
         "installationCmd": "npm install @pixa/ButtonV7",
         "snippetData": "import ButtonV7 from '../Components/ui/ButtonV7'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV7 title='Learn More' borderRadius='99px' color='#0f6fff' />\n    </>\n  );\n};"
+    },
+    {
+        "componentName": "ButtonV8",
+        "title": "Button V8",
+        "installationCmd": "npm install @pixa/ButtonV8",
+        "snippetData": "import ButtonV8 from '../Components/ui/ButtonV8'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV8 title='Learn More' borderRadius='99px' color='#0f6fff' />\n    </>\n  );\n};"
     }
 ]
