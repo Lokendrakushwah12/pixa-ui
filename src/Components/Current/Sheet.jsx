@@ -131,8 +131,8 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='NoEffect' color='#0f6fff' textEffect={false} />}
                             {/* Button V9 */}
                             {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Button' color='#0f6fff' />}
-                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Rounded' color='#0f6fff' borderRadius='99px' />}
-                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Danger' color='#FF0000' />}
+                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Create' color='#03b333' borderRadius='16px' />}
+                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Generate' color='#FF0000' borderRadius='99px' />}
 
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}

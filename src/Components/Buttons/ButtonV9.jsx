@@ -5,15 +5,16 @@ const ButtonV9 = ({ title, color, borderRadius }) => {
 
     const borderRadiusValue = borderRadius || '12px';
     const gradientColor = color || "#ff00aa";
-    const gradientColor1 = `rgba(${parseInt(gradientColor.slice(1, 3), 16)}, ${parseInt(gradientColor.slice(3, 5), 16)}, ${parseInt(gradientColor.slice(5, 7), 16)}, 0.7)`;
-    const gradientColor2 = `rgba(${parseInt(gradientColor.slice(1, 3), 16)}, ${parseInt(gradientColor.slice(3, 5), 16)}, ${parseInt(gradientColor.slice(5, 7), 16)}, 0.3)`;
+    const gradientColorDark = `rgba(${parseInt(gradientColor.slice(1, 3), 16)}, ${parseInt(gradientColor.slice(3, 5), 16)}, ${parseInt(gradientColor.slice(5, 7), 16)}, 0.7)`;
+    const gradientColorMedium = `rgba(${parseInt(gradientColor.slice(1, 3), 16)}, ${parseInt(gradientColor.slice(3, 5), 16)}, ${parseInt(gradientColor.slice(5, 7), 16)}, 0.3)`;
+    const gradientColorLight = `rgba(${parseInt(gradientColor.slice(1, 3), 16)}, ${parseInt(gradientColor.slice(3, 5), 16)}, ${parseInt(gradientColor.slice(5, 7), 16)}, 0.1)`;
 
     return (
         <div
             className="flex justify-center items-center hover:brightness-125 cursor-pointer px-3 py-2 gap-2 transition-all duration-300 ease-out"
             style={{
-                backgroundImage: `linear-gradient(to right, #0C090F 0%, ${gradientColor1} 100%, ${gradientColor})`,
-                boxShadow: hovered ? `inset 0px 2px 3px 0 rgba(255,255,255,0.1), inset 0 0px 3px 0 rgba(255,255,255,0.4), inset 0 -5px 20px 0 rgba(255,255,255,0.15), -1px 2px 4px rgba(0,0,0,0.3), 0px 0px 30px ${gradientColor2}` : `inset 0px 2px 3px 0 rgba(255,255,255,0.02), inset 0 0px 3px 0 rgba(255,255,255,0.2), inset 0 -5px 20px 0 rgba(255,255,255,0.1), 0px 2px 4px rgba(0,0,0,0.2), 0px 0px 30px ${gradientColor2}`,
+                backgroundImage: `linear-gradient(to right, #0C090F -20%, ${gradientColorDark} 100%, ${gradientColor})`,
+                boxShadow: hovered ? `inset 0px 2px 3px 0 rgba(255,255,255,0.1), inset 0 0px 3px 0 rgba(255,255,255,0.4), inset 0 -5px 20px 0 rgba(255,255,255,0.15), -1px 2px 4px rgba(0,0,0,0.3), 0px 0px 30px ${gradientColorMedium}` : `inset 0px 2px 3px 0 rgba(255,255,255,0.02), inset 0 0px 3px 0 rgba(255,255,255,0.2), inset 0 -5px 20px 0 rgba(255,255,255,0.1), 0px 2px 4px rgba(0,0,0,0.2), 0px 0px 30px ${gradientColorLight}`,
                 transition: 'all 0.3s ease-out',
                 borderRadius: borderRadiusValue ? borderRadiusValue : '12px'
             }}
@@ -58,7 +59,7 @@ const ButtonV9 = ({ title, color, borderRadius }) => {
                     {/* opacity */}
                     <animate
                         attributeName="stroke-opacity"
-                        values="0;1;0"
+                        values="0.8;1;0.2"
                         dur={hovered ? "1.5s" : "0s"}
                         repeatCount="indefinite"
                         keyTimes="0;0.4;1"
@@ -87,7 +88,7 @@ const ButtonV9 = ({ title, color, borderRadius }) => {
                     {/* opacity */}
                     <animate
                         attributeName="stroke-opacity"
-                        values="0;1;0"
+                        values="0.5;1;0.8"
                         dur={hovered ? "3s" : "0s"}
                         repeatCount="indefinite"
                         keyTimes="0;0.4;1"
@@ -117,7 +118,7 @@ const ButtonV9 = ({ title, color, borderRadius }) => {
                     {/* opacity */}
                     <animate
                         attributeName="stroke-opacity"
-                        values="0;1;0"
+                        values="0.5;1;0.1"
                         dur={hovered ? "2.5s" : "0s"}
                         repeatCount="indefinite"
                         keyTimes="0;0.4;1"
