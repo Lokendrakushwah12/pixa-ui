@@ -13,6 +13,7 @@ import CardV3 from '../Cards/CardV3';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
 import GistEmbed from './GistEmbed.jsx';
 import ButtonV8 from '../Buttons/ButtonV8.jsx';
+import ButtonV9 from '../Buttons/ButtonV9.jsx';
 
 
 const Sheet = ({ closeSheet, selectedData }) => {
@@ -95,8 +96,8 @@ const Sheet = ({ closeSheet, selectedData }) => {
                         <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
                         <div className='p-2  h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center w-full rounded-lg'>
                             {/* Button V1 */}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#0f6fff'/>}
-                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded'  borderRadius="99px" />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' borderRadius="99px" />}
                             {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' border={false} />}
                             {/* Button V2 */}
                             {selectedData.componentName === 'ButtonV2' && <ButtonV2 title="Button" color='#0f6fff' textColor='#0f6fff' />}
@@ -128,6 +129,10 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='Button' color='#0f6fff' />}
                             {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='Danger' color='#dc271f' />}
                             {selectedData.componentName === 'ButtonV8' && <ButtonV8 title='NoEffect' color='#0f6fff' textEffect={false} />}
+                            {/* Button V9 */}
+                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Button' color='#0f6fff' />}
+                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Rounded' color='#0f6fff' borderRadius='99px' />}
+                            {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Danger' color='#FF0000' />}
 
                             {/* CardV1 */}
                             {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}

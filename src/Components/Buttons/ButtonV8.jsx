@@ -71,7 +71,7 @@ const ButtonV8 = ({ title, color, textEffect, textColor }) => {
                 </svg>
             </div>
             <h3
-                className="z-20 text-[#212121] flex justify-center items-center py-1 group-hover:text-[#f2f2f4] transition-all font-[400] text-[16px] leading-[19px] duration-300"
+                className="z-20 text-[#212121] flex justify-center items-center py-2 group-hover:text-[#f2f2f4] transition-all font-[400] text-[16px] leading-[19px] duration-300"
                 style={{ color: hovered ? "#f2f2f4" : colour, width: '100px', backgroundColor: hovered ? colour : bgColor }}
             >
                 {hovered && textEffect !== false ? scrambledText : title}
