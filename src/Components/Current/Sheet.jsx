@@ -84,7 +84,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                             {renderCopyIcon(copied.snippet)}
                         </div>
                         <div className='p-4 relative text-sm text-gray-900 border bg-gray-100 border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
-                            <pre>{selectedData.snippetData}</pre>
+                            <pre >{selectedData.snippetData}</pre>
                             {/* <GistEmbed gistUrl={selectedData.snippetData} /> */}
                         </div>
                     </div>
