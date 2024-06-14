@@ -36,10 +36,10 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
                 />
                 <div
                     style={{ borderRadius: brRadius }}
-                    className="border z-50 group-hover:border-8 border-[#ffffff3d] transition-all duration-300"
+                    className="border z-20 group-hover:border-8 border-[#ffffff] transition-all duration-300"
                 >
                     <div
-                        className={`border-b group-hover:brightness-100 border-[#00000022] bg-[#1d1d1d] transition-all duration-300`}
+                        className={`border-b group-hover:brightness-95 border-[#00000022] bg-[#1d1d1d] transition-all duration-300`}
                         style={{
                             borderRadius: `calc(${brRadius} - 1px)`,
                             background: isHovered ? Bgcolor : '#1d1d1d',

@@ -124,8 +124,9 @@ const Sheet = ({ closeSheet, selectedData }) => {
                                     {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} borderRadius='99px' textColor='#212121' />}
                                     {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' border={false} background={false} textColor='#212121' />}
                                     {/* Button V3 */}
-                                    {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" />}
-                                    {selectedData.componentName === 'ButtonV3' && <ButtonV3 title='Black Magic' borderRadius="99px" color="#0f6fff" />}
+                                    {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Purple Magic' borderRadius="99px" /></div>}
+                                    {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Blue Magic' borderRadius="99px" color="#0f6fff" /></div>}
+                                    {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Yellow Magic' borderRadius="99px" color="#f0a000" /></div>}
                                     {/* Button V4 */}
                                     {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#0f6fff" />}
                                     {/* Button V5 */}

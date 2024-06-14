@@ -28,6 +28,7 @@ pre {
     background-color: #212121 !important;
     padding: 4px 12px !important;
 }
+
 pre ::selection {
     background: #121212;
     color: inherit;
@@ -106,5 +107,12 @@ pre ::selection {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 1rem;
+    }
+}
+
+@media (max-width:384px) {
+    .xsm {
+        font-size: 14px;
+        gap: 0.2rem;
     }
 }
