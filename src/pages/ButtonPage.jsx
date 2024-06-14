@@ -69,6 +69,7 @@ const ButtonPage = () => {
                         {data.componentName === "ButtonV8" && <ButtonV8 title={data.title} />}
                         {data.componentName === "ButtonV9" && <ButtonV9 title={data.title} />}
                     </div>
+
                 ))}
             </div>
         </>

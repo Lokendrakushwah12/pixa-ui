@@ -8,7 +8,6 @@ const AboutPage = () => {
             <Nav />
             <div className="flex flex-col justify-start items-start w-full h-screen px-16 x-sm:px-4 md:px-38 lg:px-40">
                 <div className="xl:px-80 flex flex-col justify-start items-start ">
-
                     <h1 className="text-[48px] font-bold text-[#212121] text-center mt-8">About</h1>
                     <p className='text-lg text-[#313131]'>
                         Pixa UI is React + TailwindCSS components library. It is a collection of unique components for your project.

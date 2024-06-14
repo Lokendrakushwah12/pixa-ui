@@ -24,6 +24,15 @@ body {
     color: #f9f9f9;
 }
 
+pre {
+    background-color: #212121 !important;
+    padding: 4px 12px !important;
+}
+pre ::selection {
+    background: #121212;
+    color: inherit;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
     width: 4px;
     height: 4px;

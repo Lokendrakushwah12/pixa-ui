@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ButtonV3 = ({ title, borderRadius, color }) => {
@@ -7,6 +7,9 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
     // Default Values
     const brRadius = borderRadius ? borderRadius : '8px';
     const Bgcolor = color ? color : '#763afe';
+    const BgcolorLight = `rgba(${parseInt(Bgcolor.slice(1, 3), 16)}, ${parseInt(Bgcolor.slice(3, 5), 16)}, ${parseInt(Bgcolor.slice(5, 7), 16)}, 0.1)`;
+
+    const BgBlurColor = `radial-gradient(circle at 50% 100%, ${BgcolorLight} 18%, ${Bgcolor})`
 
     const starVariants1 = {
         hover: { scale: [1, 0.8, 1], opacity: [1, 0.5, 1], transition: { duration: 1, repeat: Infinity, repeatType: 'reverse' } },
@@ -20,24 +23,23 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
         hover: { scale: [1, 1.3, 1], opacity: [1, 0.5, 1], transition: { duration: 1.3, delay: 0.3, repeat: Infinity, repeatType: 'reverse' } },
     };
 
-    const smallStarsVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    };
-
     return (
         <>
             <div
-                className="relative overflow-hidden cursor-pointer group"
+                className="relative cursor-pointer group"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div
+                    className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-50 transition-all duration-300 blur-[32px]"
+                    style={{ background: BgBlurColor }}
+                />
+                <div
                     style={{ borderRadius: brRadius }}
-                    className="border hover:border-8 bg-[#e5e7eb] transition-all duration-300"
+                    className="border z-50 group-hover:border-8 border-[#ffffff3d] transition-all duration-300"
                 >
                     <div
-                        className={`border-b border-[#00000022] bg-[#1d1d1d] transition-all duration-300`}
+                        className={`border-b group-hover:brightness-100 border-[#00000022] bg-[#1d1d1d] transition-all duration-300`}
                         style={{
                             borderRadius: `calc(${brRadius} - 1px)`,
                             background: isHovered ? Bgcolor : '#1d1d1d',
@@ -51,10 +53,10 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
                             className="border-t p-3 flex items-center justify-center gap-1 border-[#ffffff60]"
                             style={{ borderRadius: `calc(${brRadius} - 1px)` }}
                         >
-                            <div className="absolute w-[30px] h-[30px] opacity-30 bg-[#fff] rounded-full bottom-0 blur-[12px] mix-blend-overlay"></div>
+                            <div className="absolute w-3/4 h-[30px] opacity-100 group-hover:opacity-50 bg-[#fff] rounded-full -translate-x-1/2 translate-y-1/2 left-1/2 bottom-0 blur-[12px] mix-blend-overlay"></div>
                             <div className="absolute w-3/4 h-3 bg-[#fff] bottom-0 rounded-full blur-[12px] mix-blend-overlay"></div>
                             <h3
-                                className="font-[600] text-[16px] leading-[19px] transition-all duration-300 bg-clip-text text-transparent group-hover:text-[#ffffffda]"
+                                className="font-[500] text-[16px] leading-[19px] transition-all duration-300 bg-clip-text text-transparent group-hover:text-[#ffffffda]"
                                 style={{ backgroundImage: 'linear-gradient(to right, #a1a1a1, #515151)' }}
                             >
                                 {title}
