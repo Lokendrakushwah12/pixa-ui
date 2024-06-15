@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion'
 import Stalwarts from '../assets/icons/Stalwarts.svg';
 import CardV2 from '../Components/Cards/CardV2';
 import CardV3 from '../Components/Cards/CardV3';
+import CardV4 from '../Components/Cards/CardV4';
 
 const CardPage = () => {
     const [sheet, setSheet] = useState(false);
@@ -56,6 +57,7 @@ const CardPage = () => {
                         {data.componentName === "CardV1" && <div className='scale-[50%] md:scale-[70%] flex justify-center items-center'> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
                         {data.componentName === "CardV2" && <div className=' scale-[70%] flex justify-center items-center'> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
                         {data.componentName === "CardV3" && <div className=' scale-[70%] flex justify-center items-center'> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /></div>}
+                        {data.componentName === "CardV4" && <div className=' scale-[70%] flex justify-center items-center'> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /></div>}
                     </div>
                 ))}
             </div>

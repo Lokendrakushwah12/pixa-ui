@@ -2,19 +2,12 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import ButtonV1 from '../Buttons/ButtonV1';
-import ButtonV2 from '../Buttons/ButtonV2';
-import ButtonV3 from '../Buttons/ButtonV3';
-import ButtonV4 from '../Buttons/ButtonV4';
-import ButtonV5 from '../Buttons/ButtonV5';
-import ButtonV6 from '../Buttons/ButtonV6';
-import ButtonV7 from '../Buttons/ButtonV7';
+
 import CardV1 from '../Cards/CardV1';
 import CardV2 from '../Cards/CardV2';
 import CardV3 from '../Cards/CardV3';
+import CardV4 from '../Cards/CardV4.jsx';
 import Stalwarts from '../../assets/icons/Stalwarts.svg';
-import ButtonV8 from '../Buttons/ButtonV8.jsx';
-import ButtonV9 from '../Buttons/ButtonV9.jsx';
 
 const customStyle = {
     ...nightOwl,
@@ -159,6 +152,7 @@ const Sheet = ({ closeSheet, selectedData }) => {
                                     {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
                                     {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' shadow={false} /> </div>}
                                     {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
+                                    {selectedData.componentName === 'CardV4' && <div className="h-full"> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /> </div>}
 
                                 </div>
                             </div>

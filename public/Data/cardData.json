@@ -16,5 +16,11 @@
         "title": "Button V3",
         "installationCmd": "npm install @pixa/CardV3",
         "snippetData": "import CardV3 from '../Components/ui/CardV3'\n\nconst App = () => {\n\n  return (\n    <>\n      <CardV3 title='Black Magic' borderRadius='99px' />\n      <CardV3 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"
+    },
+    {
+        "componentName": "CardV4",
+        "title": "Card V4",
+        "installationCmd": "npm install @pixaui/Card-v4",
+        "snippetData": "import CardV4 from '../Components/ui/CardV4'\n\nconst App = () => {\n\n  return (\n    <>\n      <CardV4 title='Black Magic' borderRadius='99px' />\n      <CardV4 title='Black Magic' borderRadius='99px' color='#43acb6' />\n    </>\n  );\n};"
     }
 ]

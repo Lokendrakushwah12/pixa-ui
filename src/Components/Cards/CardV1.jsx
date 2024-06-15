@@ -54,7 +54,7 @@ const CardV1 = ({ title, logo, description, shadow, btn }) => {
         </div>
         <div className="p-2 flex flex-col gap-1">
           <h1 className="text-2xl font-bold">{title}</h1>
-          <p>{description}</p>
+          <p className='text-[#212121aa]'>{description}</p>
           {btn &&
             <button className="flex group text-lg items-center justify-center gap-1 border rounded-full px-2 py-1 hover:bg-[#f9f9f9] transition-all">
               View

@@ -16,7 +16,7 @@ const Hero = () => {
         <>
             <Nav />
             <HomePage />
-            <div className="flex flex-col gap-4 w-full max-w[1440px] px-auto items-center justify-start h-screen">
+            <div className="flex flex-col gap-4 w-full max-w[1440px] px-auto items-center justify-start h-screen bg-white">
                 <div className={'mb-8 flex flex-wrap items-center gap-2 xsm border-b border-gray-200 dark:border[#515151]'}>
                     {tabs.map((text) => (
                         <button
@@ -29,7 +29,7 @@ const Hero = () => {
                                 <motion.div
                                     className="absolute left-0 bottom-0 flex size-full h-full w-full items-end justify-center"
                                     layoutId='underline'
-                                    transition={{ type: 'spring', duration: 0.4, bounce: 0, delay: 0.1 }}
+                                    transition={{ type: 'spring', duration: 0.3, bounce: 0.2 }}
                                 >
                                     <span className="z-0 h-[3px] w-3/4 bg-[#212121] rounded-t-sm"></span>
                                 </motion.div>
