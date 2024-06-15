@@ -52,8 +52,8 @@ const CardPage = () => {
                     <div
                         key={index}
                         onClick={() => openSheet(data)}
-                        className={`cursor-pointer flex x-sm:w-[300px] x-sm:h-[225px] w-[400px] h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
-                        {data.componentName === "CardV1" && <div className=' scale-[70%] flex justify-center items-center'> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
+                        className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
+                        {data.componentName === "CardV1" && <div className='scale-[50%] md:scale-[70%] flex justify-center items-center'> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
                         {data.componentName === "CardV2" && <div className=' scale-[70%] flex justify-center items-center'> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
                         {data.componentName === "CardV3" && <div className=' scale-[70%] flex justify-center items-center'> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /></div>}
                     </div>

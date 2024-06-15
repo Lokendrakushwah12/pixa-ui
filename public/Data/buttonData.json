@@ -2,8 +2,8 @@
     {
         "componentName": "ButtonV1",
         "title": "Button V1",
-        "installationCmd": "npm install @button-v1",
-        "snippetData": "https://gist.github.com/Lokendrakushwah12/06263adce9a55b6dc66d5777c73670ac.js"
+        "installationCmd": "npm install @pixaui/button-v1",
+        "snippetData": "import ButtonV1 from './Components/pixaui/buttonv1';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV1 title='Button' color='#0f6fff' />\n      <ButtonV1 title='Rounded' borderRadius='99px' />\n      <ButtonV1 title='Borderless' border={false} />\n    </>\n  );\n};"
     },
     {
         "componentName": "ButtonV2",

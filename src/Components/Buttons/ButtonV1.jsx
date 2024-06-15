@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ButtonV1 = ({ title, borderRadius, border, color }) => {
-    const [isHovered, setIsHovered] = useState(false);
 
     // Default Values
     const brRadius = borderRadius ? borderRadius : '8px';
@@ -12,8 +11,6 @@ const ButtonV1 = ({ title, borderRadius, border, color }) => {
         <>
             <div
                 className="border relative group rounded-full p-2 overflow-hidden pl-0 hover:pr-0 hover:pl-2 flex items-center justify-center cursor-pointer transition-all duration-500"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 style={{ borderRadius: brRadius, border: border==false ? 'none' : '1px solid #e5e7eb', borderColor: borderColor}}
             >
                 <svg
