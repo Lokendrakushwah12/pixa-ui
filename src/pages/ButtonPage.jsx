@@ -125,19 +125,19 @@ const ButtonPage = () => {
                             <div className='p-2 w-full h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center rounded-lg'>
                                 {/* Button V1 */}
                                 {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Button' color='#0f6fff' />}
-                                {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' borderRadius="99px" />}
+                                {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Rounded' borderRadius='99px' />}
                                 {selectedData.componentName === 'ButtonV1' && <ButtonV1 title='Borderless' border={false} />}
                                 {/* Button V2 */}
-                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title="Button" color='#0f6fff' textColor='#0f6fff' />}
-                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} textColor='#212121' />}
-                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' background={false} borderRadius='99px' textColor='#212121' />}
-                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title={selectedData.title} color='#fff' border={false} background={false} textColor='#212121' />}
+                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title='Button' color='#0f6fff' textColor='#0f6fff' />}
+                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title='No Bg' color='#fff' background={false} textColor='#212121' />}
+                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title='Rounded-full' color='#fff' background={false} borderRadius='99px' textColor='#212121' />}
+                                {selectedData.componentName === 'ButtonV2' && <ButtonV2 title='No Border' color='#fff' border={false} background={false} textColor='#212121' />}
                                 {/* Button V3 */}
-                                {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Purple Magic' borderRadius="99px" /></div>}
-                                {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Blue Magic' borderRadius="99px" color="#0f6fff" /></div>}
-                                {selectedData.componentName === 'ButtonV3' && <div className="h-24 flex justify-center items-center"> <ButtonV3 title='Yellow Magic' borderRadius="99px" color="#f0a000" /></div>}
+                                {selectedData.componentName === 'ButtonV3' && <div className='h-16 flex justify-center items-center'> <ButtonV3 title='Purple Magic' borderRadius='99px' /></div>}
+                                {selectedData.componentName === 'ButtonV3' && <div className='h-16 flex justify-center items-center'> <ButtonV3 title='Blue Magic' borderRadius='99px' color='#0f6fff' /></div>}
+                                {selectedData.componentName === 'ButtonV3' && <div className='h-16 flex justify-center items-center'> <ButtonV3 title='Yellow Magic' borderRadius='99px' color='#f0a000' /></div>}
                                 {/* Button V4 */}
-                                {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius="99px" color="#0f6fff" />}
+                                {selectedData.componentName === 'ButtonV4' && <ButtonV4 title='Read More' borderRadius='99px' color='#0f6fff' />}
                                 {/* Button V5 */}
                                 {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' />}
                                 {selectedData.componentName === 'ButtonV5' && <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' icon={false} />}
@@ -167,7 +167,7 @@ const ButtonPage = () => {
                     </div>
                 </div>
             </Drawer>
-            <div className="grid responsiveSection">
+            <div className='grid responsiveSection'>
                 {/* <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]"> */}
                 {buttonData.map((data, index) => (
                     <div

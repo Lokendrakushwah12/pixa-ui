@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 
-const CardV3 = ({ title, featureName, icon, randomness, angle, color, description, shadow }) => {
+const CardV3 = ({ title, featureName, icon, randomness, angle, hoverAngle, color, description, shadow }) => {
   const [hovered, setHovered] = useState(false);
   const colour = color ? color : '#000';
   const randomnessValue = randomness ? randomness : 180;
+  const hoverAngleValue = hoverAngle ? hoverAngle : 0;
   const angleValue = angle ? angle : 0;
 
   const colourHue = `hsl(${parseInt(colour.slice(1, 3), 16) + randomnessValue}, 100%, 50%)`;
 
   const cardStyle = {
     boxShadow: shadow ? '0px 32px 52px -24px #00000026, 0px 13px 17.5px -6px #0000000d' : 'none',
-    transform: hovered ? `rotate(${angleValue}deg) scale(1.05)` : 'none',
+    transform: hovered ? `rotate(${hoverAngleValue}deg) scale(1.05)` : `rotate(${angleValue}deg)`,
     transition: 'all 0.2s ease-out',
   };
 

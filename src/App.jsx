@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Hero from './pages/Hero'
 import AboutPage from './pages/AboutPage'

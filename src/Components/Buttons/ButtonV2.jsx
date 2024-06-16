@@ -4,6 +4,7 @@ const ButtonV2 = ({ title, color, borderRadius, background, border, textColor })
     const [isHovered, setIsHovered] = useState(false);
 
     const bgColor = color ? color : '#212121';
+    const borderColor = `rgba(${parseInt(bgColor.slice(1, 3), 16)}, ${parseInt(bgColor.slice(3, 5), 16)}, ${parseInt(bgColor.slice(5, 7), 16)}, 0.15)`;
     const txtColor = textColor ? textColor : '#212121';
     const brRadius = borderRadius ? borderRadius : '8px';
     const textifbgisfalse = background!=false ? "#fff" : "212121";
@@ -11,7 +12,7 @@ const ButtonV2 = ({ title, color, borderRadius, background, border, textColor })
     return (
         <div
             className="border flex flex-col items-center p-2 h-9 relative z-0 group rounded-[999px] overflow-hidden cursor-pointer"
-            style={{ borderRadius: brRadius, border: border == false ? 'none' : '1px solid #e5e7eb' }}
+            style={{ borderRadius: brRadius, border: border == false ? 'none' : `1px solid ${borderColor}`}}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

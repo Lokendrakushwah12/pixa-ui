@@ -36,7 +36,7 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
                 />
                 <div
                     style={{ borderRadius: brRadius }}
-                    className="border z-20 group-hover:border-8 border-[#ffffff] transition-all duration-300"
+                    className="border z-30 group-hover:border-8 border-[#ffffff] transition-all duration-300"
                 >
                     <div
                         className={`border-b group-hover:brightness-95 border-[#00000022] bg-[#1d1d1d] transition-all duration-300`}
@@ -53,8 +53,8 @@ const ButtonV3 = ({ title, borderRadius, color }) => {
                             className="border-t p-3 flex items-center justify-center gap-1 border-[#ffffff60]"
                             style={{ borderRadius: `calc(${brRadius} - 1px)` }}
                         >
-                            <div className="absolute w-3/4 h-[30px] opacity-100 group-hover:opacity-50 bg-[#fff] rounded-full -translate-x-1/2 translate-y-1/2 left-1/2 bottom-0 blur-[12px] mix-blend-overlay"></div>
-                            <div className="absolute w-3/4 h-3 bg-[#fff] bottom-0 rounded-full blur-[12px] mix-blend-overlay"></div>
+                            <div className="absolute w-3/4 h-[30px] opacity-100 group-hover:opacity-50 bg-[#fff] rounded-full -translate-x-1/2 translate-y-1/2 left-1/2 bottom-0 blur-[14px] mix-blend-overlay"></div>
+                            <div className="absolute w-3/4 h-3 bg-[#fff] bottom-0 rounded-full blur-[14px] mix-blend-overlay"></div>
                             <h3
                                 className="font-[500] text-[16px] leading-[19px] transition-all duration-300 bg-clip-text text-transparent group-hover:text-[#ffffffda]"
                                 style={{ backgroundImage: 'linear-gradient(to right, #a1a1a1, #515151)' }}
