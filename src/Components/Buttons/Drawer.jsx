@@ -12,25 +12,35 @@ const Drawer = ({ isOpen, onClose, children }) => {
         } else {
             closeDrawer();
         }
+
+        const handleResize = () => setTranslateY(window.innerHeight);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, [isOpen]);
 
     const openDrawer = () => {
         setTranslateY(0);
+        document.body.style.overflow = 'hidden';
     };
 
     const closeDrawer = () => {
         setTranslateY(window.innerHeight);
+        document.body.style.overflow = '';
     };
 
     const handleMouseDown = (e) => {
         setIsDragging(true);
-        setStartY(e.clientY);
+        setStartY(e.clientY || e.touches[0].clientY);
     };
 
     const handleMouseMove = (e) => {
         if (!isDragging) return;
 
-        const deltaY = e.clientY - startY;
+        const clientY = e.clientY || e.touches[0].clientY;
+        const deltaY = clientY - startY;
         if (deltaY > 0) {
             setTranslateY(deltaY);
         }
@@ -58,6 +68,7 @@ const Drawer = ({ isOpen, onClose, children }) => {
             <div
                 className={`fixed inset-0 z-30 bg-[#000] bg-opacity-50 transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 onClick={handleOverlayClick}
+                aria-hidden={isOpen ? "false" : "true"}
             ></div>
 
             <div
@@ -69,12 +80,21 @@ const Drawer = ({ isOpen, onClose, children }) => {
                 }}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
                 onMouseDown={handleMouseDown}
+                onMouseLeave={handleMouseUp}
+                role="dialog"
+                aria-modal="true"
             >
-                <div className="w-12 h-1 bg-gray-400 rounded-full cursor-grab my-4" onMouseDown={handleMouseDown} />
+                <div className="w-full flex justify-center items-center"
+                    onMouseDown={handleMouseDown}
+                    onTouchStart={handleMouseDown}
+                    onTouchMove={handleMouseMove}
+                    onTouchEnd={handleMouseUp}
+                >
+                    <div className="w-16 h-[5px] bg-[#c2c4c9] rounded-full cursor-grab my-4" />
+                </div>
 
-                <div className="p-4 w-full h-full overflow-y-auto">
+                <div className="px-4 pt-0 pb-4 w-full h-full overflow-y-auto">
                     {children}
                 </div>
             </div>
