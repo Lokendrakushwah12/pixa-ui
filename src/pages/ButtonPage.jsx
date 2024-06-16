@@ -66,7 +66,6 @@ const ButtonPage = () => {
     const toggleDrawer = (data) => { //toggle drawer function
         setIsDrawerOpen(!isDrawerOpen);
         setSelectedData(data);
-        console.log(data);
     };
 
     useEffect(() => {
@@ -163,14 +162,6 @@ const ButtonPage = () => {
                                 {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Button' color='#0f6fff' />}
                                 {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Create' color='#03b333' borderRadius='16px' />}
                                 {selectedData.componentName === 'ButtonV9' && <ButtonV9 title='Generate' color='#FF0000' borderRadius='99px' />}
-
-                                {/* CardV1 */}
-                                {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
-                                {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
-                                {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' shadow={false} /> </div>}
-                                {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
-                                {selectedData.componentName === 'CardV4' && <div className="h-full"> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /> </div>}
-
                             </div>
                         </div>
                     </div>
@@ -195,7 +186,7 @@ const ButtonPage = () => {
                     </div>
 
                 ))}
-            </div >
+            </div>
         </>
     )
 }

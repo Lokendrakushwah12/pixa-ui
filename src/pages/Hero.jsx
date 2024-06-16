@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import Nav from '../Components/Current/Nav';
 
-const tabs = ['Button', 'Cards', 'Tabs', 'Modals', 'Navbars'];
+const tabs = ['Button', 'Cards', 'Tabs', 'Modals', 'Miscellaneous'];
 
 const Hero = () => {
     const [active, setActive] = React.useState(tabs[0]);
