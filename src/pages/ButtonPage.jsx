@@ -95,7 +95,7 @@ const ButtonPage = () => {
                         {/* Install */}
                         <div className="w-full relative flex flex-col items-start justify-center gap-1">
                             <h1 className="text-xl text-gray-900 font-bold">Install the package</h1>
-                            <div className='pr-2 text-sm text-gray-900 border bg-[#212121] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
+                            <div className='pr-2 text-sm text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
                                 <SyntaxHighlighter className="bg-black" language="bash" style={customStyle}>
                                     {selectedData.installationCmd}
                                 </SyntaxHighlighter>
@@ -110,7 +110,7 @@ const ButtonPage = () => {
                             <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-2 top-10'>
                                 {renderCopyIcon(copied.snippet)}
                             </div>
-                            <div className='relative text-sm text-gray-900 border bg-[#212121] border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
+                            <div className='relative text-sm text-gray-900 border bg-[#0f1012] border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
                                 <SyntaxHighlighter language="jsx" style={customStyle}>
                                     {selectedData.snippetData}
                                 </SyntaxHighlighter>

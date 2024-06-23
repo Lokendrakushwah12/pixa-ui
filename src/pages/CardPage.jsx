@@ -6,6 +6,7 @@ import Stalwarts from '../assets/icons/Stalwarts.svg';
 import CardV2 from '../Components/Cards/CardV2';
 import CardV3 from '../Components/Cards/CardV3';
 import CardV4 from '../Components/Cards/CardV4';
+import CardV5 from '../Components/Cards/CardV5';
 import Drawer from '../Components/Buttons/Drawer';
 
 const CardPage = () => {
@@ -68,6 +69,14 @@ const CardPage = () => {
         fetchCardData();
     }, []);
 
+    // Loaction svg
+    const Location = () => (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.9999 13.4299C13.723 13.4299 15.1199 12.0331 15.1199 10.3099C15.1199 8.58681 13.723 7.18994 11.9999 7.18994C10.2768 7.18994 8.87988 8.58681 8.87988 10.3099C8.87988 12.0331 10.2768 13.4299 11.9999 13.4299Z" stroke="#f0f0f0" stroke-width="1.5" />
+            <path d="M3.61999 8.49C5.58999 -0.169998 18.42 -0.159997 20.38 8.5C21.4417 13.1901 15 22 11.9998 21.995C8.99958 21.99 2.5574 13.1838 3.61999 8.49Z" stroke="#f0f0f0" stroke-width="1.5" />
+        </svg>
+    );
+
     return (
         <>
             <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
@@ -77,7 +86,7 @@ const CardPage = () => {
                             {/* Install */}
                             <div className="w-full relative flex flex-col items-start justify-center gap-1">
                                 <h1 className="text-xl text-gray-900 font-bold">Install the package</h1>
-                                <div className='pr-2 text-sm text-gray-900 border bg-[#212121] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
+                                <div className='pr-2 text-sm text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg'>
                                     <SyntaxHighlighter className="bg-black" language="bash" style={nightOwl}>
                                         {selectedData.installationCmd}
                                     </SyntaxHighlighter>
@@ -92,7 +101,7 @@ const CardPage = () => {
                                 <div onClick={() => handleCopyToClipboard(selectedData.snippetData, 'snippet')} className='absolute z-50 right-2 top-10'>
                                     {renderCopyIcon(copied.snippet)}
                                 </div>
-                                <div className='relative text-sm text-gray-900 border bg-[#212121] border-gray-200 overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
+                                <div className='relative text-sm text-gray-900 border bg-[#0f1012] border-gray-200 overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg'>
                                     <SyntaxHighlighter language="jsx" style={nightOwl}>
                                         {selectedData.snippetData}
                                     </SyntaxHighlighter>
@@ -107,11 +116,12 @@ const CardPage = () => {
                                     {/* CardV1 */}
                                     {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} btn={true} /> </div>}
                                     {selectedData.componentName === 'CardV1' && <div className="h-full"> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={false} /> </div>}
-                                    {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' shadow={false} /> </div>}
+                                    {selectedData.componentName === 'CardV2' && <div className="h-full"> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity.' fade={true} shadow={false} /> </div>}
                                     {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} color="#0f60ff" angle={-5} hoverAngle={-10} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
                                     {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' featureName="Feature 02" icon={Stalwarts} color="#03b333" angle={5} hoverAngle={10} randomness={80} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
                                     {selectedData.componentName === 'CardV3' && <div className="h-full"> <CardV3 title='Speed' featureName="Feature 03" icon={Stalwarts} color="#df9fdf" angle={-5} hoverAngle={-10} randomness={0} description='Instant answers, Greater productivity.' shadow={true} /> </div>}
                                     {selectedData.componentName === 'CardV4' && <div className="h-full"> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /> </div>}
+                                    {selectedData.componentName === 'CardV5' && <div className="h-full"> <CardV5 title='Electric Wire' logo={<Location />} topHeading='Denver, CO, United States' description='Pair of Shoes Hanging on Electric Wire' fade={true} shadow={false} /> </div>}
                                 </div>
                             </div>
                         </div>
@@ -125,9 +135,10 @@ const CardPage = () => {
                         onClick={() => toggleDrawer(data)}
                         className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}>
                         {data.componentName === "CardV1" && <div className='scale-[50%] md:scale-[70%] flex justify-center items-center'> <CardV1 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
-                        {data.componentName === "CardV2" && <div className=' scale-[70%] flex justify-center items-center'> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
-                        {data.componentName === "CardV3" && <div className=' scale-[70%] flex justify-center items-center'> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /></div>}
-                        {data.componentName === "CardV4" && <div className=' scale-[70%] flex justify-center items-center'> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /></div>}
+                        {data.componentName === "CardV2" && <div className='scale-[60%] md:scale-[80%] flex justify-center items-center'> <CardV2 title='Speed' logo={Stalwarts} description='Instant answers, Greater productivity, Endless inspiration, Instant productivity, Endless inspiration.' shadow={true} btn={true} /></div>}
+                        {data.componentName === "CardV3" && <div className='scale-[60%] md:scale-[80%] flex justify-center items-center'> <CardV3 title='Speed' featureName="Feature 01" icon={Stalwarts} description='Instant answers, Greater productivity.' shadow={true} /></div>}
+                        {data.componentName === "CardV4" && <div className='scale-[60%] md:scale-[80%] flex justify-center items-center'> <CardV4 title='Speed' featureName="Stalwart Group" icon={Stalwarts} description='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium ea illo, quasi consequuntur?' shadow={true} /></div>}
+                        {data.componentName === "CardV5" && <div className='scale-[60%] md:scale-[80%] flex justify-center items-center'> <CardV5 title='Electric Wire' logo={<Location />} topHeading='Denver, CO, United States' description='Pair of Shoes Hanging on Electric Wire' fade={false} shadow={false} /></div>}
                     </div>
                 ))}
             </div>
