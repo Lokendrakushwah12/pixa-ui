@@ -1,0 +1,11 @@
+{
+    "name": "@pixaui/button-v1",
+    "version": "1.0.2",
+    "description": "button-v1 Component",
+    "main": "ButtonV1.jsx",
+    "author": "Lokendra Kushwah",
+    "license": "ISC",
+    "dependencies": {
+        "react": "^18.3.1"
+    }
+}
