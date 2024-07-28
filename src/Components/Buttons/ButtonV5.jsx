@@ -28,7 +28,7 @@ const ButtonV5 = ({ title, color, icon, textColor, disabled, borderRadius }) => 
         >
             <div style={{ borderColor, backgroundColor: bgColor, borderRadius: brRadius }} className="border">
                 <div className="border-t p-2 flex items-center justify-center gap-1 border-[#ffffff60]" style={{ borderRadius: `calc(${brRadius} - 1px)` }}>
-                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-100 group-hover:opacity-10 -translate-x-1/2 -translate-y-1/2 left-1/2 top-0 transition-all"></div>
+                    <div className="absolute w-3/4 h-2 bg-white rounded-full blur-lg opacity-100 group-hover:opacity-10 -translate-x-1/2 -translate-y-1/2 left-1/2 top-0 duration-300 transition-all"></div>
                     <h3 className={`transition-all font-[500] text-[16px] leading-[19px] text-shadow`} style={{ color: txtColor, textShadow: '0 1px 1px rgba(0, 0, 0, 0.15)' }}>
                         {title}
                     </h3>

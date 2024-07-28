@@ -27,7 +27,11 @@ const customStyle = {
 const ButtonPage = () => {
   const [buttonData, setButtonData] = useState([]);
   const [selectedData, setSelectedData] = useState({});
-  const [copied, setCopied] = useState({ installation: false, snippet: false, extraData: false });
+  const [copied, setCopied] = useState({
+    installation: false,
+    snippet: false,
+    extraData: false,
+  });
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); //drawer state
 
   const handleCopyToClipboard = (text, type) => {
@@ -187,7 +191,10 @@ const ButtonPage = () => {
                     </SyntaxHighlighter>
                     <div
                       onClick={() =>
-                        handleCopyToClipboard(selectedData.extraData, "extraData")
+                        handleCopyToClipboard(
+                          selectedData.extraData,
+                          "extraData"
+                        )
                       }
                       className="absolute z-50 right-2 top-10"
                     >
@@ -218,64 +225,55 @@ const ButtonPage = () => {
                 )}
                 {/* Button V2 */}
                 {selectedData.componentName === "ButtonV2" && (
-                  <ButtonV2
-                    title="Button"
-                    color="#0f6fff"
-                    textColor="#0f6fff"
-                  />
-                )}
-                {selectedData.componentName === "ButtonV2" && (
-                  <ButtonV2
-                    title="No Bg"
-                    color="#fff"
-                    background={false}
-                    textColor="#212121"
-                  />
-                )}
-                {selectedData.componentName === "ButtonV2" && (
-                  <ButtonV2
-                    title="Rounded-full"
-                    color="#fff"
-                    background={false}
-                    borderRadius="99px"
-                    textColor="#212121"
-                  />
-                )}
-                {selectedData.componentName === "ButtonV2" && (
-                  <ButtonV2
-                    title="No Border"
-                    color="#fff"
-                    border={false}
-                    background={false}
-                    textColor="#212121"
-                  />
+                  <>
+                    <ButtonV2
+                      title="Button"
+                      color="#0f6fff"
+                      textColor="#0f6fff"
+                    />
+                    <ButtonV2
+                      title="No Bg"
+                      color="#fff"
+                      background={false}
+                      textColor="#212121"
+                    />
+                    <ButtonV2
+                      title="Rounded-full"
+                      color="#fff"
+                      background={false}
+                      borderRadius="99px"
+                      textColor="#212121"
+                    />
+                    <ButtonV2
+                      title="No Border"
+                      color="#fff"
+                      border={false}
+                      background={false}
+                      textColor="#212121"
+                    />
+                  </>
                 )}
                 {/* Button V3 */}
                 {selectedData.componentName === "ButtonV3" && (
-                  <div className="h-16 flex justify-center items-center">
-                    {" "}
-                    <ButtonV3 title="Purple Magic" borderRadius="99px" />
-                  </div>
-                )}
-                {selectedData.componentName === "ButtonV3" && (
-                  <div className="h-16 flex justify-center items-center">
-                    {" "}
-                    <ButtonV3
-                      title="Blue Magic"
-                      borderRadius="99px"
-                      color="#0f6fff"
-                    />
-                  </div>
-                )}
-                {selectedData.componentName === "ButtonV3" && (
-                  <div className="h-16 flex justify-center items-center">
-                    {" "}
-                    <ButtonV3
-                      title="Yellow Magic"
-                      borderRadius="99px"
-                      color="#f0a000"
-                    />
-                  </div>
+                  <>
+                    <div className="h-16 flex justify-center items-center">
+                      <ButtonV3 title="Purple Magic" borderRadius="99px" />
+                    </div>
+                    <div className="h-16 flex justify-center items-center">
+                      <ButtonV3
+                        title="Blue Magic"
+                        borderRadius="99px"
+                        color="#0f6fff"
+                      />
+                    </div>
+                    <div className="h-16 flex justify-center items-center">
+                      <ButtonV3
+                        title="Yellow Magic"
+                        borderRadius="99px"
+                        color="#f0a000"
+                      />
+                    </div>
+                  </>
                 )}
                 {/* Button V4 */}
                 {selectedData.componentName === "ButtonV4" && (
