@@ -4,11 +4,11 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Drawer from "../Components/Buttons/Drawer";
 import Airplane from "../assets/icons/Airplane";
 import TabV1 from "../Components/Tabs/TabV1";
-import ButtonIcon from "../assets/icons/Airplane"; // Example import
-import CardsIcon from "../assets/icons/Airplane"; // Example import
-import TabsIcon from "../assets/icons/Airplane"; // Example import
-import ModalsIcon from "../assets/icons/Airplane"; // Example import
-import MiscellaneousIcon from "../assets/icons/Airplane"; // Example import
+import HomeIcon from "../assets/icons/home"; // Example import
+import AddIcon from "../assets/icons/add-square"; // Example import
+import CoffeeIcon from "../assets/icons/coffee"; // Example import
+import GhostIcon from "../assets/icons/ghost"; // Example import
+import PremiumIcon from "../assets/icons/crown"; // Example import
 
 const customStyle = {
   ...nightOwl,
@@ -22,11 +22,11 @@ const customStyle = {
 };
 
 const tabs = [
-  { name: "Button", icon: ButtonIcon },
-  { name: "Cards", icon: CardsIcon },
-  { name: "Tabs", icon: TabsIcon },
-  { name: "Modals", icon: ModalsIcon },
-  { name: "Miscellaneous", icon: MiscellaneousIcon },
+  { name: "Home", icon: HomeIcon },
+  { name: "Add", icon: AddIcon },
+  { name: "Coffee", icon: CoffeeIcon },
+  { name: "Ghost", icon: GhostIcon },
+  { name: "Premium", icon: PremiumIcon },
 ];
 const TabPage = () => {
   const [buttonData, setButtonData] = useState([]);
@@ -235,7 +235,11 @@ const TabPage = () => {
             onClick={() => toggleDrawer(data)}
             className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}
           >
-            {data.componentName === "TabV1" && <>kshbk</>}
+            {data.componentName === "TabV1" && (
+              <div>
+                <TabV1 tabs={tabs} className="border p-4 bg-white shadow-sm rounded-2xl pointer-events-none" />
+              </div>
+            )}
           </div>
         ))}
       </div>
