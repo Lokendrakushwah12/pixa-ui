@@ -3,55 +3,13 @@
     "componentName": "TabV1",
     "title": "Tab V1",
     "installationCmd": "npm install @pixaui/tab-v1",
-    "snippetData": "import TabV1 from './Components/pixaui/tabv1';\nimport Airplane from '../assets/icons/Airplane.jsx';\n\nconst App = () => {\n\n  return (\n    <>\n      <TabV1 title='Button' color='#0f6fff' />\n      <TabV1 title='Rounded' borderRadius='99px' />\n      <TabV1 title='Borderless' border={false} />\n      <TabV1 title='Less go' icon={<Airplane />} color='#0f6fff' />\n    </>\n  );\n};",
-    "extraData": "import React from 'react';\n\nconst Airplane = () => {\n  return (\n    <div>\n      <svg\n        className='w-4 h-4'\n        width='21'\n        height='21'\n        viewBox='0 0 21 21'\n        fill='none'\n        xmlns='http://www.w3.org/2000/svg'\n      >\n        <path\n          d='M6.66659 5.76655L13.7416 3.40822C16.9166 2.34988 18.6416 4.08322 17.5916 7.25822L15.2332 14.3332C13.6499 19.0915 11.0499 19.0915 9.46656 14.3332L8.76659 12.2332L6.66659 11.5332C1.90826 9.94988 1.90826 7.35822 6.66659 5.76655Z'\n          stroke='#0f6fff'\n          stroke-width='1.25'\n          stroke-linecap='round'\n          stroke-linejoin='round'\n        />\n        <path\n          d='M8.92511 11.875L11.9084 8.8833'\n          stroke='#0f6fff'\n          stroke-width='1.25'\n          stroke-linecap='round'\n          stroke-linejoin='round'\n        />\n      </svg>\n    </div>\n  );\n};\n\nexport default Airplane;\n"
+    "snippetData": "import TabV1 from './Components/pixaui/tabv1';\nimport HomeIcon from '../assets/icons/home';\nimport AddIcon from '../assets/icons/add-square';\nimport CoffeeIcon from '../assets/icons/coffee';\nimport GhostIcon from '../assets/icons/ghost';\nimport PremiumIcon from '../assets/icons/crown';\n\nconst tabs = [\n  { name: 'Home', icon: HomeIcon },\n  { name: 'Add', icon: AddIcon },\n  { name: 'Coffee', icon: CoffeeIcon },\n  { name: 'Ghost', icon: GhostIcon },\n  { name: 'Premium', icon: PremiumIcon }\n];\n\nconst App = () => {\n  return (\n    <>\n      <TabV1 tabs={tabs} />\n    </>\n  );\n};",
+    "extraData": "export default function home() {\n  return (\n    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>\n      <g id='vuesax/linear/home-2'>\n        <g id='home-2'>\n          <path id='Vector' d='M9.02 2.83992L3.63 7.03992C2.73 7.73992 2 9.22992 2 10.3599V17.7699C2 20.0899 3.89 21.9899 6.21 21.9899H17.79C20.11 21.9899 22 20.0899 22 17.7799V10.4999C22 9.28992 21.19 7.73992 20.2 7.04992L14.02 2.71992C12.62 1.73992 10.37 1.78992 9.02 2.83992Z' stroke='#292D32' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' />\n          <path id='Vector_2' d='M12 17.99V14.99' stroke='#292D32' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' />\n        </g>\n      </g>\n    </svg>\n  );\n}"
   },
   {
     "componentName": "TabV2",
     "title": "Tab V2",
     "installationCmd": "npm install @pixaui/tab-v2",
-    "snippetData": "import ButtonV2 from './Components/pixaui/tabv2';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV2 title='Button' color='#0f6fff' textColor='#0f6fff' />\n      <ButtonV2 title='No Bg' color='#fff' background={false} textColor='#212121' />\n      <ButtonV2 title='Rounded-full' color='#fff' background={false} borderRadius='99px' textColor='#212121' />\n      <ButtonV2 title='No Border' color='#fff' border={false} background={false} textColor='#212121' />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV3",
-    "title": "Tab V3",
-    "installationCmd": "npm install @pixaui/tab-v3",
-    "snippetData": "import ButtonV3 from './Components/pixaui/tabv3';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV3 title='Purple Magic' borderRadius='99px' />\n      <ButtonV3 title='Blue Magic' borderRadius='99px' color='#0f6fff' />\n      <ButtonV3 title='Yellow Magic' borderRadius='99px' color='#f0a000' />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV4",
-    "title": "Tab V4",
-    "installationCmd": "npm install @pixaui/tab-v4",
-    "snippetData": "import ButtonV4 from './Components/pixaui/tabv4';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV4 title='Read More' borderRadius='99px' color='#0f6fff' />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV5",
-    "title": "Tab V5",
-    "installationCmd": "npm install @pixaui/tab-v5",
-    "snippetData": "import ButtonV5 from './Components/pixaui/tabv5';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' />\n      <ButtonV5 title='Primary' borderRadius='99px' color='#0f6fff' icon={false} />\n      <ButtonV5 title='Secondary' borderRadius='99px' color='#f6f8fb' textColor='#212121' />\n      <ButtonV5 title='Disabled' borderRadius='99px' color='#0f6fff' disabled={true} />\n      <ButtonV5 title='Destructive' borderRadius='99px' color='#dc271f' />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV6",
-    "title": "Tab V6",
-    "installationCmd": "npm install @pixaui/tab-v6",
-    "snippetData": "import ButtonV6 from './Components/pixaui/tabv6';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV6 title='Button' borderRadius='8px' color='#0f6fff' />\n      <ButtonV6 title='Rounded' borderRadius='99px' color='#212121' />\n      <ButtonV6 title='Danger' borderRadius='99px' color='#dc271f' />\n      <<ButtonV6 title='Borderless' borderRadius='99px' border={false} txtColor='#d9d9d9' />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV7",
-    "title": "Tab V7",
-    "installationCmd": "npm install @pixaui/tab-v7",
-    "snippetData": "import ButtonV7 from './Components/pixaui/tabv7';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV7 title='Button' color='#0f6fff' />\n      <ButtonV7 title='Rounded' color='#0f6fff' borderRadius='4px' />\n      <ButtonV7 title='Danger' color='#dc271f' />\n      <ButtonV7 title='NoEffect' color='#0f6fff' textEffect={false} />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV8",
-    "title": "Tab V8",
-    "installationCmd": "npm install @pixaui/tab-v8",
-    "snippetData": "import ButtonV8 from './Components/pixaui/tabv8';\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV8 title='Button' color='#0f6fff' />\n      <ButtonV8 title='Danger' color='#dc271f' />\n      <ButtonV8 title='NoEffect' color='#0f6fff' textEffect={false} />\n    </>\n  );\n};"
-  },
-  {
-    "componentName": "TabV9",
-    "title": "Tab V9",
-    "installationCmd": "npm install @pixaui/tab-v9",
-    "snippetData": "import ButtonV9 from './Components/pixaui/tabv9';'\n\nconst App = () => {\n\n  return (\n    <>\n      <ButtonV9 title='Button' color='#0f6fff' />\n      <ButtonV9 title='Create' color='#03b333' borderRadius='16px' />\n      <ButtonV9 title='Generate' color='#FF0000' borderRadius='99px' />\n    </>\n  );\n};"
+    "snippetData": "import TabV1 from './Components/pixaui/tabv1';\nimport HomeIcon from '../assets/icons/home';\nimport AddIcon from '../assets/icons/add-square';\nimport CoffeeIcon from '../assets/icons/coffee';\nimport GhostIcon from '../assets/icons/ghost';\nimport PremiumIcon from '../assets/icons/crown';\n\nconst tabs = [\n  { name: 'Home', icon: HomeIcon },\n  { name: 'Add', icon: AddIcon },\n  { name: 'Coffee', icon: CoffeeIcon },\n  { name: 'Ghost', icon: GhostIcon },\n  { name: 'Premium', icon: PremiumIcon }\n];\n\nconst tabs2 = [\n  { name: 'Work' },\n  { name: 'Upload' },\n  { name: 'Coffee' },\n  { name: 'Premium' }\n];\n\nconst App = () => {\n  return (\n    <>\n      <TabV2 tabs={tabs} />\n      <TabV2\n        tabs={tabs2}\n        textColor='text-[#f0f0f0]'\n        hoverTextColor='hover:text-[#fff]'\n        tabHoverColor='bg-[#313131]'\n        tabBorderRadius='rounded-full'\n        className='rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]'\n      />\n    </>\n  );\n};"
   }
 ]

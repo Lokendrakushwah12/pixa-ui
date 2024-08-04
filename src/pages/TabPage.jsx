@@ -4,11 +4,11 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Drawer from "../Components/Buttons/Drawer";
 import Airplane from "../assets/icons/Airplane";
 import TabV1 from "../Components/Tabs/TabV1";
-import HomeIcon from "../assets/icons/home"; // Example import
-import AddIcon from "../assets/icons/add-square"; // Example import
-import CoffeeIcon from "../assets/icons/coffee"; // Example import
-import GhostIcon from "../assets/icons/ghost"; // Example import
-import PremiumIcon from "../assets/icons/crown"; // Example import
+import HomeIcon from "../assets/icons/home";
+import AddIcon from "../assets/icons/add-square";
+import CoffeeIcon from "../assets/icons/coffee";
+import GhostIcon from "../assets/icons/ghost";
+import PremiumIcon from "../assets/icons/crown";
 import TabV2 from "../Components/Tabs/TabV2";
 
 const customStyle = {
@@ -229,15 +229,15 @@ const TabPage = () => {
                 )}
                 {/* Tab V2 */}
                 {selectedData.componentName === "TabV2" && (
-                  <div className="flex flex-col items-center justify-center gap-8">
+                  <div className='flex flex-col items-center justify-center gap-8'>
                     <TabV2 tabs={tabs} />
                     <TabV2
                       tabs={tabs2}
-                      textColor="text-[#f0f0f0]"
-                      hoverTextColor="hover:text-[#fff]"
-                      tabHoverColor="bg-[#313131]"
-                      tabBorderRadius="rounded-full"
-                      className="rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]"
+                      textColor='text-[#f0f0f0]'
+                      hoverTextColor='hover:text-[#fff]'
+                      tabHoverColor='bg-[#313131]'
+                      tabBorderRadius='rounded-full'
+                      className='rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]'
                     />
                   </div>
                 )}
