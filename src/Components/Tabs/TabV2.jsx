@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const TabV1 = ({
+const TabV2 = ({
   tabs,
   textColor = "text-[#414141]",
   hoverTextColor = "hover:text-[#212121]",
@@ -12,7 +12,9 @@ const TabV1 = ({
   const [active, setActive] = React.useState(tabs[0].name);
 
   return (
-    <div className={`flex flex-col gap-2 ${className}`}>
+    <div
+      className={`flex flex-row items-center justify-center gap-2 ${className}`}
+    >
       {tabs.map((tab) => (
         <button
           key={tab.name}
@@ -27,7 +29,7 @@ const TabV1 = ({
                 active === tab.name ? "opacity-100" : "opacity-80"
               } z-20 transition-all duration-300 group-hover:opacity-100`}
             >
-              {tab.icon && (
+              {tab?.icon && (
                 <tab.icon
                   width="24"
                   height="24"
@@ -43,7 +45,7 @@ const TabV1 = ({
           {active === tab.name && (
             <motion.div
               className="absolute bottom-0 left-0 flex size-full"
-              layoutId="TabV1"
+              layoutId={tabs[0].name}
               transition={{ type: "spring", duration: 0.3, bounce: 0.2 }}
             >
               <span
@@ -57,4 +59,4 @@ const TabV1 = ({
   );
 };
 
-export default TabV1;
+export default TabV2;

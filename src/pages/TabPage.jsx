@@ -9,6 +9,7 @@ import AddIcon from "../assets/icons/add-square"; // Example import
 import CoffeeIcon from "../assets/icons/coffee"; // Example import
 import GhostIcon from "../assets/icons/ghost"; // Example import
 import PremiumIcon from "../assets/icons/crown"; // Example import
+import TabV2 from "../Components/Tabs/TabV2";
 
 const customStyle = {
   ...nightOwl,
@@ -27,6 +28,12 @@ const tabs = [
   { name: "Coffee", icon: CoffeeIcon },
   { name: "Ghost", icon: GhostIcon },
   { name: "Premium", icon: PremiumIcon },
+];
+const tabs2 = [
+  { name: "Work" },
+  { name: "Upload" },
+  { name: "Coffee" },
+  { name: "Premium" },
 ];
 const TabPage = () => {
   const [buttonData, setButtonData] = useState([]);
@@ -55,7 +62,7 @@ const TabPage = () => {
   const renderCopyIcon = (isCopied) =>
     isCopied ? (
       <svg
-        className="cursor-pointer p-1 rounded-full transition-all"
+        className="cursor-pointer rounded-full p-1 transition-all"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -72,7 +79,7 @@ const TabPage = () => {
       </svg>
     ) : (
       <svg
-        className="cursor-pointer hover:bg-[#ffffff1d] p-1 rounded-full transition-all"
+        className="cursor-pointer rounded-full p-1 transition-all hover:bg-[#ffffff1d]"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -136,14 +143,14 @@ const TabPage = () => {
   return (
     <>
       <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-        <div className="flex flex-col md:flex-row h-full w-full gap-4 pt-8">
-          <div className="md:w-1/2 w-full flex flex-col items-start justify-start gap-4">
+        <div className="flex h-full w-full flex-col gap-4 pt-8 md:flex-row">
+          <div className="flex w-full flex-col items-start justify-start gap-4 md:w-1/2">
             {/* Install */}
-            <div className="w-full relative flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">
+            <div className="relative flex w-full flex-col items-start justify-center gap-1">
+              <h1 className="text-xl font-bold text-gray-900">
                 Install the package
               </h1>
-              <div className="pr-2 text-sm select-text selection:bg-white/10 text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg">
+              <div className="flex w-full select-text items-center justify-between overflow-hidden rounded-lg border border-gray-200 bg-[#0f1012] pr-2 text-sm text-gray-900 selection:bg-white/10">
                 <SyntaxHighlighter
                   className="bg-black"
                   language="bash"
@@ -155,7 +162,7 @@ const TabPage = () => {
                   onClick={() =>
                     handleCopyToClipboard(
                       selectedData.installationCmd,
-                      "installation"
+                      "installation",
                     )
                   }
                 >
@@ -164,28 +171,28 @@ const TabPage = () => {
               </div>
             </div>
             {/* Usage 1 */}
-            <div className="w-full relative flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">Usage</h1>
+            <div className="relative flex w-full flex-col items-start justify-center gap-1">
+              <h1 className="text-xl font-bold text-gray-900">Usage</h1>
               <div
                 onClick={() =>
                   handleCopyToClipboard(selectedData.snippetData, "snippet")
                 }
-                className="absolute z-50 right-2 top-10"
+                className="absolute right-2 top-10 z-50"
               >
                 {renderCopyIcon(copied.snippet)}
               </div>
-              <div className="relative select-text selection:bg-white/10 text-sm text-gray-900 border bg-[#0f1012] border-gray-200  overflow-x-auto hide-scrollbar transition-all flex justify-between items-center w-full rounded-lg">
+              <div className="hide-scrollbar relative flex w-full select-text items-center justify-between overflow-x-auto rounded-lg border border-gray-200 bg-[#0f1012] text-sm text-gray-900 transition-all selection:bg-white/10">
                 <SyntaxHighlighter language="jsx" style={customStyle}>
                   {selectedData.snippetData}
                 </SyntaxHighlighter>
               </div>
               {/* Airplane */}
               {selectedData.componentName === "TabV1" && (
-                <div className="w-full relative flex flex-col items-start justify-center gap-1">
-                  <h1 className="text-xl text-gray-900 font-bold">
+                <div className="relative flex w-full flex-col items-start justify-center gap-1">
+                  <h1 className="text-xl font-bold text-gray-900">
                     Custom icon Component should look like this
                   </h1>
-                  <div className="pr-2 text-sm select-text selection:bg-white/10 text-gray-900 border bg-[#0f1012] border-gray-200 overflow-hidden flex justify-between items-center w-full rounded-lg">
+                  <div className="flex w-full select-text items-center justify-between overflow-hidden rounded-lg border border-gray-200 bg-[#0f1012] pr-2 text-sm text-gray-900 selection:bg-white/10">
                     <SyntaxHighlighter
                       className="bg-black"
                       language="bash"
@@ -197,10 +204,10 @@ const TabPage = () => {
                       onClick={() =>
                         handleCopyToClipboard(
                           selectedData.extraData,
-                          "extraData"
+                          "extraData",
                         )
                       }
-                      className="absolute z-50 right-2 top-10"
+                      className="absolute right-2 top-10 z-50"
                     >
                       {renderCopyIcon(copied.extraData)}
                     </div>
@@ -209,35 +216,58 @@ const TabPage = () => {
               )}
             </div>
           </div>
-          <div className="md:w-1/2 flex flex-col md:flex-row h-full w-full gap-4">
+          <div className="flex h-full w-full flex-col gap-4 md:w-1/2 md:flex-row">
             {/* Preview */}
-            <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
-              <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
-              <div className="p-2 w-full h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center rounded-lg">
-                {/* Button V1 */}
+            <div className="flex h-full w-full flex-col items-start justify-center gap-1 px-4 md:px-0">
+              <h1 className="text-xl font-bold text-gray-900">Preview</h1>
+              <div className="flex h-full w-full flex-col items-center justify-start gap-2 overflow-y-scroll rounded-lg border border-gray-200 bg-white p-2 text-sm text-gray-900">
+                {/* Tab V1 */}
                 {selectedData.componentName === "TabV1" && (
                   <>
                     <TabV1 tabs={tabs} />
                   </>
                 )}
-                {/* Button V2 */}
-                {selectedData.componentName === "TabV2" && <></>}
+                {/* Tab V2 */}
+                {selectedData.componentName === "TabV2" && (
+                  <div className="flex flex-col items-center justify-center gap-8">
+                    <TabV2 tabs={tabs} />
+                    <TabV2
+                      tabs={tabs2}
+                      textColor="text-[#f0f0f0]"
+                      hoverTextColor="hover:text-[#fff]"
+                      tabHoverColor="bg-[#313131]"
+                      tabBorderRadius="rounded-full"
+                      className="rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </Drawer>
-      <div className="grid responsiveSection">
+      <div className="responsiveSection grid">
         {/* <div className="flex flex-wrap gap-4 justify-center items-center w-full max-w[1440px]"> */}
         {buttonData.map((data, index) => (
           <div
             key={index}
             onClick={() => toggleDrawer(data)}
-            className={`cursor-pointer flex w-[300px] h-[225px] md:w-[400px] md:h-[300px] overflow-hidden items-center justify-center border hover:bg-[#fbfbfb] transition-all rounded-2xl`}
+            className={`flex h-[225px] w-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl border transition-all hover:bg-[#fbfbfb] md:h-[300px] md:w-[400px]`}
           >
             {data.componentName === "TabV1" && (
               <div>
-                <TabV1 tabs={tabs} className="border p-4 bg-white shadow-sm rounded-2xl pointer-events-none" />
+                <TabV1
+                  tabs={tabs}
+                  className="pointer-events-none rounded-2xl border bg-white p-4 shadow-sm"
+                />
+              </div>
+            )}
+            {data.componentName === "TabV2" && (
+              <div>
+                <TabV2
+                  tabs={tabs.slice(0, 3)}
+                  className="pointer-events-none rounded-2xl border bg-white p-4 shadow-sm"
+                />
               </div>
             )}
           </div>
