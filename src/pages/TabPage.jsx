@@ -229,15 +229,15 @@ const TabPage = () => {
                 )}
                 {/* Tab V2 */}
                 {selectedData.componentName === "TabV2" && (
-                  <div className='flex flex-col items-center justify-center gap-8'>
-                    <TabV2 tabs={tabs} />
+                  <div className="flex scale-[80%] flex-col items-center justify-center gap-8 md:scale-[100%]">
+                    <TabV2 tabs={tabs.slice(2, 5)} />
                     <TabV2
                       tabs={tabs2}
-                      textColor='text-[#f0f0f0]'
-                      hoverTextColor='hover:text-[#fff]'
-                      tabHoverColor='bg-[#313131]'
-                      tabBorderRadius='rounded-full'
-                      className='rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]'
+                      textColor="text-[#f0f0f0]"
+                      hoverTextColor="hover:text-[#fff]"
+                      tabHoverColor="bg-[#313131]"
+                      tabBorderRadius="rounded-full"
+                      className="rounded-full border border-[#414141] bg-[#121212] p-1 text-[#ffffff]"
                     />
                   </div>
                 )}
@@ -255,7 +255,7 @@ const TabPage = () => {
             className={`flex h-[225px] w-[300px] cursor-pointer items-center justify-center overflow-hidden rounded-2xl border transition-all hover:bg-[#fbfbfb] md:h-[300px] md:w-[400px]`}
           >
             {data.componentName === "TabV1" && (
-              <div>
+              <div className="flex scale-[80%] items-center justify-center md:scale-[100%]">
                 <TabV1
                   tabs={tabs}
                   className="pointer-events-none rounded-2xl border bg-white p-4 shadow-sm"
@@ -263,7 +263,7 @@ const TabPage = () => {
               </div>
             )}
             {data.componentName === "TabV2" && (
-              <div>
+              <div className="flex scale-[80%] items-center justify-center md:scale-[100%]">
                 <TabV2
                   tabs={tabs.slice(0, 3)}
                   className="pointer-events-none rounded-2xl border bg-white p-4 shadow-sm"
