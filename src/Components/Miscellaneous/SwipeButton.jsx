@@ -26,14 +26,16 @@ const SwipeButton = () => {
         bounds: { left: 0, right: containerWidth - buttonWidth }, // Constrain button drag within the container
         axis: 'x',
         rubberband: false,
+        preventDefault: true, // Prevent default behavior to prioritize touch events
     });
 
     return (
         <div
-            className="relative flex items-center justify-center border w-[310px] border-[#d2d2d6] p-2 shadow-md rounded-full"
+            className="relative flex items-center justify-center border w-[310px] border-[#d2d2d6] p-2 shadow-md rounded-full touch-auto"
             style={{
                 backgroundImage: `linear-gradient(to top, #f2f2f2 -50%,#fff 50%)`,
                 transition: "all 0.3s ease-out",
+                touchAction: 'none' // Ensure touch gestures are prioritized
             }}
         >
             <div className="relative z-10 text-black font-medium select-none">&nbsp;</div>
