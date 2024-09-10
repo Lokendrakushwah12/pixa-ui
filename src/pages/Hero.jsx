@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import Nav from "../Components/Current/Nav";
 import TabPage from "./TabPage";
+import MiscellaneousPage from "./MiscellaneousPage";
 
 const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"];
 
@@ -27,9 +28,8 @@ const Hero = () => {
             <button
               key={text}
               onClick={() => setActive(text)}
-              className={` ${
-                active === text ? "text-[#212121]" : " text-[#515151]"
-              } relative rounded-md  px-2 py-1 text-sm font-medium hover:text-[#212121] transition-all duration-300`}
+              className={` ${active === text ? "text-[#212121]" : " text-[#515151]"
+                } relative rounded-md  px-2 py-1 text-sm font-medium hover:text-[#212121] transition-all duration-300`}
             >
               <span className="relative z-10 text-lg font-[500] xsm">
                 {text}
@@ -49,6 +49,7 @@ const Hero = () => {
         {active === "Button" && <ButtonPage />}
         {active === "Cards" && <CardPage />}
         {active === "Tabs" && <TabPage />}
+        {active === "Miscellaneous" && <MiscellaneousPage />}
       </div>
       <AnimatePresence>
         <ScrollToTop />

@@ -1,0 +1,9 @@
+[
+  {
+    "componentName": "SwipeButton",
+    "title": "Swipe",
+    "installationCmd": "npm install @pixaui/swipebutton",
+    "snippetData": "import SwipeButton from './Components/pixaui/SwipeButton';\n\nconst App = () => {\n\n  return (\n    <>\n      <SwipeButton />    \n    </>\n  );\n};",
+    "extraData": ""
+  }
+]
