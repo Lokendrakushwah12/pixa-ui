@@ -5,5 +5,12 @@
     "installationCmd": "npm install @pixaui/swipebutton",
     "snippetData": "import SwipeButton from './Components/pixaui/SwipeButton';\n\nconst App = () => {\n\n  return (\n    <>\n      <SwipeButton />    \n    </>\n  );\n};",
     "extraData": ""
+  },
+  {
+    "componentName": "Spinner",
+    "title": "Spinner",
+    "installationCmd": "npm install @pixaui/Spinner",
+    "snippetData": "import Spinner from './Components/pixaui/Spinner';\n\nconst App = () => {\n\n  return (\n    <>\n      <Spinner color='#212121' />    \n    </>\n  );\n};",
+    "extraData": ""
   }
 ]

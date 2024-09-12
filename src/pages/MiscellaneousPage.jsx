@@ -3,6 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Drawer from "../Components/Buttons/Drawer";
 import SwipeButton from "../Components/Miscellaneous/SwipeButton";
+import Spinner from "../Components/Miscellaneous/Spinner";
 
 const customStyle = {
   ...nightOwl,
@@ -201,10 +202,16 @@ const MiscellaneousPage = () => {
             <div className="w-full px-4 md:px-0 h-full flex flex-col items-start justify-center gap-1">
               <h1 className="text-xl text-gray-900 font-bold">Preview</h1>
               <div className="p-2 w-full h-full text-sm text-gray-900 border bg-white border-gray-200 overflow-y-scroll flex flex-col gap-2 justify-start items-center rounded-lg">
-                {/* Button V1 */}
+                {/* Swipe Button V1 */}
                 {selectedData.componentName === "SwipeButton" && (
                   <>
                     <SwipeButton />
+                  </>
+                )}
+                {/* Spinner */}
+                {selectedData.componentName === "Spinner" && (
+                  <>
+                    <Spinner color='#212121' />
                   </>
                 )}
               </div>
@@ -222,6 +229,9 @@ const MiscellaneousPage = () => {
           >
             {data.componentName === "SwipeButton" && (
               <SwipeButton />
+            )}
+            {data.componentName === "Spinner" && (
+              <Spinner color='#212121' />
             )}
           </div>
         ))}
