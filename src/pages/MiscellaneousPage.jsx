@@ -4,6 +4,7 @@ import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Drawer from "../Components/Buttons/Drawer";
 import SwipeButton from "../Components/Miscellaneous/SwipeButton";
 import Spinner from "../Components/Miscellaneous/Spinner";
+import SpinnerV2 from "../Components/Miscellaneous/SpinnerV2";
 
 const customStyle = {
   ...nightOwl,
@@ -214,6 +215,11 @@ const MiscellaneousPage = () => {
                     <Spinner color='#212121' />
                   </>
                 )}
+                {selectedData.componentName === "SpinnerV2" && (
+                  <>
+                    <SpinnerV2 color='#212121' />
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -232,6 +238,9 @@ const MiscellaneousPage = () => {
             )}
             {data.componentName === "Spinner" && (
               <Spinner color='#212121' />
+            )}
+            {data.componentName === "SpinnerV2" && (
+              <SpinnerV2 color='#212121' />
             )}
           </div>
         ))}

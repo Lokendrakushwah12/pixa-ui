@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from '../Components/Current/Nav'
 import { Link } from 'react-router-dom';
+import SignInButton from './button';
 
 const AboutPage = () => {
     return (
@@ -47,7 +48,6 @@ const AboutPage = () => {
                             </Link>
 
                         </div>
-
                     </div>
                 </div>
             </div>

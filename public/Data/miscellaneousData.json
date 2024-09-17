@@ -12,5 +12,12 @@
     "installationCmd": "npm install @pixaui/Spinner",
     "snippetData": "import Spinner from './Components/pixaui/Spinner';\n\nconst App = () => {\n\n  return (\n    <>\n      <Spinner color='#212121' />    \n    </>\n  );\n};",
     "extraData": ""
+  },
+  {
+    "componentName": "SpinnerV2",
+    "title": "SpinnerV2",
+    "installationCmd": "npm install @pixaui/SpinnerV2",
+    "snippetData": "import SpinnerV2 from './Components/pixaui/SpinnerV2';\n\nconst App = () => {\n\n  return (\n    <>\n      <SpinnerV2 color='#212121' />    \n    </>\n  );\n};",
+    "extraData": ""
   }
 ]
