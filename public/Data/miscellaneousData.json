@@ -19,5 +19,12 @@
     "installationCmd": "npm install @pixaui/SpinnerV2",
     "snippetData": "import SpinnerV2 from './Components/pixaui/SpinnerV2';\n\nconst App = () => {\n\n  return (\n    <>\n      <SpinnerV2 color='#212121' />    \n    </>\n  );\n};",
     "extraData": ""
-  }
+  },
+  {
+    "componentName": "Bg",
+    "title": "Bg",
+    "installationCmd": "npm install @pixaui/Bg",
+    "snippetData": "import Bg from './Components/pixaui/Bg';\n\nconst App = () => {\n\n  return (\n    <>\n      <div className=\"relative w-full flex flex-col justify-center items-center overflow-hidden h-[300px] rounded-lg bg-black\">\n        <h1 className=\"z-10 font-[500] text-white text-5xl\">Pixa UI</h1>\n        <p className=\"z-10 text-center text-[#5c5c5c] text-base\">\n          A Collection of <span className=\"font-[500]\">Open Source</span> Components for React + TailwindCSS for your Project.\n        </p>\n        <Bg />\n      </div>\n    </>\n  );\n};",
+    "extraData": ""
+}
 ]

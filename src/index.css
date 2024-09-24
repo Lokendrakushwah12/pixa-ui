@@ -101,3 +101,19 @@ pre ::selection {
         gap: 0.2rem;
     }
 }
+
+@keyframes drawLine {
+    0% {
+        /* transform: translateX(-100%); */
+    }
+    100% {
+        /* transform: translateX(100%); */
+    }
+}
+
+.line-animation {
+    
+        transform: translateX(100px);
+    animation: drawLine 10s linear infinite;
+    overflow: hidden; /* Hide the sudden re-entry */
+}

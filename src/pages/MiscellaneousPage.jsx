@@ -5,6 +5,8 @@ import Drawer from "../Components/Buttons/Drawer";
 import SwipeButton from "../Components/Miscellaneous/SwipeButton";
 import Spinner from "../Components/Miscellaneous/Spinner";
 import SpinnerV2 from "../Components/Miscellaneous/SpinnerV2";
+import Bg from "../Components/Miscellaneous/Bg";
+import BgImage from "../assets/Bg.png"
 
 const customStyle = {
   ...nightOwl,
@@ -220,6 +222,15 @@ const MiscellaneousPage = () => {
                     <SpinnerV2 color='#212121' />
                   </>
                 )}
+                {selectedData.componentName === "Bg" && (
+                  <div className="relative w-full flex flex-col justify-center items-center overflow-hidden h-[300px] rounded-lg bg-black">
+                    <h1 className="z-10 font-[500] text-white text-5xl">Pixa UI</h1>
+                    <p className="z-10 text-center text-[#5c5c5c] text-base">
+                      A Collection of <span className="font-[500]">Open Source</span>{" "} Components for React + TailwindCSS for your Project.
+                    </p>
+                    <Bg />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -241,6 +252,9 @@ const MiscellaneousPage = () => {
             )}
             {data.componentName === "SpinnerV2" && (
               <SpinnerV2 color='#212121' />
+            )}
+            {data.componentName === "Bg" && (
+              <img src={BgImage} className="rounded-lg w-full md:w-[360px] md:h-[220px] object-cover" alt="Bg" />
             )}
           </div>
         ))}

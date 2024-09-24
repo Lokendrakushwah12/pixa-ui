@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Nav from "../Components/Current/Nav";
 import TabPage from "./TabPage";
 import MiscellaneousPage from "./MiscellaneousPage";
+import Bg from "../Components/Miscellaneous/Bg";
 
 const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"];
 
