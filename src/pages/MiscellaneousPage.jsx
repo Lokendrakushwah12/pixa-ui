@@ -7,6 +7,7 @@ import Spinner from "../Components/Miscellaneous/Spinner";
 import SpinnerV2 from "../Components/Miscellaneous/SpinnerV2";
 import Bg from "../Components/Miscellaneous/Bg";
 import BgImage from "../assets/Bg.png"
+import SpinnerV3 from "../Components/Miscellaneous/SpinnerV3";
 
 const customStyle = {
   ...nightOwl,
@@ -222,6 +223,11 @@ const MiscellaneousPage = () => {
                     <SpinnerV2 color='#212121' />
                   </>
                 )}
+                {selectedData.componentName === "SpinnerV3" && (
+                  <>
+                    <SpinnerV3 />
+                  </>
+                )}
                 {selectedData.componentName === "Bg" && (
                   <div className="relative w-full flex flex-col justify-center items-center overflow-hidden h-[300px] rounded-lg bg-black">
                     <h1 className="z-10 font-[500] text-white text-5xl">Pixa UI</h1>
@@ -252,6 +258,9 @@ const MiscellaneousPage = () => {
             )}
             {data.componentName === "SpinnerV2" && (
               <SpinnerV2 color='#212121' />
+            )}
+            {data.componentName === "SpinnerV3" && (
+              <SpinnerV3 />
             )}
             {data.componentName === "Bg" && (
               <img src={BgImage} className="rounded-lg w-full md:w-[360px] md:h-[220px] object-cover" alt="Bg" />
