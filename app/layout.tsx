@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { uncutsans } from "./fonts";
-import { ThemeProvider } from "@/components/ThemeContext";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export default function RootLayout({
         <link rel="icon" href="/assets/svg/logo.svg" />
       </head>
       <body className={` ${uncutsans.className} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

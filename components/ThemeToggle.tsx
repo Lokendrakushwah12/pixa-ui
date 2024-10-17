@@ -1,15 +1,15 @@
 "use client";
-import { useTheme } from "@/components/ThemeContext";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
 
 export const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleToggle = () => {
     setIsAnimating(true);
-    toggleTheme();
+    setTheme(theme === "light" ? "dark" : "light");
     setTimeout(() => setIsAnimating(false), 500);
   };
 

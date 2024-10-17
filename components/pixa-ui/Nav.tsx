@@ -3,10 +3,11 @@ import Link from "next/link";
 import { ThemeToggle } from "../ThemeToggle";
 import { LinearBlur } from "progressive-blur";
 import Image from "next/image";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "next-themes";
 
 const Nav = () => {
   const { theme } = useTheme();
+  
   return (
     <>
       <div className="sticky top-0 z-50 flex h-[60px] w-full items-center justify-between py-4 sm:px-12 lg:px-24">

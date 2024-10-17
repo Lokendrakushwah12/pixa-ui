@@ -12,6 +12,8 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
     "next": "14.2.15",
+    "next-themes": "^0.3.0",
+    "posthog-js": "^1.174.0",
     "progressive-blur": "^1.0.0",
     "react": "^18",
     "react-dom": "^18"
