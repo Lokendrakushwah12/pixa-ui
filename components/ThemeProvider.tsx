@@ -1,15 +1,27 @@
 "use client";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ReactNode } from "react";
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
+import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ReactNode, useEffect, useState } from "react";
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div style={{ visibility: "hidden" }} />;
+  }
+
   return (
-    <NextThemesProvider
-    attribute="class"
-    disableTransitionOnChange
-    defaultTheme="light"
+    <NextThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      disableTransitionOnChange
     >
       {children}
-    </NextThemesProvider>
+    </NextThemeProvider>
   );
-}
+};
