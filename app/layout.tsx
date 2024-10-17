@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { UncutSans } from "./fonts";
-import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeContext";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Pixa UI",
