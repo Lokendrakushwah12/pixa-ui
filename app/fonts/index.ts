@@ -15,7 +15,7 @@ export const uncutsans = localFont({
       weight: "500",
     },
     {
-      path: "./UncutSans-SemiBold.woff",
+      path: "./UncutSans-Semibold.woff",
       weight: "600",
     },
   ],
