@@ -46,6 +46,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/assets/svg/logo.svg" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.add('light');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={` ${uncutsans.className} antialiased`}>
         <Providers>{children}</Providers>
