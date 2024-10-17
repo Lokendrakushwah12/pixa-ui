@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fff;
+  }
+}
+
+body {
+  color: var(--background);
+  background: var(--foreground);
+}
+.dark body {
+  color: var(--foreground);
+  fill: var(--foreground);
+  background: var(--background);
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::selection {
+  background: #d8ecfc;
+  color: #008cff;
+}
+
+.dark ::selection {
+  background: #081b2c;
+  color: #3ca7ff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 0.5s forwards;
+}
