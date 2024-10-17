@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { UncutSans } from "./fonts";
+import { uncutsans } from "./fonts";
 import { ThemeProvider } from "@/components/ThemeContext";
 import "./globals.css";
 
@@ -47,7 +47,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/assets/svg/logo.svg" />
       </head>
-      <body className={` ${UncutSans.className} antialiased`}>
+      <body className={` ${uncutsans.className} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

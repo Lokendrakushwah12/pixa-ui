@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-export const UncutSans = localFont({
+export const uncutsans = localFont({
   src: [
     {
       path: "./UncutSans-Book.woff",
