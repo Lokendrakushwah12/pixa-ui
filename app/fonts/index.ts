@@ -3,22 +3,22 @@ import localFont from "next/font/local";
 export const UncutSans = localFont({
   src: [
     {
-      path: "./UncutSans/UncutSans-Book.woff",
+      path: "./uncutsans/UncutSans-Book.woff",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./UncutSans/UncutSans-Medium.woff",
+      path: "./uncutsans/UncutSans-Regular.woff",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./UncutSans/UncutSans-Regular.woff",
+      path: "./uncutsans/UncutSans-Medium.woff",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./UncutSans/UncutSans-SemiBold.woff",
+      path: "./uncutsans/UncutSans-SemiBold.woff",
       weight: "600",
       style: "normal",
     },

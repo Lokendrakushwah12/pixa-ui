@@ -41,5 +41,6 @@ export const useTheme = () => {
   if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
+  console.log("Theme context:", context);
   return context;
 };

@@ -14,16 +14,18 @@ export const Button: React.FC<ButtonProps> = ({
   disabled = false,
   onClick,
 }) => {
-  const baseStyles = "px-4 py-2 rounded-lg outline-none transition-all duration-200";
+  const baseStyles =
+    "px-4 py-2 rounded-lg outline-none transition-all duration-200";
   const variantStyles = {
-    primary: "bg-white text-background hover:bg-neutral-200",
-    secondary: "bg-neutral-900 text-white hover:bg-neutral-800",
+    primary:
+      "bg-neutral-900 dark:bg-foreground dark:text-background text-foreground dark:hover:bg-neutral-200 hover:bg-neutral-800",
+    secondary: "dark:bg-neutral-900 bg-neutral-100 hover:bg-neutral-200 dark:text-white dark:hover:bg-neutral-800",
   };
 
   return (
     <button
       className={clsx(baseStyles, variantStyles[variant], {
-        "opacity-50 cursor-not-allowed": disabled,
+        "cursor-not-allowed opacity-50": disabled,
       })}
       onClick={onClick}
       disabled={disabled}

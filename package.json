@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^11.11.9",
     "next": "14.2.15",
+    "progressive-blur": "^1.0.0",
     "react": "^18",
     "react-dom": "^18"
   },

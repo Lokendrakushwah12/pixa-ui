@@ -1,13 +1,35 @@
+"use client";
 import Link from "next/link";
 import { ThemeToggle } from "../ThemeToggle";
+import { LinearBlur } from "progressive-blur";
+import Image from "next/image";
+import { useTheme } from "../ThemeContext";
 
 const Nav = () => {
+  const { theme } = useTheme();
   return (
     <>
-      <div className="z-50 flex h-[60px] w-full items-center justify-between border-b border-[#d2d9d9] py-4 dark:border-[#212121] sm:px-12 lg:px-24">
+      <div className="sticky top-0 z-50 flex h-[60px] w-full items-center justify-between py-4 sm:px-12 lg:px-24">
+        <LinearBlur
+          side="top"
+          tint={theme === "light" ? "#fff9" : "#0a0a0a"}
+          strength={16}
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: -1,
+          }}
+        />
         <div className="ml-4 flex items-center gap-4">
-          <Link href="/">
-            <h1 className="cursor-pointer text-[20px] font-[600] transition-all hover:text-[#fefefe]">
+          <Link href="/" className="flex items-center justify-center">
+            <Image
+              src={`/assets/svg/${theme === "light" ? "logo-dark" : "logo"}.svg`}
+              alt="Pixa UI Logo"
+              width={32}
+              height={32}
+              className="cursor-pointer"
+            />
+            <h1 className="cursor-pointer text-[20px] font-[500] transition-all hover:text-[#fefefe]">
               Pixa UI
             </h1>
           </Link>

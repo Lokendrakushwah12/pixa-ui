@@ -4,25 +4,28 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --border: #222;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #fff;
+    --foreground: #ffffff;
   }
 }
 
 body {
+  background-color: var(--foreground);
   color: var(--background);
-  background: var(--foreground);
+  font-feature-settings: 'ss02' on, 'liga' off;
+  scroll-behavior: smooth;
 }
+
 .dark body {
+  background-color: var(--background);
   color: var(--foreground);
-  fill: var(--foreground);
-  background: var(--background);
 }
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -35,15 +38,14 @@ body {
 }
 
 .dark ::selection {
-  background: #081b2c;
-  color: #3ca7ff;
+  background: #008cff;
+  color: #fff;
 }
 
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
@@ -51,4 +53,18 @@ body {
 
 .rotate {
   animation: rotate 0.5s forwards;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d7d7d7;
+  border-radius: 100px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #212121;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
