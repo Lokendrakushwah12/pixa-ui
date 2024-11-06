@@ -45,7 +45,7 @@ const Page = () => {
             <h4 className="text-[#212121] dark:text-[#e2e2e2]">Back</h4>
           </Link>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[#e9e9e9] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[#d9d9d9] dark:border-[#171717] dark:bg-[#0a0a0a] dark:shadow-[inset_0_0_0_1px_#0a0a0a] dark:hover:border-[#272727] xs:w-full md:h-[330px] md:w-full">
+          <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:bg-[#0d0d0d] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
               <ButtonV5
                 title="ButtonV5"
                 borderRadius={`${borderRadius}px`}

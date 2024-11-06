@@ -14,7 +14,8 @@ const cardData: CardDataType[] = [
     component: (
       <ButtonV1
         title="ButtonV1"
-        className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+        svgColor="var(--foreground)"
+        className="overflow-hidden rounded-xl border border-[var(--border)] text-[var(--foreground)] backdrop-blur-sm"
       />
     ),
   },
@@ -24,7 +25,7 @@ const cardData: CardDataType[] = [
     component: (
       <ButtonV2
         title="ButtonV2"
-        className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+        className="overflow-hidden rounded-xl border border-[var(--border)] p-4 py-5 text-[var(--foreground)] backdrop-blur-sm"
       />
     ),
   },
@@ -44,7 +45,7 @@ const cardData: CardDataType[] = [
     component: (
       <ButtonV4
         title="ButtonV4"
-        // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+        className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
       />
     ),
   },
@@ -54,7 +55,7 @@ const cardData: CardDataType[] = [
     component: (
       <ButtonV5
         title="ButtonV5"
-        // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+        className="overflow-hidden rounded-xl border border-[var(--border)] backdrop-blur-sm"
       />
     ),
   },
