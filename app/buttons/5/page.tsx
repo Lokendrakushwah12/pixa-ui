@@ -12,7 +12,7 @@ import {
   installationData,
 } from "@/data/buttons/5/Button";
 import Nav from "@/components/pixa-ui/Nav";
-import { ButtonV5 } from "@pixaui/button-v5";
+import ButtonV5 from "./ButtonV5";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(10);

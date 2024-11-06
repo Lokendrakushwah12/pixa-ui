@@ -12,7 +12,7 @@ import {
   installationData,
 } from "@/data/buttons/4/Button";
 import Nav from "@/components/pixa-ui/Nav";
-import { ButtonV4 } from "@pixaui/button-v4";
+import ButtonV4 from "./ButtonV4";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(10);
@@ -45,7 +45,7 @@ const Page = () => {
             <h4 className="text-[#212121] dark:text-[#e2e2e2]">Back</h4>
           </Link>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:bg-[#0d0d0d] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
+            <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:bg-[#0d0d0d] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
               <ButtonV4
                 title="ButtonV4"
                 color={color}
@@ -53,7 +53,7 @@ const Page = () => {
                 style={{
                   fontSize: `${textSize}px`,
                 }}
-                className={`border-[#212121] text-white`}
+                className={`border-[#c9c9c9] text-[#212121] hover:text-white dark:border-[#212121] dark:text-white`}
               />
             </div>
             <div className="flex h-full w-full flex-col items-start justify-start gap-6 overflow-hidden xs:w-full md:h-[330px] md:w-full">

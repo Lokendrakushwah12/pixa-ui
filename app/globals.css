@@ -15,6 +15,9 @@
   --text-primary: #121212;
   --text-secondary: #4a4a4a;
   --text-hover: #121212ee;
+  --scroll-color: #c9c9c9;
+  --scrollbar-thumb: var(--scroll-color);
+  --scrollbar-track: transparent;
 }
 
 .dark {
@@ -28,6 +31,13 @@
   --border-hover: #333;
   --accent: 0 0% 15%;
   --text-hover: #ffffffee;
+  --scroll-color: #292929;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -71,18 +81,4 @@ body {
 
 .rotate {
   animation: rotate 0.5s forwards;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #d7d7d7;
-  border-radius: 100px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background-color: #212121;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
 }
