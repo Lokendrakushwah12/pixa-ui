@@ -18,7 +18,7 @@ const HomeSection = () => {
           </p>
         </div>
         <div className="flex items-center space-x-4">
-          <Button>Get Started</Button>
+          <Button variant="primary">Get Started</Button>
           <Button variant="secondary">Star on GitHub</Button>
         </div>
       </div>

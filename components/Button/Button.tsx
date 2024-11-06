@@ -15,11 +15,12 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   const baseStyles =
-    "px-4 py-2 rounded-lg outline-none transition-all duration-200";
+    "px-4 py-2 rounded-xl select-none outline-none transition-all duration-200";
   const variantStyles = {
     primary:
-      "bg-neutral-900 dark:bg-foreground dark:text-background text-foreground dark:hover:bg-neutral-200 hover:bg-neutral-800",
-    secondary: "dark:bg-neutral-900 bg-neutral-100 hover:bg-neutral-200 dark:text-white dark:hover:bg-neutral-800",
+      "bg-[var(--button)] text-background hover:bg-[var(--button-hover)] border border-[var(--border)]",
+    secondary:
+      "bg-[var(--button-secondary)] text-foreground hover:bg-[var(--button-secondary-hover)] border border-[var(--border)]",
   };
 
   return (

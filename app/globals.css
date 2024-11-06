@@ -4,28 +4,43 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0a0a0a;
-  --border: #222;
+  --foreground: #121212;
+  --button: #212121;
+  --button-hover: #313131;
+  --button-secondary: #f2f2f2;
+  --button-secondary-hover: #e2e2e2;
+  --border: #ddd;
+  --accent: 207 100% 93%;
+  --text-primary: #121212;
+  --text-secondary: #4a4a4a;
+  --text-hover: #121212ee;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ffffff;
-  }
+.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --button: #f2f2f2;
+  --button-hover: #fff;
+  --button-secondary: #171717;
+  --button-secondary-hover: #191919;
+  --border: #222;
+  --accent: 0 0% 15%;
+  --text-hover: #ffffffee;
 }
 
 body {
-  background-color: var(--foreground);
-  color: var(--background);
-  font-feature-settings: 'ss02' on, 'liga' off;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings:
+    "ss02" on,
+    "liga" off;
   scroll-behavior: smooth;
 }
 
-.dark body {
+/* .dark body {
   background-color: var(--background);
   color: var(--foreground);
-}
+} */
 
 @layer utilities {
   .text-balance {
@@ -34,12 +49,12 @@ body {
 }
 
 ::selection {
-  background: #d8ecfc;
+  background: hsl(var(--accent));
   color: #008cff;
 }
 
 .dark ::selection {
-  background: #008cff;
+  background: hsl(var(--accent));
   color: #fff;
 }
 
