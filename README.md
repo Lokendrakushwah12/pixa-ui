@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pixa UI
 
-## Getting Started
+A curated collection of versatile React.js/Next.js components crafted with Tailwind CSS to accelerate your development speed.
 
-First, run the development server:
+## Features
+
+- 🎨 **Customizable Components**: Fully customizable components using Tailwind CSS
+- 📱 **Responsive Design**: Mobile-first approach ensuring compatibility across all devices
+- ⚡ **Performance Optimized**: Lightweight and fast-loading components
+- 🎭 **TypeScript Support**: Full TypeScript support for better development experience
+- 🎯 **Production Ready**: Battle-tested components ready for production
+
+## Installation
 
 ```bash
-npm run dev
+npm install pixa-ui
 # or
-yarn dev
+yarn add pixa-ui
 # or
-pnpm dev
-# or
-bun dev
+pnpm add pixa-ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We welcome contributions ❤️! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Check the [issues page](https://github.com/pixa-ui/pixa-ui/issues) to get started.
 
-## Learn More
+New contributors are always welcome!
 
-To learn more about Next.js, take a look at the following resources:
+## Usage Rights
+Pixa UI components are provided under the MIT License for both personal and commercial use. You are free to:
+- Use components in personal projects
+- Integrate components in commercial applications
+- Modify and adapt components to suit your needs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Restrictions
+- The Pixa UI brand name and logo may not be used to endorse derivative works without permission
+- Components may not be repackaged and distributed as a standalone UI library
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact & Support
 
-## Deploy on Vercel
+Have questions or suggestions? We'd love to hear from you:
+- Follow us on X (Twitter): [@lokendratwt](https://twitter.com/lokendratwt)
+- Create an issue on [GitHub](https://github.com/pixa-ui/pixa-ui/issues)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Status
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pixa UI is under active development. We're constantly:
+- Adding new components
+- Improving existing features
+- Incorporating community feedback
+
+Your input helps shape the future of this project. Whether you're reporting a bug, suggesting a feature, or sharing your success story, we want to hear from you!
+
+## License
+
+MIT © [Pixa UI](LICENSE)
