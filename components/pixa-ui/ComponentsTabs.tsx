@@ -1,14 +1,17 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import ComponentSection from "./ComponentSection";
+import TabContent from "./TabContent";
 
-const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"];
+const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"] as const;
+type TabType = (typeof tabs)[number];
 
-const ComponentsSection = () => {
-  const [active, setActive] = React.useState(tabs[0]);
+const ComponentsTabs = () => {
+  const [active, setActive] = React.useState<TabType>(tabs[0]);
 
   return (
-    <div className="mb-12 mt-44 flex w-full flex-col items-center justify-start gap-4">
+    <div className="mb-12 mt-[2rem] flex w-full flex-col items-center justify-start gap-4">
       <div className="flex max-w-7xl flex-wrap items-center gap-2 border-b border-gray-200 px-3 dark:border-[#515151]">
         {tabs.map((text) => (
           <button
@@ -36,11 +39,13 @@ const ComponentsSection = () => {
 
       <div>
         <div className="mb-4 py-24 text-left text-lg font-[400] tracking-tight text-neutral-800 dark:text-neutral-500">
-          {active}
+          <ComponentSection>
+            <TabContent active={active} />
+          </ComponentSection>
         </div>
       </div>
     </div>
   );
 };
 
-export default ComponentsSection;
+export default ComponentsTabs;

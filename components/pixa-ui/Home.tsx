@@ -6,7 +6,7 @@ const HomeSection = () => {
   return (
     <div className="relative w-full">
       <Bg />
-      <div className="my-[4rem] flex h-full flex-col items-center justify-center gap-4 px-3">
+      <div className="my-[2rem] flex h-full flex-col items-center justify-center gap-4 px-3">
         <div className="flex w-full flex-col items-center justify-center gap-2">
           <h1 className="xs:text-2xl max-w-lg text-3xl font-bold tracking-tight md:max-w-2xl md:text-5xl">
             Curated collection of versatile <br /> React

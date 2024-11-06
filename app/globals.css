@@ -10,6 +10,7 @@
   --button-secondary: #f2f2f2;
   --button-secondary-hover: #e2e2e2;
   --border: #ddd;
+  --border-hover: #ccc;
   --accent: 207 100% 93%;
   --text-primary: #121212;
   --text-secondary: #4a4a4a;
@@ -24,6 +25,7 @@
   --button-secondary: #171717;
   --button-secondary-hover: #191919;
   --border: #222;
+  --border-hover: #333;
   --accent: 0 0% 15%;
   --text-hover: #ffffffee;
 }
