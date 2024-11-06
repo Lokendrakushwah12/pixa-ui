@@ -55,7 +55,7 @@ const cardData: CardDataType[] = [
     component: (
       <ButtonV5
         title="ButtonV5"
-        className="overflow-hidden rounded-xl border border-[var(--border)] backdrop-blur-sm"
+        className="overflow-hidden rounded-xl border border-[var(--border)] bg-[#1e1e1e] text-[var(--background)] backdrop-blur-sm"
       />
     ),
   },
