@@ -26,31 +26,6 @@ const Page = () => {
     setTextSize(value[0]);
   };
 
-  const data2 = [
-    {
-      name: "icon",
-      type: "ReactNode",
-      default: "null",
-      nameDetails: "Sets the color of the component.",
-      typeDetails: "Should be a valid CSS color.",
-    },
-    {
-      name: "title",
-      type: "string",
-      default: "null",
-    },
-    {
-      name: "className",
-      type: "string",
-      default: "null",
-    },
-    {
-      name: "style",
-      type: "React.CSSProperties",
-      default: "null",
-    },
-  ];
-
   return (
     <>
       <Nav />
