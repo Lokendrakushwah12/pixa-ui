@@ -10,7 +10,7 @@ const Bg = () => {
         }}
       />
       <svg
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)] dark:stroke-neutral-800"
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)] dark:stroke-neutral-800"
         aria-hidden
       >
         <defs>

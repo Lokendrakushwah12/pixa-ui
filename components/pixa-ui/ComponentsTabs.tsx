@@ -38,7 +38,7 @@ const ComponentsTabs = () => {
       </div>
 
       <div>
-        <div className="mb-4 py-24 text-left text-lg font-[400] tracking-tight text-neutral-800 dark:text-neutral-500">
+        <div className="mb-4 text-left text-lg font-[400] tracking-tight text-neutral-800 dark:text-neutral-500">
           <ComponentSection>
             <TabContent active={active} />
           </ComponentSection>
