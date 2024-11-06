@@ -1,0 +1,14 @@
+export interface CardDataType {
+  title: string;
+  href: string;
+  component?: React.ReactNode;
+}
+
+export const tabs = [
+  "Button",
+  "Cards",
+  "Tabs",
+  "Modals",
+  "Miscellaneous",
+] as const;
+export type TabType = (typeof tabs)[number];

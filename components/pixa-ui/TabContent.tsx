@@ -1,7 +1,6 @@
 import React from "react";
 import TabButton from "./TabButton";
-
-const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"] as const;
+import { tabs } from "@/types/types";
 
 interface TabContentProps {
   active: (typeof tabs)[number];

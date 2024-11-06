@@ -13,7 +13,7 @@ const Nav = () => {
       <div className="sm:px-12 lg:px-24 sticky top-0 z-50 flex h-[60px] w-full items-center justify-between py-4">
         <LinearBlur
           side="top"
-          tint={theme === "light" ? "#fff9" : "#0a0a0a"}
+          tint={theme === "light" ? "#fff9" : "#121212aa"}
           strength={16}
           style={{
             position: "absolute",

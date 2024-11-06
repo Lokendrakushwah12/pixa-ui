@@ -5,12 +5,7 @@ import { ButtonV1 } from "@pixaui/button-v1";
 import ButtonV3 from "@/app/buttons/3/ButtonV3";
 import { ButtonV4 } from "@pixaui/button-v4";
 import { ButtonV5 } from "@pixaui/button-v5";
-
-interface CardDataType {
-  title: string;
-  href: string;
-  component?: React.ReactNode;
-}
+import { CardDataType } from "@/types/types";
 
 const cardData: CardDataType[] = [
   {
@@ -38,9 +33,9 @@ const cardData: CardDataType[] = [
     href: "/buttons/3",
     component: (
       <ButtonV3
-      title="ButtonV3"
-      // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
-    />
+        title="ButtonV3"
+        // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+      />
     ),
   },
   {
@@ -48,9 +43,9 @@ const cardData: CardDataType[] = [
     href: "/buttons/4",
     component: (
       <ButtonV4
-      title="ButtonV4"
-      // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
-    />
+        title="ButtonV4"
+        // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+      />
     ),
   },
   {
@@ -58,9 +53,9 @@ const cardData: CardDataType[] = [
     href: "/buttons/5",
     component: (
       <ButtonV5
-      title="ButtonV5"
-      // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
-    />
+        title="ButtonV5"
+        // className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm dark:border-[#212121]"
+      />
     ),
   },
 ];
