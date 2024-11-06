@@ -14,36 +14,33 @@ export default App;`;
 
 export const installationData = `npm i @pixaui/button-v2`;
 
-export const columns = [
-  { header: "Prop", key: "prop" },
-  { header: "Type", key: "type" },
-  { header: "Default", key: "default" },
-  { header: "Description", key: "description" },
-];
-
 export const data = [
   {
-    prop: "title",
+    name: "title",
+    nameDetails: "Text to display on the button",
     type: "string",
+    typeDetails: "The text content for the button",
     default: `"ButtonV2"`,
-    description: "Text to display on the button",
   },
   {
-    prop: "bgColor",
+    name: "bgColor",
+    nameDetails: "Background color for the animated hover effect",
     type: "string",
+    typeDetails: "Any valid CSS color value",
     default: `"bg-[#f0900f]"`,
-    description: "Background color for the animated hover effect",
   },
   {
-    prop: "className",
+    name: "className",
+    nameDetails: "Additional classes for styling the button container",
     type: "string",
+    typeDetails: "CSS class names for custom styling",
     default: `""`,
-    description: "Additional classes for styling the button container",
   },
   {
-    prop: "style",
+    name: "style",
+    nameDetails: "Inline styles for custom styling",
     type: "CSSProperties",
+    typeDetails: "An object containing CSS properties",
     default: "undefined",
-    description: "Inline styles for custom styling",
   },
 ];

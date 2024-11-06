@@ -1,4 +1,4 @@
-export const codeData = `import { ButtonV1 } from "@pixaui/button-v1";
+export const codeData = `import { ButtonV1 } from ./button-v1";
 import { Plane } from "lucide-react";
 
 function App() {
@@ -22,44 +22,42 @@ function App() {
 
 export default App;`;
 
-export const installationData = `npm i @pixaui/button-v1 lucide-react`;
-
-export const columns = [
-  { header: "Prop", key: "prop" },
-  { header: "Type", key: "type" },
-  { header: "Default", key: "default" },
-  { header: "Description", key: "description" },
-];
+export const installationData = `npm i lucide-react`;
 
 export const data = [
   {
-    prop: "title",
+    name: "title",
+    nameDetails: "Text to display on the button",
     type: "string",
+    typeDetails: "The text content for the button",
     default: `"ButtonV1"`,
-    description: "Text to display on the button",
   },
   {
-    prop: "svgColor",
+    name: "svgColor",
+    nameDetails: "Color of the SVG icon",
     type: "string",
+    typeDetails: "Any valid CSS color value",
     default: `"#212121"`,
-    description: "Color of the SVG icon",
   },
   {
-    prop: "icon",
+    name: "icon",
+    nameDetails: "Icon to display inside the button",
     type: "ReactNode",
+    typeDetails: "A React element representing an icon",
     default: "undefined",
-    description: "Icon to display inside the button",
   },
   {
-    prop: "className",
+    name: "className",
+    nameDetails: "Additional classes for styling",
     type: "string",
+    typeDetails: "CSS class names for custom styling",
     default: `""`,
-    description: "Additional classes for styling",
   },
   {
-    prop: "style",
+    name: "style",
+    nameDetails: "Inline styles for custom styling",
     type: "React.CSSProperties",
+    typeDetails: "An object with inline styles",
     default: "undefined",
-    description: "Inline styles for custom styling",
   },
 ];

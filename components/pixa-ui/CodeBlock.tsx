@@ -57,8 +57,8 @@ const CodeBlock = memo(function CodeBlock({
   const syntaxTheme = theme === "light" ? prism : coldarkDark;
 
   return (
-    <div className="scroll-min relative w-full overflow-hidden rounded-lg border border-[#d9d9d9] bg-[#f9f9f9] font-sans dark:border-[#212121] dark:bg-[#0f0f0f]">
-      <div className="flex w-full items-center justify-between border-b border-[#d9d9d9] px-4 py-2 text-foreground dark:border-[#444]">
+    <div className="scroll-min relative w-full overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--background)] font-sans">
+      <div className="flex w-full items-center bg-[var(--button-secondary)] justify-between border-b border-[var(--border)] px-4 py-2 text-foreground">
         <span className="text-xs lowercase text-[#b0b0b0]">{language}</span>
         <div className="flex items-center space-x-1">
           <button

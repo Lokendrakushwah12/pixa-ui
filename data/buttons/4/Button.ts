@@ -15,42 +15,40 @@ export default App;`;
 
 export const installationData = `npm i @pixaui/button-v4`;
 
-export const columns = [
-  { header: "Prop", key: "prop" },
-  { header: "Type", key: "type" },
-  { header: "Default", key: "default" },
-  { header: "Description", key: "description" },
-];
-
 export const data = [
   {
-    prop: "title",
+    name: "title",
+    nameDetails: "Text to display on the button",
     type: "string",
+    typeDetails: "The text content for the button",
     default: `""`,
-    description: "Text to display on the button",
   },
   {
-    prop: "borderRadius",
+    name: "borderRadius",
+    nameDetails: "Border radius for button's rounded corners",
     type: "string",
+    typeDetails: "Any valid CSS value for border-radius",
     default: `"8px"`,
-    description: "Border radius for button's rounded corners",
   },
   {
-    prop: "color",
+    name: "color",
+    nameDetails: "Main color of the button, including hover effect",
     type: "string",
+    typeDetails: "Any valid CSS color value",
     default: `"#212121"`,
-    description: "Main color of the button, including hover effect",
   },
   {
-    prop: "className",
+    name: "className",
+    nameDetails: "Additional classes for styling the button container",
     type: "string",
+    typeDetails: "CSS class names for custom styling",
     default: `""`,
-    description: "Additional classes for styling the button container",
   },
   {
-    prop: "style",
+    name: "style",
+    nameDetails: "Inline styles for custom styling",
     type: "CSSProperties",
+    typeDetails: "An object containing CSS properties",
     default: "undefined",
-    description: "Inline styles for custom styling",
   },
 ];

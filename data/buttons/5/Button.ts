@@ -17,54 +17,54 @@ function App() {
 
 export default App;`;
 
-export const columns = [
-  { header: "Prop", key: "prop" },
-  { header: "Type", key: "type" },
-  { header: "Default", key: "default" },
-  { header: "Description", key: "description" },
-];
-
 export const data = [
   {
-    prop: "title",
+    name: "title",
+    nameDetails: "Text to display on the button",
     type: "string",
+    typeDetails: "The text content for the button",
     default: `""`,
-    description: "Text to display on the button",
   },
   {
-    prop: "icon",
+    name: "icon",
+    nameDetails: "Displays an icon beside the button title when true",
     type: "boolean",
+    typeDetails: "Set to true to show an icon",
     default: "true",
-    description: "Displays an icon beside the button title when true",
   },
   {
-    prop: "loading",
+    name: "loading",
+    nameDetails: "Shows a loading spinner on the button when true",
     type: "boolean",
+    typeDetails: "Set to true to indicate a loading state",
     default: "false",
-    description: "Shows a loading spinner on the button when true",
   },
   {
-    prop: "borderRadius",
+    name: "borderRadius",
+    nameDetails: "Defines the border radius of the button",
     type: "string",
+    typeDetails: "Any valid CSS value for border-radius",
     default: `"8px"`,
-    description: "Defines the border radius of the button",
   },
   {
-    prop: "variant",
+    name: "variant",
+    nameDetails: "Sets the button's style variant",
     type: `"default" | "primary" | "secondary" | "destructive"`,
+    typeDetails: "Button style options",
     default: `"default"`,
-    description: "Sets the button's style variant",
   },
   {
-    prop: "className",
+    name: "className",
+    nameDetails: "Adds additional CSS classes to the button for styling",
     type: "string",
+    typeDetails: "CSS class names for custom styling",
     default: `""`,
-    description: "Adds additional CSS classes to the button for styling",
   },
   {
-    prop: "style",
+    name: "style",
+    nameDetails: "Inline styles for custom button styling",
     type: "CSSProperties",
+    typeDetails: "An object containing CSS properties",
     default: "undefined",
-    description: "Inline styles for custom button styling",
   },
 ];

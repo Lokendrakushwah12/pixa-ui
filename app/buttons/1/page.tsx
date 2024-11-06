@@ -1,19 +1,13 @@
 "use client";
 import React, { useState } from "react";
-// import ButtonV1 from "./ButtonV1";
 import { ChevronLeft, Plane } from "lucide-react";
 import Link from "next/link";
 import CodeBlock from "@/components/pixa-ui/CodeBlock";
 import SliderComponent from "@/components/pixa-ui/SliderComponent";
-import TableComponent from "@/components/pixa-ui/TableComponent";
-import {
-  codeData,
-  columns,
-  data,
-  installationData,
-} from "@/data/buttons/1/Button";
+import { codeData, data, installationData } from "@/data/buttons/1/Button";
 import Nav from "@/components/pixa-ui/Nav";
-import { ButtonV1 } from "@pixaui/button-v1";
+import { PropsTable } from "@/components/pixa-ui/PropsTable";
+import ButtonV1 from "./ButtonV1";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(10);
@@ -32,6 +26,31 @@ const Page = () => {
     setTextSize(value[0]);
   };
 
+  const data2 = [
+    {
+      name: "icon",
+      type: "ReactNode",
+      default: "null",
+      nameDetails: "Sets the color of the component.",
+      typeDetails: "Should be a valid CSS color.",
+    },
+    {
+      name: "title",
+      type: "string",
+      default: "null",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "null",
+    },
+    {
+      name: "style",
+      type: "React.CSSProperties",
+      default: "null",
+    },
+  ];
+
   return (
     <>
       <Nav />
@@ -46,7 +65,7 @@ const Page = () => {
             <h4 className="text-[#212121] dark:text-[#e2e2e2]">Back</h4>
           </Link>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:bg-[#0d0d0d] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
+            <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
               <ButtonV1
                 title="ButtonV1"
                 svgColor={svgColor}
@@ -102,7 +121,8 @@ const Page = () => {
             </div>
           </div>
           <CodeBlock language="tsx" value={codeData} />
-          <TableComponent columns={columns} data={data} />
+          <PropsTable data={data} />
+          {/* <TableComponent columns={columns} data={data} /> */}
         </div>
       </div>
     </>
