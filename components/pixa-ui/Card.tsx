@@ -7,11 +7,13 @@ const Card = ({
   src,
   href,
   children,
+  download,
 }: {
   title: React.ReactNode;
   src?: string;
   href: string;
   children?: React.ReactNode;
+  download?: React.ReactNode;
 }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
@@ -31,9 +33,12 @@ const Card = ({
         )}
         {children}
       </Link>
-      <h1 className="text-base font-[400] text-black dark:text-white">
-        {title}
-      </h1>
+      <div className="flex w-full items-center justify-between px-2">
+        <h1 className="text-base font-[400] text-[#444] dark:text-[#808080]">
+          {title}
+        </h1>
+        {download}
+      </div>
     </div>
   );
 };

@@ -14,6 +14,7 @@
   --accent: 207 100% 93%;
   --text-primary: #121212;
   --text-secondary: #4a4a4a;
+  --text-secondary-hover: #3a3a3a;
   --text-hover: #121212ee;
   --scroll-color: #c9c9c9;
   --scrollbar-thumb: var(--scroll-color);
@@ -29,6 +30,8 @@
   --button-secondary-hover: #191919;
   --border: #222222;
   --border-hover: #333;
+  --text-secondary: #777;
+  --text-secondary-hover: #aaa;
   --accent: 0 0% 15%;
   --text-hover: #ffffffee;
   --scroll-color: #292929;
@@ -81,4 +84,39 @@ body {
 
 .rotate {
   animation: rotate 0.5s forwards;
+}
+
+.container {
+  max-width: 100vw;
+}
+
+@media (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+@media (max-width: 850px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
 }

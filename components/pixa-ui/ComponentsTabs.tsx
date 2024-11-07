@@ -12,15 +12,15 @@ const ComponentsTabs = () => {
 
   return (
     <div className="mb-12 mt-[2rem] flex w-full flex-col items-center justify-start gap-4">
-      <div className="flex max-w-7xl flex-wrap items-center gap-2 border-b border-gray-200 px-3 dark:border-[#515151]">
+      <div className="flex max-w-7xl flex-wrap items-center gap-2 border-b border-[var(--border)] px-3">
         {tabs.map((text) => (
           <button
             key={text}
             onClick={() => setActive(text)}
             className={`relative rounded-md px-2 py-1 text-sm font-[400] transition-all duration-300 ${
               active === text
-                ? "text-background dark:text-[#fff]"
-                : "text-[#515151] dark:text-[#777]"
+                ? "text-[var(--text-secondary-hover)]"
+                : "text-[var(--text-secondary)]"
             } hover:text-background dark:hover:text-foreground`}
           >
             <span className="relative z-10 text-lg">{text}</span>
@@ -30,7 +30,7 @@ const ComponentsTabs = () => {
                 layoutId="underline"
                 transition={{ type: "spring", duration: 0.3, bounce: 0.2 }}
               >
-                <span className="z-0 h-[3px] w-3/4 rounded-t-sm bg-background dark:bg-foreground"></span>
+                <span className="z-0 h-[3px] w-3/4 rounded-t-sm bg-[var(--text-secondary)]"></span>
               </motion.div>
             )}
           </button>

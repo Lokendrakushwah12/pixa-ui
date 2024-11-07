@@ -14,6 +14,8 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
         <div
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
           className={clsx(
             "relative cursor-pointer before:absolute before:left-0 before:top-0 before:-z-[1] before:h-full before:w-full before:scale-75 before:rounded-md before:bg-transparent before:transition-all before:content-['']",
             "hover:text-foreground hover:before:scale-100 hover:before:bg-[var(--scroll-color)]",
@@ -32,14 +34,17 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
               onOpenAutoFocus={(e) => e.preventDefault()}
             >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: -5 }}
+                exit={{ opacity: 0, y: 10 }}
                 transition={{
-                  ease: [0.19, 1, 0.22, 1],
+                  type: "spring",
+                  ease: "easeInOut",
                   duration: 0.2,
+                  // bounce: -10,
                 }}
-                className="text-neutral-400 text-sm inline-block max-w-96 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--button-secondary)] px-3 py-2 leading-[18px] shadow"
+                
+                className="inline-block max-w-96 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--button-secondary)] px-3 py-2 text-sm leading-[18px] text-neutral-400 shadow"
               >
                 {content}
               </motion.div>

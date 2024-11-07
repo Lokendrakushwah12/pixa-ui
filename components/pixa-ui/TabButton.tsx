@@ -1,16 +1,19 @@
-import React from "react";
+"use client";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import ButtonV2 from "@/app/buttons/2/ButtonV2";
 import { ButtonV1 } from "@pixaui/button-v1";
 import ButtonV3 from "@/app/buttons/3/ButtonV3";
-import { ButtonV4 } from "@pixaui/button-v4";
-import { ButtonV5 } from "@pixaui/button-v5";
 import { CardDataType } from "@/types/types";
+import ComponentActions from "./ComponentActions";
+import ButtonV4 from "@/app/buttons/4/ButtonV4";
+import ButtonV5 from "@/app/buttons/5/ButtonV5";
 
 const cardData: CardDataType[] = [
   {
-    title: "Button V1",
+    title: "ButtonV1",
     href: "/buttons/1",
+
     component: (
       <ButtonV1
         title="ButtonV1"
@@ -20,8 +23,9 @@ const cardData: CardDataType[] = [
     ),
   },
   {
-    title: "Button V2",
+    title: "ButtonV2",
     href: "/buttons/2",
+
     component: (
       <ButtonV2
         title="ButtonV2"
@@ -30,8 +34,9 @@ const cardData: CardDataType[] = [
     ),
   },
   {
-    title: "Button V3",
+    title: "ButtonV3",
     href: "/buttons/3",
+
     component: (
       <ButtonV3
         title="ButtonV3"
@@ -40,18 +45,20 @@ const cardData: CardDataType[] = [
     ),
   },
   {
-    title: "Button V4",
+    title: "ButtonV4",
     href: "/buttons/4",
+
     component: (
       <ButtonV4
         title="ButtonV4"
-        className="overflow-hidden rounded-xl border border-[#d9d9d9] hover:text-white backdrop-blur-sm dark:border-[#212121]"
+        className="overflow-hidden rounded-xl border border-[#d9d9d9] backdrop-blur-sm hover:text-white dark:border-[#212121]"
       />
     ),
   },
   {
-    title: "Button V5",
+    title: "ButtonV5",
     href: "/buttons/5",
+
     component: (
       <ButtonV5
         title="ButtonV5"
@@ -62,6 +69,22 @@ const cardData: CardDataType[] = [
 ];
 
 const TabButton = () => {
+  const [codes, setCodes] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    const fetchCode = async (componentName: string) => {
+      const res = await fetch(`/code/${componentName}`);
+      if (res.ok) {
+        const data = await res.json();
+        setCodes((prevCodes) => ({ ...prevCodes, [componentName]: data.code }));
+      }
+    };
+
+    cardData.forEach((data) => {
+      fetchCode(data.title);
+    });
+  }, []);
+
   return (
     <>
       {cardData.map((data) => (
@@ -69,7 +92,16 @@ const TabButton = () => {
           key={data.title}
           className="flex w-full flex-col items-start justify-center gap-4"
         >
-          <Card title={data.title} href={data.href}>
+          <Card
+            title={data.title}
+            download={
+              <ComponentActions
+                code={codes[data.title] || ""}
+                componentName={data.title}
+              />
+            }
+            href={data.href}
+          >
             {data.component}
           </Card>
         </div>
