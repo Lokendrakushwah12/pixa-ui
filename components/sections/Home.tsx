@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../ui/Button";
 import Bg from "../ui/Bg";
 import { Spotlight } from "../ui/spotlight";
 import Container from "../animation/container";

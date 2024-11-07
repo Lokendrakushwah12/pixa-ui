@@ -1,11 +1,11 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import Card from "./Card";
+import Card from "../ui/Card";
 import ButtonV2 from "@/app/buttons/2/ButtonV2";
 import { ButtonV1 } from "@pixaui/button-v1";
 import ButtonV3 from "@/app/buttons/3/ButtonV3";
 import { CardDataType } from "@/types/types";
-import ComponentActions from "./ComponentActions";
+import ComponentActions from "../pixa-ui/ComponentActions";
 import ButtonV4 from "@/app/buttons/4/ButtonV4";
 import ButtonV5 from "@/app/buttons/5/ButtonV5";
 

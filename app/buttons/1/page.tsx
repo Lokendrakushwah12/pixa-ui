@@ -5,7 +5,7 @@ import Link from "next/link";
 import CodeBlock from "@/components/pixa-ui/CodeBlock";
 import SliderComponent from "@/components/pixa-ui/SliderComponent";
 import { codeData, data, installationData } from "@/data/buttons/1/Button";
-import Nav from "@/components/pixa-ui/Nav";
+import Nav from "@/components/sections/Nav";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 import ButtonV1 from "./ButtonV1";
 

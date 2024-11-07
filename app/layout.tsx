@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { uncutsans } from "./fonts";
-import { Providers } from "@/components/Providers";
+import { Providers } from "@/components/theme/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {

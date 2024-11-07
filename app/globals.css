@@ -41,6 +41,7 @@ html {
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   scrollbar-width: thin;
   scroll-behavior: smooth;
+  letter-spacing: -0.09px;
 }
 
 body {
@@ -50,12 +51,13 @@ body {
     "ss02" on,
     "liga" off;
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
 }
 
 /* .dark body {
   background-color: var(--background);
   color: var(--foreground);
-} */
+  } */
 
 @layer utilities {
   .text-balance {
@@ -146,4 +148,13 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
+}
+
+body[data-scroll-locked] {
+  overflow: hidden !important;
+  margin-right: 11px !important;
+}
+
+body[data-scroll-locked] {
+  --removed-body-scroll-bar-size: 11px;
 }

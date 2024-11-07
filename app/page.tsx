@@ -1,6 +1,6 @@
-import Nav from "@/components/pixa-ui/Nav";
-import HomeSection from "@/components/pixa-ui/Home";
-import ComponentsTabs from "@/components/pixa-ui/ComponentsTabs";
+import HomeSection from "@/components/sections/Home";
+import ComponentsTabs from "@/components/tab/ComponentsTabs";
+import Nav from "@/components/sections/Nav";
 
 export default function Home() {
   return (

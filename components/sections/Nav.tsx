@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { ThemeToggle } from "../ThemeToggle";
 import { LinearBlur } from "progressive-blur";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { LINK } from "@/constants";
+import { ThemeToggle } from "../theme/ThemeToggle";
 
 const Nav = () => {
   const { theme } = useTheme();

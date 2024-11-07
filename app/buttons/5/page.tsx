@@ -9,7 +9,7 @@ import {
   data,
   installationData,
 } from "@/data/buttons/5/Button";
-import Nav from "@/components/pixa-ui/Nav";
+import Nav from "@/components/sections/Nav";
 import ButtonV5 from "./ButtonV5";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 
