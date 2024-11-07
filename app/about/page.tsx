@@ -1,7 +1,7 @@
 import Badge from "@/components/ui/Badge";
-import Nav from "@/components/pixa-ui/Nav";
 import Link from "next/link";
 import { LINK } from "@/constants";
+import Nav from "@/components/sections/Nav";
 
 const page = () => {
   return (
