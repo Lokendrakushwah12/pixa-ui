@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Card from "./Card";
 import ButtonV2 from "@/app/buttons/2/ButtonV2";
 import { ButtonV1 } from "@pixaui/button-v1";
@@ -71,25 +71,30 @@ const cardData: CardDataType[] = [
 const TabButton = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
 
-  useEffect(() => {
-    const fetchCode = async (componentName: string) => {
-      const res = await fetch(`/code/${componentName}`);
-      if (res.ok) {
-        const data = await res.json();
-        setCodes((prevCodes) => ({ ...prevCodes, [componentName]: data.code }));
-      }
-    };
+  const fetchCode = useCallback(
+    async (componentName: string) => {
+      if (codes[componentName]) return;
 
+      const res = await fetch(`/code/${componentName}.tsx`);
+      if (res.ok) {
+        const data = await res.text();
+        setCodes((prevCodes) => ({ ...prevCodes, [componentName]: data }));
+      }
+    },
+    [codes],
+  );
+
+  useEffect(() => {
     cardData.forEach((data) => {
       fetchCode(data.title);
     });
-  }, []);
+  }, [fetchCode]);
 
   return (
     <>
-      {cardData.map((data) => (
+      {cardData.map((data, index) => (
         <div
-          key={data.title}
+          key={index}
           className="flex w-full flex-col items-start justify-center gap-4"
         >
           <Card
