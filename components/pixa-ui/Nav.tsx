@@ -4,6 +4,7 @@ import { ThemeToggle } from "../ThemeToggle";
 import { LinearBlur } from "progressive-blur";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { LINK } from "@/constants";
 
 const Nav = () => {
   const { theme } = useTheme();
@@ -38,7 +39,7 @@ const Nav = () => {
         <div className="mr-4 flex items-center gap-4">
           <ThemeToggle />
           <Link
-            href="https://github.com/Lokendrakushwah12/pixa-ui"
+            href={LINK.GITHUB}
             target="_blank"
             rel="noopener noreferrer"
             className="cursor-pointer rounded-[4px] p-1 text-[14px] font-[500] transition-all hover:text-[var(--text-hover)]"

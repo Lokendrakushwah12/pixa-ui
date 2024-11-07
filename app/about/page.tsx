@@ -1,6 +1,7 @@
 import Badge from "@/components/pixa-ui/Badge";
 import Nav from "@/components/pixa-ui/Nav";
 import Link from "next/link";
+import { LINK } from "@/constants";
 
 const page = () => {
   return (
@@ -42,7 +43,7 @@ const page = () => {
                 Lokendra Kushwah
               </h1>
               <div className="social flex gap-2">
-                <Link href="https://twitter.com/Lokendratwt" target="_blank">
+                <Link href={LINK.TWITTER} target="_blank">
                   <svg
                     width="24"
                     height="24"
@@ -57,10 +58,7 @@ const page = () => {
                   </svg>
                 </Link>
 
-                <Link
-                  href="https://github.com/Lokendrakushwah12"
-                  target="_blank"
-                >
+                <Link href={LINK.GITHUB} target="_blank">
                   <svg
                     width="24"
                     height="24"
@@ -75,10 +73,7 @@ const page = () => {
                   </svg>
                 </Link>
 
-                <Link
-                  href="https://www.linkedin.com/in/lokendrakushwah12/"
-                  target="_blank"
-                >
+                <Link href={LINK.LINKEDIN} target="_blank">
                   <svg
                     width="24"
                     height="24"

@@ -28,7 +28,7 @@ pnpm add pixa-ui
 
 We welcome contributions ❤️! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-Check the [issues page](https://github.com/pixa-ui/pixa-ui/issues) to get started.
+Check the [issues page](https://github.com/Lokendrakushwah12/pixa-ui/issues) to get started.
 
 New contributors are always welcome!
 
@@ -50,7 +50,7 @@ Pixa UI components are provided under the MIT License for both personal and comm
 Have questions or suggestions? We'd love to hear from you:
 
 - Follow us on X (Twitter): [@lokendratwt](https://twitter.com/lokendratwt)
-- Create an issue on [GitHub](https://github.com/pixa-ui/pixa-ui/issues)
+- Create an issue on [GitHub](https://github.com/Lokendrakushwah12/pixa-ui/issues)
 
 ## Project Status
 

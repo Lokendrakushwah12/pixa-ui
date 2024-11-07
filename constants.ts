@@ -1,6 +1,7 @@
 const LINK = {
     TWITTER: 'https://x.com/lokendratwt',
-    GITHUB: 'Lokendrakushwah12',
+    GITHUB: 'https://github.com/Lokendrakushwah12',
+    LINKEDIN: 'https://www.linkedin.com/in/lokendrakushwah12/',
   };
   
   export { LINK };
