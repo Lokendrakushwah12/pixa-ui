@@ -14,7 +14,7 @@ const HomeSection = () => {
           fill="currentColor"
         />
       </Container>
-      <div className="my-[1rem] flex h-full flex-col items-center justify-center gap-0 px-3">
+      <div className="my-[1rem] flex h-full flex-col items-center justify-center gap-4 px-3">
         <Container>
           <div className="flex w-full flex-col items-center justify-center gap-2">
             <h1 className="max-w-lg text-3xl font-bold tracking-tight xs:text-2xl md:max-w-2xl md:text-5xl">

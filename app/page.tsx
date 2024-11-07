@@ -5,7 +5,7 @@ import ComponentsTabs from "@/components/pixa-ui/ComponentsTabs";
 export default function Home() {
   return (
     <>
-      <div className="flex h-screen w-full flex-col items-center justify-between text-center">
+      <div className="flex w-full flex-col items-center justify-between text-center">
         <Nav />
         <HomeSection />
         <ComponentsTabs />
