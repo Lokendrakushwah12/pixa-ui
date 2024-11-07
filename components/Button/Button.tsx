@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary:
       "bg-[var(--button)] text-background hover:bg-[var(--button-hover)] border border-[var(--border)]",
     secondary:
-      "bg-[var(--button-secondary)] text-foreground hover:bg-[var(--button-secondary-hover)] border border-[var(--border)]",
+      "bg-[var(--button-secondary)] text-foreground hover:bg-[var(--button-secondary-hover)] border border-[var(--border)] hover:border-[var(--border-hover)]",
   };
 
   return (

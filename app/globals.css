@@ -8,13 +8,13 @@
   --button: #212121;
   --button-hover: #313131;
   --button-secondary: #f2f2f2;
-  --button-secondary-hover: #e2e2e2;
+  --button-secondary-hover: #f6f6f6;
   --border: #ddd;
   --border-hover: #ccc;
   --accent: 207 100% 93%;
   --text-primary: #121212;
   --text-secondary: #4a4a4a;
-  --text-secondary-hover: #3a3a3a;
+  --text-secondary-hover: #2a2a2a;
   --text-hover: #121212ee;
   --scroll-color: #c9c9c9;
   --scrollbar-thumb: var(--scroll-color);
@@ -28,10 +28,10 @@
   --button-hover: #fff;
   --button-secondary: #171717;
   --button-secondary-hover: #191919;
-  --border: #222222;
+  --border: #272727;
   --border-hover: #333;
   --text-secondary: #777;
-  --text-secondary-hover: #aaa;
+  --text-secondary-hover: #ccc;
   --accent: 0 0% 15%;
   --text-hover: #ffffffee;
   --scroll-color: #292929;
@@ -84,6 +84,33 @@ body {
 
 .rotate {
   animation: rotate 0.5s forwards;
+}
+
+.animate-spotlight {
+  animation: spotlight 0.7s forwards;
+}
+
+@keyframes spotlight {
+  from {
+    transform: translateY(-200px) scale(0.5);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scroll {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+  padding: 8px 2px;
+  border: none;
+}
+.scroll ::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scroll ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
 }
 
 .container {

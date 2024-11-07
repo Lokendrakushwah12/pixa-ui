@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@openpanel/nextjs": "^1.0.5",
     "@pixaui/button-v1": "^1.1.0",
     "@pixaui/button-v4": "^1.1.12",
     "@pixaui/button-v5": "^1.1.11",
@@ -25,7 +26,8 @@
     "progressive-blur": "^1.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-syntax-highlighter": "^15.6.1"
+    "react-syntax-highlighter": "^15.6.1",
+    "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
     "@types/node": "^20",

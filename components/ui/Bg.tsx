@@ -10,7 +10,7 @@ const Bg = () => {
         }}
       />
       <svg
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)] dark:stroke-neutral-800"
+        className="pointer-events-none absolute inset-0 -top-10 -z-10 h-full w-full stroke-gray-300 [mask-image:radial-gradient(100%_100%_at_top_center,white,transparent)] dark:stroke-neutral-800"
         aria-hidden
       >
         <defs>
@@ -25,7 +25,11 @@ const Bg = () => {
             <path d="M100 200V.5M.5 .5H200" fill="none" />
           </pattern>
         </defs>
-        <svg x="50%" y={-1} className="overflow-visible fill-gray-50 dark:fill-neutral-900/50">
+        <svg
+          x="50%"
+          y={-1}
+          className="overflow-visible fill-gray-50 dark:fill-neutral-900/50"
+        >
           <path
             d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
             strokeWidth={0}
