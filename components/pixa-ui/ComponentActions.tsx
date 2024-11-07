@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckIcon, CopyIcon, Download, DownloadIcon } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { CheckIcon, CopyIcon, DownloadIcon } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 import {
   Tooltip,
   TooltipTrigger,
