@@ -3,7 +3,6 @@ import { Button } from "../ui/Button";
 import Bg from "../ui/Bg";
 import { Spotlight } from "../ui/spotlight";
 import Container from "../animation/container";
-import HeroLines from "../pixa-ui/HeroLines";
 
 const HomeSection = () => {
   return (
