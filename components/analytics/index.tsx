@@ -8,12 +8,20 @@ enum ANALYTIC_EVENT {
 }
 
 const Analytics = () => {
-  if (process.env.ENVIRONMENT !== "production") return null;
+  if (process.env.NEXT_PUBLIC_ENVIRONMENT !== "production") return null;
+
+  const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+  const clientSecret = process.env.NEXT_PUBLIC_SECRET;
+
+  if (!clientId || !clientSecret) {
+    console.warn("Client ID or Secret is missing.");
+    return null;
+  }
 
   return (
     <OpenPanelComponent
-      clientId={process.env.CLIENT_ID!}
-      clientSecret={process.env.SECRET!}
+      clientId={clientId}
+      clientSecret={clientSecret}
       trackScreenViews={true}
       trackAttributes={true}
     />

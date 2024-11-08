@@ -32,7 +32,7 @@ const Nav = () => {
               className="cursor-pointer"
             />
             <h1 className="cursor-pointer text-[20px] font-[500] transition-all hover:text-[var(--text-hover)]">
-              Pixa UI
+              Pixa<span className="text-base">/ui</span>
             </h1>
           </Link>
         </div>
