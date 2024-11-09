@@ -46,8 +46,8 @@ const StackCard: React.FC<StackCardProps> = ({
       return {
         rotate: 0,
         scale: 0.8,
-        x: position.x,
-        y: position.y,
+        x: position.x+150,
+        y: position.y+50,
         transition: {
           type: "spring",
           bounce: 0.3,
@@ -121,7 +121,7 @@ const StackCard: React.FC<StackCardProps> = ({
       </motion.div>
       <motion.span
         className={`absolute w-full text-center text-foreground transition-all duration-300 ${
-          isExpanded ? "-top-1/2 ml-[25%] text-2xl" : "bottom-0 text-base"
+          isExpanded ? "hidden" : "bottom-0 text-base"
         }`}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

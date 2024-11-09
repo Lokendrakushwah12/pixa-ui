@@ -64,7 +64,7 @@ const TabCard = () => {
     cardData.forEach((data) => {
       fetchCode(data.title);
     });
-  }, [fetchCode]);
+  }, [cardData, fetchCode]);
 
   return (
     <>

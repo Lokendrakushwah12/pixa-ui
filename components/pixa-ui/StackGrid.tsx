@@ -81,7 +81,6 @@ const calculateGridPosition = (
 const StackItem: React.FC<StackItemProps> = ({
   images,
   title,
-  index,
   isExpanded,
   onClick,
 }) => {

@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from "react";
 import Card from "../ui/Card";
 import { CardDataType } from "@/types/types";
 import ComponentActions from "../pixa-ui/ComponentActions";
-import Image from "next/image";
 
 const cardData: CardDataType[] = [
   {
