@@ -1,20 +1,51 @@
 "use client";
+
+import StackItem from "@/public/code/StackCard";
+import { CardDataType } from "@/types/types";
 import { useCallback, useEffect, useState } from "react";
 import Card from "../ui/Card";
-import { CardDataType } from "@/types/types";
 import ComponentActions from "../pixa-ui/ComponentActions";
-import Image from "next/image";
 
-const cardData: CardDataType[] = [
-  {
-    title: "ResetDialog",
-    href: "/modals/1",
-    component: <></>,
-  },
-];
+interface Collection {
+  id: number;
+  title: string;
+  images: string[];
+}
 
-const TabModal = () => {
+const collection: Collection = {
+  id: 1,
+  title: "Nature Collection",
+  images: [
+    "https://images.unsplash.com/photo-1675897974745-1e78e8690755",
+    "https://images.unsplash.com/photo-1486718448742-163732cd1544",
+    "https://images.unsplash.com/photo-1600669091588-8aaac09509ba",
+    "https://images.unsplash.com/photo-1583100913639-b8a172d90b77",
+    "https://images.unsplash.com/photo-1583100913828-aeff24cc04ae",
+    "https://images.unsplash.com/photo-1583100913639-f3b195f86da2",
+  ],
+};
+
+const TabCard = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const cardData: CardDataType[] = [
+    {
+      title: "StackCard",
+      href: "/card/1",
+
+      component: (
+        <StackItem
+          key={collection.id}
+          images={collection.images}
+          title={collection.title}
+          index={0}
+          isExpanded={expandedIndex === 0}
+          onClick={() => setExpandedIndex(expandedIndex === 0 ? null : 0)}
+        />
+      ),
+    },
+  ];
 
   const fetchCode = useCallback(
     async (componentName: string) => {
@@ -53,16 +84,7 @@ const TabModal = () => {
             href={data.href}
             src={`/assets/images/${data.title}.png`}
           >
-            {/* Check if 'data.component' is truthy, not null */}
-            {/* {data.component && (
-              <Image
-                src={`/assets/images/${data.title}.png`}
-                width={600}
-                height={300}
-                alt={data.title}
-                className="h-full object-cover"
-              />
-            )} */}
+            {data.component}
           </Card>
         </div>
       ))}
@@ -70,4 +92,4 @@ const TabModal = () => {
   );
 };
 
-export default TabModal;
+export default TabCard;

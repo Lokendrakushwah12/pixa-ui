@@ -25,9 +25,10 @@ const Card = ({
           <Image
             src={src}
             alt="Card"
-            width={200}
-            height={200}
+            width={700}
+            height={700}
             draggable={false}
+            loading="lazy"
             className="h-full w-full scale-105 select-none object-cover"
           />
         )}
