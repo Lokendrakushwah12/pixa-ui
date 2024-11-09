@@ -7,7 +7,7 @@ import { codeData, data, installationData } from "@/data/cards/1";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 import Nav from "@/components/sections/Nav";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
-import StackCard from "../../../public/code/StackCard";
+import StackCard from "./StackCard";
 
 interface Collection {
   id: number;

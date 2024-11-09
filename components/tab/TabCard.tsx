@@ -1,6 +1,4 @@
 "use client";
-
-import StackItem from "@/public/code/StackCard";
 import { CardDataType } from "@/types/types";
 import { useCallback, useEffect, useState } from "react";
 import Card from "../ui/Card";
@@ -27,23 +25,13 @@ const collection: Collection = {
 
 const TabCard = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const cardData: CardDataType[] = [
     {
       title: "StackCard",
       href: "/card/1",
 
-      component: (
-        <StackItem
-          key={collection.id}
-          images={collection.images}
-          title={collection.title}
-          index={0}
-          isExpanded={expandedIndex === 0}
-          onClick={() => setExpandedIndex(expandedIndex === 0 ? null : 0)}
-        />
-      ),
+      component: <></>,
     },
   ];
 
