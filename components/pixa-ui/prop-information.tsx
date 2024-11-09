@@ -4,7 +4,6 @@ import { InfoCircledIcon } from "@radix-ui/react-icons";
 import * as Popover from "@radix-ui/react-popover";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-
 import React from "react";
 
 export const PropInformation = ({ content }: { content: React.ReactNode }) => {
@@ -14,8 +13,6 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
         <div
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
           className={clsx(
             "relative cursor-pointer before:absolute before:left-0 before:top-0 before:-z-[1] before:h-full before:w-full before:scale-75 before:rounded-md before:bg-transparent before:transition-all before:content-['']",
             "hover:text-foreground hover:before:scale-100 hover:before:bg-[var(--scroll-color)]",
@@ -41,9 +38,7 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
                   type: "spring",
                   ease: "easeInOut",
                   duration: 0.2,
-                  // bounce: -10,
                 }}
-                
                 className="inline-block max-w-96 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--button-secondary)] px-3 py-2 text-sm leading-[18px] text-neutral-400 shadow"
               >
                 {content}

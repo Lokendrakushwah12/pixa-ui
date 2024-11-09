@@ -54,7 +54,7 @@ const Page = () => {
                   <AnimatePresence>
                     {expandedIndex !== null && (
                       <motion.div
-                        className="fixed inset-0 z-50 h-screen w-screen bg-background"
+                        className="fixed inset-0 z-40 h-screen w-screen bg-background"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -62,7 +62,7 @@ const Page = () => {
                       />
                     )}
                   </AnimatePresence>
-                  <div className="relative z-50 flex flex-wrap gap-4">
+                  <div className="relative z-40 flex flex-wrap gap-4">
                     {collections.map((collection, index) => (
                       <StackCard
                         key={collection.id}

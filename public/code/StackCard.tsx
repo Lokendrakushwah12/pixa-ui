@@ -46,8 +46,8 @@ const StackCard: React.FC<StackCardProps> = ({
       return {
         rotate: 0,
         scale: 0.8,
-        x: position.x+150,
-        y: position.y+50,
+        x: position.x + 150,
+        y: position.y + 50,
         transition: {
           type: "spring",
           bounce: 0.3,
@@ -62,14 +62,14 @@ const StackCard: React.FC<StackCardProps> = ({
     <motion.button
       onClick={onClick}
       className={`relative flex size-full items-center justify-center overflow-visible ${
-        isExpanded ? "z-[60]" : ""
+        isExpanded ? "z-[60]" : "z-0"
       }`}
       transition={{ type: "spring", bounce: 0.3 }}
     >
       <AnimatePresence>
         {isExpanded && (
           <motion.div
-            className={`fixed inset-0 z-50 h-screen w-screen bg-background transition-all ${isExpanded ? "z-[-10]" : ""} `}
+            className={`fixed inset-0 h-screen w-screen bg-background transition-all ${isExpanded ? "z-[-10]" : "z-30"} `}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
