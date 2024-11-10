@@ -25,7 +25,6 @@ const calculateGridPosition = (
 const StackCard: React.FC<StackCardProps> = ({
   images,
   title,
-  index,
   isExpanded,
   onClick,
 }) => {

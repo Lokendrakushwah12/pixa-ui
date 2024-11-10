@@ -4,25 +4,6 @@ import { useCallback, useEffect, useState } from "react";
 import Card from "../ui/Card";
 import ComponentActions from "../pixa-ui/ComponentActions";
 
-interface Collection {
-  id: number;
-  title: string;
-  images: string[];
-}
-
-const collection: Collection = {
-  id: 1,
-  title: "Nature Collection",
-  images: [
-    "https://images.unsplash.com/photo-1675897974745-1e78e8690755",
-    "https://images.unsplash.com/photo-1486718448742-163732cd1544",
-    "https://images.unsplash.com/photo-1600669091588-8aaac09509ba",
-    "https://images.unsplash.com/photo-1583100913639-b8a172d90b77",
-    "https://images.unsplash.com/photo-1583100913828-aeff24cc04ae",
-    "https://images.unsplash.com/photo-1583100913639-f3b195f86da2",
-  ],
-};
-
 const TabCard = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
 
