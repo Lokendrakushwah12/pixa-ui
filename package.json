@@ -19,6 +19,8 @@
     "@radix-ui/react-tooltip": "^1.1.3",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
+    "gsap": "^3.12.5",
+    "imagesloaded": "^5.0.0",
     "lucide-react": "^0.454.0",
     "next": "14.2.15",
     "next-themes": "^0.3.0",
@@ -27,6 +29,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-syntax-highlighter": "^15.6.1",
+    "split-type": "^0.3.4",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
