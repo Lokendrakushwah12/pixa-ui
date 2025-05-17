@@ -1,8 +1,8 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import Card from "../ui/Card";
 import { CardDataType } from "@/types/types";
-import ComponentActions from "../pixa-ui/ComponentActions";
+import Card from "@/components/ui/Card";
+import ComponentActions from "@/components/pixa-ui/ComponentActions";
 
 const cardData: CardDataType[] = [
   {

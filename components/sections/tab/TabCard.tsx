@@ -1,8 +1,8 @@
 "use client";
+import ComponentActions from "@/components/pixa-ui/ComponentActions";
+import Card from "@/components/ui/Card";
 import { CardDataType } from "@/types/types";
 import { useCallback, useEffect, useState } from "react";
-import Card from "../ui/Card";
-import ComponentActions from "../pixa-ui/ComponentActions";
 
 const TabCard = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
