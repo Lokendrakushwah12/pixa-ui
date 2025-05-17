@@ -13,7 +13,7 @@ const ComponentsTabs = () => {
   return (
     <div className="mb-12 flex w-full flex-col items-center justify-start gap-4">
       <div className="scroll relative flex max-w-7xl items-center no-scrollbar overflow-x-auto px-3">
-        {tabs.map((text, index) => (
+        {tabs.map((text) => (
           <React.Fragment key={text}>
             <button
               onClick={() => setActive(text)}

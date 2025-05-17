@@ -2,32 +2,36 @@
 import ComponentActions from "@/components/pixa-ui/ComponentActions";
 import Card from "@/components/ui/Card";
 import { CardDataType } from "@/types/types";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const TabCard = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
 
-  const cardData: CardDataType[] = [
+  const cardData = useMemo<CardDataType[]>(() => [
     {
       title: "StackCard",
       href: "/card/1",
-
       component: <></>,
     },
-  ];
+  ], []);
 
-  const fetchCode = useCallback(
-    async (componentName: string) => {
-      if (codes[componentName]) return;
 
-      const res = await fetch(`/code/${componentName}.tsx`);
-      if (res.ok) {
-        const data = await res.text();
-        setCodes((prevCodes) => ({ ...prevCodes, [componentName]: data }));
-      }
-    },
-    [codes],
-  );
+  const fetchCode = useCallback(async (componentName: string) => {
+    setCodes((prevCodes) => {
+      if (prevCodes[componentName]) return prevCodes;
+
+      fetch(`/code/${componentName}.tsx`)
+        .then((res) => res.ok ? res.text() : null)
+        .then((data) => {
+          if (data) {
+            setCodes((prev) => ({ ...prev, [componentName]: data }));
+          }
+        });
+
+      return prevCodes;
+    });
+  }, []);
+
 
   useEffect(() => {
     cardData.forEach((data) => {
