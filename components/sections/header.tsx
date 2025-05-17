@@ -2,7 +2,7 @@ import userData from "@/data/siteData";
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import { GithubIcon, XIcon } from "../icons";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/Button";
 
 const spring = {
     type: 'spring',

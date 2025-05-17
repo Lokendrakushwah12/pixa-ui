@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PixaLogo } from "../icons";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/Button";
 
 const About = () => {
 
