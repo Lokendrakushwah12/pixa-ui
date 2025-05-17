@@ -1,17 +1,16 @@
 "use client";
-import React, { useState } from "react";
-import { ChevronLeft } from "lucide-react";
-import Link from "next/link";
 import CodeBlock from "@/components/pixa-ui/CodeBlock";
+import { PropsTable } from "@/components/pixa-ui/PropsTable";
 import SliderComponent from "@/components/pixa-ui/SliderComponent";
 import {
   codeData,
   data,
   installationData,
 } from "@/data/buttons/5/Button";
-import Nav from "@/components/sections/Nav";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
+import React, { useState } from "react";
 import ButtonV5 from "./ButtonV5";
-import { PropsTable } from "@/components/pixa-ui/PropsTable";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(10);
@@ -32,7 +31,6 @@ const Page = () => {
 
   return (
     <>
-      <Nav />
       <div className="flex w-full items-start justify-center px-8 py-8 xs:px-4 md:px-0">
         <div className="flex w-full max-w-[45rem] flex-col items-start justify-center gap-4">
           <Link href="/" className="flex items-center justify-center">

@@ -9,8 +9,6 @@ import {
   TooltipContent,
   TooltipProvider,
 } from "@radix-ui/react-tooltip";
-import { useOpenPanel } from '@openpanel/nextjs';
-import { ANALYTIC_EVENT } from '../analytics';
 
 const SIDE_OFFSET = 5;
 const TOOLTIP_DELAY_DURATION = 200;
@@ -24,17 +22,14 @@ const ComponentActions = ({
   componentName: string;
 }) => {
   const [copied, setCopied] = useState(false);
-  const op = useOpenPanel();
 
   const handleCopy = async () => {
-    op.track(ANALYTIC_EVENT.COMPONENT_COPY, { component: `${componentName}.tsx` });
     await navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const handleDownload = () => {
-    op.track(ANALYTIC_EVENT.COMPONENT_DOWNLOAD, { component: `${componentName}.tsx` });
     const blob = new Blob([code], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");

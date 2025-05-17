@@ -5,7 +5,6 @@ import Link from "next/link";
 import CodeBlock from "@/components/pixa-ui/CodeBlock";
 import SliderComponent from "@/components/pixa-ui/SliderComponent";
 import { codeData, data, installationData } from "@/data/buttons/3/Button";
-import Nav from "@/components/sections/Nav";
 import ButtonV3 from "./ButtonV3";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 
@@ -33,7 +32,6 @@ const Page = () => {
 
   return (
     <>
-      <Nav />
       <div className="flex w-full items-start justify-center px-8 py-8 xs:px-4 md:px-0">
         <div className="flex w-full max-w-[45rem] flex-col items-start justify-center gap-4">
           <Link href="/" className="flex items-center justify-center">

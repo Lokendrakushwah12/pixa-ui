@@ -9,7 +9,6 @@ import {
   data,
   installationData,
 } from "@/data/buttons/4/Button";
-import Nav from "@/components/sections/Nav";
 import ButtonV4 from "./ButtonV4";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 
@@ -32,7 +31,6 @@ const Page = () => {
 
   return (
     <>
-      <Nav />
       <div className="flex w-full items-start justify-center px-8 py-8 xs:px-4 md:px-0">
         <div className="flex w-full max-w-[45rem] flex-col items-start justify-center gap-4">
           <Link href="/" className="flex items-center justify-center">

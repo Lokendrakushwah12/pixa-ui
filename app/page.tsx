@@ -1,15 +1,15 @@
-import HomeSection from "@/components/sections/Home";
-import ComponentsTabs from "@/components/tab/ComponentsTabs";
-import Nav from "@/components/sections/Nav";
+import About from "@/components/sections/about";
+import Footer from "@/components/sections/footer";
+import Header from "@/components/sections/header";
+import ComponentsTabs from "@/components/sections/tab/ComponentsTabs";
 
-export default function Home() {
+export default function Page() {
   return (
-    <>
-      <div className="flex w-full flex-col items-center justify-between text-center">
-        <Nav />
-        <HomeSection />
-        <ComponentsTabs />
-      </div>
-    </>
+    <div className="flex flex-col h-full lg:max-w-screen-2xl mx-auto">
+      <Header />
+      <About />
+      <ComponentsTabs />
+      <Footer />
+    </div>
   );
 }

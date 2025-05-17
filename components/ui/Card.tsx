@@ -19,7 +19,7 @@ const Card = ({
     <div className="flex flex-col items-center justify-center gap-2">
       <Link
         href={href}
-        className="flex aspect-[1/1] h-[156px] w-[156px] cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-transform duration-300 hover:scale-[103%] hover:border-[var(--border-hover)] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[200px] md:w-[200px]"
+        className="flex aspect-[1/1] h-[156px] w-[156px] backdrop-blur-lg cursor-pointer items-center justify-center overflow-hidden rounded-xl border bg-[radial-gradient(#40404030_1px,#fff7_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] duration-300 border-foreground/20 hover:border-foreground/30 transition-all dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[200px] md:w-[200px]"
       >
         {src && (
           <Image
