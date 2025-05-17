@@ -2,12 +2,12 @@ import userData from "@/data/siteData";
 import * as motion from "motion/react-client";
 import Link from "next/link";
 import { GithubIcon, XIcon } from "../icons";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 const spring = {
     type: 'spring',
     stiffness: 260,
-    damping: 20,
+    damping: 25,
 };
 const Header = () => {
     const { name, github, twitter } = userData.personalInfo;
