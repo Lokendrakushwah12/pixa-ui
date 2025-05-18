@@ -1,7 +1,7 @@
 
 const PixaBackground = () => {
     return (
-        <div className="absolute -top-[30%] md:top-0 left-0 z-[-10] dark:opacity-25 flex h-full w-full justify-center filter saturate-0">
+        <div className="absolute -top-[20%] md:top-0 left-0 z-[-10] dark:opacity-25 flex h-full w-full justify-center filter saturate-0">
             <svg width="1015" height="1014" viewBox="0 0 1415 1514" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.34">
                     <g style={{ mixBlendMode: 'screen' }}>

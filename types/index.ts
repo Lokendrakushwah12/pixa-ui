@@ -1,6 +1,5 @@
 export interface PersonalInfo {
   name: string;
-  email: string;
   github: string;
   twitter: string;
 }

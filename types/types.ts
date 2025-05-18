@@ -10,6 +10,6 @@ export const tabs = [
   "Cards",
   "Tabs",
   "Modals",
-  "Miscellaneous",
+  "Extra",
 ] as const;
 export type TabType = (typeof tabs)[number];

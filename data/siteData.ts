@@ -3,7 +3,6 @@ import { websiteData } from "@/types";
 const siteData: websiteData = {
   personalInfo: {
     name: "Pixa/ui",
-    email: "gmail@gmail.com",
     github: "https://github.com/lokendrakushwah12/pixa-ui",
     twitter: "https://x.com/lokendratwt",
   },

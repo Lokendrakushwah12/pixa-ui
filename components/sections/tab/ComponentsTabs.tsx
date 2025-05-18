@@ -4,7 +4,7 @@ import React from "react";
 import TabContent from "./TabContent";
 
 
-const tabs = ["Button", "Cards", "Tabs", "Modals", "Miscellaneous"] as const;
+const tabs = ["Button", "Cards", "Tabs", "Modals", "Extra"] as const;
 type TabType = (typeof tabs)[number];
 
 const ComponentsTabs = () => {
@@ -13,7 +13,7 @@ const ComponentsTabs = () => {
   return (
     <div className="mb-12 flex w-full flex-col items-center justify-start gap-4">
       <div className="sticky top-6 z-50">
-        <div className="scroll relative flex max-w-7xl bg-background/80 backdrop-blur-lg rounded-lg justify-start items-start no-scrollbar overflow-x-auto px-3">
+        <div className="scroll relative flex max-w-7xl border bg-background/60 backdrop-blur-lg rounded-xl justify-start items-start no-scrollbar overflow-x-scroll p-2">
           {tabs.map((text) => (
             <React.Fragment key={text}>
               <button
@@ -23,18 +23,18 @@ const ComponentsTabs = () => {
                   : "text-muted-foreground"
                   } hover:text-foreground`}
               >
-                <span className="relative z-10 text-lg">{text}</span>
+                <span className="relative z-10 text-base">{text}</span>
                 {active === text && (
                   <motion.div
                     className="absolute bottom-0 left-0 flex h-full w-full items-end justify-center"
                     layoutId="underline"
                     transition={{ type: "spring", duration: 0.3, bounce: 0.2 }}
                   >
-                    <span className="z-0 h-[3px] w-3/4 rounded-t-sm bg-foreground"></span>
+                    <span className="z-0 h-full w-full rounded-md bg-border"></span>
                   </motion.div>
                 )}
               </button>
-              <div className="absolute bottom-0 border-muted-foreground/10 w-[98%] border-b"></div>
+              {/* <div className="absolute bottom-0 border-muted-foreground/10 w-[98%] border-b"></div> */}
 
             </React.Fragment>
           ))}

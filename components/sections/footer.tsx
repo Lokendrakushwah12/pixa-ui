@@ -3,7 +3,6 @@ import userData from "@/data/siteData";
 import Link from "next/link";
 
 const Footer = () => {
-  const { twitter } = userData.personalInfo;
   const { date, time } = userData.lastUpdated;
 
   return (
@@ -11,7 +10,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row w-full justify-between gap-2 md:gap-1 items-start md:items-center">
         <div className="md:flex-grow hidden border-b border-dashed border-border" />
         <p className="text-xs font-normal text-foreground/60 text-right">
-          Designed and built by <Link href={twitter} target="_blank" className="font-medium hover:text-foreground/80">
+          Designed and built by <Link href="/about" className="font-medium hover:text-foreground/80">
             Lokendra
           </Link>
         </p>

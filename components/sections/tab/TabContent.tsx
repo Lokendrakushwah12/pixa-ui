@@ -15,7 +15,7 @@ const TabContent: React.FC<TabContentProps> = ({ active }) => {
       return <h2>Tabs Content</h2>;
     case "Modals":
       return <h2>Tabs Content</h2>;
-    case "Miscellaneous":
+    case "Extra":
       return <h2>Miscellaneous Content</h2>;
     default:
       return null;
