@@ -228,7 +228,7 @@
 }
 
 ::selection {
-  background: rgba(178, 42, 248, 0.2);
+  background: #9993;
 }
 
 @utility max-w-screen-* {
@@ -239,19 +239,16 @@ input:-webkit-autofill {
   transition: background 5000s ease-in-out 0s;
 }
 
-.bg-custom {
-  background: linear-gradient(
-      180deg,
-      #f2edea 11.11%,
-      rgba(242, 237, 234, 0) 40%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(239, 226, 218, 0.5) 30%,
-      rgba(228, 206, 191, 0.5) 60%,
-      rgba(206, 181, 164, 0.5) 80%,
-      rgba(194, 148, 117, 0.5) 90%,
-      rgba(107, 85, 70, 0.5) 100%
-    ),
-    rgba(217, 217, 217, 0.5);
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  left: -10rem;
+  z-index: 9999;
+  top: -10rem;
+  width: calc(100% + 20rem);
+  height: calc(100% + 20rem);
+  background-image: url("/noise.png");
+  opacity: 0.65;
+  pointer-events: none;
+  animation: noise 1s steps(2) infinite;
 }

@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 const About = () => {
 
   return (
-    <div className="h-full p-4 max-w-screen-xl w-full mx-auto space-y-4 py-8 md:py-16">
+    <div className="h-full p-4 w-full mx-auto space-y-4 py-8 md:py-16">
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <PixaLogo className="h-24 w-24" />
         <h1 className="text-xl font-[500] text-foreground md:text-3xl">

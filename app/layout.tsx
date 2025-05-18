@@ -1,5 +1,5 @@
-import SunBackdrop from "@/components/ui/sun-back-drop";
 import { geistMono, hostGrotesk } from "@/lib/fonts";
+import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -26,16 +26,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` ${hostGrotesk.variable} ${geistMono.variable} font-mono antialiased bgcustom min-h-svh`}>
-        {/* <ThemeProvider
+      <body className={` ${hostGrotesk.variable} ${geistMono.variable} font-mono antialiased noise-overlay min-h-svh`}>
+        <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        > */}
-        <SunBackdrop />
-        {children}
-        {/* </ThemeProvider> */}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

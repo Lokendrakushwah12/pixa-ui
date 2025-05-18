@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import Link from "next/link";
 import { GithubIcon, XIcon } from "../icons";
 import { Button } from "../ui/Button";
+import { ThemeToggle } from "../theme-toggle";
 
 const spring = {
     type: 'spring',
@@ -13,7 +14,6 @@ const Header = () => {
     const { name, github, twitter } = userData.personalInfo;
 
     return (
-        <div className="sticky top-0 z-50">
             <div className="p-4 max-w-screen-xl w-full mx-auto">
                 <div className="flex items-center gap-4 justify-between h-8">
                     <Link href="/" className="flex items-center gap-2 justify-center">
@@ -48,11 +48,10 @@ const Header = () => {
                                 </Link>
                             </Button>
                         </motion.div>
-                        {/* <ThemeToggle /> */}
+                        <ThemeToggle />
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

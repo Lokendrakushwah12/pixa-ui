@@ -95,7 +95,7 @@ const TabButton = () => {
       {cardData.map((data, index) => (
         <div
           key={index}
-          className="flex w-fit flex-col items-start justify-center gap-4"
+          className="flex size-full flex-col items-start justify-center gap-4"
         >
           <Card
           key={index}
