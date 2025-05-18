@@ -35,7 +35,7 @@ const Card = ({
         {children}
       </Link>
       <div className="flex w-full items-center justify-between px-2">
-        <h1 className="text-base font-[400] text-[#444] dark:text-[#808080]">
+        <h1 className="text-base font-[400] text-muted-foreground">
           {title}
         </h1>
         {download}

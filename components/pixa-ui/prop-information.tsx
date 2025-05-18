@@ -19,7 +19,7 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
             "text-muted z-[0] flex h-[24px] w-[24px] items-center justify-center rounded-md bg-transparent transition-all",
           )}
         >
-          <InfoCircledIcon />
+          <InfoCircledIcon className="text-muted-foreground hover:text-foreground transition-all" />
         </div>
       </Popover.Trigger>
       <AnimatePresence>
@@ -32,14 +32,14 @@ export const PropInformation = ({ content }: { content: React.ReactNode }) => {
             >
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: -5 }}
+                animate={{ opacity: 1, y: 2 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{
                   type: "spring",
                   ease: "easeInOut",
                   duration: 0.2,
                 }}
-                className="inline-block max-w-96 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--button-secondary)] px-3 py-2 text-sm leading-[18px] text-neutral-400 shadow"
+                className="inline-block bg-background max-w-96 items-center gap-2 rounded-lg border px-3 py-2 text-sm leading-[18px] text-muted-foreground shadow"
               >
                 {content}
               </motion.div>

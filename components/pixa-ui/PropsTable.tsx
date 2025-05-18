@@ -16,7 +16,7 @@ interface PropsTableProps {
 export const PropsTable = ({ data }: PropsTableProps) => {
   if (data.length === 0) {
     return (
-      <div className="bg-gray-2 mt-6 h-[42px] w-full overflow-hidden rounded-lg border border-[var(--border)]">
+      <div className="bg-gray-2 mt-6 h-[42px] w-full overflow-hidden rounded-lg border">
         <div className="font-default text-gray-11 py-3 text-center text-sm">
           No Additional Props
         </div>
@@ -25,9 +25,9 @@ export const PropsTable = ({ data }: PropsTableProps) => {
   }
 
   return (
-    <div className="mt-6 h-full w-full overflow-x-scroll rounded-lg border border-[var(--border)]">
+    <div className="mt-6 h-full w-full overflow-x-scroll rounded-lg border">
       <table className="h-full w-full md:table-fixed">
-        <thead className="font-default text-default border-b border-[var(--border)] bg-[var(--button-secondary)] text-left">
+        <thead className="font-default text-default border-b bg-[var(--button-secondary)] text-left">
           <tr>
             <th className="px-4 py-3 text-sm font-normal">Prop</th>
             <th className="px-4 py-3 text-sm font-normal">Type</th>
@@ -41,12 +41,12 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               className={clsx(
                 "font-default text-default w-full text-left",
                 item !== data[data.length - 1] &&
-                  "border-b border-[var(--border)]",
+                  "border-b",
               )}
             >
               <td className="px-4 py-3 text-sm font-normal">
                 <div className="flex items-center gap-1">
-                  <div className="w-fit rounded-md bg-blue-500/40 px-1 font-mono text-blue-600 dark:bg-blue-500/15 dark:text-blue-300">
+                  <div className="w-fit rounded-sm bg-blue-500/40 px-1 font-mono text-blue-600 dark:bg-blue-500/15 dark:text-blue-300">
                     {item.name}
                   </div>
                   {item.nameDetails && (
@@ -57,7 +57,7 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               <td className="px-4 py-3 text-sm font-normal">
                 {item.type ? (
                   <div className="flex w-fit items-center gap-1">
-                    <div className="w-fit rounded-md bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
+                    <div className="w-fit rounded-sm bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
                       {item.type}
                     </div>
                     {item.typeDetails && (
@@ -70,7 +70,7 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               </td>
               <td className="px-4 py-3 text-sm font-normal">
                 {item.default ? (
-                  <div className="w-fit rounded-md bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
+                  <div className="w-fit rounded-sm bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
                     {item.default}
                   </div>
                 ) : (

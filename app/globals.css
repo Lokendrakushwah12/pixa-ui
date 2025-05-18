@@ -248,7 +248,7 @@ input:-webkit-autofill {
   width: calc(100% + 20rem);
   height: calc(100% + 20rem);
   background-image: url("/noise.png");
-  opacity: 0.65;
+  opacity: 0.35;
   pointer-events: none;
   animation: noise 1s steps(2) infinite;
 }

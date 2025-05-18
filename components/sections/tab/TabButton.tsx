@@ -98,7 +98,7 @@ const TabButton = () => {
           className="flex size-full flex-col items-start justify-center gap-4"
         >
           <Card
-          key={index}
+            key={index}
             title={data.title}
             download={
               <ComponentActions
