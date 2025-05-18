@@ -8,9 +8,9 @@ const About = () => {
     <div className="h-full p-4 w-full mx-auto space-y-4 py-8 md:py-16">
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <PixaLogo className="h-24 w-24" />
-        <h1 className="text-xl font-[500] text-foreground md:text-3xl">
+        {/* <h1 className="text-xl font-[500] text-foreground md:text-3xl">
           We&apos;re Launching Soon!
-        </h1>
+        </h1> */}
         <p className="text-base text-center font-[400] text-foreground/60 xs:text-sm md:text-lg">
           Curated collection of versatile Next.js components
         </p>

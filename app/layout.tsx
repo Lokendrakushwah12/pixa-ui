@@ -4,20 +4,48 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "pixa-ui",
-  description: "pixa-ui",
+  title: "Pixa/ui",
+  description: "Pixa/ui - Curated collection of versatile Next.js components",
+  keywords: [
+    "pixa-ui",
+    "pixa",
+    "pixa-ui components",
+    "pixa-ui nextjs",
+    "pixa-ui library",
+    "pixa-ui open source",
+    "pixa-ui components library",
+    "pixa-ui components collection",
+    "pixa-ui components design",
+    "pixa-ui components design system",
+    "pixa-ui components design library",
+    "pixa-ui components design system library",
+    "pixa-ui components design system collection",
+    "pixa-ui components design system open source",
+    "pixa-ui components design system nextjs",
+    "nextjs ui components",
+    "nextjs components",
+    "nextjs ui library",
+    "nextjs open source",
+    "nextjs components library",
+  ],
   icons: {
-    icon: "/logo.svg",
+    icon: "/favicon.svg",
   },
   openGraph: {
-    title: "pixa-ui",
-    description: "pixa-ui",
+    title: "Pixa/ui",
+    description: "Pixa/ui - Curated collection of versatile Next.js components",
     url: "https://pixaui.com",
+    images: [
+      {
+        url: "/openGraph.png",
+      },
+    ],
   },
   twitter: {
+    title: "Pixa/ui",
+    description: "Pixa/ui - Curated collection of versatile Next.js components",
     card: "summary_large_image",
-    title: "pixa-ui",
-    description: "pixa-ui",
+    images: ["/openGraph.png"],
   },
 };
 
