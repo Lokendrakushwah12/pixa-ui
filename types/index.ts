@@ -2,6 +2,7 @@ export interface PersonalInfo {
   name: string;
   github: string;
   twitter: string;
+  linkedin: string;
 }
 
 export interface LastUpdated {

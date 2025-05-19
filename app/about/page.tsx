@@ -1,19 +1,17 @@
 import { GithubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 import Header from "@/components/sections/header";
 import { Badge } from "@/components/ui/badge";
+import PixaBackground from "@/components/ui/pixa-background";
+import siteData from "@/data/siteData";
 import Link from "next/link";
 
-const LINK = {
-  TWITTER: "https://twitter.com/lokendratwt",
-  GITHUB: "https://github.com/Lokendrakushwah12",
-  LINKEDIN: "https://www.linkedin.com/in/lokendrakushwah12/",
-};
-
 const page = () => {
+  const { twitter, github, linkedin } = siteData.personalInfo;
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-between text-center">
+    <div className="flex h-screen overflow-hidden relative w-full flex-col items-center justify-start gap-12 text-center">
       <Header />
-      <div className="flex h-screen w-full max-w-3xl flex-col items-start justify-start px-5 md:px-8">
+      <PixaBackground />
+      <div className="flex w-full max-w-3xl flex-col items-start justify-start px-5 md:px-8">
         <div className="flex flex-col items-start justify-start">
           <h1 className="mt-8 text-center text-[48px] font-[600] text-[var(--foreground)]">
             About
@@ -48,15 +46,15 @@ const page = () => {
               Lokendra Kushwah
             </h1>
             <div className="social flex gap-2">
-              <Link href={LINK.TWITTER} target="_blank">
+              <Link href={twitter} target="_blank">
                 <XIcon />
               </Link>
 
-              <Link href={LINK.GITHUB} target="_blank">
+              <Link href={github} target="_blank">
                 <GithubIcon />
               </Link>
 
-              <Link href={LINK.LINKEDIN} target="_blank">
+              <Link href={linkedin} target="_blank">
                 <LinkedInIcon />
               </Link>
             </div>

@@ -41,12 +41,12 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               className={clsx(
                 "font-default text-default w-full text-left",
                 item !== data[data.length - 1] &&
-                  "border-b",
+                "border-b",
               )}
             >
               <td className="px-4 py-3 text-sm font-normal">
                 <div className="flex items-center gap-1">
-                  <div className="w-fit rounded-sm bg-blue-500/40 px-1 font-mono text-blue-600 dark:bg-blue-500/15 dark:text-blue-300">
+                  <div className="w-fit rounded-sm px-1 font-mono text-blue-500 bg-blue-500/15">
                     {item.name}
                   </div>
                   {item.nameDetails && (
@@ -57,7 +57,7 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               <td className="px-4 py-3 text-sm font-normal">
                 {item.type ? (
                   <div className="flex w-fit items-center gap-1">
-                    <div className="w-fit rounded-sm bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
+                    <div className="w-fit rounded-sm px-1 font-mono text-foreground/80 bg-border">
                       {item.type}
                     </div>
                     {item.typeDetails && (
@@ -70,7 +70,7 @@ export const PropsTable = ({ data }: PropsTableProps) => {
               </td>
               <td className="px-4 py-3 text-sm font-normal">
                 {item.default ? (
-                  <div className="w-fit rounded-sm bg-neutral-200 px-1 font-mono text-neutral-900 dark:bg-neutral-800 dark:text-neutral-400">
+                  <div className="w-fit rounded-sm px-1 font-mono text-foreground/80 bg-border">
                     {item.default}
                   </div>
                 ) : (
