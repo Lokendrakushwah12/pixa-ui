@@ -1,7 +1,7 @@
 import About from "@/components/sections/about";
 import Footer from "@/components/sections/footer";
 import Header from "@/components/sections/header";
-import ComponentsTabs from "@/components/sections/tab/ComponentsTabs";
+import HomeComponentsTabs from "@/components/sections/tab/home-components-tabs";
 import PixaBackground from "@/components/ui/pixa-background";
 
 export default function Page() {
@@ -10,7 +10,7 @@ export default function Page() {
       <PixaBackground />
       <Header />
       <About />
-      <ComponentsTabs />
+      <HomeComponentsTabs />
       <Footer />
     </div>
   );

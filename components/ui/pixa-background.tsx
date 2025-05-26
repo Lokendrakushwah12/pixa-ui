@@ -16,23 +16,23 @@ const PixaBackground = () => {
                     </g>
                 </g>
                 <defs>
-                    <filter id="filter0_f_846_9" x="0.574432" y="-188.426" width="1413.98" height="1701.81" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter0_f_846_9" x="0.574432" y="-188.426" width="1413.98" height="1701.81" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                         <feGaussianBlur stdDeviation="158.713" result="effect1_foregroundBlur_846_9" />
                     </filter>
-                    <filter id="filter1_f_846_9" x="0.574432" y="-188.426" width="1413.98" height="1701.81" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <filter id="filter1_f_846_9" x="0.574432" y="-188.426" width="1413.98" height="1701.81" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                         <feGaussianBlur stdDeviation="158.713" result="effect1_foregroundBlur_846_9" />
                     </filter>
                     <linearGradient id="paint0_linear_846_9" x1="707.565" y1="129" x2="707.565" y2="1195.96" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#9B65A8" />
-                        <stop offset="1" stop-color="#9BB5A8" />
+                        <stop stopColor="#9B65A8" />
+                        <stop offset="1" stopColor="#9BB5A8" />
                     </linearGradient>
                     <linearGradient id="paint1_linear_846_9" x1="707.565" y1="129" x2="707.565" y2="1195.96" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#fff" />
-                        <stop offset="1" stop-color="#9BB5A8" stop-opacity="0" />
+                        <stop stopColor="#fff" />
+                        <stop offset="1" stopColor="#9BB5A8" stop-opacity="0" />
                     </linearGradient>
                 </defs>
             </svg>
