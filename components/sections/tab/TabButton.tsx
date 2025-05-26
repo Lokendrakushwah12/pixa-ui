@@ -68,7 +68,7 @@ const cardData: CardDataType[] = [
   },
 ];
 
-const TabButtonContent = () => {
+const TabButton = () => {
   const [codes, setCodes] = useState<{ [key: string]: string }>({});
 
   const fetchCode = useCallback(
@@ -91,7 +91,7 @@ const TabButtonContent = () => {
   }, [fetchCode]);
 
   return (
-    <div className="grid w-full max-w-3xl mx-auto grid-cols-1 sm:px-0 px-4 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+    <>
       {cardData.map((data, index) => (
         <div
           key={index}
@@ -112,8 +112,8 @@ const TabButtonContent = () => {
           </Card>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
-export default TabButtonContent;
+export default TabButton;

@@ -1,11 +1,11 @@
 "use client";
-import CodeBlock from "@/components/pixa-ui/CodeBlock";
-import { PropsTable } from "@/components/pixa-ui/PropsTable";
-import SliderComponent from "@/components/pixa-ui/SliderComponent";
-import { codeData, data, installationData } from "@/data/buttons/1/Button";
+import React, { useState } from "react";
 import { ChevronLeft, Plane } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import CodeBlock from "@/components/pixa-ui/CodeBlock";
+import SliderComponent from "@/components/pixa-ui/SliderComponent";
+import { codeData, data, installationData } from "@/data/buttons/1/Button";
+import { PropsTable } from "@/components/pixa-ui/PropsTable";
 import ButtonV1 from "./ButtonV1";
 
 const Page = () => {
