@@ -6,10 +6,10 @@ export interface CardDataType {
 }
 
 export const tabs = [
-  "Button",
+  "Buttons",
   "Cards",
   "Tabs",
-  "Modals",
+  "Dialogs",
   "Extra",
 ] as const;
 export type TabType = (typeof tabs)[number];

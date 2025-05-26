@@ -58,7 +58,7 @@
 
 .dark {
   --surface: oklch(0.0725 0 0);
-  --site-background: oklch(0.145 0 0);
+  --site-background: oklch(0.125 0 0);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
@@ -139,7 +139,7 @@
 
   /* Credit to shadcn ui monorepo */
   body {
-    @apply bg-background text-foreground overscroll-none;
+    @apply bg-site-background text-foreground overscroll-none;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
@@ -248,7 +248,7 @@ input:-webkit-autofill {
   width: calc(100% + 20rem);
   height: calc(100% + 20rem);
   background-image: url("/noise.png");
-  opacity: 0.35;
+  opacity: 0.75;
   pointer-events: none;
   animation: noise 1s steps(2) infinite;
 }
