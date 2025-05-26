@@ -2,20 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import { Schema, RegistryType } from './registry-schema';
 import { components } from './registry-components';
-import { hooks } from './registry-hooks';
 import { examples } from './registry-examples';
 
 const registryComponents = path.join(__dirname, '../public/c');
-const registryHooks = path.join(__dirname, '../public/h');
 const registryExamples = path.join(__dirname, '../public/e');
 
 if (!fs.existsSync(registryComponents)) {
   fs.mkdirSync(registryComponents);
 }
 
-if (!fs.existsSync(registryHooks)) {
-  fs.mkdirSync(registryHooks);
-}
 
 if (!fs.existsSync(registryExamples)) {
   fs.mkdirSync(registryExamples);
@@ -65,27 +60,6 @@ for (const component of components) {
 
   fs.writeFileSync(
     path.join(registryComponents, `${component.name}.json`),
-    JSON.stringify(schema, null, 2)
-  );
-}
-
-for (const hook of hooks) {
-  const content = fs.readFileSync(hook.path, 'utf8');
-
-  const schema = {
-    name: hook.name,
-    type: 'registry:hook' as RegistryType,
-    files: [
-      {
-        path: `${hook.name}.ts`,
-        content,
-        type: 'registry:hook' as RegistryType,
-      },
-    ],
-  } satisfies Schema;
-
-  fs.writeFileSync(
-    path.join(registryHooks, `${hook.name}.json`),
     JSON.stringify(schema, null, 2)
   );
 }
@@ -174,14 +148,14 @@ const registryItems = components.map((component) => {
     devDependencies: component.devDependencies || [],
     registryDependencies: component.registryDependencies || [],
     files: componentFiles,
-    categories: ['ui', 'motion-primitives'],
+    categories: ['ui', 'pixa-ui'],
   };
 });
 
 const registry = {
   $schema: 'https://ui.shadcn.com/schema/registry.json',
-  name: 'motion-primitives',
-  homepage: 'https://motion-primitives.com',
+  name: 'pixa-ui',
+  homepage: 'https://pixaui.com',
   items: registryItems,
 };
 

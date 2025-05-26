@@ -4,10 +4,8 @@ import ButtonV2 from "@/app/buttons/2/ButtonV2";
 import ButtonV3 from "@/app/buttons/3/ButtonV3";
 import ButtonV4 from "@/app/buttons/4/ButtonV4";
 import ButtonV5 from "@/app/buttons/5/ButtonV5";
-import ComponentActions from "@/components/pixa-ui/ComponentActions";
 import Card from "@/components/ui/Card";
 import { CardDataType } from "@/types/types";
-import { useCallback, useEffect, useState } from "react";
 
 const cardData: CardDataType[] = [
   {
@@ -69,26 +67,6 @@ const cardData: CardDataType[] = [
 ];
 
 const TabButtonContent = () => {
-  const [codes, setCodes] = useState<{ [key: string]: string }>({});
-
-  const fetchCode = useCallback(
-    async (componentName: string) => {
-      if (codes[componentName]) return;
-
-      const res = await fetch(`/code/${componentName}.tsx`);
-      if (res.ok) {
-        const data = await res.text();
-        setCodes((prevCodes) => ({ ...prevCodes, [componentName]: data }));
-      }
-    },
-    [codes],
-  );
-
-  useEffect(() => {
-    cardData.forEach((data) => {
-      fetchCode(data.title);
-    });
-  }, [fetchCode]);
 
   return (
     <div className="grid w-full max-w-3xl mx-auto grid-cols-1 sm:px-0 px-4 gap-4 sm:grid-cols-2 lg:grid-cols-2">
@@ -100,12 +78,6 @@ const TabButtonContent = () => {
           <Card
             key={index}
             title={data.title}
-            download={
-              <ComponentActions
-                code={codes[data.title] || ""}
-                componentName={data.title}
-              />
-            }
             href={data.href}
           >
             {data.component}

@@ -1,12 +1,12 @@
 "use client";
+import { AnimatedTabs } from "@/components/core/animated-tabs";
 import CodeBlock from "@/components/pixa-ui/CodeBlock";
 import { PropsTable } from "@/components/pixa-ui/PropsTable";
 import SliderComponent from "@/components/pixa-ui/SliderComponent";
-import { codeData, data, installationData } from "@/data/buttons/1/Button";
+import { AnimatedListPropsdata, AnimatedTabsContentProps, AnimatedTabsProps, AnimatedTabsTriggerProps, codeData, installationData } from "@/data/tabs/1";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
-import { AnimatedTabs } from "./animated-tabs";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(16);
@@ -103,8 +103,41 @@ const Page = () => {
             </div>
           </div>
           <CodeBlock language="tsx" value={codeData} />
-          <PropsTable data={data} />
-          {/* <TableComponent columns={columns} data={data} /> */}
+          <h2 className="text-lg font-semibold mt-6">Props</h2>
+          <p className="text-sm text-muted-foreground -mb-5">
+            The following props are available for the <code>&lt;AnimatedTabs /&gt;</code> component.
+          </p>
+          <PropsTable data={AnimatedTabsProps} />
+
+          <h2 className="text-lg font-semibold mt-6">Subcomponents</h2>
+          <p className="text-sm text-muted-foreground -mb-5">
+            The <code>&lt;AnimatedTabs /&gt;</code> component includes several subcomponents for customization.
+          </p>
+
+          <h3 className="text-md font-medium text-muted-foreground mt-6 mb-1">
+            &lt;AnimatedTabs.List /&gt;
+          </h3>
+          <p className="text-sm text-muted-foreground -mb-5">
+            Used to group tab triggers. Can be styled to control tab layout and behavior.
+          </p>
+          <PropsTable data={AnimatedListPropsdata} />
+
+          <h3 className="text-md font-medium text-muted-foreground mt-6 mb-1">
+            &lt;AnimatedTabs.Trigger /&gt;
+          </h3>
+          <p className="text-sm text-muted-foreground -mb-5">
+            Represents an individual tab button. Accepts a <code>value</code> that matches the content&apos;s value.
+          </p>
+          <PropsTable data={AnimatedTabsTriggerProps} />
+
+          <h3 className="text-md font-medium text-muted-foreground mt-6 mb-1">
+            &lt;AnimatedTabs.Content /&gt;
+          </h3>
+          <p className="text-sm text-muted-foreground -mb-5">
+            Defines the content for a tab. It must have a <code>value</code> prop matching a corresponding trigger.
+          </p>
+          <PropsTable data={AnimatedTabsContentProps} />
+
         </div>
       </div>
     </>
