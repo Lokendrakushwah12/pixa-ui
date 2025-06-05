@@ -1,14 +1,9 @@
+import { Component } from "@/types/components"
 import { ChevronRight } from "lucide-react"
 import Link from "next/link"
 
 interface ComponentCardProps {
-    component: {
-        id: string
-        name: string
-        description: string
-        component?: React.ComponentType<unknown>;
-        icon?: React.ComponentType<unknown>;
-    }
+    component: Component
     category: string
 }
 
