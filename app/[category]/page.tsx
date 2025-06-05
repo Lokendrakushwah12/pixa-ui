@@ -5,13 +5,13 @@ import { Component } from "@/types/components";
 import { notFound } from "next/navigation";
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }
 
-const CategoryPage = ({ params }: CategoryPageProps) => {
-  const { category } = params;
+const CategoryPage = async ({ params }: CategoryPageProps) => {
+  const { category } = await params;
   const categoryData = getCategoryById(category);
 
   if (!categoryData) {
