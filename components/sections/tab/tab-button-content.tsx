@@ -1,9 +1,9 @@
 "use client";
-import ButtonV1 from "@/app/buttons/1/ButtonV1";
-import ButtonV2 from "@/app/buttons/2/ButtonV2";
-import ButtonV3 from "@/app/buttons/3/ButtonV3";
-import ButtonV4 from "@/app/buttons/4/ButtonV4";
-import ButtonV5 from "@/app/buttons/5/ButtonV5";
+import ButtonV1 from "@/components/pixa-ui/button-slide-right";
+import ButtonV2 from "@/components/pixa-ui/button-slide-up";
+import ButtonV3 from "@/components/pixa-ui/button-ai";
+import ButtonV4 from "@/components/pixa-ui/button-slide-left";
+import ButtonV5 from "@/components/pixa-ui/button-unflatten";
 import Card from "@/components/ui/Card";
 import { CardDataType } from "@/types/types";
 

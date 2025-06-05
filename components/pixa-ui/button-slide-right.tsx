@@ -1,6 +1,7 @@
+"use client";
 import React, { ReactNode } from "react";
 
-interface ButtonV1Props {
+interface ButtonSlideRightProps {
   title?: string;
   svgColor?: string;
   icon?: ReactNode;
@@ -8,8 +9,8 @@ interface ButtonV1Props {
   style?: React.CSSProperties;
 }
 
-const ButtonV1: React.FC<ButtonV1Props> = ({
-  title = "ButtonV1",
+const ButtonSlideRight: React.FC<ButtonSlideRightProps> = ({
+  title = "ButtonSlideRight",
   svgColor = "#212121",
   icon,
   className = "",
@@ -89,4 +90,4 @@ const ButtonV1: React.FC<ButtonV1Props> = ({
   );
 };
 
-export default ButtonV1;
+export default ButtonSlideRight;

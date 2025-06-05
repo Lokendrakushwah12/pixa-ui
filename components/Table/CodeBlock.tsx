@@ -41,9 +41,11 @@ export const programmingLanguages = {
 const CodeBlock = memo(function CodeBlock({
   language,
   value,
+  filename = "",
 }: {
   language: keyof typeof programmingLanguages;
   value: string;
+  filename?: string;
 }) {
   const { theme } = useTheme();
   const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 });
@@ -57,10 +59,10 @@ const CodeBlock = memo(function CodeBlock({
   const syntaxTheme = theme === "light" ? prism : coldarkDark;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg border bg-background font-sans">
+    <div className="relative w-full overflow-hidden rounded-xl border bg-background font-sans">
       {/* Header */}
       <div className="flex w-full items-center justify-between border-b bg-button-secondary px-4 py-2 text-foreground">
-        <span className="text-xs lowercase text-muted-foreground">{language}</span>
+        <span className="text-xs lowercase text-muted-foreground">{filename}</span>
         <div className="flex items-center space-x-1">
           <button
             className="rounded-sm p-[3px] transition-all hover:bg-[#ffffff1d]"

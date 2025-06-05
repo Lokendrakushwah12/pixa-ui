@@ -14,9 +14,9 @@ const Header = () => {
     const { name, github, twitter } = userData.personalInfo;
 
     return (
-        <div className="p-4 max-w-screen-xl w-full mx-auto">
+        <div className="py-4 max-w-screen-xl w-full mx-auto 2xl:px-0 px-4">
             <div className="flex items-center gap-4 justify-between h-8">
-                <Link href="/" className="flex items-center gap-2 justify-center">
+                <Link href="/" className="flex items-center gap-2 -ml-2 justify-center">
                     <div className="flex items-center justify-center font-medium tracking-tight text-sm">
                         <PixaLogo />
                         <span className="text-base">{name}</span>

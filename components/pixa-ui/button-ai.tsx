@@ -1,7 +1,8 @@
+"use client";
 import React, { useState, CSSProperties } from "react";
 import { motion, Variants } from "framer-motion";
 
-interface ButtonV3Props {
+interface ButtonAiProps {
   title: string;
   borderRadius?: string;
   color?: string;
@@ -10,8 +11,8 @@ interface ButtonV3Props {
   style?: CSSProperties;
 }
 
-const ButtonV3: React.FC<ButtonV3Props> = ({
-  title = "ButtonV3",
+const ButtonAi: React.FC<ButtonAiProps> = ({
+  title = "ButtonAi",
   borderRadius = "8px",
   color = "#763afe",
   padding = "8px",
@@ -151,4 +152,4 @@ const ButtonV3: React.FC<ButtonV3Props> = ({
   );
 };
 
-export default ButtonV3;
+export default ButtonAi;

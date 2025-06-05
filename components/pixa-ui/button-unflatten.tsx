@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, CSSProperties } from "react";
 
-interface ButtonV5Props {
+interface ButtonUnflattenProps {
   title: string;
   icon?: boolean;
   loading?: boolean;
@@ -10,7 +11,7 @@ interface ButtonV5Props {
   style?: CSSProperties;
 }
 
-const ButtonV5: React.FC<ButtonV5Props> = ({
+const ButtonUnflatten: React.FC<ButtonUnflattenProps> = ({
   title,
   icon = true,
   loading = false,
@@ -172,4 +173,4 @@ const ButtonV5: React.FC<ButtonV5Props> = ({
   );
 };
 
-export default ButtonV5;
+export default ButtonUnflatten;

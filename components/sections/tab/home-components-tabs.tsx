@@ -1,40 +1,38 @@
 "use client";
-import { AnimatedTabs } from "@/components/core/animated-tabs";
-import { tabComponents } from "./tab-components";
+import Image from "next/image";
+import Link from "next/link";
 
-const tabs = ["Buttons", "Cards", "Tabs", "Dialogs", "Extra"] as const;
+const tabs = ["buttons", "cards", "tabs", "dialogs", "extra"] as const;
 
-const HomeComponentsTabs = () => {
+const ComponentsPage = () => {
+
   return (
-    <div className="mb-12 flex w-full flex-col items-center justify-start">
-      <AnimatedTabs
-        defaultValue="Buttons"
-        className="w-full flex flex-col items-center justify-start"
-      >
-        <AnimatedTabs.List className="scroll sticky top-6 w-fit max-w7xl no-scrollbar z-[999] flex rounded-xl border bg-background p-1 backdrop-blur-lg">
-          {tabs.map((tab) => (
-            <AnimatedTabs.Trigger
-              key={tab}
-              value={tab}
-              className="text-sm whitespace-nowrap"
-            >
-              {tab}
-            </AnimatedTabs.Trigger>
-          ))}
-        </AnimatedTabs.List>
-
+    <div className="mb-12 flex w-full flex-col max-w-screen-lg mx-auto items-center justify-start xl:px-0 px-4">
+      <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 sm:gap-6 gap-4">
         {tabs.map((tab) => (
-          <AnimatedTabs.Content
+          <Link
             key={tab}
-            value={tab}
-            className="w-full mx-auto"
+            href={`/${tab}`}
+            className="block overflow-hidden hover:shadow-lg border p-[6px] rounded-[14px] bg-muted-foreground/5 hover:bg-muted-foreground/10 transition-all"
           >
-            {tabComponents[tab]}
-          </AnimatedTabs.Content>
+            <Image
+              src={`/images/${tab}.png`}
+              alt={`${tab} icon`}
+              width={50}
+              height={50}
+              className="bg-background h-48 w-full rounded-lg"
+            />
+            <div className="flex flex-col items-start p-2 justify-start text-center">
+              <span className="font-medium text-lg">{tab.charAt(0).toUpperCase() + tab.slice(1).toLowerCase()}</span>
+              <p className="text-muted-foreground text-sm">
+                12 components
+              </p>
+            </div>
+          </Link>
         ))}
-      </AnimatedTabs>
+      </div>
     </div>
   );
 };
 
-export default HomeComponentsTabs;
+export default ComponentsPage;

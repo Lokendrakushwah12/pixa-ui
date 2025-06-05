@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, CSSProperties } from "react";
 
-interface ButtonV4Props {
+interface ButtonSlideLeftProps {
   title: string;
   borderRadius?: string;
   color?: string;
@@ -8,7 +9,7 @@ interface ButtonV4Props {
   style?: CSSProperties;
 }
 
-const ButtonV4: React.FC<ButtonV4Props> = ({
+const ButtonSlideLeft: React.FC<ButtonSlideLeftProps> = ({
   title,
   borderRadius = "8px",
   color = "#212121",
@@ -89,4 +90,4 @@ const ButtonV4: React.FC<ButtonV4Props> = ({
   );
 };
 
-export default ButtonV4;
+export default ButtonSlideLeft;

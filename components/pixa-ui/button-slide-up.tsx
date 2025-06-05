@@ -1,13 +1,14 @@
+"use client";
 import React from "react";
 
-interface ButtonV2Props {
+interface ButtonSlideUpProps {
   title: string;
   bgColor?: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const ButtonV2: React.FC<ButtonV2Props> = ({
+const ButtonSlideUp: React.FC<ButtonSlideUpProps> = ({
   title,
   bgColor = "#f0900f",
   className = "",
@@ -33,4 +34,4 @@ const ButtonV2: React.FC<ButtonV2Props> = ({
   );
 };
 
-export default ButtonV2;
+export default ButtonSlideUp;

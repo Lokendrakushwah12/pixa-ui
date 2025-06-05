@@ -11,6 +11,10 @@ import {
   type ReactNode
 } from "react";
 
+// Debug: Let's log what we're importing
+console.log("AnimatePresence:", AnimatePresence);
+console.log("motion:", motion);
+
 type TabsContextType = {
   value: string;
   setValue: (val: string) => void;
@@ -25,6 +29,7 @@ function useTabsContext() {
   return context;
 }
 
+// Let's simplify and not use compound components for now
 export function AnimatedTabs({
   defaultValue,
   onValueChange,
@@ -53,11 +58,11 @@ export function AnimatedTabs({
   );
 }
 
-function List({ children, className, style }: { children: ReactNode; className?: string, style?: React.CSSProperties }) {
+export function AnimatedTabsList({ children, className, style }: { children: ReactNode; className?: string, style?: React.CSSProperties }) {
   return <div className={cn("flex relative", className)} style={style}>{children}</div>;
 }
 
-function Trigger({
+export function AnimatedTabsTrigger({
   value,
   children,
   className,
@@ -91,7 +96,7 @@ function Trigger({
         {isActive && (
           <motion.div
             layoutId={`underline-${uniqueId}`}
-            className="absolute inset-0 bg-accent rounded-lg"
+            className="absolute inset-0 bg-background rounded-lg"
             style={style}
             transition={transition}
           />
@@ -102,7 +107,7 @@ function Trigger({
   );
 }
 
-function Content({
+export function AnimatedTabsContent({
   value,
   children,
   className,
@@ -115,9 +120,5 @@ function Content({
 
   if (active !== value) return null;
 
-  return <div className={cn("mt-4", className)}>{children}</div>;
+  return <div className={cn("mt-[6px]", className)}>{children}</div>;
 }
-
-AnimatedTabs.List = List;
-AnimatedTabs.Trigger = Trigger;
-AnimatedTabs.Content = Content;

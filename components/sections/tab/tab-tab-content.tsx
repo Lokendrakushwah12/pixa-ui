@@ -1,5 +1,5 @@
 "use client";
-import { AnimatedTabs } from "@/components/core/animated-tabs";
+import { AnimatedTabs } from "@/components/pixa-ui/animated-tabs";
 import Card from "@/components/ui/Card";
 import { CardDataType } from "@/types/types";
 
