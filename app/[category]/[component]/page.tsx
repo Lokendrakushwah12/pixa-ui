@@ -12,14 +12,14 @@ import { getCategoryById, getComponentById } from "@/config/components";
 import { notFound } from "next/navigation";
 
 interface ComponentPageProps {
-  params: {
+  params: Promise<{
     category: string;
     component: string;
-  };
+  }>;
 }
 
 const ComponentPage = async ({ params }: ComponentPageProps) => {
-  const { category, component } = params;
+  const { category, component } = await params;
   const categoryData = getCategoryById(category);
   const componentData = getComponentById(category, component);
   const Component = componentData?.component;
