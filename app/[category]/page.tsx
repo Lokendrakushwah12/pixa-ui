@@ -14,8 +14,6 @@ const CategoryPage = ({ params }: CategoryPageProps) => {
   const { category } = params;
   const categoryData = getCategoryById(category);
 
-  console.log("data", categoryData)
-
   if (!categoryData) {
     notFound();
   }

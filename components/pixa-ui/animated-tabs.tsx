@@ -11,10 +11,6 @@ import {
   type ReactNode
 } from "react";
 
-// Debug: Let's log what we're importing
-console.log("AnimatePresence:", AnimatePresence);
-console.log("motion:", motion);
-
 type TabsContextType = {
   value: string;
   setValue: (val: string) => void;
