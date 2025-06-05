@@ -2,7 +2,7 @@ export interface Component {
   id: string;
   name: string;
   description: string;
-  component: React.ComponentType<unknown>;
+  component: React.ComponentType<Record<string, unknown>>;
   code?: string; // Optional code snippet for the component
   props?: ComponentProp[]; // Optional props for the component
   dependencies?: string[]; // Optional dependencies required for the component
