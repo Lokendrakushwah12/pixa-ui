@@ -176,28 +176,28 @@ const buttonAiProps: ComponentProp[] = [
     name: "children",
     type: "React.ReactNode",
     required: true,
-    description: "The content to display inside the button"
+    description: "The content to display inside the button",
   },
   {
     name: "onClick",
     type: "() => void",
     required: false,
-    description: "Function to call when the button is clicked"
+    description: "Function to call when the button is clicked",
   },
   {
     name: "disabled",
     type: "boolean",
     required: false,
     default: "false",
-    description: "Whether the button is disabled"
+    description: "Whether the button is disabled",
   },
   {
     name: "variant",
     type: '"default" | "processing"',
     required: false,
     default: '"default"',
-    description: "The visual variant of the button"
-  }
+    description: "The visual variant of the button",
+  },
 ];
 
 const buttonSlideProps: ComponentProp[] = [
@@ -205,21 +205,21 @@ const buttonSlideProps: ComponentProp[] = [
     name: "children",
     type: "React.ReactNode",
     required: true,
-    description: "The content to display inside the button"
+    description: "The content to display inside the button",
   },
   {
     name: "onClick",
     type: "() => void",
     required: false,
-    description: "Function to call when the button is clicked"
+    description: "Function to call when the button is clicked",
   },
   {
     name: "disabled",
     type: "boolean",
     required: false,
     default: "false",
-    description: "Whether the button is disabled"
-  }
+    description: "Whether the button is disabled",
+  },
 ];
 
 const buttonUnflattenProps: ComponentProp[] = [
@@ -227,33 +227,35 @@ const buttonUnflattenProps: ComponentProp[] = [
     name: "children",
     type: "React.ReactNode",
     required: true,
-    description: "The content to display inside the button"
+    description: "The content to display inside the button",
   },
   {
     name: "onClick",
     type: "() => void",
     required: false,
-    description: "Function to call when the button is clicked"
+    description: "Function to call when the button is clicked",
   },
   {
     name: "disabled",
     type: "boolean",
     required: false,
     default: "false",
-    description: "Whether the button is disabled"
-  }
+    description: "Whether the button is disabled",
+  },
 ];
 
 export const componentCategories: ComponentCategory[] = [
   {
     id: "buttons",
     name: "Buttons",
-    description: "Collection of unique button designs with different styles and animations",
+    description:
+      "Collection of unique button designs with different styles and animations",
     components: [
       {
         id: "button-ai",
         name: "AI Button",
-        description: "Interactive button with AI-driven animations and loading states",
+        description:
+          "Interactive button with AI-driven animations and loading states",
         component: ButtonAi,
         code: buttonAiCode,
         props: buttonAiProps,
@@ -264,21 +266,22 @@ export const componentCategories: ComponentCategory[] = [
             code: `<ButtonAi onClick={() => console.log('Processing...')}>
   Generate AI Content
 </ButtonAi>`,
-            description: "Basic AI button with click handler"
+            description: "Basic AI button with click handler",
           },
           {
             name: "Disabled State",
             code: `<ButtonAi disabled>
   Processing...
 </ButtonAi>`,
-            description: "Disabled AI button"
-          }
-        ]
+            description: "Disabled AI button",
+          },
+        ],
       },
       {
         id: "button-slide-left",
         name: "Slide Left Button",
-        description: "Button with smooth left sliding background animation on hover",
+        description:
+          "Button with smooth left sliding background animation on hover",
         component: ButtonSlideLeft,
         code: buttonSlideLeftCode,
         props: buttonSlideProps,
@@ -289,14 +292,15 @@ export const componentCategories: ComponentCategory[] = [
             code: `<ButtonSlideLeft onClick={() => alert('Clicked!')}>
   Slide Left
 </ButtonSlideLeft>`,
-            description: "Basic slide left button"
-          }
-        ]
+            description: "Basic slide left button",
+          },
+        ],
       },
       {
         id: "button-slide-right",
         name: "Slide Right Button",
-        description: "Button with smooth right sliding background animation on hover",
+        description:
+          "Button with smooth right sliding background animation on hover",
         component: ButtonSlideRight,
         code: buttonSlideRightCode,
         props: buttonSlideProps,
@@ -307,14 +311,15 @@ export const componentCategories: ComponentCategory[] = [
             code: `<ButtonSlideRight onClick={() => alert('Clicked!')}>
   Slide Right
 </ButtonSlideRight>`,
-            description: "Basic slide right button"
-          }
-        ]
+            description: "Basic slide right button",
+          },
+        ],
       },
       {
         id: "button-slide-up",
         name: "Slide Up Button",
-        description: "Button with smooth upward sliding background animation on hover",
+        description:
+          "Button with smooth upward sliding background animation on hover",
         component: ButtonSlideUp,
         code: buttonSlideUpCode,
         props: buttonSlideProps,
@@ -325,14 +330,15 @@ export const componentCategories: ComponentCategory[] = [
             code: `<ButtonSlideUp onClick={() => alert('Clicked!')}>
   Slide Up
 </ButtonSlideUp>`,
-            description: "Basic slide up button"
-          }
-        ]
+            description: "Basic slide up button",
+          },
+        ],
       },
       {
         id: "button-unflatten",
         name: "Unflatten Button",
-        description: "Material Design inspired button with 3D unflatten effect on press",
+        description:
+          "Material Design inspired button with 3D unflatten effect on press",
         component: ButtonUnflatten,
         code: buttonUnflattenCode,
         props: buttonUnflattenProps,
@@ -343,26 +349,28 @@ export const componentCategories: ComponentCategory[] = [
             code: `<ButtonUnflatten onClick={() => alert('Unflatten!')}>
   Press Me
 </ButtonUnflatten>`,
-            description: "Basic unflatten button with 3D effect"
-          }
-        ]
+            description: "Basic unflatten button with 3D effect",
+          },
+        ],
       },
     ],
   },
   {
     id: "cards",
     name: "Cards",
-    description: "Diverse card components for different use cases and aesthetics",
+    description:
+      "Diverse card components for different use cases and aesthetics",
     components: [
       {
         id: "floating-product",
         name: "Floating Product Card",
-        description: "Product card with floating elements and micro-interactions",
+        description:
+          "Product card with floating elements and micro-interactions",
         component: ButtonAi, // Placeholder - replace with actual card component
         code: `// TODO: Add actual card component code`,
         props: [],
         dependencies: [],
-        examples: []
+        examples: [],
       },
     ],
   },
@@ -374,12 +382,13 @@ export const componentCategories: ComponentCategory[] = [
       {
         id: "modern-alert",
         name: "Modern Alert Dialog",
-        description: "Sleek alert dialog with modern design and smooth animations",
+        description:
+          "Sleek alert dialog with modern design and smooth animations",
         component: ButtonSlideLeft, // Placeholder - replace with actual dialog component
         code: `// TODO: Add actual dialog component code`,
         props: [],
         dependencies: [],
-        examples: []
+        examples: [],
       },
     ],
   },

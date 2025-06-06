@@ -7,6 +7,7 @@ import {
   AnimatedTabsTrigger
 } from "@/components/pixa-ui/animated-tabs";
 import CodeBlock from "@/components/Table/CodeBlock";
+import { PropsTable } from "@/components/Table/PropsTable";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { getCategoryById, getComponentById } from "@/config/components";
 import { notFound } from "next/navigation";
@@ -62,6 +63,7 @@ const ComponentPage = async ({ params }: ComponentPageProps) => {
           <div>Source content</div>
         </AnimatedTabsContent>
       </AnimatedTabs>
+          <PropsTable data={componentData.props || []} />
     </div>
   );
 };
