@@ -1,8 +1,10 @@
-import { GithubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { XIcon } from "@/components/icons";
 import Header from "@/components/sections/header";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/Button";
 import PixaBackground from "@/components/ui/pixa-background";
 import siteData from "@/data/siteData";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
 const page = () => {
@@ -45,18 +47,24 @@ const page = () => {
             <h1 className="font-[400] text-[var(--text-hover)]">
               Lokendra Kushwah
             </h1>
-            <div className="social flex gap-2">
-              <Link href={twitter} target="_blank">
-                <XIcon />
-              </Link>
-
-              <Link href={github} target="_blank">
-                <GithubIcon />
-              </Link>
-
-              <Link href={linkedin} target="_blank">
-                <LinkedInIcon />
-              </Link>
+            <div className="social flex gap-1 items-center">
+              <Button variant="ghost" asChild className="size-8 group">
+                <Link href={twitter} target="_blank" className="flex items-center justify-center gap-3">
+                  <XIcon className="size-4" />
+                </Link>
+              </Button>
+              <div className="hidden md:block h-5 w-[1px] bg-border" />
+              <Button variant="ghost" asChild className="size-8 group">
+                <Link href={github} target="_blank" className="flex items-center justify-center gap-3">
+                  <GitHubLogoIcon />
+                </Link>
+              </Button>
+              <div className="hidden md:block h-5 w-[1px] bg-border" />
+              <Button variant="ghost" asChild className="size-8 group">
+                <Link href={linkedin} target="_blank" className="flex items-center justify-center gap-3">
+                  <LinkedInLogoIcon />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -69,10 +69,10 @@ const ButtonUnflatten: React.FC<ButtonUnflattenProps> = ({
           <svg
             stroke="currentColor"
             fill="none"
-            stroke-width="2"
+            strokeWidth="2"
             viewBox="0 0 24 24"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="icon-md text-token-text-secondary animate-spin text-center"
             height="1em"
             width="1em"

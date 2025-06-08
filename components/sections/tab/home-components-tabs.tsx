@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 
 const tabs = ["buttons", "cards", "tabs", "dialogs", "extra"] as const;
@@ -15,11 +14,7 @@ const ComponentsPage = () => {
             href={`/${tab}`}
             className="block overflow-hidden hover:shadow-lg border p-[6px] rounded-[14px] bg-muted-foreground/5 hover:bg-muted-foreground/10 transition-all"
           >
-            <Image
-              src={`/images/${tab}.png`}
-              alt={`${tab} icon`}
-              width={50}
-              height={50}
+            <div
               className="bg-background h-48 w-full rounded-lg"
             />
             <div className="flex flex-col items-start p-2 justify-start text-center">

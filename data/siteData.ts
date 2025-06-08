@@ -10,8 +10,8 @@ const siteData: websiteData = {
   about:
     "This is a Next.js template with tailwind CSS, TypeScript, Shadcn UI, and Motion.",
   lastUpdated: {
-    date: "MAY 19, 2025",
-    time: "01:54 IST",
+    date: "June 09, 2025",
+    time: "00:42 IST",
   },
 };
 

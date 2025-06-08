@@ -32,7 +32,7 @@ const PixaBackground = () => {
                     </linearGradient>
                     <linearGradient id="paint1_linear_846_9" x1="707.565" y1="129" x2="707.565" y2="1195.96" gradientUnits="userSpaceOnUse">
                         <stop stopColor="#fff" />
-                        <stop offset="1" stopColor="#9BB5A8" stop-opacity="0" />
+                        <stop offset="1" stopColor="#9BB5A8" stopOpacity="0" />
                     </linearGradient>
                 </defs>
             </svg>

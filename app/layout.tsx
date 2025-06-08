@@ -54,7 +54,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` ${hostGrotesk.variable} ${geistMono.variable} font-mono antialiased noise-overlay min-h-svh`}>
+      <body className={`${hostGrotesk.variable} ${geistMono.variable} font-sans antialiased noise-overlay min-h-svh`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
