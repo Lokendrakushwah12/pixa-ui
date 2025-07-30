@@ -1,0 +1,15 @@
+{
+    "root": true,
+    "title": "Ui",
+    "description": "General",
+    "pages": [
+        "---Buttons---",
+        "button-ai",
+        "badge",
+        "---Dialogs---",
+        "dialog",
+        "card",
+        "---Tabs---",
+        "switch"
+    ]
+}
