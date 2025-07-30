@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://pixa-ui-dev.vercel.app/sitemap.xml",
+    sitemap: "https://pixaui.com/sitemap.xml",
   };
 }

@@ -1,68 +1,68 @@
+import { geistMono, hostGrotesk } from "@/lib/fonts";
+import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
-import { uncutsans } from "./fonts";
-import { Providers } from "@/components/theme/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pixa/ui - Curated collection of versatile React.js/Next.js components",
-  description:
-    "A Collection of Open Source Components for React + TailwindCSS for your Project. Curated collection of versatile React.js/Next.js components.Crafted with Tailwind CSS to accelerate your development speed.",
-  keywords: "React, Next.js, Tailwind CSS, UI components, open source",
-  robots: "index, follow",
+  title: "Pixa/ui",
+  description: "Pixa/ui - Curated collection of versatile Next.js components",
+  keywords: [
+    "pixa-ui",
+    "pixa",
+    "pixa-ui components",
+    "pixa-ui nextjs",
+    "pixa-ui library",
+    "pixa-ui open source",
+    "pixa-ui components library",
+    "pixa-ui components collection",
+    "pixa-ui components design",
+    "pixa-ui components design system",
+    "pixa-ui components design library",
+    "pixa-ui components design system library",
+    "pixa-ui components design system collection",
+    "pixa-ui components design system open source",
+    "pixa-ui components design system nextjs",
+    "nextjs ui components",
+    "nextjs components",
+    "nextjs ui library",
+    "nextjs open source",
+    "nextjs components library",
+  ],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "Pixa UI",
-    description:
-      "Curated collection of versatile React.js/Next.js components.Crafted with Tailwind CSS to accelerate your development speed.",
-    url: "https://pixa-ui-dev.vercel.app/",
+    title: "Pixa/ui",
+    description: "Pixa/ui - Curated collection of versatile Next.js components",
+    url: "https://pixaui.com",
     images: [
       {
-        url: "/assets/og.png",
-        alt: "Pixa UI",
+        url: "/openGraph.png",
       },
     ],
-    siteName: "Pixa UI",
-    type: "website",
   },
   twitter: {
+    title: "Pixa/ui",
+    description: "Pixa/ui - Curated collection of versatile Next.js components",
     card: "summary_large_image",
-    title: "Pixa UI",
-    description:
-      "A Collection of Open Source Components for React + TailwindCSS for your Project.",
-    images: [
-      {
-        url: "/assets/og.png",
-        alt: "Pixa UI",
-      },
-    ],
+    images: ["/openGraph.png"],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/assets/svg/logo.svg" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const theme = localStorage.getItem('theme');
-                if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.add('light');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className={` ${uncutsans.className} antialiased`}>
-        <Providers>{children}</Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${hostGrotesk.variable} ${geistMono.variable} font-sans antialiased noise-overlay min-h-svh`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

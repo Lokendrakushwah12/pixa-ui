@@ -1,13 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import ButtonSlideUp from "@/components/pixa-ui/button-slide-up";
+import CodeBlock from "@/components/Table/CodeBlock";
+import { PropsTable } from "@/components/Table/PropsTable";
+import SliderComponent from "@/components/Table/SliderComponent";
+import { codeData, data, installationData } from "@/data/buttons/2/Button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import CodeBlock from "@/components/pixa-ui/CodeBlock";
-import SliderComponent from "@/components/pixa-ui/SliderComponent";
-import { codeData, data, installationData } from "@/data/buttons/2/Button";
-import Nav from "@/components/sections/Nav";
-import ButtonV2 from "./ButtonV2";
-import { PropsTable } from "@/components/pixa-ui/PropsTable";
+import React, { useState } from "react";
 
 const Page = () => {
   const [borderRadius, setBorderRadius] = useState(10);
@@ -28,7 +27,6 @@ const Page = () => {
 
   return (
     <>
-      <Nav />
       <div className="flex w-full items-start justify-center px-8 py-8 xs:px-4 md:px-0">
         <div className="flex w-full max-w-[45rem] flex-col items-start justify-center gap-4">
           <Link href="/" className="flex items-center justify-center">
@@ -41,7 +39,7 @@ const Page = () => {
           </Link>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
-              <ButtonV2
+              <ButtonSlideUp
                 title="ButtonV2"
                 bgColor={color}
                 className="rounded-xl border border-[#d9d9d9] p-6 backdrop-blur-sm dark:border-[#212121]"
