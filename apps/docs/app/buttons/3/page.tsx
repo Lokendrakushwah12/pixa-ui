@@ -2,7 +2,7 @@
 import CodeBlock from "@/components/Table/CodeBlock";
 import { PropsTable } from "@/components/Table/PropsTable";
 import SliderComponent from "@/components/Table/SliderComponent";
-import ButtonAi from "@/components/pixa-ui/button-ai";
+import ButtonAi from "@repo/ui/pixaui/button-ai";
 import { codeData, data, installationData } from "@/data/buttons/3/Button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
@@ -45,7 +45,6 @@ const Page = () => {
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex h-[230px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-[var(--border)] bg-[radial-gradient(#40404050_1px,transparent_0)] bg-[length:1rem_1rem] bg-center shadow-[inset_0_0_0_1px_#fff] transition-all hover:border-[var(--border-hover)] dark:shadow-[inset_0_0_0_1px_#0a0a0a] xs:w-full md:h-[330px] md:w-full">
               <ButtonAi
-                title="ButtonV3"
                 color={color}
                 borderRadius={`${borderRadius}px`}
                 style={{
@@ -53,7 +52,9 @@ const Page = () => {
                 }}
                 className=""
                 padding={`${padding}px`}
-              />
+              >
+                ButtonV3
+              </ButtonAi>
             </div>
             <div className="flex h-full w-full flex-col items-start justify-start gap-6 overflow-hidden xs:w-full md:h-[330px] md:w-full">
               <CodeBlock language="bash" value={installationData} />

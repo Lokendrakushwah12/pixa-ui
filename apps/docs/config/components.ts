@@ -1,8 +1,8 @@
-import ButtonAi from "@/components/pixa-ui/button-ai";
-import ButtonSlideLeft from "@/components/pixa-ui/button-slide-left";
-import ButtonSlideRight from "@/components/pixa-ui/button-slide-right";
-import ButtonSlideUp from "@/components/pixa-ui/button-slide-up";
-import ButtonUnflatten from "@/components/pixa-ui/button-unflatten";
+import ButtonAi from "@repo/ui/pixaui/button-ai";
+import ButtonSlideLeft from "@repo/ui/pixaui/button-slide-left";
+import ButtonSlideRight from "@repo/ui/pixaui/button-slide-right";
+import ButtonSlideUp from "@repo/ui/pixaui/button-slide-up";
+import ButtonUnflatten from "@repo/ui/pixaui/button-unflatten";
 import NotificationBell from "@/components/ui/notification-bell";
 import { ComponentCategory, ComponentProp } from "@/types/components";
 

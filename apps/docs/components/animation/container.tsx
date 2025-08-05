@@ -31,7 +31,7 @@ const Container = ({
         delay: delay,
         duration: simple ? 0.2 : 0.4,
         type: simple ? "keyframes" : "spring",
-        stiffness: simple && 100,
+        stiffness: simple ? 100 : undefined,
       }}
     >
       {children}

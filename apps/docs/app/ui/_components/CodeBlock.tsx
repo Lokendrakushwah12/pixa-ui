@@ -8,7 +8,6 @@ type CodeBlockProps = {
   fileName?: string;
   copyCode?: boolean;
   contentClassName?: string;
-  customFilePath?: string;
   simpleCode?: string;
 } & React.ComponentProps<"div">;
 
@@ -18,7 +17,6 @@ export function CodeBlock({
   children,
   contentClassName,
   simpleCode,
-  customFilePath,
   copyCode = true,
 }: CodeBlockProps) {
   return (

@@ -23,6 +23,7 @@ const TabsRoot = React.forwardRef<
     </TabsContext.Provider>
   );
 });
+TabsRoot.displayName = "TabsRoot";
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -44,7 +45,7 @@ const TabsTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
     classNameIndicator?: string;
   }
->(({ className, children, classNameIndicator, ...props }, ref) => {
+>(({ className, children, classNameIndicator, ...props }) => {
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const [isActive, setIsActive] = React.useState(false);
   const tabsId = React.useContext(TabsContext);

@@ -1,5 +1,5 @@
 "use client";
-import ButtonUnflatten from "@/components/pixa-ui/button-unflatten";
+import ButtonUnflatten from "@repo/ui/pixaui/button-unflatten";
 import CodeBlock from "@/components/Table/CodeBlock";
 import { PropsTable } from "@/components/Table/PropsTable";
 import SliderComponent from "@/components/Table/SliderComponent";

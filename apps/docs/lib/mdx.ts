@@ -37,7 +37,7 @@ export function getMetaConfig(docsType: string): MetaConfig | null {
     return JSON.parse(metaContent) as MetaConfig;
   } catch (error) {
     console.warn(
-      "meta.json not found or invalid, falling back to default grouping"
+      "meta.json not found or invalid, falling back to default grouping", error
     );
     return null;
   }

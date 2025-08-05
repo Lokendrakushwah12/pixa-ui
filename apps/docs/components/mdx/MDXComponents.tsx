@@ -16,6 +16,8 @@ import {
   TabsTrigger,
 } from "@/app/ui/_components/Tabs";
 import ButtonAi from "@repo/ui/pixaui/button-ai";
+import { AnimatedTabs } from "@repo/ui/pixaui/animated-tabs";
+import { Button } from "@/components/ui/Button";
 import { JSX } from "react";
 import { CodeBlock } from "../../app/ui/_components/CodeBlock";
 import { CommandBlock } from "../../app/ui/_components/CommandBlock";
@@ -87,7 +89,6 @@ const components: MDXComponents = {
     </h4>
   ),
   CommandBlock: ({
-    children,
     npmCommand,
     yarnCommand,
     pnpmCommand,
@@ -107,7 +108,6 @@ const components: MDXComponents = {
     fileName,
     contentClassName,
     copyCode = true,
-    customFilePath,
     ...props
   }) => (
     <CodeBlock
@@ -115,11 +115,10 @@ const components: MDXComponents = {
       copyCode={copyCode}
       className={cn(props.className)}
       contentClassName={contentClassName}
-      customFilePath={customFilePath}
       {...props}
     />
   ),
-  Link: ({ children, className, isExternal = false, ...props }) => {
+  Link: ({ children, isExternal = false, ...props }) => {
     if (isExternal) {
       return (
         <a
@@ -169,12 +168,14 @@ const components: MDXComponents = {
     <TabsTrigger className={cn(props.className)} {...props} />
   ),
   TabsContent: ({ className, ...props }) => (
-    <TabsContent className={cn(props.className)} {...props} />
+    <TabsContent className={cn(className)} {...props} />
   ),
   CopyCode: ({ code, mode, example, ...props }) => (
     <CopyCode mode={mode} code={code} example={example} {...props} />
   ),
   ButtonAi: (props) => <ButtonAi {...props} />,
+  Button: (props) => <Button {...props} />,
+  AnimatedTabs: (props) => <AnimatedTabs {...props} />,
   DialogExample: () => <DialogExample />,
   Preview: ({ path, ...props }) => <Preview path={path} {...props} />,
 };

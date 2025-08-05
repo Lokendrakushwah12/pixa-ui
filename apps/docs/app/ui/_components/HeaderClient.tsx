@@ -3,22 +3,18 @@
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface HeaderClientProps {
   children: ReactNode;
 }
 
 export function HeaderClient({ children }: HeaderClientProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isDocsPage = pathname.startsWith("/ui");
 
   function handleScroll() {
-    if (window.scrollY > 0) {
-      return setIsScrolled(true);
-    }
-    return setIsScrolled(false);
+    // Scroll handling logic can be added here if needed
   }
 
   useEffect(() => {

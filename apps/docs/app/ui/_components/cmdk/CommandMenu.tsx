@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 
-import { useTheme } from "next-themes";
+
 
 import {
   ArrowDownIcon,
@@ -85,7 +85,7 @@ function CommandMenuItem({
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [ref]);
 
   useEffect(() => {
     if (!shortcut) return;
@@ -101,7 +101,7 @@ function CommandMenuItem({
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [setIsOpen]);
+  }, [setIsOpen, shortcut, onAction]);
 
   return (
     <CommandItem
@@ -134,12 +134,8 @@ export function CommandMenu() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { resolvedTheme: theme } = useTheme();
-
   const homeRef = useRef<any>(null);
-  const updatesRef = useRef<any>(null);
   const codeRef = useRef<any>(null);
-  const thunderRef = useRef<any>(null);
   const componentRefs = useRef<{ [key: string]: any }>({});
 
   function getComponentRef(title: string) {

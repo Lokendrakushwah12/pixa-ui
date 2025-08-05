@@ -2,7 +2,7 @@
 import CodeBlock from "@/components/Table/CodeBlock";
 import { PropsTable } from "@/components/Table/PropsTable";
 import SliderComponent from "@/components/Table/SliderComponent";
-import ButtonSlideLeft from "@/components/pixa-ui/button-slide-left";
+import ButtonSlideLeft from "@repo/ui/pixaui/button-slide-left";
 import {
   codeData,
   data,

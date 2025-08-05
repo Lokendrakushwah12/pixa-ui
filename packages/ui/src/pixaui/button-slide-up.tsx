@@ -24,12 +24,14 @@ const ButtonSlideUp: React.FC<ButtonSlideUpProps> = ({
         style={{ backgroundColor: bgColor }}
       ></div>
 
-      <h3 className="z-20 translate-y-0 transition-all duration-300 group-hover:-translate-y-[200%]">
-        {title}
-      </h3>
-      <h3 className="absolute left-1/2 z-20 -translate-x-1/2 translate-y-[200%] transition-all duration-300 group-hover:-translate-y-0">
-        {title}
-      </h3>
+      <div className="relative z-20">
+        <h3 className="translate-y-0 transition-all duration-300 group-hover:-translate-y-[200%]">
+          {title}
+        </h3>
+        <h3 className="absolute left-1/2 -translate-x-1/2 translate-y-[200%] transition-all duration-300 group-hover:-translate-y-0">
+          {title}
+        </h3>
+      </div>
     </div>
   );
 };

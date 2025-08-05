@@ -29,63 +29,65 @@ const ButtonSlideLeft: React.FC<ButtonSlideLeftProps> = ({
         ...style,
       }}
     >
-      <svg
-        style={{ backgroundColor: color }}
-        className="h-6 w-6 translate-x-[0%] rotate-90 rounded-full p-1 transition-all group-hover:-translate-x-[150%]"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9.42999 4L15.5 10.07L9.42999 16.14"
-          stroke="#fff"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4 10.0699L15 10.0699"
-          stroke="#fff"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <h3
-        // style={{ color: isHovered ? "#ffffff" : "#000000" }}
-        className="z-20 translate-x-[20%] transition-all group-hover:-translate-x-[20%]"
-      >
-        {title}
-      </h3>
-      <svg
-        className="h-6 w-6 translate-x-[150%] rotate-90 rounded-full bg-[#fff] p-1 transition-all group-hover:translate-x-[0%]"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9.42999 4L15.5 10.07L9.42999 16.14"
-          stroke="#212121"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M4 10.0699L15 10.0699"
-          stroke="#212121"
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <div className="flex items-center">
+        <svg
+          style={{ backgroundColor: color }}
+          className="h-6 w-6 translate-x-[0%] rotate-90 rounded-full p-1 transition-all group-hover:-translate-x-[150%]"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.42999 4L15.5 10.07L9.42999 16.14"
+            stroke="#fff"
+            strokeWidth="1.5"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4 10.0699L15 10.0699"
+            stroke="#fff"
+            strokeWidth="1.5"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <h3
+          // style={{ color: isHovered ? "#ffffff" : "#000000" }}
+          className="z-20 translate-x-[20%] transition-all group-hover:-translate-x-[20%]"
+        >
+          {title}
+        </h3>
+        <svg
+          className="h-6 w-6 translate-x-[150%] rotate-90 rounded-full bg-[#fff] p-1 transition-all group-hover:translate-x-[0%]"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.42999 4L15.5 10.07L9.42999 16.14"
+            stroke="#212121"
+            strokeWidth="1.5"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M4 10.0699L15 10.0699"
+            stroke="#212121"
+            strokeWidth="1.5"
+            strokeMiterlimit="10"
+            strokeLinecap="square"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

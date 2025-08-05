@@ -1,5 +1,5 @@
 "use client";
-import ButtonSlideUp from "@/components/pixa-ui/button-slide-up";
+import ButtonSlideUp from "@repo/ui/pixaui/button-slide-up";
 import CodeBlock from "@/components/Table/CodeBlock";
 import { PropsTable } from "@/components/Table/PropsTable";
 import SliderComponent from "@/components/Table/SliderComponent";

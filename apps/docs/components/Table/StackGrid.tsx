@@ -91,7 +91,7 @@ const StackItem: React.FC<StackItemProps> = ({
       x: 0,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         bounce: 0.3,
         duration: 0.6,
       },
@@ -104,7 +104,7 @@ const StackItem: React.FC<StackItemProps> = ({
         x: position.x,
         y: position.y,
         transition: {
-          type: "spring",
+          type: "spring" as const,
           bounce: 0.3,
           duration: 0.6,
           delay: i * 0.05,

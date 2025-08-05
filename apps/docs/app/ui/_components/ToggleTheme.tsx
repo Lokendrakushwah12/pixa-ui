@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-import { Icons } from "@/app/_components/Icons";
+import { Icons } from "@/components/ui/Icons";
 
 import { cn } from "@/lib/utils";
 

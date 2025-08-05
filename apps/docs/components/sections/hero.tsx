@@ -66,8 +66,8 @@ const Hero = () => {
           <div className="space-y-3 text-muted-foreground text-sm">
             <p>Are you sure you want to cancel your subscription?</p>
             <p>
-              If you cancel now, you'll lose access immediately. You can always start a new
-              subscription later, but you won't get another free trial.
+              If you cancel now, you&apos;ll lose access immediately. You can always start a new
+              subscription later, but you won&apos;t get another free trial.
             </p>
           </div>
           <div className="flex flex-col-reverse md:flex-row justify-end gap-2 pt-4">
