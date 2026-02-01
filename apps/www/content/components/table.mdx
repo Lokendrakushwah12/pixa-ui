@@ -1,0 +1,194 @@
+---
+title: Table
+description: A simple table component for displaying tabular data.
+icon: TableIcon
+---
+<ComponentPreview name="p-table-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/table
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="table" title="components/ui/table.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+```
+
+```tsx
+<Table>
+  <TableCaption>Caption</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Header</TableHead>
+      <TableHead>Header</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Cell</TableCell>
+      <TableCell>Cell</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## API Reference
+
+### Table
+
+The main table container component.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<Table>
+  <TableHeader>...</TableHeader>
+  <TableBody>...</TableBody>
+</Table>
+```
+
+### TableHeader
+
+Header section of the table containing column headers.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableHeader>
+  <TableRow>
+    <TableHead>Header</TableHead>
+  </TableRow>
+</TableHeader>
+```
+
+### TableBody
+
+Body section of the table containing table rows and data.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableBody>
+  <TableRow>
+    <TableCell>Cell</TableCell>
+  </TableRow>
+</TableBody>
+```
+
+### TableFooter
+
+Footer section of the table.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableFooter>
+  <TableRow>
+    <TableCell>Footer</TableCell>
+  </TableRow>
+</TableFooter>
+```
+
+### TableRow
+
+A row in the table.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableRow>
+  <TableCell>Cell</TableCell>
+</TableRow>
+```
+
+### TableHead
+
+A header cell in the table.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableHead>Header</TableHead>
+```
+
+### TableCell
+
+A data cell in the table.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableCell>Cell</TableCell>
+```
+
+### TableCaption
+
+A caption for the table.
+
+| Prop        | Type     | Default |
+| ----------- | -------- | ------- |
+| `className` | `string` |         |
+
+```tsx
+<TableCaption>Caption</TableCaption>
+```
+
+## Examples
+
+### Framed Table
+
+To achieve this framed look, simply wrap the table in a [Frame](/ui/docs/components/frame) component.
+
+<ComponentPreview name="p-table-2" />

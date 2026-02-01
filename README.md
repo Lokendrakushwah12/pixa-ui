@@ -5,8 +5,7 @@
 
 ## About the Project
 
-pixaui.com is the new holding company of [cal.com](https://cal.com), the pioneers of open source scheduling infrastructure. Our mission is to build a home for amazing open source projects, giving them the support they need to grow and succeed.
-
+pixaui.com is the ...
 We're building the pixa stack, a one line `npm install @pixa` package that includes everything you need to build your application.
 
 ## Repository Overview
@@ -82,8 +81,6 @@ pnpm run dev --filter=www
 **pixa ui** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
 
 We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
-
-This is the component library we'll be progressively adopting for [cal.com](https://cal.com). We're building it in the open for anyone who wants to create beautiful, reliable user interfaces.
 
 ### Contributing to pixa ui
 

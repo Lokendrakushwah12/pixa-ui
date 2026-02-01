@@ -1,10 +1,11 @@
 "use client";
 
+import * as HugeIcons from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { PAGES_NEW } from "@/lib/docs";
-import type { source } from "@/lib/source";
 import { Badge } from "@/registry/default/ui/badge";
 import {
   Sidebar,
@@ -20,7 +21,7 @@ import {
 export function DocsSidebar({
   tree,
   ...props
-}: React.ComponentProps<typeof Sidebar> & { tree: typeof source.pageTree }) {
+}: React.ComponentProps<typeof Sidebar> & { tree: unknown }) {
   const pathname = usePathname();
 
   return (
@@ -40,6 +41,10 @@ export function DocsSidebar({
               {item.type === "folder" && (
                 <SidebarMenu className="gap-0.5">
                   {item.children.map((item) => {
+                    const icon = item.icon;
+                    const IconComponent = icon
+                      ? (HugeIcons as unknown)[`${icon}`]
+                      : null;
                     return (
                       item.type === "page" && (
                         <SidebarMenuItem key={item.url}>
@@ -48,6 +53,13 @@ export function DocsSidebar({
                             isActive={item.url === pathname}
                             render={<Link href={item.url} />}
                           >
+                            {IconComponent && (
+                              <HugeiconsIcon
+                                className="size-4"
+                                icon={IconComponent}
+                                strokeWidth={2}
+                              />
+                            )}
                             {item.name}
                             {PAGES_NEW.length > 0 &&
                               PAGES_NEW.includes(item.url as never) && (

@@ -4,7 +4,7 @@
     "allowJs": true,
     "jsx": "preserve",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "plugins": [{ "name": "next" }]
   },

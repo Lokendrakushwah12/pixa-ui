@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DocsCopyPage } from "@/components/docs-copy-page";
 import { DocsTableOfContents } from "@/components/docs-toc";
-import { SiteFooter } from "@/components/site-footer";
 import { source } from "@/lib/source";
 import { mdxComponents } from "@/mdx-components";
 import { Button } from "@/registry/default/ui/button";
@@ -37,7 +36,7 @@ export async function generateMetadata(props: {
 
   return {
     description: doc.description,
-    title: `${doc.title} - coss ui`,
+    title: `${doc.title} - pixa ui`,
   };
 }
 
@@ -56,10 +55,40 @@ export default async function Page(props: {
 
   const links = doc.links;
 
+  // Get navigation from page tree structure (respects meta.json order)
+  const tree = source.pageTree;
+  const flattenPages = (nodes: unknown[]): unknown[] => {
+    const pages: unknown[] = [];
+    for (const node of nodes) {
+      if (node.type === "page") {
+        const pagePath = node.url
+          .replace("/docs/", "")
+          .split("/")
+          .filter(Boolean);
+        const foundPage = source.getPage(
+          pagePath.length === 0 ? undefined : pagePath,
+        );
+        if (foundPage) pages.push(foundPage);
+      }
+      if (node.type === "folder" && node.children) {
+        pages.push(...flattenPages(node.children));
+      }
+    }
+    return pages;
+  };
+
+  const allPages = flattenPages(
+    Array.isArray(tree) ? tree : tree.children || [],
+  );
+  const currentIndex = allPages.findIndex((p) => p.url === page.url);
+  const prevPage = currentIndex > 0 ? allPages[currentIndex - 1] : null;
+  const nextPage =
+    currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null;
+
   return (
-    <div className="flex items-stretch xl:w-full" data-slot="docs">
+    <div className="mt-12 flex items-stretch xl:w-full" data-slot="docs">
       <div className="relative flex w-full min-w-0 flex-1 flex-col before:pointer-events-none before:absolute before:inset-px before:rounded-[calc(var(--radius-2xl)-1px)] before:bg-background lg:mt-8 lg:mr-4 lg:mb-8">
-        <CardFrame className="after:-inset-[5px] after:-z-1 w-full after:pointer-events-none after:absolute after:rounded-[calc(var(--radius-xl)+4px)] after:border after:border-border/64 max-lg:border-none">
+        <CardFrame className="after:-inset-[5px] after:-z-1 w-full after:pointer-events-none after:absolute after:rounded-[calc(var(--radius-xl)+8px)] after:border after:border-border/64 max-lg:border-none">
           <Card className="bg-background max-lg:rounded-none! max-lg:[clip-path:none]!">
             <CardPanel className="px-4 py-6 sm:px-6 lg:p-8">
               <div className="mx-auto w-full max-w-3xl">
@@ -105,8 +134,31 @@ export default async function Page(props: {
               </div>
             </CardPanel>
           </Card>
-          <div className="px-4 py-6 lg:rounded-b-2xl lg:px-8">
-            <SiteFooter />
+          <div className="p-4 lg:rounded-b-2xl">
+            <div className="flex w-full items-center justify-between gap-4">
+              {prevPage ? (
+                <Link
+                  className="flex h-8 items-center gap-2 rounded-lg bg-sidebar px-3 font-mono text-foreground text-sm uppercase transition-colors hover:bg-accent/50"
+                  href={prevPage.url}
+                >
+                  <span>←</span>
+                  <span className="font-medium">{prevPage.data.title}</span>
+                </Link>
+              ) : (
+                <div />
+              )}
+              {nextPage ? (
+                <Link
+                  className="flex h-8 items-center gap-2 rounded-lg bg-sidebar px-3 font-mono text-foreground text-sm uppercase transition-colors hover:bg-accent/50"
+                  href={nextPage.url}
+                >
+                  <span className="font-medium">{nextPage.data.title}</span>
+                  <span>→</span>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
           </div>
         </CardFrame>
       </div>

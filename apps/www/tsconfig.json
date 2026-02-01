@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "fumadocs-mdx:collections/*": ["./.source/*"]
     },
     "plugins": [
       {
@@ -15,7 +17,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    "next.config.ts",
+    "next.config.mjs",
     ".next/types/**/*.ts"
   ]
 }
