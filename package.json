@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "2.3.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "turbo": "^2.6.1",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "pnpm": ">=10.0.0"
+  },
+  "license": "AGPL-3.0-or-later",
+  "name": "pixa-monorepo",
+  "packageManager": "pnpm@10.0.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf .turbo && rm -rf node_modules",
+    "dev": "turbo run dev",
+    "format": "biome format --write .",
+    "format:all": "biome check --write --unsafe --no-errors-on-unmatched",
+    "lint": "turbo run lint --",
+    "prepare": "husky",
+    "test": "pnpm -r test --if-present",
+    "typecheck": "turbo run typecheck"
+  },
+  "version": "0.0.1"
+}

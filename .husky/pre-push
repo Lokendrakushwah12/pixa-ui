@@ -1,0 +1,4 @@
+#!/bin/sh
+# Format all files first
+pnpm run format:all || exit $?
+

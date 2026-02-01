@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
+    "incremental": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@pixa/ui/*": ["./src/*"]
+    },
+    "types": ["next", "react", "node", "bun-types"]
+  },
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"],
+  "extends": "@pixa/typescript-config/react-library.json",
+  "include": ["."]
+}

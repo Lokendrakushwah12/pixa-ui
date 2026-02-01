@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "exclude": ["node_modules", "dist"],
+  "extends": "@pixa/typescript-config/react-library.json",
+  "include": ["src", "turbo"]
+}
