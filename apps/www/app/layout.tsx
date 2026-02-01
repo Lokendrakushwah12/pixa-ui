@@ -7,7 +7,7 @@ import { ThemeProvider } from "@pixa/ui/shared/theme-provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  description: "pixaui.com - Build faster with beautifully crafted components",
+  description: "pixa ui - Build faster with beautifully crafted components",
   icons: {
     icon: "/favicon.svg",
   },
@@ -15,21 +15,20 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        alt: "pixaui.com",
+        alt: "pixa ui",
         height: 630,
         url: "https://pixaui.com/og.png",
         width: 1200,
       },
     ],
   },
-  title: "pixaui.com",
+  title: "pixa ui",
   twitter: {
     card: "summary_large_image",
     creator: "@pixa_ui",
-    description:
-      "pixaui.com - Build faster with beautifully crafted components",
+    description: "pixa ui - Build faster with beautifully crafted components",
     images: ["https://pixaui.com/og.png"],
-    title: "pixaui.com",
+    title: "pixa ui",
   },
 };
 
