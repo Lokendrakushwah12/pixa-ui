@@ -1,4 +1,4 @@
-![pixaui.com](https://github.com/user-attachments/assets/56dfe7f7-85b7-44ee-b89a-1c30c5c4a156)
+![pixaui.com](https://github.com/Lokendrakushwah12/pixa-ui/blob/main/apps/www/public/og.png)
 
 <h3 align="center">pixaui.com</h3>
 <p align="center">The <strong>everything but AI</strong> company.</p>
@@ -7,10 +7,6 @@
 
 pixaui.com is the ...
 We're building the pixa stack, a one line `npm install @pixa` package that includes everything you need to build your application.
-
-## Repository Overview
-
-This repository contains multiple products and applications that make up the pixaui.com ecosystem:
 
 ### Apps and Packages
 
@@ -81,20 +77,6 @@ pnpm run dev --filter=www
 **pixa ui** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
 
 We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
-
-### Contributing to pixa ui
-
-We're always looking for contributors to help improve our UI components. Whether it's a bug report, a new feature, or a documentation update, we appreciate your help.
-
-Please see our [Contributing Guidelines](apps/ui/CONTRIBUTING.md) for more information on how to get involved.
-
-## Licensing
-
-This repository uses a mixed licensing approach. The default license for this project is [AGPLv3.0](LICENSE).
-
-- **AGPLv3**: All other directories are licensed under the GNU Affero General Public License v3.0
-
-For detailed information, see our [Licensing documentation](LICENSING.md).
 
 ## Acknowledgements
 
