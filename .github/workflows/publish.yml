@@ -1,0 +1,134 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Name of the package directory inside packages/
+        required: true
+        default: ui
+        type: choice
+        options:
+          - ui
+      release_type:
+        description: Semver bump type to apply before publishing
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  PNPM_VERSION: 10.0.0
+
+jobs:
+  format:
+    uses: ./.github/workflows/format.yml
+    secrets: inherit
+
+  lint:
+    needs: format
+    uses: ./.github/workflows/lint.yml
+    secrets: inherit
+
+  test:
+    needs: lint
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  build:
+    needs: [lint, test]
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    env:
+      PACKAGE_DIR: packages/${{ inputs.package }}
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Resolve package metadata
+        id: pkg
+        run: |
+          PACKAGE_JSON="${{ env.PACKAGE_DIR }}/package.json"
+          if [ ! -f "$PACKAGE_JSON" ]; then
+            echo "::error::Package manifest not found at $PACKAGE_JSON"
+            exit 1
+          fi
+          NAME=$(node -p "require('./${{ env.PACKAGE_DIR }}/package.json').name")
+          VERSION=$(node -p "require('./${{ env.PACKAGE_DIR }}/package.json').version")
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "current_version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build target package
+        run: pnpm exec turbo run build --filter=${{ steps.pkg.outputs.name }}
+
+      - name: Bump package version
+        id: bump
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: |
+          npm version ${{ inputs.release_type }} --no-git-tag-version --no-commit > /dev/null
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Verify npm token
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN:-}" ]; then
+            echo "::error::NPM_TOKEN secret is not configured"
+            exit 1
+          fi
+
+      - name: Publish to npm
+        working-directory: ${{ env.PACKAGE_DIR }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${{ env.PACKAGE_DIR }}/package.json"
+          git commit -m "chore(release): ${{ steps.pkg.outputs.name }} v${{ steps.bump.outputs.version }}"
+
+      - name: Push changes
+        run: |
+          git push origin HEAD:${GITHUB_REF_NAME}
+
+      - name: Tag release
+        run: |
+          TAG="${{ steps.pkg.outputs.name }}@${{ steps.bump.outputs.version }}"
+          git tag "$TAG"
+          git push origin "$TAG"

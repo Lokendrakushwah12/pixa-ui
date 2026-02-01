@@ -1,135 +1,109 @@
-# Turborepo starter
+![pixaui.com](https://github.com/user-attachments/assets/56dfe7f7-85b7-44ee-b89a-1c30c5c4a156)
 
-This Turborepo starter is maintained by the Turborepo core team.
+<h3 align="center">pixaui.com</h3>
+<p align="center">The <strong>everything but AI</strong> company.</p>
 
-## Using this example
+## About the Project
 
-Run the following command:
+pixaui.com is the new holding company of [cal.com](https://cal.com), the pioneers of open source scheduling infrastructure. Our mission is to build a home for amazing open source projects, giving them the support they need to grow and succeed.
 
-```sh
-npx create-turbo@latest
-```
+We're building the pixa stack, a one line `npm install @pixa` package that includes everything you need to build your application.
 
-## What's inside?
+## Repository Overview
 
-This Turborepo includes the following packages/apps:
+This repository contains multiple products and applications that make up the pixaui.com ecosystem:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **`apps/www/`** - Main pixaui.com website
+- **`packages/ui/`** - Shared UI components package
+- **`packages/typescript-config/`** - TypeScript configurations
+- **`biome.json`** - Shared Biome configuration for linting and formatting
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Utilities
+### Environment Variables
+
+This monorepo contains multiple Next.js applications that are designed to link to each other. For the navigation to work correctly, you must set up environment variables for both local development and production deployments.
+
+#### Local Development
+
+For local development, create a `.env.local` file in each of the app directories with the corresponding variables.
+
+1.  **`www` app**
+
+    This app needs to know the URLs of the other apps. Create a file at `apps/www/.env.local`:
+
+    ```sh
+    # apps/www/.env.local
+    NEXT_PUBLIC_APP_URL=http://localhost:3000
+    ```
+
+> [!NOTE]
+> Turborepo is configured to watch for changes in `.env*` files, so it will automatically invalidate the cache when these variables change.
+
+### Development
 
 This Turborepo has some additional tools already setup for you:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Biome](https://biomejs.dev/) for linting and formatting
 
-### Build
+#### Build
 
-To build all apps and packages, run the following command:
+To build all apps and packages:
 
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+```sh
+pnpm run build
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+To build a specific app:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+```sh
+pnpm run build --filter=www
 ```
 
-### Develop
+#### Develop
 
-To develop all apps and packages, run the following command:
+To develop all apps and packages:
 
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
+```sh
+pnpm run dev
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+To develop a specific app:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+```sh
+pnpm run dev --filter=www
 ```
 
-### Remote Caching
+## pixa ui
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+**pixa ui** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+This is the component library we'll be progressively adopting for [cal.com](https://cal.com). We're building it in the open for anyone who wants to create beautiful, reliable user interfaces.
 
-```
-cd my-turborepo
+### Contributing to pixa ui
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+We're always looking for contributors to help improve our UI components. Whether it's a bug report, a new feature, or a documentation update, we appreciate your help.
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+Please see our [Contributing Guidelines](apps/ui/CONTRIBUTING.md) for more information on how to get involved.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## Licensing
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+This repository uses a mixed licensing approach. The default license for this project is [AGPLv3.0](LICENSE).
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+- **AGPLv3**: All other directories are licensed under the GNU Affero General Public License v3.0
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+For detailed information, see our [Licensing documentation](LICENSING.md).
 
-## Useful Links
+## Acknowledgements
 
-Learn more about the power of Turborepo:
+Special thanks to:
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+- **[Tailwind CSS](https://tailwindcss.com/)** - For the utility-first CSS framework that powers our design system
+- **[Base UI](https://base-ui.com/)** - For providing the robust, accessible primitives that form the foundation of our components
+- **[shadcn/ui](https://ui.shadcn.com/)** - For inspiring our copy-paste approach and component philosophy
+- **[Fumadocs](https://fumadocs.dev/)** - For providing the documentation framework that powers our component docs

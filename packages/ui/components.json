@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "aliases": {
+    "components": "@pixa/ui/components",
+    "hooks": "@pixa/ui/hooks",
+    "lib": "@pixa/ui/lib",
+    "ui": "@pixa/ui/components",
+    "utils": "@pixa/ui/lib/utils"
+  },
+  "iconLibrary": "lucide",
+  "rsc": true,
+  "style": "new-york",
+  "tailwind": {
+    "baseColor": "neutral",
+    "config": "",
+    "css": "src/styles/globals.css",
+    "cssVariables": true
+  },
+  "tsx": true
+}

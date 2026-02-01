@@ -1,6 +1,0 @@
-{
-  "buildCommand": "pnpm turbo build --filter=pixa-ui",
-  "outputDirectory": "apps/docs/.next",
-  "installCommand": "pnpm install --no-frozen-lockfile",
-  "framework": "nextjs"
-}
