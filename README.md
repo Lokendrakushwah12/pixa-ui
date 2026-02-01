@@ -1,12 +1,12 @@
 ![pixaui.com](https://github.com/Lokendrakushwah12/pixa-ui/blob/main/apps/www/public/og.png)
 
 <h3 align="center">pixaui.com</h3>
-<p align="center">The <strong>everything but AI</strong> company.</p>
+<p align="center">Build faster with beautifully crafted components.</p>
 
 ## About the Project
 
-pixaui.com is the ...
-We're building the pixa stack, a one line `npm install @pixa` package that includes everything you need to build your application.
+Pixa UI is a composable and accessible collection of open-source Next.js components built with shadcn/ui and Tailwind CSS.
+
 
 ### Apps and Packages
 
@@ -71,12 +71,6 @@ To develop a specific app:
 ```sh
 pnpm run dev --filter=www
 ```
-
-## pixa ui
-
-**pixa ui** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
-
-We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
 
 ## Acknowledgements
 
