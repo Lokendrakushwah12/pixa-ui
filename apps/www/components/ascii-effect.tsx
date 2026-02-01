@@ -238,6 +238,7 @@ let _resolution = new Vector2(1920, 1080);
 let _mousePos = new Vector2(0, 0);
 
 class AsciiEffectImpl extends Effect {
+  // @ts-expect-error
   constructor(options) {
     const {
       cellSize = 6,
@@ -293,7 +294,9 @@ class AsciiEffectImpl extends Effect {
     _mousePos = mousePos;
   }
 
+  // @ts-expect-error
   update(_renderer, _inputBuffer, deltaTime) {
+    // @ts-expect-error
     const targetFPS = this.uniforms.get("targetFPS").value;
 
     if (targetFPS > 0) {
@@ -307,52 +310,71 @@ class AsciiEffectImpl extends Effect {
       _time += deltaTime;
     }
 
+    // @ts-expect-error
     this.uniforms.get("time").value = _time;
+    // @ts-expect-error
     this.uniforms.get("cellSize").value = _cellSize;
+    // @ts-expect-error
     this.uniforms.get("invert").value = _invert;
+    // @ts-expect-error
     this.uniforms.get("colorMode").value = _colorMode;
+    // @ts-expect-error
     this.uniforms.get("asciiStyle").value = _asciiStyle;
+    // @ts-expect-error
     this.uniforms.get("resolution").value = _resolution;
+    // @ts-expect-error
     this.uniforms.get("mousePos").value = _mousePos;
   }
 }
 
-export const AsciiEffect = forwardRef((props, ref) => {
-  const {
-    style = "standard",
-    cellSize = 6,
-    invert = false,
-    color = false,
-    postfx = {},
-    resolution = new Vector2(1920, 1080),
-    mousePos = new Vector2(0, 0),
-  } = props;
+interface AsciiEffectProps {
+  style?: "standard" | "blocks" | "dense" | "minimal";
+  cellSize?: number;
+  invert?: boolean;
+  color?: boolean;
+  postfx?: Record<string, unknown>;
+  resolution?: Vector2;
+  mousePos?: Vector2;
+}
 
-  const styleMap = { blocks: 3, dense: 1, minimal: 2, standard: 0 };
-  const styleNum = styleMap[style] || 0;
+export const AsciiEffect = forwardRef<unknown, AsciiEffectProps>(
+  (props, ref) => {
+    const {
+      style = "standard",
+      cellSize = 6,
+      invert = false,
+      color = false,
+      postfx = {},
+      resolution = new Vector2(1920, 1080),
+      mousePos = new Vector2(0, 0),
+    } = props;
 
-  _cellSize = cellSize;
-  _invert = invert;
-  _colorMode = color;
-  _asciiStyle = styleNum;
-  _resolution = resolution;
-  _mousePos = mousePos;
+    const styleMap = { blocks: 3, dense: 1, minimal: 2, standard: 0 };
+    const styleNum = styleMap[style] || 0;
 
-  const effect = useMemo(
-    () =>
-      new AsciiEffectImpl({
-        cellSize,
-        color,
-        invert,
-        mousePos,
-        postfx,
-        resolution,
-        style: styleNum,
-      }),
-    [cellSize, color, invert, mousePos, postfx, resolution, styleNum],
-  );
+    _cellSize = cellSize;
+    _invert = invert;
+    _colorMode = color;
+    _asciiStyle = styleNum;
+    _resolution = resolution;
+    _mousePos = mousePos;
 
-  return <primitive dispose={null} object={effect} ref={ref} />;
-});
+    const effect = useMemo(
+      () =>
+        new AsciiEffectImpl({
+          cellSize,
+          color,
+          invert,
+          mousePos,
+          postfx,
+          resolution,
+          style: styleNum,
+        }),
+      [cellSize, color, invert, mousePos, postfx, resolution, styleNum],
+    );
+
+    return <primitive dispose={null} object={effect} ref={ref} />;
+  },
+);
 
 AsciiEffect.displayName = "AsciiEffect";

@@ -24,6 +24,14 @@ export function DocsSidebar({
 }: React.ComponentProps<typeof Sidebar> & { tree: unknown }) {
   const pathname = usePathname();
 
+  const treeData =
+    typeof tree === "object" &&
+    tree !== null &&
+    "children" in tree &&
+    Array.isArray(tree.children)
+      ? (tree as { children: any[] })
+      : { children: [] };
+
   return (
     <Sidebar
       className="sticky top-(--header-height) z-30 hidden h-[calc(100svh-var(--header-height))] bg-transparent lg:flex"
@@ -32,7 +40,7 @@ export function DocsSidebar({
     >
       <SidebarContent className="px-4 py-2">
         <div className="h-(--top-spacing) shrink-0" />
-        {tree.children.map((item) => (
+        {treeData.children.map((item: any) => (
           <SidebarGroup className="gap-1" key={item.$id}>
             <SidebarGroupLabel className="h-7 px-0 text-sidebar-accent-foreground">
               {item.name}
@@ -40,10 +48,10 @@ export function DocsSidebar({
             <SidebarGroupContent>
               {item.type === "folder" && (
                 <SidebarMenu className="gap-0.5">
-                  {item.children.map((item) => {
+                  {item.children.map((item: any) => {
                     const icon = item.icon;
                     const IconComponent = icon
-                      ? (HugeIcons as unknown)[`${icon}`]
+                      ? (HugeIcons as any)[`${icon}`]
                       : null;
                     return (
                       item.type === "page" && (

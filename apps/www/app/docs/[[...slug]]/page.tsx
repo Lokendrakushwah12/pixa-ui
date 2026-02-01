@@ -40,6 +40,41 @@ export async function generateMetadata(props: {
   };
 }
 
+type myPages = Array<{
+  url: string;
+  data: {
+    title: string;
+  };
+}>;
+
+type myDoc = {
+  title: string;
+  description?: string;
+  icon?: string;
+  body: React.ComponentType<any>;
+  toc?: Array<{
+    title: string;
+    url: string;
+    depth: number;
+    id: string;
+    level: number;
+  }>;
+  links?: {
+    doc?: string;
+    [key: string]: string | undefined;
+  };
+  getText: (format: string) => Promise<string>;
+  pageData?: Record<string, unknown>;
+};
+
+type myNodes = {
+  type: "page" | "folder";
+  url?: string;
+  name?: string;
+  children?: myNodes[];
+  [key: string]: unknown;
+};
+
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
@@ -49,19 +84,19 @@ export default async function Page(props: {
     notFound();
   }
 
-  const doc = page.data;
+  const doc: myDoc = page.data as myDoc;
+  // @ts-expect-error
   const rawContent = await page.data.getText("raw");
   const MDX = doc.body;
-
   const links = doc.links;
 
   // Get navigation from page tree structure (respects meta.json order)
   const tree = source.pageTree;
-  const flattenPages = (nodes: unknown[]): unknown[] => {
+  const flattenPages = (nodes: myNodes[]) => {
     const pages: unknown[] = [];
     for (const node of nodes) {
       if (node.type === "page") {
-        const pagePath = node.url
+        const pagePath = (node.url ?? "")
           .replace("/docs/", "")
           .split("/")
           .filter(Boolean);
@@ -77,7 +112,9 @@ export default async function Page(props: {
     return pages;
   };
 
-  const allPages = flattenPages(
+  // @ts-expect-error
+  const allPages: myPages = flattenPages(
+    // @ts-expect-error
     Array.isArray(tree) ? tree : tree.children || [],
   );
   const currentIndex = allPages.findIndex((p) => p.url === page.url);

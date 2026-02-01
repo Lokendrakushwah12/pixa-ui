@@ -8,6 +8,6 @@ import { ui } from "@/registry/registry-ui";
 
 export const registry = {
   homepage: "https://ui.shadcn.com",
-  items: [...ui, ...particles, ...styles, ...lib, ...hooks],
+  items: [...ui, ...particles, ...styles, ...lib, ...hooks] as any,
   name: "shadcn/ui",
 } satisfies Registry;

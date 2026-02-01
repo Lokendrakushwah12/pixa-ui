@@ -54,7 +54,7 @@ export function CommandMenu({
   navItems?: { href: string; label: string }[];
 }) {
   const isMac = useIsMac();
-  const [config] = useConfig();
+  const { config } = useConfig();
   const { copyToClipboard } = useCopyToClipboard();
   const [open, setOpen] = React.useState(false);
   const [selectedType, setSelectedType] = React.useState<

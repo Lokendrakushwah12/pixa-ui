@@ -10,11 +10,27 @@ export default function DocsLayout({
   const enrichedTree = {
     ...source.pageTree,
     children: source.pageTree.children.map((folder: unknown) => {
-      if (folder.type === "folder" && folder.children) {
+      // Type guard for folder
+      if (
+        typeof folder === "object" &&
+        folder !== null &&
+        "type" in folder &&
+        folder.type === "folder" &&
+        "children" in folder &&
+        Array.isArray(folder.children)
+      ) {
         return {
           ...folder,
           children: folder.children.map((item: unknown) => {
-            if (item.type === "page") {
+            if (
+              typeof item === "object" &&
+              item !== null &&
+              "type" in item &&
+              item.type === "page" &&
+              "url" in item &&
+              typeof item.url === "string" &&
+              "name" in item
+            ) {
               let pagePath: string[] | undefined;
               if (item.url === "/docs") {
                 pagePath = undefined;
