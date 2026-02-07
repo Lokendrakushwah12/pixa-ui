@@ -10,7 +10,7 @@ export function getRegistryComponent(name: string) {
   return Index[name]?.component;
 }
 
-export async function getRegistryItem(name: string) {
+export async function getRegistryItem(name: string, basePath?: string) {
   const item = Index[name];
 
   if (!item) {
@@ -28,10 +28,14 @@ export async function getRegistryItem(name: string) {
 
   const files = typedItem.files || [];
   const processedFiles = [];
+  const root = basePath ?? process.cwd();
 
   for (const file of files) {
-    const content = await getFileContent(file);
-    const relativePath = path.relative(process.cwd(), file.path);
+    const resolvedPath = path.isAbsolute(file.path)
+      ? file.path
+      : path.join(root, file.path);
+    const content = await getFileContent({ ...file, path: resolvedPath });
+    const relativePath = path.relative(root, resolvedPath);
 
     processedFiles.push({
       ...file,
