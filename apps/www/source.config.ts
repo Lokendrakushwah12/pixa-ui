@@ -1,4 +1,3 @@
-import { transformers } from "@pixa/ui/lib/highlight-code";
 import {
   type DocsCollection,
   defineConfig,
@@ -7,6 +6,7 @@ import {
 } from "fumadocs-mdx/config";
 import rehypePrettyCode from "rehype-pretty-code";
 import { z } from "zod";
+import { transformers } from "./lib/highlight-code-transformers";
 
 export default defineConfig({
   mdxOptions: {
