@@ -4,6 +4,34 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import { getWwwRoot } from "@/lib/get-www-root";
 
+// Prerendered at build time: the content files live on disk in the build
+// environment, not in the serverless runtime.
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const contentDir = path.join(getWwwRoot(), "content");
+  const params: { slug: string[] }[] = [];
+
+  async function walk(dir: string, segments: string[]) {
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        await walk(path.join(dir, entry.name), [...segments, entry.name]);
+        continue;
+      }
+      if (!/\.mdx?$/.test(entry.name)) continue;
+      const name = entry.name.replace(/\.mdx?$/, "");
+      // The route maps "docs/<name>" onto content/(root)/<name>.
+      params.push({
+        slug: segments[0] === "(root)" ? ["docs", name] : [...segments, name],
+      });
+    }
+  }
+
+  await walk(contentDir, []);
+  return params;
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ slug?: string[] }> },
