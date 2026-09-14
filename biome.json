@@ -26,6 +26,8 @@
       "!**/.turbo",
       "!**/.next",
       "!**/apps/**/*/.next",
+      "!**/out",
+      "!**/apps/**/*/out",
       "!**/apps/**/*/.source",
       "!**/packages/ui/src/components",
       "!**/packages/ui/src/lib",
