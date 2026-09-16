@@ -19,7 +19,7 @@ import {
   AnimatePresence,
   type MotionValue,
 } from "framer-motion";
-import * as SliderPrimitive from "@radix-ui/react-slider";
+import { Slider as SliderPrimitive } from "@base-ui/react/slider";
 import { cn } from "../../lib/utils";
 import { useSizeVariant, type SizeVariant } from "../../fluid/lib/size-context";
 import { spring } from "../../fluid/lib/springs";
@@ -819,8 +819,9 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
             className="absolute inset-0 opacity-0 pointer-events-none"
             style={{ height: THUMB_SIZE }}
           >
+            <SliderPrimitive.Control className="w-full h-full">
             <SliderPrimitive.Track className="w-full h-full">
-              <SliderPrimitive.Range />
+              <SliderPrimitive.Indicator />
             </SliderPrimitive.Track>
             <SliderPrimitive.Thumb
               aria-label={thumbAriaLabel(0)}
@@ -840,6 +841,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
                 onBlur={() => setFocusedThumb((prev) => prev === 1 ? null : prev)}
               />
             )}
+            </SliderPrimitive.Control>
           </SliderPrimitive.Root>
 
           <div
@@ -1319,8 +1321,9 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
           disabled={disabled}
           className="absolute inset-0 opacity-0 pointer-events-none [&_*]:pointer-events-none"
         >
+          <SliderPrimitive.Control className="w-full h-full">
           <SliderPrimitive.Track className="w-full h-full">
-            <SliderPrimitive.Range />
+            <SliderPrimitive.Indicator />
           </SliderPrimitive.Track>
           <SliderPrimitive.Thumb
             aria-label={label}
@@ -1330,6 +1333,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
             }}
             onBlur={() => setIsFocused(false)}
           />
+          </SliderPrimitive.Control>
         </SliderPrimitive.Root>
 
         <motion.div

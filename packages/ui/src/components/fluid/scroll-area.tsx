@@ -10,7 +10,7 @@ import {
   type ComponentPropsWithoutRef,
   type ComponentRef,
 } from "react";
-import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
+import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
 import { cn } from "../../lib/utils";
 import { useShape } from "../../fluid/lib/shape-context";
 import { useTouchPrimary } from "../../fluid/hooks/use-touch-primary";
@@ -23,21 +23,19 @@ const SCROLL_LINGER_MS = 600;
 
 type Orientation = "vertical" | "horizontal" | "both";
 
-interface ScrollAreaProps
-  extends ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {
+// Plain div props, not Base UI's Root props: this renders a bare <div> on
+// touch and the Base UI Root otherwise, and Base UI's own event types do not
+// fit a plain div. Root accepts standard div props, so one type serves both.
+interface ScrollAreaProps extends ComponentPropsWithoutRef<"div"> {
   viewportClassName?: string;
   orientation?: Orientation;
 }
 
-const ScrollArea = forwardRef<
-  ComponentRef<typeof ScrollAreaPrimitive.Root>,
-  ScrollAreaProps
->(
+const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
   (
     {
       className,
       children,
-      scrollHideDelay: _scrollHideDelay,
       viewportClassName,
       orientation = "vertical",
       ...props
@@ -91,7 +89,6 @@ const ScrollArea = forwardRef<
             <ScrollAreaPrimitive.Root
               ref={ref}
               data-slot="scroll-area"
-              type="always"
               onPointerEnter={() => setHovering(true)}
               onPointerLeave={() => setHovering(false)}
               className={cn("relative overflow-hidden", className)}
@@ -102,7 +99,9 @@ const ScrollArea = forwardRef<
                 onScroll={handleScroll}
                 className={cn("size-full rounded-[inherit]", viewportClassName)}
               >
-                {children}
+                <ScrollAreaPrimitive.Content>
+                  {children}
+                </ScrollAreaPrimitive.Content>
               </ScrollAreaPrimitive.Viewport>
               {orientation !== "horizontal" && <ScrollBar orientation="vertical" />}
               {orientation !== "vertical" && <ScrollBar orientation="horizontal" />}
@@ -118,8 +117,8 @@ const ScrollArea = forwardRef<
 ScrollArea.displayName = "ScrollArea";
 
 const ScrollBar = forwardRef<
-  ComponentRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
-  ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
+  ComponentRef<typeof ScrollAreaPrimitive.Scrollbar>,
+  ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Scrollbar>
 >(({ className, orientation = "vertical", ...props }, ref) => {
   const isTouch = useContext(ScrollAreaContext);
   const visible = useContext(ScrollbarVisibleContext);
@@ -128,7 +127,7 @@ const ScrollBar = forwardRef<
   if (isTouch) return null;
 
   return (
-    <ScrollAreaPrimitive.ScrollAreaScrollbar
+    <ScrollAreaPrimitive.Scrollbar
       ref={ref}
       orientation={orientation}
       data-slot="scroll-area-scrollbar"
@@ -144,7 +143,7 @@ const ScrollBar = forwardRef<
       )}
       {...props}
     >
-      <ScrollAreaPrimitive.ScrollAreaThumb
+      <ScrollAreaPrimitive.Thumb
         data-slot="scroll-area-thumb"
         className={cn(
           "relative bg-[rgb(var(--overlay)/0.08)] transition-[background-color,width,height] duration-160 ease-in-out",
@@ -156,7 +155,7 @@ const ScrollBar = forwardRef<
             "my-auto mx-1 h-1 -translate-y-0.5 group-hover/scrollbar:h-1.5"
         )}
       />
-    </ScrollAreaPrimitive.ScrollAreaScrollbar>
+    </ScrollAreaPrimitive.Scrollbar>
   );
 });
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
-import * as ProgressPrimitive from "@radix-ui/react-progress";
+import { Progress as ProgressPrimitive } from "@base-ui/react/progress";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "../../lib/utils";
 import { spring } from "../../fluid/lib/springs";
@@ -24,7 +24,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
       <ProgressPrimitive.Root
         ref={ref}
         data-slot="progress"
-        value={indeterminate ? undefined : clamped}
+        value={indeterminate ? null : clamped}
         className={cn(
           "relative h-1.5 w-full overflow-hidden rounded-full bg-muted",
           className

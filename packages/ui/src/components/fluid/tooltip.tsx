@@ -7,7 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 import { motion, useMotionValue } from "framer-motion";
 import { cn } from "../../lib/utils";
 import { spring, exitFallbackMs } from "../../fluid/lib/springs";
@@ -48,8 +48,9 @@ function TooltipProvider({
   return (
     <TooltipGroupContext.Provider value={true}>
       <TooltipPrimitive.Provider
-        delayDuration={delayDuration}
-        skipDelayDuration={skipDelayDuration}
+        closeDelay={0}
+        delay={delayDuration}
+        timeout={skipDelayDuration}
       >
         {children}
       </TooltipPrimitive.Provider>
@@ -135,18 +136,16 @@ function Tooltip({
   const slideOffset = getSlideOffset(side);
 
   const tooltip = (
-    <TooltipPrimitive.Root delayDuration={delayDuration} open={open} onOpenChange={(v) => { setInternalOpen(v); onOpenChangeProp?.(v); }}>
-      <TooltipPrimitive.Trigger asChild onPointerMove={followCursor ? handleFollowMove : undefined}>
-        {children}
-      </TooltipPrimitive.Trigger>
+    <TooltipPrimitive.Root open={open} onOpenChange={(v) => { setInternalOpen(v); onOpenChangeProp?.(v); }}>
+      <TooltipPrimitive.Trigger
+        delay={delayDuration}
+        onPointerMove={followCursor ? handleFollowMove : undefined}
+        render={children}
+      />
       {mounted && (
-        <TooltipPrimitive.Portal forceMount container={portalContainer ?? undefined}>
-          <TooltipPrimitive.Content
-            side={side}
-            sideOffset={sideOffset}
-            forceMount
-            className={cn("z-50", contentClassName)}
-          >
+        <TooltipPrimitive.Portal keepMounted container={portalContainer ?? undefined}>
+          <TooltipPrimitive.Positioner side={side} sideOffset={sideOffset}>
+          <TooltipPrimitive.Popup className={cn("z-50", contentClassName)}>
             <motion.div
               style={
                 followCursor === "y"
@@ -176,7 +175,8 @@ function Tooltip({
                 {content}
               </motion.div>
             </motion.div>
-          </TooltipPrimitive.Content>
+          </TooltipPrimitive.Popup>
+          </TooltipPrimitive.Positioner>
         </TooltipPrimitive.Portal>
       )}
     </TooltipPrimitive.Root>
@@ -185,7 +185,7 @@ function Tooltip({
   if (hasAmbientProvider) return tooltip;
 
   return (
-    <TooltipPrimitive.Provider delayDuration={delayDuration ?? DEFAULT_DELAY}>
+    <TooltipPrimitive.Provider delay={delayDuration ?? DEFAULT_DELAY}>
       {tooltip}
     </TooltipPrimitive.Provider>
   );

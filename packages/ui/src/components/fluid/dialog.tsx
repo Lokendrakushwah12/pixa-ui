@@ -10,7 +10,7 @@ import {
   type HTMLAttributes,
   type ReactElement,
 } from "react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 import { useIcon } from "../../fluid/lib/icon-context";
@@ -31,7 +31,9 @@ function Dialog({
   defaultOpen,
   onOpenChange,
   ...props
-}: DialogPrimitive.DialogProps) {
+}: Omit<DialogPrimitive.Root.Props, "onOpenChange"> & {
+  onOpenChange?: (open: boolean) => void;
+}) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen ?? false);
   const open = controlledOpen ?? uncontrolledOpen;
   const handleOpenChange = (next: boolean) => {
@@ -48,8 +50,9 @@ function Dialog({
   );
 }
 
-interface DialogSlotProps
-  extends Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>, "asChild"> {
+// Button props rather than Trigger's: this shape backs both Trigger and
+// Close, and Base UI types their events against different elements.
+interface DialogSlotProps extends ComponentPropsWithoutRef<"button"> {
   render?: ReactElement;
   asChild?: boolean;
 }
@@ -57,11 +60,9 @@ interface DialogSlotProps
 const DialogTrigger = forwardRef<HTMLButtonElement, DialogSlotProps>(
   ({ render, asChild, children, ...props }, ref) =>
     render ? (
-      <DialogPrimitive.Trigger ref={ref} asChild {...props}>
-        {render}
-      </DialogPrimitive.Trigger>
+      <DialogPrimitive.Trigger ref={ref} render={render} {...props} />
     ) : (
-      <DialogPrimitive.Trigger ref={ref} asChild={asChild} {...props}>
+      <DialogPrimitive.Trigger ref={ref} {...props}>
         {children}
       </DialogPrimitive.Trigger>
     )
@@ -71,11 +72,9 @@ DialogTrigger.displayName = "DialogTrigger";
 const DialogClose = forwardRef<HTMLButtonElement, DialogSlotProps>(
   ({ render, asChild, children, ...props }, ref) =>
     render ? (
-      <DialogPrimitive.Close ref={ref} asChild {...props}>
-        {render}
-      </DialogPrimitive.Close>
+      <DialogPrimitive.Close ref={ref} render={render} {...props} />
     ) : (
-      <DialogPrimitive.Close ref={ref} asChild={asChild} {...props}>
+      <DialogPrimitive.Close ref={ref} {...props}>
         {children}
       </DialogPrimitive.Close>
     )
@@ -83,7 +82,7 @@ const DialogClose = forwardRef<HTMLButtonElement, DialogSlotProps>(
 DialogClose.displayName = "DialogClose";
 
 interface DialogContentProps
-  extends ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  extends ComponentPropsWithoutRef<typeof DialogPrimitive.Popup> {
   size?: "sm" | "lg" | "xl";
   container?: HTMLElement | null;
   showCloseButton?: boolean;
@@ -117,8 +116,10 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
     if (!mounted) return null;
 
     return (
-      <DialogPrimitive.Portal forceMount container={container ?? undefined}>
-        <DialogPrimitive.Overlay asChild forceMount>
+      <DialogPrimitive.Portal keepMounted container={container ?? undefined}>
+        <DialogPrimitive.Backdrop
+          forceRender
+          render={
           <motion.div
             className={cn(
               container ? "absolute" : "fixed",
@@ -128,8 +129,9 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
             animate={{ opacity: open ? 1 : 0 }}
             transition={open ? spring.slow : spring.slow.exit}
           />
-        </DialogPrimitive.Overlay>
-        <DialogPrimitive.Content ref={ref} asChild forceMount {...props}>
+          }
+        />
+        <DialogPrimitive.Popup ref={ref} {...props} render={
           <motion.div
             className={cn(
               container ? "absolute" : "fixed",
@@ -156,20 +158,22 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
             <SurfaceProvider value={dialogLevel}>
               {children}
               {showCloseButton && (
-                <DialogPrimitive.Close asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon-sm"
-                    className="absolute right-3 top-3"
-                  >
-                    <XIcon />
-                    <span className="sr-only">Close</span>
-                  </Button>
-                </DialogPrimitive.Close>
+                <DialogPrimitive.Close
+                  render={
+                    <Button
+                      variant="ghost"
+                      size="icon-sm"
+                      className="absolute right-3 top-3"
+                    >
+                      <XIcon />
+                      <span className="sr-only">Close</span>
+                    </Button>
+                  }
+                />
               )}
             </SurfaceProvider>
           </motion.div>
-        </DialogPrimitive.Content>
+        } />
       </DialogPrimitive.Portal>
     );
   }
