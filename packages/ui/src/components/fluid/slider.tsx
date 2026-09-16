@@ -920,7 +920,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
 
           <div
             ref={trackRef}
-            className="relative w-full cursor-ew-resize py-2"
+            className={cn("relative w-full py-2", vertical ? "cursor-ns-resize" : "cursor-ew-resize")}
             style={{ height: THUMB_SIZE + 16, opacity: ready ? 1 : 0 }}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
@@ -928,7 +928,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
             onPointerCancel={handlePointerUp}
           >
             <div
-              className="absolute cursor-ew-resize"
+              className={cn("absolute", vertical ? "cursor-ns-resize" : "cursor-ew-resize")}
               style={{ left: -8, right: -8, top: 0, bottom: 0 }}
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}
@@ -1247,16 +1247,23 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         if (!rect || !el) return min;
         const along = trackOffset(clientX, clientY, rect, el.offsetWidth, vertical);
         if (along === null) return min;
-        const clamped = Math.max(0, Math.min(el.offsetWidth, along));
+        // `along` is in layout coordinates, so the divisor has to be the
+        // layout length too. A rotated vertical slider's rect.width is the
+        // thin cross-axis, which sends every position past the end.
+        const layoutLength = el.offsetWidth;
+        const clamped = Math.max(0, Math.min(layoutLength, along));
         if (variant === "pips") {
           if (pipCount <= 1) return min;
           const index = Math.max(
             0,
-            Math.min(pipCount - 1, Math.round((clamped / rect.width) * (pipCount - 1)))
+            Math.min(
+              pipCount - 1,
+              Math.round((clamped / layoutLength) * (pipCount - 1))
+            )
           );
           return pipSteps[index];
         } else {
-          const raw = min + (clamped / rect.width) * (max - min);
+          const raw = min + (clamped / layoutLength) * (max - min);
           const snapped = Math.round((raw - min) / step) * step + min;
           return Math.max(min, Math.min(max, snapped));
         }
@@ -1362,7 +1369,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         }}
       >
         <div
-          className="absolute cursor-ew-resize"
+          className={cn("absolute", vertical ? "cursor-ns-resize" : "cursor-ew-resize")}
           style={{ left: -8, right: -8, top: 0, bottom: 0 }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
