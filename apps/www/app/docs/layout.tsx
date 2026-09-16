@@ -41,13 +41,9 @@ export default function DocsLayout({
                   .filter(Boolean);
               }
               const page = source.getPage(pagePath);
-              const icon = page?.data.icon;
-              console.log(
-                `[Layout] Page: ${item.name}, URL: ${item.url}, Path: ${JSON.stringify(pagePath)}, Icon: ${icon}`,
-              );
               return {
                 ...item,
-                icon: icon,
+                icon: page?.data.icon,
               };
             }
             return item;
