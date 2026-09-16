@@ -1,7 +1,8 @@
 "use client";
 
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
-import * as MenubarPrimitive from "@radix-ui/react-menubar";
+import { Menubar as MenubarPrimitive } from "@base-ui/react/menubar";
+import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { motion } from "framer-motion";
 
 import { cn } from "../../lib/utils";
@@ -17,12 +18,12 @@ const MENU_OFFSET = 2;
 
 const Menubar = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Root>
+  ComponentPropsWithoutRef<typeof MenubarPrimitive>
 >(({ className, ...props }, ref) => {
   const sizeClasses = useSize();
   const shape = useShape();
   return (
-    <MenubarPrimitive.Root
+    <MenubarPrimitive
       ref={ref}
       data-slot="menubar"
       className={cn(
@@ -38,19 +39,19 @@ const Menubar = forwardRef<
 });
 Menubar.displayName = "Menubar";
 
-const MenubarMenu = MenubarPrimitive.Menu;
-const MenubarGroup = MenubarPrimitive.Group;
-const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
-const MenubarSub = MenubarPrimitive.Sub;
+const MenubarMenu = MenuPrimitive.Root;
+const MenubarGroup = MenuPrimitive.Group;
+const MenubarRadioGroup = MenuPrimitive.RadioGroup;
+const MenubarSub = MenuPrimitive.SubmenuRoot;
 
 const MenubarTrigger = forwardRef<
   HTMLButtonElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Trigger>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.Trigger>
 >(({ className, ...props }, ref) => {
   const sizeClasses = useSize();
   const shape = useShape();
   return (
-    <MenubarPrimitive.Trigger
+    <MenuPrimitive.Trigger
       ref={ref}
       data-slot="menubar-trigger"
       className={cn(
@@ -77,36 +78,39 @@ function useMenuSurface() {
 
 const MenubarContent = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.Popup> & {
+    align?: ComponentPropsWithoutRef<typeof MenuPrimitive.Positioner>["align"];
+    sideOffset?: number;
+  }
 >(({ className, children, align = "start", sideOffset = 6, ...props }, ref) => {
   const shape = useShape();
   const level = useMenuSurface();
   return (
-    <MenubarPrimitive.Portal>
-      <MenubarPrimitive.Content
+    <MenuPrimitive.Portal>
+      <MenuPrimitive.Positioner align={align} className="z-50" sideOffset={sideOffset}>
+      <MenuPrimitive.Popup
         ref={ref}
         data-slot="menubar-content"
-        align={align}
-        sideOffset={sideOffset}
-        asChild
+        render={<motion.div />}
         {...props}
-      >
-        <motion.div
-          className={cn(
+        className={cn(
             "z-50 min-w-40 border border-border p-1 focus:outline-none",
             popupMotionClass,
             surfaceClasses(level),
             shape.container,
             className
           )}
+      >
+        <motion.div
           initial={{ opacity: 0, scale: 0.97, y: "var(--popup-enter-y)" }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={spring.moderate}
         >
           <SurfaceProvider value={level}>{children}</SurfaceProvider>
         </motion.div>
-      </MenubarPrimitive.Content>
-    </MenubarPrimitive.Portal>
+      </MenuPrimitive.Popup>
+      </MenuPrimitive.Positioner>
+    </MenuPrimitive.Portal>
   );
 });
 MenubarContent.displayName = "MenubarContent";
@@ -133,7 +137,7 @@ function menuItemClass(
 
 const MenubarItem = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
+  ComponentPropsWithoutRef<typeof MenuPrimitive.Item> & {
     inset?: boolean;
     destructive?: boolean;
   }
@@ -141,7 +145,7 @@ const MenubarItem = forwardRef<
   const sizeClasses = useSize();
   const shape = useShape();
   return (
-    <MenubarPrimitive.Item
+    <MenuPrimitive.Item
       ref={ref}
       data-slot="menubar-item"
       className={cn(
@@ -157,62 +161,62 @@ MenubarItem.displayName = "MenubarItem";
 
 const MenubarCheckboxItem = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.CheckboxItem>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => {
   const sizeClasses = useSize();
   const shape = useShape();
   const CheckIcon = useIcon("check");
   return (
-    <MenubarPrimitive.CheckboxItem
+    <MenuPrimitive.CheckboxItem
       ref={ref}
       checked={checked}
       className={cn(menuItemClass(sizeClasses, shape.item, true), className)}
       {...props}
     >
       <span className="absolute left-2 flex size-4 items-center justify-center">
-        <MenubarPrimitive.ItemIndicator>
+        <MenuPrimitive.CheckboxItemIndicator>
           <CheckIcon />
-        </MenubarPrimitive.ItemIndicator>
+        </MenuPrimitive.CheckboxItemIndicator>
       </span>
       {children}
-    </MenubarPrimitive.CheckboxItem>
+    </MenuPrimitive.CheckboxItem>
   );
 });
 MenubarCheckboxItem.displayName = "MenubarCheckboxItem";
 
 const MenubarRadioItem = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioItem>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => {
   const sizeClasses = useSize();
   const shape = useShape();
   const DotIcon = useIcon("dot");
   return (
-    <MenubarPrimitive.RadioItem
+    <MenuPrimitive.RadioItem
       ref={ref}
       className={cn(menuItemClass(sizeClasses, shape.item, true), className)}
       {...props}
     >
       <span className="absolute left-2 flex size-4 items-center justify-center">
-        <MenubarPrimitive.ItemIndicator>
+        <MenuPrimitive.RadioItemIndicator>
           <DotIcon />
-        </MenubarPrimitive.ItemIndicator>
+        </MenuPrimitive.RadioItemIndicator>
       </span>
       {children}
-    </MenubarPrimitive.RadioItem>
+    </MenuPrimitive.RadioItem>
   );
 });
 MenubarRadioItem.displayName = "MenubarRadioItem";
 
 const MenubarSubTrigger = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & { inset?: boolean }
+  ComponentPropsWithoutRef<typeof MenuPrimitive.SubmenuTrigger> & { inset?: boolean }
 >(({ className, inset, children, ...props }, ref) => {
   const sizeClasses = useSize();
   const shape = useShape();
   const ChevronRight = useIcon("chevron-right");
   return (
-    <MenubarPrimitive.SubTrigger
+    <MenuPrimitive.SubmenuTrigger
       ref={ref}
       className={cn(
         menuItemClass(sizeClasses, shape.item, inset),
@@ -223,45 +227,51 @@ const MenubarSubTrigger = forwardRef<
     >
       {children}
       <ChevronRight className="ml-auto" />
-    </MenubarPrimitive.SubTrigger>
+    </MenuPrimitive.SubmenuTrigger>
   );
 });
 MenubarSubTrigger.displayName = "MenubarSubTrigger";
 
 const MenubarSubContent = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.SubContent>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.Popup>
 >(({ className, children, ...props }, ref) => {
   const shape = useShape();
   const level = useMenuSurface();
   return (
-    <MenubarPrimitive.Portal>
-      <MenubarPrimitive.SubContent ref={ref} asChild {...props}>
-        <motion.div
-          className={cn(
+    <MenuPrimitive.Portal>
+      <MenuPrimitive.Positioner className="z-50">
+      <MenuPrimitive.Popup
+        ref={ref}
+        render={<motion.div />}
+        {...props}
+        className={cn(
             "z-50 min-w-36 border border-border p-1 focus:outline-none",
             popupMotionClass,
             surfaceClasses(Math.min(level + 1, 8)),
             shape.container,
             className
           )}
+      >
+        <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={spring.moderate}
         >
           <SurfaceProvider value={level}>{children}</SurfaceProvider>
         </motion.div>
-      </MenubarPrimitive.SubContent>
-    </MenubarPrimitive.Portal>
+      </MenuPrimitive.Popup>
+      </MenuPrimitive.Positioner>
+    </MenuPrimitive.Portal>
   );
 });
 MenubarSubContent.displayName = "MenubarSubContent";
 
 const MenubarLabel = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Label> & { inset?: boolean }
+  ComponentPropsWithoutRef<typeof MenuPrimitive.GroupLabel> & { inset?: boolean }
 >(({ className, inset, ...props }, ref) => (
-  <MenubarPrimitive.Label
+  <MenuPrimitive.GroupLabel
     ref={ref}
     className={cn(
       "px-2 py-1.5 text-[11px] font-medium text-muted-foreground uppercase",
@@ -275,9 +285,9 @@ MenubarLabel.displayName = "MenubarLabel";
 
 const MenubarSeparator = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof MenubarPrimitive.Separator>
+  ComponentPropsWithoutRef<typeof MenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <MenubarPrimitive.Separator
+  <MenuPrimitive.Separator
     ref={ref}
     className={cn("-mx-1 my-1 h-px bg-border", className)}
     {...props}

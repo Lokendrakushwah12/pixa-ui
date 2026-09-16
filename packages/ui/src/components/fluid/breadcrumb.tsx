@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "../../fluid/shared/slot";
 import { cn } from "../../lib/utils";
 import { useIcon } from "../../fluid/lib/icon-context";
 

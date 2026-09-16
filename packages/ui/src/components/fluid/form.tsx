@@ -7,7 +7,7 @@ import {
   type ComponentPropsWithoutRef,
   type HTMLAttributes,
 } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "../../fluid/shared/slot";
 import {
   Controller,
   FormProvider,

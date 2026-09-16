@@ -8,7 +8,7 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "../../fluid/shared/slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { IconComponent } from "../../fluid/lib/icon-context";
 import { cn } from "../../lib/utils";

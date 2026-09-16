@@ -8,7 +8,7 @@ import {
   useState,
   type ComponentPropsWithoutRef,
 } from "react";
-import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
+import { ContextMenu as ContextMenuPrimitive } from "@base-ui/react/context-menu";
 import { motion } from "framer-motion";
 
 import { cn } from "../../lib/utils";
@@ -27,13 +27,14 @@ const ContextMenuOpenContext = createContext(false);
 const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
 const ContextMenuGroup = ContextMenuPrimitive.Group;
 const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
-const ContextMenuSub = ContextMenuPrimitive.Sub;
+const ContextMenuSub = ContextMenuPrimitive.SubmenuRoot;
 
-function ContextMenu({
-  children,
-  onOpenChange,
-  ...props
-}: ContextMenuPrimitive.ContextMenuProps) {
+interface ContextMenuProps
+  extends Omit<ContextMenuPrimitive.Root.Props, "onOpenChange"> {
+  onOpenChange?: (open: boolean) => void;
+}
+
+function ContextMenu({ children, onOpenChange, ...props }: ContextMenuProps) {
   const [open, setOpen] = useState(false);
 
   const handleOpenChange = (next: boolean) => {
@@ -57,7 +58,7 @@ function useMenuSurface() {
 
 const ContextMenuContent = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>
+  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Popup>
 >(({ className, children, ...props }, ref) => {
   const open = useContext(ContextMenuOpenContext);
   const shape = useShape();
@@ -77,22 +78,22 @@ const ContextMenuContent = forwardRef<
   if (!mounted) return null;
 
   return (
-    <ContextMenuPrimitive.Portal forceMount>
-      <ContextMenuPrimitive.Content
+    <ContextMenuPrimitive.Portal keepMounted>
+      <ContextMenuPrimitive.Positioner className="z-50">
+      <ContextMenuPrimitive.Popup
         ref={ref}
         data-slot="context-menu-content"
-        asChild
-        forceMount
-        {...props}
-      >
-        <motion.div
-          className={cn(
+        render={<motion.div />}
+        className={cn(
             "z-50 min-w-40 border border-border p-1 focus:outline-none",
             popupMotionClass,
             surfaceClasses(level),
             shape.container,
             className
           )}
+          {...props}
+      >
+        <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: open ? 1 : 0, scale: open ? 1 : 0.97 }}
           transition={open ? spring.moderate : spring.moderate.exit}
@@ -102,7 +103,8 @@ const ContextMenuContent = forwardRef<
         >
           <SurfaceProvider value={level}>{children}</SurfaceProvider>
         </motion.div>
-      </ContextMenuPrimitive.Content>
+      </ContextMenuPrimitive.Popup>
+      </ContextMenuPrimitive.Positioner>
     </ContextMenuPrimitive.Portal>
   );
 });
@@ -159,9 +161,9 @@ const ContextMenuCheckboxItem = forwardRef<
       {...props}
     >
       <span className="absolute left-2 flex size-4 items-center justify-center">
-        <ContextMenuPrimitive.ItemIndicator>
+        <ContextMenuPrimitive.CheckboxItemIndicator>
           <CheckIcon />
-        </ContextMenuPrimitive.ItemIndicator>
+        </ContextMenuPrimitive.CheckboxItemIndicator>
       </span>
       {children}
     </ContextMenuPrimitive.CheckboxItem>
@@ -181,9 +183,9 @@ const ContextMenuRadioItem = forwardRef<
       {...props}
     >
       <span className="absolute left-2 flex size-4 items-center justify-center">
-        <ContextMenuPrimitive.ItemIndicator>
+        <ContextMenuPrimitive.RadioItemIndicator>
           <DotIcon />
-        </ContextMenuPrimitive.ItemIndicator>
+        </ContextMenuPrimitive.RadioItemIndicator>
       </span>
       {children}
     </ContextMenuPrimitive.RadioItem>
@@ -193,11 +195,11 @@ ContextMenuRadioItem.displayName = "ContextMenuRadioItem";
 
 const ContextMenuSubTrigger = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & { inset?: boolean }
+  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubmenuTrigger> & { inset?: boolean }
 >(({ className, inset, children, ...props }, ref) => {
   const ChevronRight = useIcon("chevron-right");
   return (
-    <ContextMenuPrimitive.SubTrigger
+    <ContextMenuPrimitive.SubmenuTrigger
       ref={ref}
       className={cn(
         useMenuItemClass(inset),
@@ -208,35 +210,41 @@ const ContextMenuSubTrigger = forwardRef<
     >
       {children}
       <ChevronRight className="ml-auto" />
-    </ContextMenuPrimitive.SubTrigger>
+    </ContextMenuPrimitive.SubmenuTrigger>
   );
 });
 ContextMenuSubTrigger.displayName = "ContextMenuSubTrigger";
 
 const ContextMenuSubContent = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubContent>
+  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Popup>
 >(({ className, children, ...props }, ref) => {
   const shape = useShape();
   const level = useMenuSurface();
   return (
     <ContextMenuPrimitive.Portal>
-      <ContextMenuPrimitive.SubContent ref={ref} asChild {...props}>
-        <motion.div
-          className={cn(
+      <ContextMenuPrimitive.Positioner className="z-50">
+      <ContextMenuPrimitive.Popup
+        ref={ref}
+        render={<motion.div />}
+        {...props}
+        className={cn(
             "z-50 min-w-36 border border-border p-1 focus:outline-none",
             popupMotionClass,
             surfaceClasses(level + 1 > 8 ? 8 : level + 1),
             shape.container,
             className
           )}
+      >
+        <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={spring.moderate}
         >
           <SurfaceProvider value={level}>{children}</SurfaceProvider>
         </motion.div>
-      </ContextMenuPrimitive.SubContent>
+      </ContextMenuPrimitive.Popup>
+      </ContextMenuPrimitive.Positioner>
     </ContextMenuPrimitive.Portal>
   );
 });
@@ -244,9 +252,9 @@ ContextMenuSubContent.displayName = "ContextMenuSubContent";
 
 const ContextMenuLabel = forwardRef<
   HTMLDivElement,
-  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & { inset?: boolean }
+  ComponentPropsWithoutRef<typeof ContextMenuPrimitive.GroupLabel> & { inset?: boolean }
 >(({ className, inset, ...props }, ref) => (
-  <ContextMenuPrimitive.Label
+  <ContextMenuPrimitive.GroupLabel
     ref={ref}
     className={cn(
       "px-2 py-1.5 text-[11px] font-medium text-muted-foreground uppercase",
