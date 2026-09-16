@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode, type RefObject } from "react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { motion } from "framer-motion";
 import { spring, exitFallbackMs } from "../../fluid/lib/springs";
 import { useSurface, SurfaceProvider } from "../../fluid/lib/surface-context";
@@ -43,27 +43,23 @@ export function MobileDrawer({
       }}
     >
       {mounted && (
-        <DialogPrimitive.Portal forceMount>
-          <DialogPrimitive.Overlay asChild forceMount>
-            <motion.div
-              className="fixed inset-0 bg-black/40 dark:bg-black/80 z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: open ? 1 : 0 }}
-              transition={open ? { duration: 0.16 } : spring.moderate.exit}
-            />
-          </DialogPrimitive.Overlay>
+        <DialogPrimitive.Portal keepMounted>
+          <DialogPrimitive.Backdrop
+            forceRender
+            render={
+              <motion.div
+                className="fixed inset-0 bg-black/40 dark:bg-black/80 z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: open ? 1 : 0 }}
+                transition={open ? { duration: 0.16 } : spring.moderate.exit}
+              />
+            }
+          />
 
-          <DialogPrimitive.Content
-            asChild
-            forceMount
+          <DialogPrimitive.Popup
             aria-label="Navigation"
-            aria-describedby={undefined}
-            onCloseAutoFocus={(event) => {
-              if (triggerRef?.current) {
-                event.preventDefault();
-                triggerRef.current.focus();
-              }
-            }}
+            finalFocus={triggerRef ?? undefined}
+            render={<div />}
           >
             <motion.div
               className={`fixed top-0 left-0 bottom-0 w-64 ${surfaceClasses(level, 3)} z-50 overflow-y-auto p-4`}
@@ -79,7 +75,7 @@ export function MobileDrawer({
               </DialogPrimitive.Title>
               <SurfaceProvider value={level}>{children}</SurfaceProvider>
             </motion.div>
-          </DialogPrimitive.Content>
+          </DialogPrimitive.Popup>
         </DialogPrimitive.Portal>
       )}
     </DialogPrimitive.Root>

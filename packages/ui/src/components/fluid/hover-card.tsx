@@ -8,7 +8,7 @@ import {
   useState,
   type ComponentPropsWithoutRef,
 } from "react";
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
+import { PreviewCard as HoverCardPrimitive } from "@base-ui/react/preview-card";
 import { motion } from "framer-motion";
 
 import { cn } from "../../lib/utils";
@@ -21,8 +21,25 @@ import { surfaceClasses } from "../../fluid/lib/surface-classes";
 const HOVER_CARD_OFFSET = 2;
 
 const HoverCardOpenContext = createContext(false);
+const HoverCardDelayContext = createContext({ openDelay: 200, closeDelay: 150 });
 
-const HoverCardTrigger = HoverCardPrimitive.Trigger;
+function HoverCardTrigger(props: HoverCardPrimitive.Trigger.Props) {
+  const { openDelay, closeDelay } = useContext(HoverCardDelayContext);
+  return (
+    <HoverCardPrimitive.Trigger
+      closeDelay={closeDelay}
+      delay={openDelay}
+      {...props}
+    />
+  );
+}
+
+interface HoverCardProps
+  extends Omit<HoverCardPrimitive.Root.Props, "onOpenChange"> {
+  openDelay?: number;
+  closeDelay?: number;
+  onOpenChange?: (open: boolean) => void;
+}
 
 function HoverCard({
   children,
@@ -32,7 +49,7 @@ function HoverCard({
   openDelay = 200,
   closeDelay = 150,
   ...props
-}: HoverCardPrimitive.HoverCardProps) {
+}: HoverCardProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen ?? false);
   const open = controlledOpen ?? uncontrolledOpen;
 
@@ -43,23 +60,30 @@ function HoverCard({
 
   return (
     <HoverCardOpenContext.Provider value={open}>
-      <HoverCardPrimitive.Root
-        open={open}
-        onOpenChange={handleOpenChange}
-        openDelay={openDelay}
-        closeDelay={closeDelay}
-        {...props}
-      >
-        {children}
-      </HoverCardPrimitive.Root>
+      <HoverCardDelayContext.Provider value={{ openDelay, closeDelay }}>
+        <HoverCardPrimitive.Root
+          open={open}
+          onOpenChange={handleOpenChange}
+          {...props}
+        >
+          {children}
+        </HoverCardPrimitive.Root>
+      </HoverCardDelayContext.Provider>
     </HoverCardOpenContext.Provider>
   );
 }
 
-const HoverCardContent = forwardRef<
-  HTMLDivElement,
-  ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
->(({ className, children, align = "center", sideOffset = 6, ...props }, ref) => {
+type HoverCardContentProps = ComponentPropsWithoutRef<
+  typeof HoverCardPrimitive.Popup
+> & {
+  align?: ComponentPropsWithoutRef<
+    typeof HoverCardPrimitive.Positioner
+  >["align"];
+  sideOffset?: number;
+};
+
+const HoverCardContent = forwardRef<HTMLDivElement, HoverCardContentProps>(
+  ({ className, children, align = "center", sideOffset = 6, ...props }, ref) => {
   const open = useContext(HoverCardOpenContext);
   const shape = useShape();
   const substrate = useSurface();
@@ -79,14 +103,16 @@ const HoverCardContent = forwardRef<
   if (!mounted) return null;
 
   return (
-    <HoverCardPrimitive.Portal forceMount>
-      <HoverCardPrimitive.Content
+    <HoverCardPrimitive.Portal keepMounted>
+      <HoverCardPrimitive.Positioner
+        align={align}
+        className="z-50"
+        sideOffset={sideOffset}
+      >
+      <HoverCardPrimitive.Popup
         ref={ref}
         data-slot="hover-card-content"
-        align={align}
-        sideOffset={sideOffset}
-        asChild
-        forceMount
+        render={<div />}
         {...props}
       >
         <motion.div
@@ -110,7 +136,8 @@ const HoverCardContent = forwardRef<
         >
           <SurfaceProvider value={level}>{children}</SurfaceProvider>
         </motion.div>
-      </HoverCardPrimitive.Content>
+      </HoverCardPrimitive.Popup>
+      </HoverCardPrimitive.Positioner>
     </HoverCardPrimitive.Portal>
   );
 });

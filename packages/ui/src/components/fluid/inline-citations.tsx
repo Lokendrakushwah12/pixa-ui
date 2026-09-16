@@ -24,7 +24,8 @@ function CitationMarker({
 }) {
   return (
     <HoverCard openDelay={120} closeDelay={120}>
-      <HoverCardTrigger asChild>
+      <HoverCardTrigger
+        render={
         <button
           type="button"
           aria-label={`Source ${index}: ${citation.title}`}
@@ -39,7 +40,8 @@ function CitationMarker({
         >
           {index}
         </button>
-      </HoverCardTrigger>
+        }
+      />
       <HoverCardContent className="w-72">
         <p className="text-[13px] font-medium text-foreground">{citation.title}</p>
         {citation.source && (

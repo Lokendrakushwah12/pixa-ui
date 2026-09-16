@@ -16,7 +16,7 @@ import {
   type ComponentPropsWithoutRef,
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 import { cn } from "../../lib/utils";
 import { spring, exitFallbackMs } from "../../fluid/lib/springs";
 import { useFluidHover } from "../../fluid/hooks/use-fluid-hover";
@@ -255,13 +255,13 @@ function DropdownMenu({
 
   const root = (
     <DropdownMenuContext.Provider value={ctx}>
-      <DropdownMenuPrimitive.Root
+      <MenuPrimitive.Root
         open={open}
         onOpenChange={handleOpenChange}
         modal={false}
       >
         {children}
-      </DropdownMenuPrimitive.Root>
+      </MenuPrimitive.Root>
     </DropdownMenuContext.Provider>
   );
 
@@ -272,7 +272,7 @@ DropdownMenu.displayName = "DropdownMenu";
 
 interface DropdownTriggerProps
   extends Omit<
-    ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger>,
+    ComponentPropsWithoutRef<typeof MenuPrimitive.Trigger>,
     "asChild"
   > {
   render?: ReactElement;
@@ -285,28 +285,26 @@ const DropdownTrigger = forwardRef<HTMLButtonElement, DropdownTriggerProps>(
 
     if (render) {
       return (
-        <DropdownMenuPrimitive.Trigger
+        <MenuPrimitive.Trigger
           ref={ref}
-          asChild
+          render={render}
           disabled={isDisabled}
           {...props}
-        >
-          {render}
-        </DropdownMenuPrimitive.Trigger>
+        />
       );
     }
     return (
-      <DropdownMenuPrimitive.Trigger ref={ref} disabled={isDisabled} {...props}>
+      <MenuPrimitive.Trigger ref={ref} disabled={isDisabled} {...props}>
         {children}
-      </DropdownMenuPrimitive.Trigger>
+      </MenuPrimitive.Trigger>
     );
   }
 );
 
 DropdownTrigger.displayName = "DropdownTrigger";
 
-type RadixContentProps = ComponentPropsWithoutRef<
-  typeof DropdownMenuPrimitive.Content
+type PositionerProps = ComponentPropsWithoutRef<
+  typeof MenuPrimitive.Positioner
 >;
 
 interface DropdownContentProps {
@@ -314,8 +312,8 @@ interface DropdownContentProps {
   className?: string;
   checkedIndex?: number;
   checkedIndices?: number[];
-  side?: RadixContentProps["side"];
-  align?: RadixContentProps["align"];
+  side?: PositionerProps["side"];
+  align?: PositionerProps["align"];
   sideOffset?: number;
 }
 
@@ -410,29 +408,24 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
         children,
       }: MenuItemRenderOptions) => {
         const commonProps = {
-          asChild: true,
           disabled,
-          textValue: label,
-          onSelect: closeOnClick
-            ? undefined
-            : (event: Event) => event.preventDefault(),
+          label,
+          closeOnClick,
+          render: element,
         };
-        const item = cloneElement(element, {}, children);
         if (checkbox) {
           return (
-            <DropdownMenuPrimitive.CheckboxItem checked={!!checked} {...commonProps}>
-              {item}
-            </DropdownMenuPrimitive.CheckboxItem>
+            <MenuPrimitive.CheckboxItem checked={!!checked} {...commonProps}>
+              {children}
+            </MenuPrimitive.CheckboxItem>
           );
         }
         return radio ? (
-          <DropdownMenuPrimitive.RadioItem value={String(value)} {...commonProps}>
-            {item}
-          </DropdownMenuPrimitive.RadioItem>
+          <MenuPrimitive.RadioItem value={String(value)} {...commonProps}>
+            {children}
+          </MenuPrimitive.RadioItem>
         ) : (
-          <DropdownMenuPrimitive.Item {...commonProps}>
-            {item}
-          </DropdownMenuPrimitive.Item>
+          <MenuPrimitive.Item {...commonProps}>{children}</MenuPrimitive.Item>
         );
       },
       []
@@ -454,26 +447,29 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
     if (!mounted) return null;
 
     return (
-      <DropdownMenuPrimitive.Portal forceMount>
-        <DropdownMenuPrimitive.Content
-          asChild
-          forceMount
+      <MenuPrimitive.Portal keepMounted>
+        <MenuPrimitive.Positioner
+          className="z-50"
           side={side}
           align={align}
           sideOffset={sideOffset}
         >
-          <motion.div
+          <MenuPrimitive.Popup
             className={cn("z-50 outline-none", popupMotionClass)}
-            initial={{ opacity: 0, y: "var(--popup-enter-y)", scaleY: 0.96 }}
-            animate={
-              open
-                ? { opacity: 1, y: 0, scaleY: 1 }
-                : { opacity: 0, y: "var(--popup-enter-y)", scaleY: 0.96 }
+            render={
+              <motion.div
+                initial={{ opacity: 0, y: "var(--popup-enter-y)", scaleY: 0.96 }}
+                animate={
+                  open
+                    ? { opacity: 1, y: 0, scaleY: 1 }
+                    : { opacity: 0, y: "var(--popup-enter-y)", scaleY: 0.96 }
+                }
+                transition={open ? spring.fast : spring.fast.exit}
+                onAnimationComplete={() => {
+                  if (!open) setMounted(false);
+                }}
+              />
             }
-            transition={open ? spring.fast : spring.fast.exit}
-            onAnimationComplete={() => {
-              if (!open) setMounted(false);
-            }}
           >
             <DropdownContext.Provider value={contentCtx}>
             <DropdownSearchHostContext.Provider value={searchHost}>
@@ -545,20 +541,20 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
                   className={shape.bg}
                 />
 
-                <DropdownMenuPrimitive.RadioGroup
+                <MenuPrimitive.RadioGroup
                   value={checkedIndex != null ? String(checkedIndex) : undefined}
                   className="contents"
                 >
                   {children}
-                </DropdownMenuPrimitive.RadioGroup>
+                </MenuPrimitive.RadioGroup>
                   </div>
                 </ScrollArea>
               </Elevated>
             </DropdownSearchHostContext.Provider>
             </DropdownContext.Provider>
-          </motion.div>
-        </DropdownMenuPrimitive.Content>
-      </DropdownMenuPrimitive.Portal>
+          </MenuPrimitive.Popup>
+        </MenuPrimitive.Positioner>
+      </MenuPrimitive.Portal>
     );
   }
 );
