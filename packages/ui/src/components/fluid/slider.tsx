@@ -31,6 +31,7 @@ type ValuePosition = "left" | "right" | "top" | "bottom" | "tooltip";
 
 interface SliderEngineProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
+  orientation?: "horizontal" | "vertical";
   value: SliderValue;
   onChange: (value: SliderValue) => void;
   min?: number;
@@ -58,6 +59,56 @@ const TRACK_BG_HEIGHT = 18;
 const DOT_SIZE = 4;
 const PIP_SIZE = 5;
 const TRACK_INSET = (THUMB_SIZE - TRACK_BG_HEIGHT) / 2;
+
+/**
+ * Pointer position along the track, in the track's own layout coordinates.
+ *
+ * A vertical slider is this same horizontal build rotated -90deg, so the
+ * track's layout width runs up the screen: the axis is the rect's height and
+ * the origin is its bottom edge. Everything drawn inside the track — fill,
+ * thumb, step dots, gradient masks — stays in horizontal layout space and is
+ * rotated by CSS, which is why this is the only place orientation enters the
+ * geometry.
+ */
+/**
+ * Frame for a vertical slider.
+ *
+ * The slider is built horizontally and rotated, which keeps one set of
+ * geometry for both orientations. A rotated box keeps its original layout
+ * size, so the inner element has to be given a width equal to the outer
+ * element's height — CSS cannot express that, hence the measurement.
+ */
+function useRotatedFrame(enabled: boolean) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [length, setLength] = useState(0);
+
+  useLayoutEffect(() => {
+    if (!enabled) return;
+    const el = frameRef.current;
+    if (!el) return;
+    const measure = () => setLength(el.clientHeight);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [enabled]);
+
+  return { frameRef, length };
+}
+
+function trackOffset(
+  clientX: number,
+  clientY: number,
+  rect: DOMRect,
+  layoutLength: number,
+  vertical: boolean
+): number | null {
+  const screenLength = vertical ? rect.height : rect.width;
+  if (layoutLength <= 0 || screenLength <= 0) return null;
+  const scale = screenLength / layoutLength;
+  const raw = vertical ? rect.bottom - clientY : clientX - rect.left;
+  return raw / scale;
+}
 
 function valueToPixel(
   v: number,
@@ -289,7 +340,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
       step = 1,
       steps,
       showSteps = false,
-      showValue = true,
+      showValue: showValueProp,
       valuePosition = "left",
       formatValue = String,
       label,
@@ -301,11 +352,15 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
       hideFill = false,
       thumbColor,
       thumbBorderColor,
+      orientation = "horizontal",
       className,
       ...props
     },
     ref
   ) => {
+    const vertical = orientation === "vertical";
+    const showValue = showValueProp ?? !vertical;
+    const { frameRef, length: frameLength } = useRotatedFrame(vertical);
     const isRange = Array.isArray(value);
     const values = toRadixValue(value);
     const shape = useShape();
@@ -505,9 +560,15 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
         if (!trackEl) return;
         const trackRect = trackEl.getBoundingClientRect();
         const layoutWidth = trackEl.offsetWidth;
-        if (layoutWidth <= 0 || trackRect.width <= 0) return;
-        const scale = trackRect.width / layoutWidth;
-        const localX = (e.clientX - trackRect.left) / scale - THUMB_SIZE / 2;
+        const along = trackOffset(
+          e.clientX,
+          e.clientY,
+          trackRect,
+          layoutWidth,
+          vertical
+        );
+        if (along === null) return;
+        const localX = along - THUMB_SIZE / 2;
         const clamped = Math.max(
           0,
           Math.min(layoutWidth - THUMB_SIZE, localX)
@@ -566,9 +627,15 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
         if (!trackEl) return;
         const trackRect = trackEl.getBoundingClientRect();
         const layoutWidth = trackEl.offsetWidth;
-        if (layoutWidth <= 0 || trackRect.width <= 0) return;
-        const scale = trackRect.width / layoutWidth;
-        const localX = (e.clientX - trackRect.left) / scale - THUMB_SIZE / 2;
+        const along = trackOffset(
+          e.clientX,
+          e.clientY,
+          trackRect,
+          layoutWidth,
+          vertical
+        );
+        if (along === null) return;
+        const localX = along - THUMB_SIZE / 2;
         const clamped = Math.max(
           0,
           Math.min(layoutWidth - THUMB_SIZE, localX)
@@ -743,18 +810,18 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
       );
     };
 
-    return (
+    const body = (
       <div
-        ref={ref}
+        ref={vertical ? undefined : ref}
         className={cn(
           "flex flex-col gap-0 w-full select-none touch-none overflow-visible",
           valuePosition === "left" || valuePosition === "right"
             ? "flex-row items-center gap-2 mb-2"
             : "flex-col",
           disabled && "opacity-50 pointer-events-none",
-          className
+          !vertical && className
         )}
-        {...props}
+        {...(vertical ? {} : props)}
       >
         {(valuePosition === "top" || valuePosition === "left") && valueDisplay}
 
@@ -777,9 +844,15 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
             if (!trackEl) return;
             const trackRect = trackEl.getBoundingClientRect();
             const layoutWidth = trackEl.offsetWidth;
-            if (layoutWidth <= 0 || trackRect.width <= 0) return;
-            const scale = trackRect.width / layoutWidth;
-            const layoutX = (e.clientX - trackRect.left) / scale;
+            const alongTrack = trackOffset(
+              e.clientX,
+              e.clientY,
+              trackRect,
+              layoutWidth,
+              vertical
+            );
+            if (alongTrack === null) return;
+            const layoutX = alongTrack;
             const clamped = Math.max(0, Math.min(layoutWidth, layoutX));
             computeHoverPreview(clamped, layoutWidth);
           }}
@@ -816,7 +889,8 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
             max={stepValues ? stepValues.length - 1 : max}
             step={stepValues ? 1 : step}
             disabled={disabled}
-            className="absolute inset-0 opacity-0 pointer-events-none"
+            orientation={orientation}
+            className="absolute inset-0 opacity-0 pointer-events-none [&_*]:pointer-events-none"
             style={{ height: THUMB_SIZE }}
           >
             <SliderPrimitive.Control className="w-full h-full">
@@ -980,6 +1054,30 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
           valueDisplay}
       </div>
     );
+
+    if (!vertical) return body;
+
+    return (
+      <div
+        data-orientation="vertical"
+        className={cn("relative h-full min-h-32 w-8", className)}
+        // The outer box is what has a height; the rotated child is given that
+        // height as its width, so measure here and merge the forwarded ref.
+        ref={(node) => {
+          frameRef.current = node;
+          if (typeof ref === "function") ref(node);
+          else if (ref) ref.current = node;
+        }}
+        {...props}
+      >
+        <div
+          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 -rotate-90"
+          style={{ width: frameLength || undefined }}
+        >
+          {body}
+        </div>
+      </div>
+    );
   }
 );
 
@@ -987,6 +1085,7 @@ CompactSlider.displayName = "SliderCompact";
 
 interface SliderComfortableProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue" | "onDrag" | "onDragStart" | "onDragEnd" | "onDragOver" | "onAnimationStart"> {
+  orientation?: "horizontal" | "vertical";
   value: number;
   onChange: (value: number) => void;
   min?: number;
@@ -1010,11 +1109,14 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
       label,
       formatValue = String,
       disabled = false,
+      orientation = "horizontal",
       className,
       ...props
     },
     ref
   ) => {
+    const vertical = orientation === "vertical";
+    const { frameRef, length: frameLength } = useRotatedFrame(vertical);
     const containerRef = useRef<HTMLDivElement>(null);
     const dragging = useRef(false);
     const handleDragging = useRef(false);
@@ -1091,16 +1193,15 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
     );
 
     const computeHoverPreview = useCallback(
-      (clientX: number) => {
+      (clientX: number, clientY: number) => {
         const el = containerRef.current;
         if (!el) return;
         const rect = el.getBoundingClientRect();
         const w = el.clientWidth;
-        if (w <= 0 || rect.width <= 0) return;
-        const scale = rect.width / el.offsetWidth;
+        const along = trackOffset(clientX, clientY, rect, el.offsetWidth, vertical);
+        if (w <= 0 || along === null) return;
         const borderLeftLayout = (el.offsetWidth - w) / 2;
-        const visualX = clientX - rect.left;
-        const layoutX = visualX / scale - borderLeftLayout;
+        const layoutX = along - borderLeftLayout;
         const clamped = Math.max(0, Math.min(w, layoutX));
 
         let snappedVal: number;
@@ -1140,11 +1241,13 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
     }, [value, min, max, variant, fillPercent, zeroOffset, zeroTarget]);
 
     const getValueFromX = useCallback(
-      (clientX: number) => {
-        const rect = containerRef.current?.getBoundingClientRect();
-        if (!rect) return min;
-        const x = clientX - rect.left;
-        const clamped = Math.max(0, Math.min(rect.width, x));
+      (clientX: number, clientY: number) => {
+        const el = containerRef.current;
+        const rect = el?.getBoundingClientRect();
+        if (!rect || !el) return min;
+        const along = trackOffset(clientX, clientY, rect, el.offsetWidth, vertical);
+        if (along === null) return min;
+        const clamped = Math.max(0, Math.min(el.offsetWidth, along));
         if (variant === "pips") {
           if (pipCount <= 1) return min;
           const index = Math.max(
@@ -1168,7 +1271,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         e.preventDefault();
         dragging.current = true;
         setIsPressed(true);
-        const newVal = getValueFromX(e.clientX);
+        const newVal = getValueFromX(e.clientX, e.clientY);
         onChange(newVal);
         const newPercent = Math.max(0, Math.min(1, (newVal - min) / (max - min)));
         animate(fillPercent, newPercent, spring.fast);
@@ -1181,7 +1284,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
     const handlePointerMove = useCallback(
       (e: React.PointerEvent<HTMLDivElement>) => {
         if (!dragging.current) return;
-        const newVal = getValueFromX(e.clientX);
+        const newVal = getValueFromX(e.clientX, e.clientY);
         onChange(newVal);
         const newPercent = Math.max(0, Math.min(1, (newVal - min) / (max - min)));
         if (variant === "scrubber") {
@@ -1208,7 +1311,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         e.stopPropagation();
         handleDragging.current = true;
         setIsPressed(true);
-        const newVal = getValueFromX(e.clientX);
+        const newVal = getValueFromX(e.clientX, e.clientY);
         onChange(newVal);
         fillPercent.set(Math.max(0, Math.min(1, (newVal - min) / (max - min))));
         animate(zeroOffset, newVal === min ? zeroTarget : 0, spring.fast);
@@ -1220,7 +1323,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
     const handleResizePointerMove = useCallback(
       (e: React.PointerEvent<HTMLDivElement>) => {
         if (!handleDragging.current) return;
-        const newVal = getValueFromX(e.clientX);
+        const newVal = getValueFromX(e.clientX, e.clientY);
         onChange(newVal);
         fillPercent.set(Math.max(0, Math.min(1, (newVal - min) / (max - min))));
         animate(zeroOffset, newVal === min ? zeroTarget : 0, spring.fast);
@@ -1243,7 +1346,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
 
     const isActive = isHovered || isFocused;
 
-    return (
+    const body = (
       <div
         className="relative w-full touch-none"
         onPointerEnter={() => { if (!disabled) setIsHovered(true); }}
@@ -1255,7 +1358,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         }}
         onMouseMove={(e) => {
           if (disabled || dragging.current || handleDragging.current) return;
-          computeHoverPreview(e.clientX);
+          computeHoverPreview(e.clientX, e.clientY);
         }}
       >
         <div
@@ -1319,6 +1422,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
           max={max}
           step={step}
           disabled={disabled}
+          orientation={orientation}
           className="absolute inset-0 opacity-0 pointer-events-none [&_*]:pointer-events-none"
         >
           <SliderPrimitive.Control className="w-full h-full">
@@ -1518,6 +1622,23 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
           />
         )}
       </motion.div>
+      </div>
+    );
+
+    if (!vertical) return body;
+
+    return (
+      <div
+        data-orientation="vertical"
+        className={cn("relative h-full min-h-32 w-8", className)}
+        ref={frameRef}
+      >
+        <div
+          className="absolute top-1/2 left-1/2 origin-center -translate-x-1/2 -translate-y-1/2 -rotate-90"
+          style={{ width: frameLength || undefined }}
+        >
+          {body}
+        </div>
       </div>
     );
   }
