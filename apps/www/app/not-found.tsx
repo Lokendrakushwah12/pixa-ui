@@ -1,13 +1,11 @@
-import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Button } from "@pixa/ui/components/button";
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@pixa/ui/shared/page-header";
 import type { Metadata } from "next";
-import Link from "next/link";
+
+import { BackToHomeButton } from "@/components/back-to-home-button";
 
 export const metadata: Metadata = {
   description:
@@ -27,21 +25,7 @@ export default function NotFound() {
           moved.
         </PageHeaderDescription>
         <div className="mt-4">
-          <Button
-            className="group"
-            render={
-              <Link href="/">
-                <HugeiconsIcon
-                  className="-ms-1 group-hover:-translate-x-0.5 opacity-60 transition-transform"
-                  data-slot="accordion-trigger-icon"
-                  icon={ArrowLeft01Icon}
-                  strokeWidth={2}
-                />
-                Back to Home
-              </Link>
-            }
-            size="lg"
-          />
+          <BackToHomeButton />
         </div>
       </PageHeader>
     </div>

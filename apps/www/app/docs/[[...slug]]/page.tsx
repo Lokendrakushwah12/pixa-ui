@@ -2,7 +2,7 @@ import { LinkSquare02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DocsCopyPage } from "@/components/docs-copy-page";
+import { DocsPageActions } from "@/components/docs-page-actions";
 import { DocsTableOfContents } from "@/components/docs-toc";
 import { source } from "@/lib/source";
 import { mdxComponents } from "@/mdx-components";
@@ -161,7 +161,27 @@ export default async function Page(props: {
                           variant="outline"
                         />
                       )}
-                      <DocsCopyPage page={rawContent} />
+                      <DocsPageActions
+                        next={
+                          nextPage
+                            ? {
+                                title: nextPage.data.title,
+                                url: nextPage.url,
+                              }
+                            : null
+                        }
+                        page={rawContent}
+                        previous={
+                          prevPage
+                            ? {
+                                title: prevPage.data.title,
+                                url: prevPage.url,
+                              }
+                            : null
+                        }
+                        rawUrl={page.url.replace("/docs", "/raw")}
+                        title={doc.title}
+                      />
                     </div>
                   </div>
                   <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
