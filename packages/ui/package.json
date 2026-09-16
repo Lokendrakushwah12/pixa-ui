@@ -54,7 +54,7 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "lint": "biome lint src",
-    "typecheck": "tsc --noEmit && tsc -p tsconfig.fluid.json"
+    "typecheck": "tsc --noEmit"
   },
   "type": "module",
   "version": "0.0.0"

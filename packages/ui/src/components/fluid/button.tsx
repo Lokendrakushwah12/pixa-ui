@@ -15,15 +15,14 @@ import { cn } from "../../lib/utils";
 import { buttonLiftReset } from "../../fluid/lib/bevel";
 import { useInButtonGroup } from "../../components/fluid/button-group";
 import { Spinner, type SpinnerVariant } from "../../components/fluid/spinner";
-import { useShape } from "../../fluid/lib/shape-context";
 import { useSizeVariant } from "../../fluid/lib/size-context";
 
 const buttonVariants = cva(
   [
-    "group relative isolate inline-flex items-center justify-center outline-none cursor-pointer select-none",
+    "group relative isolate inline-flex shrink-0 items-center justify-center whitespace-nowrap outline-none cursor-pointer select-none",
     "transition-colors duration-80",
     "disabled:opacity-50 disabled:pointer-events-none",
-    "focus-visible:ring-1 focus-visible:ring-[color:var(--focus-ring,#6B97FF)]",
+    "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background",
     buttonLiftReset,
   ],
   {
@@ -35,13 +34,30 @@ const buttonVariants = cva(
         ghost: "text-muted-foreground hover:text-foreground",
         destructive: "text-white",
         "destructive-ghost": "text-destructive",
+        "destructive-outline": "text-destructive",
+        default: "text-primary-foreground",
         link: "text-foreground underline underline-offset-4 decoration-muted-foreground hover:decoration-foreground",
       },
+      // piixa's geometry, not fluid's two-step ladder: this is piixa's
+      // button now, and adopting a different height scale would reflow every
+      // dense surface in the app by 4px. What carries over is the behaviour
+      // — the bevel, the press-collapse, the loading state, the weight shift.
       size: {
-        default: "h-9 px-4 text-[13px] gap-1.5",
-        compact: "h-7 px-3 text-[12px] gap-1",
-        icon: "h-9 w-9 p-0 [&_svg]:h-4 [&_svg]:w-4",
-        "icon-compact": "h-7 w-7 p-0 [&_svg]:h-3.5 [&_svg]:w-3.5",
+        default: "h-8 gap-2 px-[calc(--spacing(3)-1px)] text-sm",
+        icon: "size-8",
+        "icon-lg": "size-9",
+        "icon-sm": "size-7",
+        "icon-xl": "size-10 [&_svg:not([class*='size-'])]:size-4.5",
+        "icon-xs":
+          "size-6 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-2 px-[calc(--spacing(3.5)-1px)] text-sm",
+        md: "h-8 gap-2 px-[calc(--spacing(3)-1px)] text-sm",
+        sm: "h-7 gap-1.5 px-[calc(--spacing(2.5)-1px)] text-sm",
+        xl: "h-10 gap-2 px-[calc(--spacing(4)-1px)] text-base [&_svg:not([class*='size-'])]:size-4.5",
+        xs: "h-6 gap-1 px-[calc(--spacing(2)-1px)] text-xs [&_svg:not([class*='size-'])]:size-3.5",
+        // fluid's own names, folded onto the same scale
+        compact: "h-7 gap-1.5 px-[calc(--spacing(2.5)-1px)] text-sm",
+        "icon-compact": "size-7",
       },
       iconLeft: { true: "" },
       iconRight: { true: "" },
@@ -66,15 +82,24 @@ type ButtonSize =
   | "sm"
   | "md"
   | "lg"
+  | "xs"
+  | "xl"
   | "icon-sm"
-  | "icon-lg";
+  | "icon-lg"
+  | "icon-xs"
+  | "icon-xl";
 
+/** Older names, plus piixa's own ladder, folded onto the two-step scale. */
 const legacySizeAliases: Partial<Record<ButtonSize, ButtonSizeCanonical>> = {
-  sm: "compact",
-  md: "default",
   lg: "default",
-  "icon-sm": "icon-compact",
+  md: "default",
+  sm: "compact",
+  xl: "default",
+  xs: "compact",
   "icon-lg": "icon",
+  "icon-sm": "icon-compact",
+  "icon-xl": "icon",
+  "icon-xs": "icon-compact",
 };
 
 interface ButtonProps
@@ -82,6 +107,8 @@ interface ButtonProps
     Omit<VariantProps<typeof buttonVariants>, "size"> {
   size?: ButtonSize;
   asChild?: boolean;
+  /** piixa's spelling of asChild: the element to render as. */
+  render?: ReactElement;
   loading?: boolean;
   loadingVariant?: SpinnerVariant;
   leadingIcon?: IconComponent;
@@ -89,7 +116,9 @@ interface ButtonProps
   active?: boolean;
 }
 
-const bgVariants: Record<string, string> = {
+type VariantMap = Record<string, string> & { primary: string };
+
+const bgVariants: VariantMap = {
   primary:
     "[--btn-bg:var(--primary)] group-hover:[--btn-bg:color-mix(in_oklab,var(--primary)_90%,var(--background))] group-active:[--btn-bg:color-mix(in_oklab,var(--primary)_80%,var(--background))] bg-[var(--btn-bg)] shadow-[0_-1px_color-mix(in_oklab,var(--color-white)_16%,transparent),0_1px_2px_rgb(0_0_0_/_0.08),0_0_0_1px_var(--btn-bg)] group-active:shadow-[0_0_0_0px_var(--btn-bg)]",
   secondary:
@@ -108,7 +137,7 @@ const bgVariants: Record<string, string> = {
 const pressCollapse = /\s*group-active:shadow-\[[^\]]*\]/g;
 const neverMatches = /(?!)/g;
 
-const activeBgVariants: Record<string, string> = {
+const activeBgVariants: VariantMap = {
   primary:
     "[--btn-bg:color-mix(in_oklab,var(--primary)_80%,var(--background))] bg-[var(--btn-bg)] shadow-[0_1px_2px_rgb(0_0_0_/_0.08),0_0_0_1px_var(--btn-bg)] group-active:shadow-[0_0_0_0px_var(--btn-bg)]",
   secondary:
@@ -123,6 +152,10 @@ const activeBgVariants: Record<string, string> = {
     "bg-[color-mix(in_oklab,var(--destructive)_18%,transparent)] shadow-[0_0_0_1px_color-mix(in_oklab,var(--destructive)_18%,transparent)] group-active:shadow-[0_0_0_0px_color-mix(in_oklab,var(--destructive)_18%,transparent)]",
   link: "bg-transparent shadow-none",
 };
+activeBgVariants.default = activeBgVariants.primary as string;
+activeBgVariants["destructive-outline"] = activeBgVariants[
+  "destructive-ghost"
+] as string;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -131,6 +164,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       size,
       asChild = false,
+      render,
       loading = false,
       loadingVariant = "bars",
       leadingIcon: LeadingIcon,
@@ -144,7 +178,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const asChildElement =
-      asChild && isValidElement(children)
+      render && isValidElement(render)
+        ? (render as ReactElement<{ children?: ReactNode }>)
+        : asChild && isValidElement(children)
         ? (children as ReactElement<{ children?: ReactNode }>)
         : null;
     const Comp = asChildElement ? Slot : "button";
@@ -159,12 +195,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const isCompact =
       resolvedSize === "compact" || resolvedSize === "icon-compact";
     const iconSize = isCompact ? 14 : 16;
-    const shape = useShape();
     const grouped = useInButtonGroup();
     const bgClass = (
       active
-        ? activeBgVariants[variant ?? "primary"]
-        : bgVariants[variant ?? "primary"]
+        ? activeBgVariants[variant ?? "primary"] ?? activeBgVariants.primary
+        : bgVariants[variant ?? "primary"] ?? bgVariants.primary
     ).replace(grouped ? pressCollapse : neverMatches, "");
 
     const internals = (
@@ -205,7 +240,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                   className="transition-[stroke-width] duration-80 group-hover:stroke-[2]"
                 />
               )}
-              <span className="[text-box:trim-both_cap_alphabetic]">{label}</span>
+              {typeof label === "string" ? (
+                <span className="[text-box:trim-both_cap_alphabetic]">
+                  {label}
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-[inherit] [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5">
+                  {label}
+                </span>
+              )}
               {TrailingIcon && (
                 <TrailingIcon
                   size={iconSize}
@@ -222,6 +265,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
+        data-slot="button"
         className={cn(
           buttonVariants({
             variant,
@@ -229,7 +273,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             iconLeft: !isIconOnly && !!LeadingIcon,
             iconRight: !isIconOnly && !!TrailingIcon,
           }),
-          shape.button,
+          isCompact ? "rounded-md" : "rounded-lg",
           className
         )}
         disabled={asChildElement ? undefined : disabled || loading}
