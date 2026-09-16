@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "piixa-www",
+      "port": 3000,
+      "runtimeArgs": ["--filter", "www", "dev"],
+      "runtimeExecutable": "pnpm"
+    }
+  ],
+  "version": "0.0.1"
+}
