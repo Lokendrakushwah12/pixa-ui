@@ -60,7 +60,7 @@ function EmptyMedia({
             aria-hidden="true"
             className={cn(
               emptyMediaVariants({ className, variant }),
-              "-translate-x-0.5 -rotate-10 pointer-events-none absolute bottom-px origin-bottom-left scale-84 shadow-none",
+              "pointer-events-none absolute bottom-px origin-bottom-left -translate-x-0.5 -rotate-10 scale-84 shadow-none",
             )}
           />
           <div
@@ -118,9 +118,9 @@ function EmptyContent({ className, ...props }: React.ComponentProps<"div">) {
 
 export {
   Empty,
-  EmptyHeader,
-  EmptyTitle,
-  EmptyDescription,
   EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
   EmptyMedia,
+  EmptyTitle,
 };

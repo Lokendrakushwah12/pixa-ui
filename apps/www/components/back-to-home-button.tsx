@@ -15,7 +15,7 @@ export function BackToHomeButton() {
       render={
         <Link href="/">
           <HugeiconsIcon
-            className="-ms-1 group-hover:-translate-x-0.5 opacity-60 transition-transform"
+            className="-ms-1 opacity-60 transition-transform group-hover:-translate-x-0.5"
             data-slot="accordion-trigger-icon"
             icon={ArrowLeft01Icon}
             strokeWidth={2}

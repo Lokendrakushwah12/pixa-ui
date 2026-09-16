@@ -378,7 +378,7 @@ export default function PCommand2() {
                 >
                   <SparklesIcon className="size-4 sm:size-3.5" />
                   Ask AI
-                  <Kbd className="-me-1.5 ms-0.5">Tab</Kbd>
+                  <Kbd className="ms-0.5 -me-1.5">Tab</Kbd>
                 </Button>
               </div>
               <CommandPanel>
@@ -468,7 +468,7 @@ export default function PCommand2() {
                   <div className="relative w-full">
                     <div
                       aria-hidden="true"
-                      className="[&_svg]:-mx-0.5 pointer-events-none absolute inset-y-0 start-px z-10 flex items-center ps-[calc(--spacing(3)-1px)] opacity-80 has-[+[data-size=sm]]:ps-[calc(--spacing(2.5)-1px)] [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4"
+                      className="pointer-events-none absolute inset-y-0 start-px z-10 flex items-center ps-[calc(--spacing(3)-1px)] opacity-80 has-[+[data-size=sm]]:ps-[calc(--spacing(2.5)-1px)] [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4 [&_svg]:-mx-0.5"
                       data-slot="autocomplete-start-addon"
                     >
                       <SparklesIcon />
@@ -507,7 +507,7 @@ export default function PCommand2() {
                 >
                   <ArrowLeftIcon className="size-4 sm:size-3.5" />
                   Back to search
-                  <Kbd className="-me-1.5 ms-0.5">Esc</Kbd>
+                  <Kbd className="ms-0.5 -me-1.5">Esc</Kbd>
                 </Button>
               </div>
               <CommandPanel>
@@ -567,9 +567,9 @@ export default function PCommand2() {
                         />
                         {aiState.referenceLinks.length > 0 && (
                           <div className="mt-4 flex flex-wrap gap-2">
-                            {aiState.referenceLinks.map((link, index) => (
+                            {aiState.referenceLinks.map((link, _index) => (
                               <Button
-                                key={`${link.url}-${index}`}
+                                key={link.url}
                                 render={<Link href={link.url} />}
                                 size="sm"
                                 variant="secondary"

@@ -72,7 +72,7 @@ function MenuItem({
   return (
     <MenuPrimitive.Item
       className={cn(
-        "[&>svg]:-mx-0.5 flex min-h-8 cursor-default select-none items-center gap-2 rounded-sm px-2 py-1 text-base text-foreground outline-none data-disabled:pointer-events-none data-highlighted:bg-accent data-inset:ps-8 data-[variant=destructive]:text-destructive-foreground data-highlighted:text-accent-foreground data-disabled:opacity-64 sm:min-h-7 sm:text-sm [&>svg:not([class*='opacity-'])]:opacity-80 [&>svg:not([class*='size-'])]:size-4.5 sm:[&>svg:not([class*='size-'])]:size-4 [&>svg]:pointer-events-none [&>svg]:shrink-0",
+        "flex min-h-8 cursor-default select-none items-center gap-2 rounded-sm px-2 py-1 text-base text-foreground outline-none data-disabled:pointer-events-none data-highlighted:bg-accent data-inset:ps-8 data-[variant=destructive]:text-destructive-foreground data-highlighted:text-accent-foreground data-disabled:opacity-64 sm:min-h-7 sm:text-sm [&>svg:not([class*='opacity-'])]:opacity-80 [&>svg:not([class*='size-'])]:size-4.5 sm:[&>svg:not([class*='size-'])]:size-4 [&>svg]:pointer-events-none [&>svg]:-mx-0.5 [&>svg]:shrink-0",
         className,
       )}
       data-inset={inset}
@@ -243,7 +243,7 @@ function MenuSubTrigger({
       {...props}
     >
       {children}
-      <ChevronRightIcon className="-me-0.5 ms-auto opacity-80" />
+      <ChevronRightIcon className="ms-auto -me-0.5 opacity-80" />
     </MenuPrimitive.SubmenuTrigger>
   );
 }
@@ -275,36 +275,36 @@ function MenuSubPopup({
 }
 
 export {
-  MenuCreateHandle,
-  MenuCreateHandle as DropdownMenuCreateHandle,
   Menu,
   Menu as DropdownMenu,
-  MenuPortal,
-  MenuPortal as DropdownMenuPortal,
-  MenuTrigger,
-  MenuTrigger as DropdownMenuTrigger,
-  MenuPopup,
-  MenuPopup as DropdownMenuContent,
-  MenuGroup,
-  MenuGroup as DropdownMenuGroup,
-  MenuItem,
-  MenuItem as DropdownMenuItem,
   MenuCheckboxItem,
   MenuCheckboxItem as DropdownMenuCheckboxItem,
+  MenuCreateHandle,
+  MenuCreateHandle as DropdownMenuCreateHandle,
+  MenuGroup,
+  MenuGroup as DropdownMenuGroup,
+  MenuGroupLabel,
+  MenuGroupLabel as DropdownMenuLabel,
+  MenuItem,
+  MenuItem as DropdownMenuItem,
+  MenuPopup,
+  MenuPopup as DropdownMenuContent,
+  MenuPortal,
+  MenuPortal as DropdownMenuPortal,
   MenuRadioGroup,
   MenuRadioGroup as DropdownMenuRadioGroup,
   MenuRadioItem,
   MenuRadioItem as DropdownMenuRadioItem,
-  MenuGroupLabel,
-  MenuGroupLabel as DropdownMenuLabel,
   MenuSeparator,
   MenuSeparator as DropdownMenuSeparator,
   MenuShortcut,
   MenuShortcut as DropdownMenuShortcut,
   MenuSub,
   MenuSub as DropdownMenuSub,
-  MenuSubTrigger,
-  MenuSubTrigger as DropdownMenuSubTrigger,
   MenuSubPopup,
   MenuSubPopup as DropdownMenuSubContent,
+  MenuSubTrigger,
+  MenuSubTrigger as DropdownMenuSubTrigger,
+  MenuTrigger,
+  MenuTrigger as DropdownMenuTrigger,
 };

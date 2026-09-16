@@ -40,7 +40,7 @@ export function MobileNav({
       <SheetTrigger
         render={
           <Button
-            className={cn("-ms-1.5 relative size-8", className)}
+            className={cn("relative -ms-1.5 size-8", className)}
             size="icon"
             variant="ghost"
           >
@@ -74,7 +74,7 @@ export function MobileNav({
           </div>
           {tree ? (
             <div className="flex flex-col gap-8">
-              {tree?.children?.map((group: FolderNode, index: number) => {
+              {tree?.children?.map((group: FolderNode, _index: number) => {
                 if (group.type === "folder") {
                   return (
                     <div className="flex flex-col gap-3" key={group.name}>
@@ -85,7 +85,7 @@ export function MobileNav({
                             return (
                               <MobileLink
                                 href={item.url}
-                                key={`${item.url}-${index}`}
+                                key={item.url}
                                 onOpenChange={setOpen}
                               >
                                 {item.name}

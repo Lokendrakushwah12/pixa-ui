@@ -22,7 +22,7 @@ export function ModeSwitcher() {
       variant="ghost"
     >
       <HugeiconsIcon
-        className="-rotate-45 size-4"
+        className="size-4 -rotate-45"
         icon={LayerMask01Icon}
         strokeWidth={2}
       />

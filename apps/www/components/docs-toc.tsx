@@ -130,7 +130,7 @@ export function DocsTableOfContents({
   );
   const activeHeading = useActiveItem(itemIds);
 
-  const tocKey = React.useMemo(
+  const _tocKey = React.useMemo(
     () => toc.map((item) => `${item.url}:${item.depth}`).join("|"),
     [toc],
   );
@@ -181,7 +181,7 @@ export function DocsTableOfContents({
       }
       observer.disconnect();
     };
-  }, [tocKey, toc]);
+  }, [toc]);
 
   if (!toc?.length) {
     return null;

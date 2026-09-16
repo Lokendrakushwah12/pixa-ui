@@ -47,7 +47,7 @@ export function EffectScene() {
 
   return (
     <div
-      className="md:-top-[15%] absolute top-[25%] right-0 w-full scale-75 sm:top-0 sm:scale-100 md:w-1/2"
+      className="absolute top-[25%] right-0 w-full scale-75 sm:top-0 sm:scale-100 md:-top-[15%] md:w-1/2"
       ref={containerRef}
       style={{ height: "100vh" }}
     >

@@ -16,7 +16,7 @@ export default function Particle() {
         <AvatarFallback>LT</AvatarFallback>
       </Avatar>
       <Badge
-        className="-end-1 -top-1 absolute rounded-full outline-2 outline-background outline-solid"
+        className="absolute -end-1 -top-1 rounded-full outline-2 outline-background outline-solid"
         size="sm"
       >
         6

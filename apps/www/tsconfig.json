@@ -1,12 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "fumadocs-mdx:collections/*": [
-        "./.source/*"
-      ]
+      "@/*": ["./*"],
+      "fumadocs-mdx:collections/*": ["./.source/*"]
     },
     "plugins": [
       {
@@ -14,9 +10,7 @@
       }
     ]
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "extends": "@pixa/typescript-config/nextjs.json",
   "include": [
     "**/*.ts",

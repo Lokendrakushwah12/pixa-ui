@@ -62,7 +62,7 @@ function AccordionPanel({
 export {
   Accordion,
   AccordionItem,
-  AccordionTrigger,
   AccordionPanel,
   AccordionPanel as AccordionContent,
+  AccordionTrigger,
 };

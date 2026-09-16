@@ -6,7 +6,7 @@ import {
 
 export default function Particle() {
   return (
-    <div className="-space-x-[0.6rem] flex">
+    <div className="flex -space-x-[0.6rem]">
       <Avatar className="ring-2 ring-background">
         <AvatarImage
           alt="U1"

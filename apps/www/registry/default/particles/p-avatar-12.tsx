@@ -14,7 +14,7 @@ export default function Particle() {
         />
         <AvatarFallback>LT</AvatarFallback>
       </Avatar>
-      <span className="-end-1.5 -top-1.5 absolute">
+      <span className="absolute -end-1.5 -top-1.5">
         <span className="sr-only">Verified</span>
         <svg
           aria-hidden="true"

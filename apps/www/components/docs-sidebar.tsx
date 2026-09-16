@@ -65,9 +65,7 @@ export function DocsSidebar({
                   {item.children?.map((item: TreeNode, index: number) => {
                     if (item.type === "separator") {
                       return (
-                        <SidebarMenuItem
-                          key={`${item.$id ?? item.name}-${index}`}
-                        >
+                        <SidebarMenuItem key={item.$id ?? `sep-${item.name}`}>
                           <span
                             className={cn(
                               "flex h-7 items-center px-3.5 font-medium text-[0.6875rem] text-muted-foreground uppercase tracking-wide",
