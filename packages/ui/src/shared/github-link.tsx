@@ -1,25 +1,14 @@
-"use client";
-
-import { GithubIcon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Button } from "@pixa/ui/components/button";
 import { Skeleton } from "@pixa/ui/components/skeleton";
-import { siteConfig } from "@pixa/ui/lib/config";
-import Link from "next/link";
+import { GitHubLinkButton } from "@pixa/ui/shared/github-link-button";
 import * as React from "react";
 
 export function GitHubLink() {
   return (
-    <Button
-      className="relative h-8 shadow-none max-sm:w-8"
-      render={
-        <Link href={siteConfig.links.github} rel="noreferrer" target="_blank">
-          <HugeiconsIcon className="size-4" icon={GithubIcon} strokeWidth={2} />
-        </Link>
-      }
-      size="sm"
-      variant="ghost"
-    />
+    <GitHubLinkButton>
+      <React.Suspense fallback={<Skeleton className="h-4 w-[25.5px]" />}>
+        <StarsCount />
+      </React.Suspense>
+    </GitHubLinkButton>
   );
 }
 
