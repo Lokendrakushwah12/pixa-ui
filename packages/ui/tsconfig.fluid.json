@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "composite": false,
     "declaration": false,
     "declarationMap": false,

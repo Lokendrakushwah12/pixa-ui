@@ -49,7 +49,9 @@ function Input({
           className={inputClassName}
           data-slot="input"
           size={typeof size === "number" ? size : undefined}
-          {...props}
+          // base-ui Props allow function-form style/className; a native input
+          // only takes the plain forms, so narrow to the DOM input props.
+          {...(props as React.ComponentProps<"input">)}
         />
       ) : (
         <InputPrimitive

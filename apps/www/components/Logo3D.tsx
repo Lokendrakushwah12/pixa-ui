@@ -14,7 +14,7 @@ export function Logo3D({ theme }: Logo3DProps) {
   const svg = useLoader(SVGLoader, "/logo.svg");
 
   const geometry = useMemo(() => {
-    const shapes = svg.paths.flatMap((path) => path.toShapes(true));
+    const shapes = svg.paths.flatMap((path) => path.toShapes());
 
     const geo = new ExtrudeGeometry(shapes, {
       bevelEnabled: false,
