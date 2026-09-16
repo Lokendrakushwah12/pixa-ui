@@ -177,14 +177,25 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const asChildElement =
+    // `render` and `asChild` pick the same element but disagree on where the
+    // content lives: Base UI's `render` keeps the Button's own children, while
+    // Radix's `asChild` takes the child's. Reading the wrong one empties the
+    // button, so the two spellings cannot share a branch.
+    const renderElement =
       render && isValidElement(render)
         ? (render as ReactElement<{ children?: ReactNode }>)
-        : asChild && isValidElement(children)
-        ? (children as ReactElement<{ children?: ReactNode }>)
         : null;
+    const asChildElement =
+      renderElement ??
+      (asChild && isValidElement(children)
+        ? (children as ReactElement<{ children?: ReactNode }>)
+        : null);
     const Comp = asChildElement ? Slot : "button";
-    const label = asChildElement ? asChildElement.props.children : children;
+    const label = renderElement
+      ? (children ?? renderElement.props.children)
+      : asChildElement
+        ? asChildElement.props.children
+        : children;
     const contextSize = useSizeVariant();
     const resolvedSize: ButtonSizeCanonical = size
       ? legacySizeAliases[size] ?? (size as ButtonSizeCanonical)
