@@ -1,18 +1,7 @@
-import { cn } from "@pixa/ui/lib/utils";
-import { Loader2Icon } from "lucide-react";
+"use client";
 
-function Spinner({
-  className,
-  ...props
-}: React.ComponentProps<typeof Loader2Icon>) {
-  return (
-    <Loader2Icon
-      aria-label="Loading"
-      className={cn("animate-spin", className)}
-      role="status"
-      {...props}
-    />
-  );
-}
-
-export { Spinner };
+export type {
+  SpinnerProps,
+  SpinnerVariant,
+} from "@pixa/ui/components/fluid/spinner";
+export { Spinner, spinnerVariants } from "@pixa/ui/components/fluid/spinner";

@@ -589,7 +589,7 @@ export default function PCommand2() {
                 {aiState.isGenerating ? (
                   <div aria-live="polite" className="flex items-center gap-2">
                     <div className="flex h-5 items-center justify-center">
-                      <Spinner className="size-3" />
+                      <Spinner size={12} />
                     </div>
                     <span className="animate-pulse">Generating response…</span>
                   </div>
