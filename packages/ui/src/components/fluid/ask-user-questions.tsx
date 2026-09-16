@@ -448,7 +448,7 @@ const AskUserQuestions = forwardRef<HTMLDivElement, AskUserQuestionsProps>(
         const idx = parseInt(code, 10) - 1;
         if (idx >= 0 && idx < options.length) {
           e.preventDefault();
-          const oid = optionKey(options[idx], idx);
+          const oid = optionKey(options[idx] as AskUserOption, idx);
           if (isMulti) handleMultiToggle(oid);
           else handleSingleSelect(oid);
         } else if (idx === options.length && allowOther) {

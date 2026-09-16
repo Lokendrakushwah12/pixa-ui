@@ -1,0 +1,58 @@
+---
+title: "Color Picker"
+description: "HEX, RGB, HSL and OKLCH with alpha, swatches and an eyedropper."
+icon: ColorPickerIcon
+---
+<ComponentPreview name="p-color-picker-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/color-picker
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="color-picker" title="components/ui/color-picker.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ColorPicker, ColorPickerPopover, ColorPickerPortalContainer, ColorSwatch, ColorTile, buildParsed } from "@/components/ui/color-picker"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `ColorPicker` |
+| `ColorPickerPopover` |
+| `ColorPickerPortalContainer` |
+| `ColorSwatch` |
+| `ColorTile` |
+| `buildParsed` |
+| `parseColor` |

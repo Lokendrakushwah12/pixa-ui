@@ -113,7 +113,7 @@ function shortcutTokens(shortcut: string): string[] {
       if (out[out.length - 1] !== "+") out.push("+");
       continue;
     }
-    if (tokens[i] !== "") out.push(tokens[i]);
+    if (tokens[i] !== "") out.push(tokens[i] as string);
   }
   return out;
 }
@@ -477,13 +477,17 @@ const CommandMenu = forwardRef<HTMLDivElement, CommandMenuProps>(
         });
         if (enabled.length === 0) return;
         let next: number;
-        if (to === "first") next = enabled[0];
-        else if (to === "last") next = enabled[enabled.length - 1];
+        if (to === "first") next = enabled[0] as number;
+        else if (to === "last") next = enabled[enabled.length - 1] as number;
         else {
           const current = highlightRef.current;
           const pos = current === null ? -1 : enabled.indexOf(current);
-          if (pos === -1) next = to === 1 ? enabled[0] : enabled[enabled.length - 1];
-          else next = enabled[(pos + to + enabled.length) % enabled.length];
+          if (pos === -1)
+            next = (to === 1 ? enabled[0] : enabled[enabled.length - 1]) as number;
+          else
+            next = enabled[
+              (pos + to + enabled.length) % enabled.length
+            ] as number;
         }
         setActiveIndex(next);
         scrollToRow(next, "center");
@@ -619,7 +623,7 @@ const CommandMenuInput = forwardRef<HTMLInputElement, CommandMenuInputProps>(
           const current = tabs.tabs.findIndex((tab) => tab.value === tabs.value);
           const step = e.key === "ArrowRight" ? 1 : -1;
           const next = ((current === -1 ? 0 : current) + step + count) % count;
-          tabs.onValueChange(tabs.tabs[next].value);
+          tabs.onValueChange(tabs.tabs[next]?.value ?? tabs.value);
           return;
         }
         case "ArrowDown":

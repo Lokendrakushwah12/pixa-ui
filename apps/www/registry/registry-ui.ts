@@ -694,4 +694,411 @@ export const ui: Registry["items"] = [
     name: "tooltip",
     type: "registry:ui",
   },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/ask-user-questions.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "ask-user-questions",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/aspect-ratio.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "aspect-ratio",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/attachment.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "attachment",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/button-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "button-group",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/calendar.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "calendar",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/chart.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "chart",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/chat-message.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "chat-message",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/code-block.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "code-block",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/color-picker.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "color-picker",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/command-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "command-menu",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/context-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "context-menu",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/crm-table.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "crm-table",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/dropdown.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "dropdown",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/file-diff.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "file-diff",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/file-thumbnail.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "file-thumbnail",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/hover-card.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "hover-card",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/image-generation.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "image-generation",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/inline-citations.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "inline-citations",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/input-copy.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "input-copy",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/input-dissolve.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "input-dissolve",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/input-message.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "input-message",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/input-otp.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "input-otp",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/item.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "item",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/logo-carousel.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "logo-carousel",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/magnetic-dropzone.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "magnetic-dropzone",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/marker.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "marker",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/menubar.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "menubar",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/message-scroller.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "message-scroller",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/mobile-drawer.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "mobile-drawer",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/plan-card.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "plan-card",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/resizable.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "resizable",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/sidebar-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "sidebar-menu",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/streaming-text.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "streaming-text",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/tabs-subtle.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "tabs-subtle",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/task-list.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "task-list",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/thinking-indicator.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "thinking-indicator",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/thinking-steps.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "thinking-steps",
+    type: "registry:ui",
+  },
 ];

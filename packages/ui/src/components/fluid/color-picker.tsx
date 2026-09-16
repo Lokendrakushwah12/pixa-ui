@@ -249,7 +249,7 @@ function expandShortHex(h: string): string {
 function parseHex(input: string): { r: number; g: number; b: number; a: number } | null {
   const m = input.trim().match(/^#?([0-9a-fA-F]{3,8})$/);
   if (!m) return null;
-  let h = m[1];
+  let h = m[1] as string;
   if (h.length === 3 || h.length === 4) h = expandShortHex(h);
   if (h.length === 6) {
     return {
@@ -278,28 +278,28 @@ function parseColor(input: string): { r: number; g: number; b: number; a: number
   }
   const rgbM = s.match(/^rgba?\(\s*([^)]+)\)$/i);
   if (rgbM) {
-    const parts = rgbM[1].split(/[\s,/]+/).filter(Boolean);
+    const parts = (rgbM[1] as string).split(/[\s,/]+/).filter(Boolean);
     if (parts.length < 3) return null;
-    const r = parseFloat(parts[0]);
-    const g = parseFloat(parts[1]);
-    const b = parseFloat(parts[2]);
+    const r = parseFloat((parts[0] as string));
+    const g = parseFloat((parts[1] as string));
+    const b = parseFloat((parts[2] as string));
     let a = 1;
     if (parts[3] !== undefined) {
-      a = parts[3].endsWith("%") ? parseFloat(parts[3]) / 100 : parseFloat(parts[3]);
+      a = (parts[3] as string).endsWith("%") ? parseFloat((parts[3] as string)) / 100 : parseFloat((parts[3] as string));
     }
     if ([r, g, b, a].some(Number.isNaN)) return null;
     return { r: clamp255(r), g: clamp255(g), b: clamp255(b), a: clamp01(a) };
   }
   const hslM = s.match(/^hsla?\(\s*([^)]+)\)$/i);
   if (hslM) {
-    const parts = hslM[1].split(/[\s,/]+/).filter(Boolean);
+    const parts = (hslM[1] as string).split(/[\s,/]+/).filter(Boolean);
     if (parts.length < 3) return null;
-    const h = parseFloat(parts[0]);
-    const sat = parts[1].endsWith("%") ? parseFloat(parts[1]) / 100 : parseFloat(parts[1]);
-    const l = parts[2].endsWith("%") ? parseFloat(parts[2]) / 100 : parseFloat(parts[2]);
+    const h = parseFloat((parts[0] as string));
+    const sat = (parts[1] as string).endsWith("%") ? parseFloat((parts[1] as string)) / 100 : parseFloat((parts[1] as string));
+    const l = (parts[2] as string).endsWith("%") ? parseFloat((parts[2] as string)) / 100 : parseFloat((parts[2] as string));
     let a = 1;
     if (parts[3] !== undefined) {
-      a = parts[3].endsWith("%") ? parseFloat(parts[3]) / 100 : parseFloat(parts[3]);
+      a = (parts[3] as string).endsWith("%") ? parseFloat((parts[3] as string)) / 100 : parseFloat((parts[3] as string));
     }
     if ([h, sat, l, a].some(Number.isNaN)) return null;
     const rgb = hslToRgb(h, clamp01(sat), clamp01(l));
@@ -307,14 +307,14 @@ function parseColor(input: string): { r: number; g: number; b: number; a: number
   }
   const oklchM = s.match(/^oklch\(\s*([^)]+)\)$/i);
   if (oklchM) {
-    const parts = oklchM[1].split(/[\s,/]+/).filter(Boolean);
+    const parts = (oklchM[1] as string).split(/[\s,/]+/).filter(Boolean);
     if (parts.length < 3) return null;
-    const L = parts[0].endsWith("%") ? parseFloat(parts[0]) / 100 : parseFloat(parts[0]);
-    const C = parseFloat(parts[1]);
-    const H = parseFloat(parts[2]);
+    const L = (parts[0] as string).endsWith("%") ? parseFloat((parts[0] as string)) / 100 : parseFloat((parts[0] as string));
+    const C = parseFloat((parts[1] as string));
+    const H = parseFloat((parts[2] as string));
     let a = 1;
     if (parts[3] !== undefined) {
-      a = parts[3].endsWith("%") ? parseFloat(parts[3]) / 100 : parseFloat(parts[3]);
+      a = (parts[3] as string).endsWith("%") ? parseFloat((parts[3] as string)) / 100 : parseFloat((parts[3] as string));
     }
     if ([L, C, H, a].some(Number.isNaN)) return null;
     const rgb = oklchToRgb(clamp01(L), Math.max(0, C), H);

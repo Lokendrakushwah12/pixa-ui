@@ -1,0 +1,53 @@
+---
+title: "File Diff"
+description: "Numbered rows tracking both files' line numbers, with a sign column."
+icon: GitCompareIcon
+---
+<ComponentPreview name="p-file-diff-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/file-diff
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="file-diff" title="components/ui/file-diff.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FileDiff, useDiffRows } from "@/components/ui/file-diff"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `FileDiff` |
+| `useDiffRows` |

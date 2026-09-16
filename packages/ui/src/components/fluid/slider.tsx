@@ -121,10 +121,11 @@ function valueToPixel(
   return ((v - min) / (max - min)) * usable;
 }
 
-function nearestStepIndex(v: number, steps: number[]): number {
+function nearestStepIndex(v: number, steps: [number, ...number[]]): number {
   let idx = 0;
   for (let i = 1; i < steps.length; i++) {
-    if (Math.abs(steps[i] - v) < Math.abs(steps[idx] - v)) idx = i;
+    if (Math.abs(steps[i] as number - v) < Math.abs(steps[idx] as number - v))
+      idx = i;
   }
   return idx;
 }
@@ -135,22 +136,22 @@ function pixelToValue(
   max: number,
   step: number,
   trackWidth: number,
-  stepValues: number[] | null = null
+  stepValues: [number, ...number[]] | null = null
 ): number {
   const usable = trackWidth - THUMB_SIZE;
   if (usable <= 0) return min;
   const raw = (px / usable) * (max - min) + min;
-  if (stepValues) return stepValues[nearestStepIndex(raw, stepValues)];
+  if (stepValues) return stepValues[nearestStepIndex(raw, stepValues)] as number;
   const snapped = Math.round((raw - min) / step) * step + min;
   return Math.max(min, Math.min(max, snapped));
 }
 
-function toRadixValue(value: SliderValue): number[] {
+function toRadixValue(value: SliderValue): [number, ...number[]] {
   return Array.isArray(value) ? value : [value];
 }
 
 interface ValueDisplayProps {
-  values: number[];
+  values: [number, ...number[]];
   editingIndex: number | null;
   onStartEdit: (index: number) => void;
   onCommitEdit: (index: number, v: number) => void;
@@ -158,7 +159,7 @@ interface ValueDisplayProps {
   min: number;
   max: number;
   step: number;
-  stepValues: number[] | null;
+  stepValues: [number, ...number[]] | null;
   formatValue: (v: number) => string;
   label?: string;
   isRange: boolean;
@@ -197,7 +198,7 @@ function ValueDisplay({
       if (!isNaN(parsed)) {
         const clamped = Math.max(min, Math.min(max, parsed));
         const snapped = stepValues
-          ? stepValues[nearestStepIndex(clamped, stepValues)]
+          ? (stepValues[nearestStepIndex(clamped, stepValues)] as number)
           : Math.round((clamped - min) / step) * step + min;
         onCommitEdit(index, snapped);
       } else {
@@ -253,7 +254,7 @@ function ValueDisplay({
         className="cursor-text select-none"
         onClick={() => onStartEdit(index)}
       >
-        {formatValue(values[index])}
+        {formatValue(values[index] as number)}
       </span>
     );
   };
@@ -371,16 +372,18 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
       const parsed = Array.from(new Set(stepsKey.split(",").map(Number))).sort(
         (a, b) => a - b
       );
-      return parsed.length > 1 ? parsed : null;
+      return parsed.length > 1 ? (parsed as [number, ...number[]]) : null;
     }, [stepsKey]);
     const min = stepValues ? stepValues[0] : minProp;
-    const max = stepValues ? stepValues[stepValues.length - 1] : maxProp;
+    const max = stepValues
+      ? (stepValues[stepValues.length - 1] as number)
+      : maxProp;
 
     const trackRef = useRef<HTMLDivElement>(null);
     const trackWidthRef = useRef(0);
     const dragging = useRef(false);
     const activeDragThumb = useRef<number>(0);
-    const valuesRef = useRef(values);
+    const valuesRef = useRef<[number, ...number[]]>(values);
     const minRef = useRef(min);
     const maxRef = useRef(max);
     valuesRef.current = values;
@@ -447,7 +450,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
         const clampedPx = Math.max(0, Math.min(usable, rawPx));
         const rawVal = usable > 0 ? (clampedPx / usable) * (max - min) + min : min;
         const snappedVal = stepValues
-          ? stepValues[nearestStepIndex(rawVal, stepValues)]
+          ? (stepValues[nearestStepIndex(rawVal, stepValues)] as number)
           : Math.max(
               min,
               Math.min(max, Math.round((rawVal - min) / step) * step + min)
@@ -491,6 +494,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
       const el = trackRef.current;
       if (!el) return;
       const ro = new ResizeObserver(([entry]) => {
+        if (!entry) return;
         const w = entry.contentRect.width;
         trackWidthRef.current = w;
         if (!dragging.current && initialSyncDone.current) {
@@ -696,7 +700,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
         if (isRange) {
           onChange(mapped as [number, number]);
         } else {
-          onChange(mapped[0]);
+          onChange(mapped[0] as number);
         }
       },
       [isRange, onChange, stepValues]
@@ -908,7 +912,7 @@ const CompactSlider = forwardRef<HTMLDivElement, SliderEngineProps>(
             {isRange && (
               <SliderPrimitive.Thumb
                 aria-label={thumbAriaLabel(1)}
-                aria-valuetext={stepValues ? formatValue(values[1]) : undefined}
+                aria-valuetext={stepValues ? formatValue(values[1] as number) : undefined}
                 className="block outline-none"
                 style={{ width: THUMB_SIZE, height: THUMB_SIZE }}
                 onFocus={(e) => { if (e.currentTarget.matches(":focus-visible")) setFocusedThumb(1); }}
@@ -1153,10 +1157,11 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
     );
 
     const pipSteps = useMemo(
-      () => Array.from(
-        { length: Math.round((max - min) / step) + 1 },
-        (_, i) => min + i * step
-      ),
+      () =>
+        Array.from(
+          { length: Math.round((max - min) / step) + 1 },
+          (_, i) => min + i * step
+        ) as [number, ...number[]],
       [min, max, step]
     );
     const pipCount = pipSteps.length;
@@ -1208,7 +1213,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
         if (variant === "pips") {
           if (pipCount <= 1) return;
           const index = Math.max(0, Math.min(pipCount - 1, Math.round((clamped / w) * (pipCount - 1))));
-          snappedVal = pipSteps[index];
+          snappedVal = pipSteps[index] as number;
         } else {
           const raw = min + (clamped / w) * (max - min);
           snappedVal = Math.max(min, Math.min(max, Math.round((raw - min) / step) * step + min));
@@ -1261,7 +1266,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
               Math.round((clamped / layoutLength) * (pipCount - 1))
             )
           );
-          return pipSteps[index];
+          return pipSteps[index] as number;
         } else {
           const raw = min + (clamped / layoutLength) * (max - min);
           const snapped = Math.round((raw - min) / step) * step + min;
@@ -1346,7 +1351,7 @@ const ComfortableSlider = forwardRef<HTMLDivElement, SliderComfortableProps>(
 
     const handleRadixChange = useCallback(
       (newValues: number[]) => {
-        onChange(newValues[0]);
+        onChange(newValues[0] as number);
       },
       [onChange]
     );

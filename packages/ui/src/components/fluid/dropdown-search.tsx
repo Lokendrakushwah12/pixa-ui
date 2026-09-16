@@ -208,7 +208,7 @@ const DropdownSearch = forwardRef<HTMLInputElement, DropdownSearchProps>(
         const rows = menuRows(e.currentTarget);
         if (rows.length === 0) return;
         e.preventDefault();
-        (e.key === "ArrowDown" ? rows[0] : rows[rows.length - 1]).focus();
+        (e.key === "ArrowDown" ? rows[0] : rows[rows.length - 1])?.focus();
       } else if (e.key === "Enter") {
         e.preventDefault();
         menuRows(e.currentTarget)[0]?.click();

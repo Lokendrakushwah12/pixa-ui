@@ -1,0 +1,54 @@
+---
+title: "Inline Citations"
+description: "Numbered references that show their source on hover."
+icon: QuoteDownIcon
+---
+<ComponentPreview name="p-inline-citations-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/inline-citations
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="inline-citations" title="components/ui/inline-citations.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CitationList, CitationMarker, CitedText } from "@/components/ui/inline-citations"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `CitationList` |
+| `CitationMarker` |
+| `CitedText` |

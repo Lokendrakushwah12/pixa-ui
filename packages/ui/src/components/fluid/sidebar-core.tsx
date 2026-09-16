@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  createElement,
   createContext,
   useContext,
   useState,
@@ -360,8 +361,9 @@ export function slotElement(
   content: ReactNode
 ): ReactElement {
   if (!template) {
-    const Tag = DefaultTag as ElementType;
-    return <Tag {...props}>{content}</Tag>;
+    // ElementType spans intrinsics whose children type is `never`, so build the
+    // element rather than writing it as JSX.
+    return createElement(DefaultTag, props, content);
   }
   const templateProps = template.props;
   const merged: SlotProps & { ref?: Ref<HTMLElement> } = {

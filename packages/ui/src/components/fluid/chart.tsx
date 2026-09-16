@@ -237,7 +237,7 @@ function ChartLegend({ className }: { className?: string }) {
             className="size-2 shrink-0 rounded-sm"
             style={{ background: colorOf(key) }}
           />
-          {config[key].label}
+          {config[key]?.label}
         </li>
       ))}
     </ul>
@@ -274,7 +274,7 @@ function ChartDataTable<T extends Record<string, unknown>>({
             </th>
             {keys.map((key) => (
               <th key={key} scope="col" className="py-1.5 pr-3 text-right font-medium">
-                {config[key].label}
+                {config[key]?.label}
               </th>
             ))}
           </tr>

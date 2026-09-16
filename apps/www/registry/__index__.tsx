@@ -79,6 +79,78 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "ask-user-questions": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/ask-user-questions.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/ask-user-questions.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "ask-user-questions",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "aspect-ratio": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/aspect-ratio.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/aspect-ratio.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "aspect-ratio",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  attachment: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/attachment.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/attachment.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "attachment",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   autocomplete: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -199,6 +271,54 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "button-group": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/button-group.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/button-group.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "button-group",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  calendar: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/calendar.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/calendar.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "calendar",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   card: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -220,6 +340,54 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "card",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  chart: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/chart.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/chart.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "chart",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "chat-message": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/chat-message.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/chat-message.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "chat-message",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -271,6 +439,30 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "code-block": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/code-block.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/code-block.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "code-block",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   collapsible: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -292,6 +484,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "collapsible",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "color-picker": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/color-picker.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/color-picker.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "color-picker",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -353,6 +569,78 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/autocomplete"],
     type: "registry:ui",
   },
+  "command-menu": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/command-menu.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/command-menu.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "command-menu",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "context-menu": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/context-menu.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/context-menu.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "context-menu",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "crm-table": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/crm-table.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/crm-table.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "crm-table",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   dialog: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -375,6 +663,30 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "dialog",
     registryDependencies: ["@pixa/button", "@pixa/scroll-area"],
+    type: "registry:ui",
+  },
+  dropdown: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/dropdown.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/dropdown.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "dropdown",
+    registryDependencies: undefined,
     type: "registry:ui",
   },
   empty: {
@@ -446,6 +758,54 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "fieldset",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "file-diff": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/file-diff.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/file-diff.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "file-diff",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "file-thumbnail": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/file-thumbnail.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/file-thumbnail.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "file-thumbnail",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -521,6 +881,78 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/separator"],
     type: "registry:ui",
   },
+  "hover-card": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/hover-card.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/hover-card.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "hover-card",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "image-generation": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/image-generation.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/image-generation.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "image-generation",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "inline-citations": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/inline-citations.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/inline-citations.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "inline-citations",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   input: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -542,6 +974,54 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "input",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "input-copy": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/input-copy.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/input-copy.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "input-copy",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "input-dissolve": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/input-dissolve.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/input-dissolve.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "input-dissolve",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -567,6 +1047,78 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "input-group",
     registryDependencies: ["@pixa/input", "@pixa/textarea"],
+    type: "registry:ui",
+  },
+  "input-message": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/input-message.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/input-message.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "input-message",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "input-otp": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/input-otp.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/input-otp.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "input-otp",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  item: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/item.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/item.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "item",
+    registryDependencies: undefined,
     type: "registry:ui",
   },
   kbd: {
@@ -617,6 +1169,78 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "logo-carousel": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/logo-carousel.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/logo-carousel.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "logo-carousel",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "magnetic-dropzone": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/magnetic-dropzone.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/magnetic-dropzone.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "magnetic-dropzone",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  marker: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/marker.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/marker.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "marker",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   menu: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -641,6 +1265,54 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  menubar: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/menubar.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/menubar.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "menubar",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "message-scroller": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/message-scroller.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/message-scroller.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "message-scroller",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   meter: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -662,6 +1334,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "meter",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "mobile-drawer": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/mobile-drawer.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/mobile-drawer.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "mobile-drawer",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -1037,6 +1733,84 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-alert-dialog-2",
     registryDependencies: ["@pixa/alert-dialog", "@pixa/button"],
+    type: "registry:block",
+  },
+  "p-ask-user-questions-1": {
+    categories: ["ask-user-questions"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-ask-user-questions-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic ask user questions",
+    files: [
+      {
+        path: "registry/default/particles/p-ask-user-questions-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-ask-user-questions-1",
+    registryDependencies: ["@pixa/ask-user-questions"],
+    type: "registry:block",
+  },
+  "p-aspect-ratio-1": {
+    categories: ["aspect-ratio"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-aspect-ratio-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic aspect ratio",
+    files: [
+      {
+        path: "registry/default/particles/p-aspect-ratio-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-aspect-ratio-1",
+    registryDependencies: ["@pixa/aspect-ratio"],
+    type: "registry:block",
+  },
+  "p-attachment-1": {
+    categories: ["attachment"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-attachment-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic attachment",
+    files: [
+      {
+        path: "registry/default/particles/p-attachment-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-attachment-1",
+    registryDependencies: ["@pixa/attachment"],
     type: "registry:block",
   },
   "p-autocomplete-1": {
@@ -3422,6 +4196,56 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:block",
   },
+  "p-button-group-1": {
+    categories: ["button-group"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-button-group-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic button group",
+    files: [
+      {
+        path: "registry/default/particles/p-button-group-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-button-group-1",
+    registryDependencies: ["@pixa/button-group"],
+    type: "registry:block",
+  },
+  "p-calendar-1": {
+    categories: ["calendar"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-calendar-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic calendar",
+    files: [
+      {
+        path: "registry/default/particles/p-calendar-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-calendar-1",
+    registryDependencies: ["@pixa/calendar"],
+    type: "registry:block",
+  },
   "p-card-1": {
     categories: ["card", "form"],
     component: React.lazy(async () => {
@@ -3763,6 +4587,56 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:block",
   },
+  "p-chart-1": {
+    categories: ["chart"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-chart-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic chart",
+    files: [
+      {
+        path: "registry/default/particles/p-chart-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-chart-1",
+    registryDependencies: ["@pixa/chart"],
+    type: "registry:block",
+  },
+  "p-chat-message-1": {
+    categories: ["chat-message"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-chat-message-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic chat message",
+    files: [
+      {
+        path: "registry/default/particles/p-chat-message-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-chat-message-1",
+    registryDependencies: ["@pixa/chat-message"],
+    type: "registry:block",
+  },
   "p-checkbox-1": {
     categories: ["checkbox"],
     component: React.lazy(async () => {
@@ -4041,6 +4915,32 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:block",
   },
+  "p-code-block-1": {
+    categories: ["code-block"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-code-block-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic code block",
+    files: [
+      {
+        path: "registry/default/particles/p-code-block-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-code-block-1",
+    registryDependencies: ["@pixa/code-block"],
+    type: "registry:block",
+  },
   "p-collapsible-1": {
     categories: ["collapsible"],
     component: React.lazy(async () => {
@@ -4065,6 +4965,32 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-collapsible-1",
     registryDependencies: ["@pixa/collapsible"],
+    type: "registry:block",
+  },
+  "p-color-picker-1": {
+    categories: ["color-picker"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-color-picker-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic color picker",
+    files: [
+      {
+        path: "registry/default/particles/p-color-picker-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-color-picker-1",
+    registryDependencies: ["@pixa/color-picker"],
     type: "registry:block",
   },
   "p-combobox-1": {
@@ -4610,6 +5536,84 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:block",
   },
+  "p-command-menu-1": {
+    categories: ["command-menu"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-command-menu-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic command menu",
+    files: [
+      {
+        path: "registry/default/particles/p-command-menu-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-command-menu-1",
+    registryDependencies: ["@pixa/command-menu"],
+    type: "registry:block",
+  },
+  "p-context-menu-1": {
+    categories: ["context-menu"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-context-menu-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic context menu",
+    files: [
+      {
+        path: "registry/default/particles/p-context-menu-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-context-menu-1",
+    registryDependencies: ["@pixa/context-menu"],
+    type: "registry:block",
+  },
+  "p-crm-table-1": {
+    categories: ["crm-table"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-crm-table-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic crm table",
+    files: [
+      {
+        path: "registry/default/particles/p-crm-table-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-crm-table-1",
+    registryDependencies: ["@pixa/crm-table"],
+    type: "registry:block",
+  },
   "p-dialog-1": {
     categories: ["dialog"],
     component: React.lazy(async () => {
@@ -4776,6 +5780,30 @@ export const Index: Record<string, any> = {
       "@pixa/form",
       "@pixa/input",
     ],
+    type: "registry:block",
+  },
+  "p-dropdown-1": {
+    categories: ["dropdown"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-dropdown-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic dropdown",
+    files: [
+      {
+        path: "registry/default/particles/p-dropdown-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-dropdown-1",
+    registryDependencies: ["@pixa/dropdown"],
     type: "registry:block",
   },
   "p-empty-1": {
@@ -5334,6 +6362,58 @@ export const Index: Record<string, any> = {
     },
     name: "p-fieldset-1",
     registryDependencies: ["@pixa/field", "@pixa/fieldset", "@pixa/input"],
+    type: "registry:block",
+  },
+  "p-file-diff-1": {
+    categories: ["file-diff"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-file-diff-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic file diff",
+    files: [
+      {
+        path: "registry/default/particles/p-file-diff-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-file-diff-1",
+    registryDependencies: ["@pixa/file-diff"],
+    type: "registry:block",
+  },
+  "p-file-thumbnail-1": {
+    categories: ["file-thumbnail"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-file-thumbnail-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic file thumbnail",
+    files: [
+      {
+        path: "registry/default/particles/p-file-thumbnail-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-file-thumbnail-1",
+    registryDependencies: ["@pixa/file-thumbnail"],
     type: "registry:block",
   },
   "p-form-1": {
@@ -6034,6 +7114,84 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/group", "@pixa/label", "@pixa/number-field"],
     type: "registry:block",
   },
+  "p-hover-card-1": {
+    categories: ["hover-card"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-hover-card-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic hover card",
+    files: [
+      {
+        path: "registry/default/particles/p-hover-card-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-hover-card-1",
+    registryDependencies: ["@pixa/hover-card"],
+    type: "registry:block",
+  },
+  "p-image-generation-1": {
+    categories: ["image-generation"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-image-generation-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic image generation",
+    files: [
+      {
+        path: "registry/default/particles/p-image-generation-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-image-generation-1",
+    registryDependencies: ["@pixa/image-generation"],
+    type: "registry:block",
+  },
+  "p-inline-citations-1": {
+    categories: ["inline-citations"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-inline-citations-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic inline citations",
+    files: [
+      {
+        path: "registry/default/particles/p-inline-citations-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-inline-citations-1",
+    registryDependencies: ["@pixa/inline-citations"],
+    type: "registry:block",
+  },
   "p-input-1": {
     categories: ["input"],
     component: React.lazy(async () => {
@@ -6557,6 +7715,58 @@ export const Index: Record<string, any> = {
     },
     name: "p-input-19",
     registryDependencies: ["@pixa/input"],
+    type: "registry:block",
+  },
+  "p-input-copy-1": {
+    categories: ["input-copy"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-input-copy-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic input copy",
+    files: [
+      {
+        path: "registry/default/particles/p-input-copy-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-input-copy-1",
+    registryDependencies: ["@pixa/input-copy"],
+    type: "registry:block",
+  },
+  "p-input-dissolve-1": {
+    categories: ["input-dissolve"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-input-dissolve-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic input dissolve",
+    files: [
+      {
+        path: "registry/default/particles/p-input-dissolve-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-input-dissolve-1",
+    registryDependencies: ["@pixa/input-dissolve"],
     type: "registry:block",
   },
   "p-input-group-1": {
@@ -7416,6 +8626,82 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:block",
   },
+  "p-input-message-1": {
+    categories: ["input-message"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-input-message-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic input message",
+    files: [
+      {
+        path: "registry/default/particles/p-input-message-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-input-message-1",
+    registryDependencies: ["@pixa/input-message"],
+    type: "registry:block",
+  },
+  "p-input-otp-1": {
+    categories: ["input-otp"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-input-otp-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic input otp",
+    files: [
+      {
+        path: "registry/default/particles/p-input-otp-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-input-otp-1",
+    registryDependencies: ["@pixa/input-otp"],
+    type: "registry:block",
+  },
+  "p-item-1": {
+    categories: ["item"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-item-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic item",
+    files: [
+      {
+        path: "registry/default/particles/p-item-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-item-1",
+    registryDependencies: ["@pixa/item"],
+    type: "registry:block",
+  },
   "p-kbd-1": {
     categories: ["kbd"],
     component: React.lazy(async () => {
@@ -7438,6 +8724,82 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-kbd-1",
     registryDependencies: ["@pixa/kbd"],
+    type: "registry:block",
+  },
+  "p-logo-carousel-1": {
+    categories: ["logo-carousel"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-logo-carousel-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic logo carousel",
+    files: [
+      {
+        path: "registry/default/particles/p-logo-carousel-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-logo-carousel-1",
+    registryDependencies: ["@pixa/logo-carousel"],
+    type: "registry:block",
+  },
+  "p-magnetic-dropzone-1": {
+    categories: ["magnetic-dropzone"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-magnetic-dropzone-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic magnetic dropzone",
+    files: [
+      {
+        path: "registry/default/particles/p-magnetic-dropzone-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-magnetic-dropzone-1",
+    registryDependencies: ["@pixa/magnetic-dropzone"],
+    type: "registry:block",
+  },
+  "p-marker-1": {
+    categories: ["marker"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-marker-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic marker",
+    files: [
+      {
+        path: "registry/default/particles/p-marker-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-marker-1",
+    registryDependencies: ["@pixa/marker"],
     type: "registry:block",
   },
   "p-menu-1": {
@@ -7656,6 +9018,56 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/button", "@pixa/menu"],
     type: "registry:block",
   },
+  "p-menubar-1": {
+    categories: ["menubar"],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/particles/p-menubar-1.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic menubar",
+    files: [
+      {
+        path: "registry/default/particles/p-menubar-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-menubar-1",
+    registryDependencies: ["@pixa/menubar"],
+    type: "registry:block",
+  },
+  "p-message-scroller-1": {
+    categories: ["message-scroller"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-message-scroller-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic message scroller",
+    files: [
+      {
+        path: "registry/default/particles/p-message-scroller-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-message-scroller-1",
+    registryDependencies: ["@pixa/message-scroller"],
+    type: "registry:block",
+  },
   "p-meter-1": {
     categories: ["meter"],
     component: React.lazy(async () => {
@@ -7762,6 +9174,32 @@ export const Index: Record<string, any> = {
     },
     name: "p-meter-4",
     registryDependencies: ["@pixa/meter"],
+    type: "registry:block",
+  },
+  "p-mobile-drawer-1": {
+    categories: ["mobile-drawer"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-mobile-drawer-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic mobile drawer",
+    files: [
+      {
+        path: "registry/default/particles/p-mobile-drawer-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-mobile-drawer-1",
+    registryDependencies: ["@pixa/mobile-drawer"],
     type: "registry:block",
   },
   "p-number-field-1": {
@@ -8170,6 +9608,32 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/button", "@pixa/pagination", "@pixa/select"],
     type: "registry:block",
   },
+  "p-plan-card-1": {
+    categories: ["plan-card"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-plan-card-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic plan card",
+    files: [
+      {
+        path: "registry/default/particles/p-plan-card-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-plan-card-1",
+    registryDependencies: ["@pixa/plan-card"],
+    type: "registry:block",
+  },
   "p-popover-1": {
     categories: ["button", "field", "form", "popover", "textarea"],
     component: React.lazy(async () => {
@@ -8489,6 +9953,32 @@ export const Index: Record<string, any> = {
       "@pixa/form",
       "@pixa/radio-group",
     ],
+    type: "registry:block",
+  },
+  "p-resizable-1": {
+    categories: ["resizable"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-resizable-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic resizable",
+    files: [
+      {
+        path: "registry/default/particles/p-resizable-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-resizable-1",
+    registryDependencies: ["@pixa/resizable"],
     type: "registry:block",
   },
   "p-scroll-area-1": {
@@ -9333,6 +10823,32 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/button", "@pixa/sheet"],
     type: "registry:block",
   },
+  "p-sidebar-menu-1": {
+    categories: ["sidebar-menu"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-sidebar-menu-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic sidebar menu",
+    files: [
+      {
+        path: "registry/default/particles/p-sidebar-menu-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-sidebar-menu-1",
+    registryDependencies: ["@pixa/sidebar-menu"],
+    type: "registry:block",
+  },
   "p-skeleton-1": {
     categories: ["skeleton"],
     component: React.lazy(async () => {
@@ -10037,6 +11553,32 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/spinner"],
     type: "registry:block",
   },
+  "p-streaming-text-1": {
+    categories: ["streaming-text"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-streaming-text-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic streaming text",
+    files: [
+      {
+        path: "registry/default/particles/p-streaming-text-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-streaming-text-1",
+    registryDependencies: ["@pixa/streaming-text"],
+    type: "registry:block",
+  },
   "p-switch-1": {
     categories: ["switch"],
     component: React.lazy(async () => {
@@ -10632,6 +12174,58 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/tabs", "@pixa/tooltip"],
     type: "registry:block",
   },
+  "p-tabs-subtle-1": {
+    categories: ["tabs-subtle"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-tabs-subtle-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic tabs subtle",
+    files: [
+      {
+        path: "registry/default/particles/p-tabs-subtle-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-tabs-subtle-1",
+    registryDependencies: ["@pixa/tabs-subtle"],
+    type: "registry:block",
+  },
+  "p-task-list-1": {
+    categories: ["task-list"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-task-list-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic task list",
+    files: [
+      {
+        path: "registry/default/particles/p-task-list-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-task-list-1",
+    registryDependencies: ["@pixa/task-list"],
+    type: "registry:block",
+  },
   "p-textarea-1": {
     categories: ["textarea"],
     component: React.lazy(async () => {
@@ -11052,6 +12646,58 @@ export const Index: Record<string, any> = {
     },
     name: "p-textarea-15",
     registryDependencies: ["@pixa/button", "@pixa/textarea"],
+    type: "registry:block",
+  },
+  "p-thinking-indicator-1": {
+    categories: ["thinking-indicator"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-thinking-indicator-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic thinking indicator",
+    files: [
+      {
+        path: "registry/default/particles/p-thinking-indicator-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-thinking-indicator-1",
+    registryDependencies: ["@pixa/thinking-indicator"],
+    type: "registry:block",
+  },
+  "p-thinking-steps-1": {
+    categories: ["thinking-steps"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-thinking-steps-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Basic thinking steps",
+    files: [
+      {
+        path: "registry/default/particles/p-thinking-steps-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-thinking-steps-1",
+    registryDependencies: ["@pixa/thinking-steps"],
     type: "registry:block",
   },
   "p-toast-1": {
@@ -11851,6 +13497,30 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/button"],
     type: "registry:ui",
   },
+  "plan-card": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/plan-card.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/plan-card.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "plan-card",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   popover: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -11944,6 +13614,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "radio-group",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  resizable: {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/resizable.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/resizable.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "resizable",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -12076,6 +13770,30 @@ export const Index: Record<string, any> = {
     ],
     type: "registry:ui",
   },
+  "sidebar-menu": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/sidebar-menu.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/sidebar-menu.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "sidebar-menu",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   skeleton: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -12145,6 +13863,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "spinner",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "streaming-text": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/streaming-text.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/streaming-text.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "streaming-text",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -12220,6 +13962,54 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "tabs-subtle": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/tabs-subtle.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/tabs-subtle.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "tabs-subtle",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "task-list": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/task-list.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/task-list.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "task-list",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   textarea: {
     categories: undefined,
     component: React.lazy(async () => {
@@ -12241,6 +14031,54 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "textarea",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "thinking-indicator": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/thinking-indicator.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/thinking-indicator.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "thinking-indicator",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "thinking-steps": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/thinking-steps.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/thinking-steps.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "thinking-steps",
     registryDependencies: undefined,
     type: "registry:ui",
   },

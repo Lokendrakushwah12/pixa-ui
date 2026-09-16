@@ -86,7 +86,7 @@ function CitedText({
         const match = /^\[\^([^\]]+)\]$/.exec(part);
         if (!match) return <Fragment key={i}>{part}</Fragment>;
 
-        const citation = byId.get(match[1]);
+        const citation = byId.get(match[1] as string);
         if (!citation) return <Fragment key={i}>{part}</Fragment>;
 
         if (!order.includes(citation.id)) order.push(citation.id);

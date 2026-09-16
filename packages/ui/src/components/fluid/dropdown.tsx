@@ -131,7 +131,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
               const next = ["ArrowDown", "ArrowRight"].includes(e.key)
                 ? (currentIdx + 1) % items.length
                 : (currentIdx - 1 + items.length) % items.length;
-              items[next].focus();
+              items[next]?.focus();
             } else if (e.key === "Home") {
               e.preventDefault();
               items[0]?.focus();

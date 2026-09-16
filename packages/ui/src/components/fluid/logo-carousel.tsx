@@ -37,10 +37,13 @@ function LogoCarousel({
     return () => window.clearInterval(id);
   }, [reduceMotion, interval, logos.length, columns]);
 
-  const slots = Array.from({ length: Math.min(columns, logos.length) }, (_, i) => {
-    const index = (i + tick * columns) % logos.length;
-    return { slot: i, logo: logos[index] };
-  });
+  const slots = Array.from(
+    { length: Math.min(columns, logos.length) },
+    (_, i) => {
+      const index = (i + tick * columns) % logos.length;
+      return { slot: i, logo: logos[index] };
+    }
+  ).filter((s): s is { slot: number; logo: LogoItem } => s.logo !== undefined);
 
   return (
     <div className={cn("w-full", className)}>

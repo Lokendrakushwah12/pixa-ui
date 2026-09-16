@@ -511,7 +511,7 @@ const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
       prevStatusRef.current = status;
       if (!supportsQueue) return;
       if (prev === "streaming" && status === "idle" && queueArr.length > 0) {
-        const [next, ...rest] = queueArr;
+        const [next, ...rest] = queueArr as [QueuedMessage, ...QueuedMessage[]];
         onQueueChange?.(rest);
         onSend?.(next.text, next.files, { queuedId: next.id });
         setLiveMsg(
@@ -561,7 +561,10 @@ const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
         const j = i + dir;
         if (i < 0 || j < 0 || j >= cur.length) return;
         const next = [...cur];
-        [next[i], next[j]] = [next[j], next[i]];
+        [next[i], next[j]] = [
+          next[j] as QueuedMessage,
+          next[i] as QueuedMessage,
+        ];
         onQueueChange?.(next);
       },
       [onQueueChange]
@@ -616,7 +619,8 @@ const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
             }
             if (e.key === "Enter") {
               e.preventDefault();
-              acceptSuggestion(suggestionsArr[activeSuggestion]);
+              const picked = suggestionsArr[activeSuggestion];
+              if (picked !== undefined) acceptSuggestion(picked);
               return;
             }
             if (e.key === "Escape") {
@@ -656,7 +660,7 @@ const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
               if (historyIndex == null) draftBeforeHistory.current = value;
               const ni = start - 1;
               setHistoryIndex(ni);
-              onValueChange(history[ni]);
+              onValueChange(history[ni] ?? "");
               setCaretEnd();
             }
             return;
@@ -673,7 +677,7 @@ const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
               onValueChange(draftBeforeHistory.current);
             } else {
               setHistoryIndex(ni);
-              onValueChange(history[ni]);
+              onValueChange(history[ni] ?? "");
             }
             setCaretEnd();
             return;

@@ -73,7 +73,7 @@ function bridgePair(outer: Run, runs: Run[]) {
     .filter((r) => r.start >= outer.start && r.end <= outer.end)
     .sort((a, b) => a.start - b.start);
   if (inside.length !== 2) return null;
-  const [up, lo] = inside;
+  const [up, lo] = inside as [Run, Run];
   return lo.start === up.end + 2 ? { up, lo, gap: up.end + 1 } : null;
 }
 
