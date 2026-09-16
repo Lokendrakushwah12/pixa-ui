@@ -87,7 +87,7 @@ export default function Particle() {
         tabIndex={-1}
       >
         <div
-          className={`h-full ${getStrengthColor(strengthScore)} transition-all duration-500 ease-out`}
+          className={`h-full ${getStrengthColor(strengthScore)} transition-all duration-200 ease-out`}
           style={{ width: `${(strengthScore / 4) * 100}%` }}
         />
       </div>

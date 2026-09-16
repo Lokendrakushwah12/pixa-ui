@@ -1073,9 +1073,9 @@ const AskUserQuestions = forwardRef<HTMLDivElement, AskUserQuestionsProps>(
                       <motion.div
                         key="back"
                         layout="position"
-                        initial={{ opacity: 0, scale: 0.85 }}
+                        initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.85 }}
+                        exit={{ opacity: 0, scale: 0.92 }}
                         transition={{
                           ...spring.fast,
                           opacity: { duration: 0.1 },
@@ -1120,9 +1120,9 @@ const AskUserQuestions = forwardRef<HTMLDivElement, AskUserQuestionsProps>(
                       <motion.div
                         key="skip"
                         layout="position"
-                        initial={{ opacity: 0, scale: 0.85 }}
+                        initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.85 }}
+                        exit={{ opacity: 0, scale: 0.92 }}
                         transition={{
                           ...spring.fast,
                           opacity: { duration: 0.1 },
@@ -1143,9 +1143,9 @@ const AskUserQuestions = forwardRef<HTMLDivElement, AskUserQuestionsProps>(
                       <motion.div
                         key="continue"
                         layout="position"
-                        initial={{ opacity: 0, scale: 0.85 }}
+                        initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.85 }}
+                        exit={{ opacity: 0, scale: 0.92 }}
                         transition={{
                           ...spring.fast,
                           opacity: { duration: 0.1 },

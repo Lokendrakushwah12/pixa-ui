@@ -192,9 +192,9 @@ export function QueuedStack({
                     {hiddenCount > 0 && (
                       <motion.span
                         key="count"
-                        initial={{ opacity: 0, scale: 0.6 }}
+                        initial={{ opacity: 0, scale: 0.92 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.6 }}
+                        exit={{ opacity: 0, scale: 0.92 }}
                         transition={spring.fast}
                         className="pointer-events-none text-[10px] font-semibold leading-none tabular-nums text-muted-foreground"
                       >
