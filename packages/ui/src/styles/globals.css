@@ -188,6 +188,10 @@
     @apply border-border outline-ring/50;
   }
 
+  body {
+    font-variation-settings: "opsz" 32;
+  }
+
   code,
   kbd,
   samp,
