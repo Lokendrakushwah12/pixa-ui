@@ -3,7 +3,7 @@
 import { LayerMask01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "@pixa/ui/components/button";
-import { useTheme } from "next-themes";
+import { useTheme } from "@pixa/ui/shared/theme-provider";
 import * as React from "react";
 
 export function ModeSwitcher() {

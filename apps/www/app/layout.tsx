@@ -6,6 +6,8 @@ import { SiteHeader } from "@pixa/ui/shared/site-header";
 import { ThemeProvider } from "@pixa/ui/shared/theme-provider";
 import type { Metadata } from "next";
 
+import { InlineScript } from "@/components/inline-script";
+
 export const metadata: Metadata = {
   description: "pixa ui - Build faster with beautifully crafted components",
   icons: {
@@ -39,6 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Applies the saved theme before paint to avoid a flash. InlineScript
+            swaps its type on the client so it doesn't trip React 19's dev
+            "script tag" warning. */}
+        <InlineScript
+          html={`(function(){try{var t=localStorage.getItem('theme')||'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light'}catch(e){}})()`}
+        />
+      </head>
       <body
         className={`${fontSans.variable} ${fontHeading.variable} ${fontMono.variable} relative bg-background font-sans text-foreground antialiased`}
       >

@@ -1,3 +1,5 @@
+"use client";
+
 import { GithubIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "@pixa/ui/components/button";
@@ -13,11 +15,6 @@ export function GitHubLink() {
       render={
         <Link href={siteConfig.links.github} rel="noreferrer" target="_blank">
           <HugeiconsIcon className="size-4" icon={GithubIcon} strokeWidth={2} />
-          <span className="max-sm:sr-only">
-            <React.Suspense fallback={<Skeleton className="h-4 w-[25.5px]" />}>
-              <StarsCount />
-            </React.Suspense>
-          </span>
         </Link>
       }
       size="sm"
