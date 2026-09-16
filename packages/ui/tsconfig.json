@@ -10,7 +10,14 @@
     },
     "types": ["next", "react", "node", "bun-types"]
   },
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "src/fluid",
+    "src/components/fluid"
+  ],
   "extends": "@pixa/typescript-config/react-library.json",
   "include": ["."]
 }

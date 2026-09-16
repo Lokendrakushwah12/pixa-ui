@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": false,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noUncheckedIndexedAccess": false,
+    "paths": {
+      "@pixa/ui/*": ["./src/*"]
+    },
+    "types": ["next", "react", "react-dom", "node", "bun-types"]
+  },
+  "extends": "@pixa/typescript-config/react-library.json",
+  "include": ["src/fluid", "src/components/fluid"]
+}

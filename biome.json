@@ -31,7 +31,8 @@
       "!**/apps/**/*/.source",
       "!**/packages/ui/src/components",
       "!**/packages/ui/src/lib",
-      "!**/packages/ui/src/hooks"
+      "!**/packages/ui/src/hooks",
+      "!**/packages/ui/src/fluid"
     ]
   },
   "formatter": {
