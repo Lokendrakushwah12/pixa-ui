@@ -19,7 +19,7 @@ export function buildPrompt(schema: Schema, config: Config): string {
   // service behind this, the panel reads it straight back off the URL.
   const preset = encodeConfig(schema, config);
   const Export = `${schema.title.replace(/\s+/g, "")}Section`;
-  const block = schema.title.toLowerCase().replace(/\s+/g, "-") + "-section";
+  const block = `${schema.title.toLowerCase().replace(/\s+/g, "-")}-section`;
 
   return [
     `Add the ${schema.title} I configured on pixa ui to my React app.`,
