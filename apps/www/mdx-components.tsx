@@ -10,6 +10,7 @@ import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
 import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
+import { Playground } from "@/components/playground-preview";
 import { cn } from "@/lib/utils";
 import {
   Accordion,
@@ -263,6 +264,7 @@ export const mdxComponents = {
       {...props}
     />
   ),
+  Playground,
   p: ({ className, ...props }: React.ComponentProps<"p">) => (
     <p
       className={cn(
