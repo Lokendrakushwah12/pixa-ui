@@ -472,7 +472,8 @@ const FieldInput = forwardRef<
         if (!open) return;
         e.preventDefault();
         if (highlight && filteredItems[highlight.index]) {
-          select(filteredItems[highlight.index]);
+          const picked = filteredItems[highlight.index];
+                          if (picked) select(picked);
         }
         return;
       }
@@ -486,7 +487,8 @@ const FieldInput = forwardRef<
       case "Backspace": {
         if (multiple && e.currentTarget.value === "" && values.length > 0) {
           e.preventDefault();
-          remove(values[values.length - 1]);
+          const last = values[values.length - 1];
+                          if (last !== undefined) remove(last);
         }
         return;
       }
@@ -917,7 +919,7 @@ const ComboboxList = forwardRef<HTMLDivElement, ComboboxListProps>(
 
     const checkedRect =
       isMeasured && !multiple && checkedIndices.length > 0
-        ? itemRects[checkedIndices[0]]
+        ? itemRects[checkedIndices[0] as number]
         : null;
     const runs = useSelectionRuns(multiple ? checkedIndices : []);
     const blocks = useMergeSplitBlocks(

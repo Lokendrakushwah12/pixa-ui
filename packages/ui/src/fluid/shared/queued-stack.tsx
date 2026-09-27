@@ -119,8 +119,8 @@ export function QueuedStack({
         Math.min(q.length - 1, Math.floor(fromBottom / (cardH + STACK_GAP)))
       );
       const cur = q.findIndex((x) => x.id === pointerDownId);
-      if (cur !== -1 && cur !== slot) {
-        const moved = q[cur];
+      const moved = cur === -1 ? undefined : q[cur];
+      if (moved && cur !== slot) {
         const next = [...q];
         next.splice(cur, 1);
         next.splice(slot, 0, moved);

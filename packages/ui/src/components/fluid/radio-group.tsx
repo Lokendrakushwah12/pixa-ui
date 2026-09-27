@@ -119,8 +119,8 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             const next = ["ArrowDown", "ArrowRight"].includes(e.key)
               ? (currentIdx + 1) % items.length
               : (currentIdx - 1 + items.length) % items.length;
-            items[next].focus();
-            items[next].click();
+            items[next]?.focus();
+            items[next]?.click();
           } else if (e.key === "Home") {
             e.preventDefault();
             items[0]?.focus();

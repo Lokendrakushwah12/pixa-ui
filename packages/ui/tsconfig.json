@@ -4,7 +4,7 @@
     "incremental": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "noUncheckedIndexedAccess": false,
+    "noUncheckedIndexedAccess": true,
     "paths": {
       "@pixa/ui/*": ["./src/*"]
     },

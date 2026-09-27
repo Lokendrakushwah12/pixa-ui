@@ -122,7 +122,8 @@ function Toaster({
   const fromTop = position.startsWith("top");
   const ordered = useMemo(() => [...toasts].reverse(), [toasts]);
 
-  const frontHeight = ordered.length ? (heights[ordered[0].id] ?? 0) : 0;
+  const front = ordered[0];
+      const frontHeight = front ? (heights[front.id] ?? 0) : 0;
   const expandedHeight = ordered
     .slice(0, MAX_VISIBLE)
     .reduce((sum, t, i) => sum + (heights[t.id] ?? 0) + (i ? GAP : 0), 0);

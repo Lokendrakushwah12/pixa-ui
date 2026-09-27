@@ -137,7 +137,7 @@ const CheckboxGroup = forwardRef<HTMLDivElement, CheckboxGroupProps>(
               const next = e.key === "ArrowDown"
                 ? (currentIdx + 1) % items.length
                 : (currentIdx - 1 + items.length) % items.length;
-              items[next].focus();
+              items[next]?.focus();
             } else if (e.key === "Home") {
               e.preventDefault();
               items[0]?.focus();
