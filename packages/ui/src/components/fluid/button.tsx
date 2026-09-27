@@ -197,11 +197,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ? asChildElement.props.children
         : children;
     const contextSize = useSizeVariant();
+    // Two different questions: which tier fluid's own bits follow (icon size,
+    // radius, press geometry), and which height cva draws. Folding both onto
+    // the canonical four made lg/xl/xs unreachable, so only the first folds.
     const resolvedSize: ButtonSizeCanonical = size
       ? legacySizeAliases[size] ?? (size as ButtonSizeCanonical)
       : contextSize === "compact"
         ? "compact"
         : "default";
+    const cvaSize: ButtonSize = size ?? resolvedSize;
     const isIconOnly = resolvedSize === "icon" || resolvedSize === "icon-compact";
     const isCompact =
       resolvedSize === "compact" || resolvedSize === "icon-compact";
@@ -280,7 +284,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({
             variant,
-            size: resolvedSize,
+            size: cvaSize,
             iconLeft: !isIconOnly && !!LeadingIcon,
             iconRight: !isIconOnly && !!TrailingIcon,
           }),
