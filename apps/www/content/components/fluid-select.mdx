@@ -1,0 +1,64 @@
+---
+title: "Select"
+description: "Animated select with typeahead and collision-aware positioning."
+icon: ArrowDown01Icon
+---
+<Alert>
+  <AlertDescription>
+The fluid build of this component. piixa's own [Select](/docs/components/select) stays where it is — this is the parallel implementation ported from fluid-ui, with its own API and motion.
+  </AlertDescription>
+</Alert>
+
+<ComponentPreview name="p-fluid-select-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/fluid-select
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="fluid-select" title="components/ui/fluid-select.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator } from "@/components/ui/fluid-select"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `Select` |
+| `SelectContent` |
+| `SelectGroup` |
+| `SelectItem` |
+| `SelectLabel` |
+| `SelectSeparator` |
+| `SelectTrigger` |

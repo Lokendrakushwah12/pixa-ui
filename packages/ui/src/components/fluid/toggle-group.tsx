@@ -14,12 +14,46 @@ import { useSize, type SizeVariant } from "../../fluid/lib/size-context";
 
 const ToggleGroupSizeContext = createContext<SizeVariant | undefined>(undefined);
 
-type ToggleGroupProps = (
-  | ComponentPropsWithoutRef<typeof ToggleGroupPrimitive>
-) & { size?: SizeVariant };
+type ToggleGroupProps = Omit<
+  ComponentPropsWithoutRef<typeof ToggleGroupPrimitive>,
+  "value" | "defaultValue" | "onValueChange"
+> & {
+  size?: SizeVariant;
+  /** Radix's spelling; Base UI is always multi-value underneath. */
+  type?: "single" | "multiple";
+  value?: string | string[];
+  defaultValue?: string | string[];
+  onValueChange?: ((value: string) => void) | ((value: string[]) => void);
+};
 
 const ToggleGroup = forwardRef<HTMLDivElement, ToggleGroupProps>(
-  ({ size, className, children, ...props }, ref) => {
+  (
+    {
+      size,
+      className,
+      children,
+      type = "single",
+      value,
+      defaultValue,
+      onValueChange,
+      ...props
+    },
+    ref
+  ) => {
+    const multiple = type === "multiple";
+    const toArray = (v: string | string[] | undefined) =>
+      v === undefined ? undefined : Array.isArray(v) ? v : v ? [v] : [];
+    const valueProps = {
+      value: toArray(value),
+      defaultValue: toArray(defaultValue),
+      onValueChange: onValueChange
+        ? (next: string[]) =>
+            multiple
+              ? (onValueChange as (v: string[]) => void)(next)
+              : (onValueChange as (v: string) => void)(next[0] ?? "")
+        : undefined,
+      toggleMultiple: multiple,
+    };
     const shape = useShape();
     const sizeClasses = useSize(size);
 
@@ -34,6 +68,7 @@ const ToggleGroup = forwardRef<HTMLDivElement, ToggleGroupProps>(
             shape.container,
             className
           )}
+          {...valueProps}
           {...(props as ComponentPropsWithoutRef<typeof ToggleGroupPrimitive>)}
         >
           {children}
@@ -62,7 +97,7 @@ const ToggleGroupItem = forwardRef<
         "focus-visible:ring-1 focus-visible:ring-ring",
         "disabled:pointer-events-none disabled:opacity-50",
         "text-muted-foreground hover:text-foreground",
-        "data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-surface-2",
+        "data-pressed:bg-background data-pressed:text-foreground data-pressed:shadow-surface-2",
         sizeClasses.segmentItem,
         sizeClasses.px,
         sizeClasses.text,

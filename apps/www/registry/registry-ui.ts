@@ -1101,4 +1101,268 @@ export const ui: Registry["items"] = [
     name: "thinking-steps",
     type: "registry:ui",
   },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-accordion.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-accordion",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-alert.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-alert",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-avatar.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-avatar",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-breadcrumb.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-breadcrumb",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-card.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-card",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-checkbox-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-checkbox-group",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-collapsible.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-collapsible",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-combobox.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-combobox",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-empty.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-empty",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-form.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-form",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-input-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-input-group",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-kbd.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-kbd",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-pagination.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-pagination",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-popover.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-popover",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-radio-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-radio-group",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-select.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-select",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-separator.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-separator",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-sheet.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-sheet",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-sidebar.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-sidebar",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-switch.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-switch",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-tabs.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-tabs",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-textarea.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-textarea",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-toast.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-toast",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-toggle-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-toggle-group",
+    type: "registry:ui",
+  },
 ];

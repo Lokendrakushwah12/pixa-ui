@@ -1,0 +1,61 @@
+---
+title: "Tabs"
+description: "Segmented control with a sliding indicator."
+icon: Menu01Icon
+---
+<Alert>
+  <AlertDescription>
+The fluid build of this component. piixa's own [Tabs](/docs/components/tabs) stays where it is — this is the parallel implementation ported from fluid-ui, with its own API and motion.
+  </AlertDescription>
+</Alert>
+
+<ComponentPreview name="p-fluid-tabs-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/fluid-tabs
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="fluid-tabs" title="components/ui/fluid-tabs.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TabItem, TabPanel, Tabs, TabsList } from "@/components/ui/fluid-tabs"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `TabItem` |
+| `TabPanel` |
+| `Tabs` |
+| `TabsList` |

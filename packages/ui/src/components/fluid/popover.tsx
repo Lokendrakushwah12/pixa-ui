@@ -2,11 +2,13 @@
 
 import {
   createContext,
+  isValidElement,
   forwardRef,
   useContext,
   useEffect,
   useState,
   type ComponentPropsWithoutRef,
+  type ReactElement,
 } from "react";
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 import { motion } from "framer-motion";
@@ -51,9 +53,18 @@ function Popover({
 
 const PopoverTrigger = forwardRef<
   HTMLButtonElement,
-  ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
->((props, ref) => (
-  <PopoverPrimitive.Trigger ref={ref} data-slot="popover-trigger" {...props} />
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger> & {
+    asChild?: boolean;
+  }
+>(({ asChild, children, ...props }, ref) => (
+  <PopoverPrimitive.Trigger
+    ref={ref}
+    data-slot="popover-trigger"
+    {...(asChild && isValidElement(children)
+      ? { render: children as ReactElement }
+      : { children })}
+    {...props}
+  />
 ));
 PopoverTrigger.displayName = "PopoverTrigger";
 

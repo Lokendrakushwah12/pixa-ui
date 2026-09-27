@@ -1,0 +1,61 @@
+---
+title: "Pagination"
+description: "Page numbers with the middle elided, so the width never changes."
+icon: MoreHorizontalIcon
+---
+<Alert>
+  <AlertDescription>
+The fluid build of this component. piixa's own [Pagination](/docs/components/pagination) stays where it is — this is the parallel implementation ported from fluid-ui, with its own API and motion.
+  </AlertDescription>
+</Alert>
+
+<ComponentPreview name="p-fluid-pagination-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx shadcn@latest add @pixa/fluid-pagination
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="fluid-pagination" title="components/ui/fluid-pagination.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Pagination, PaginationButton, PaginationControl, PaginationGap } from "@/components/ui/fluid-pagination"
+```
+
+## API Reference
+
+The following components are exported.
+
+| Component |
+| --------- |
+| `Pagination` |
+| `PaginationButton` |
+| `PaginationControl` |
+| `PaginationGap` |

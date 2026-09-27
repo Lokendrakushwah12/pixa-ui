@@ -10,6 +10,7 @@ import {
   type HTMLAttributes,
 } from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import { withAsChild } from "../../fluid/shared/as-child";
 import { motion } from "framer-motion";
 
 import { cn } from "../../lib/utils";
@@ -25,7 +26,7 @@ type SheetSide = "top" | "right" | "bottom" | "left";
 
 const SheetOpenContext = createContext(false);
 
-const SheetTrigger = DialogPrimitive.Trigger;
+const SheetTrigger = withAsChild(DialogPrimitive.Trigger, "SheetTrigger");
 const SheetClose = DialogPrimitive.Close;
 
 function Sheet({

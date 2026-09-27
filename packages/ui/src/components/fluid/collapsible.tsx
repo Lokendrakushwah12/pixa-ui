@@ -2,10 +2,14 @@
 
 import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible";
+import { withAsChild } from "../../fluid/shared/as-child";
 import { cn } from "../../lib/utils";
 
 const Collapsible = CollapsiblePrimitive.Root;
-const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
+const CollapsibleTrigger = withAsChild(
+  CollapsiblePrimitive.Trigger,
+  "CollapsibleTrigger"
+);
 
 const CollapsibleContent = forwardRef<
   HTMLDivElement,
@@ -16,7 +20,7 @@ const CollapsibleContent = forwardRef<
     data-slot="collapsible-content"
     className={cn(
       "overflow-hidden",
-      "data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up",
+      "data-open:animate-collapsible-down data-closed:animate-collapsible-up",
       className
     )}
     {...props}

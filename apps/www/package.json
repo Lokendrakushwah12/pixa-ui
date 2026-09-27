@@ -23,6 +23,7 @@
     "postprocessing": "^6.39.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "react-hook-form": "^7.88.0",
     "rehype-pretty-code": "^0.14.5",
     "shadcn": "^4.21.0",
     "shiki": "^4.4.3",
