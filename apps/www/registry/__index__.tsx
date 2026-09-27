@@ -881,6 +881,30 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "fluid-badge": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-badge.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-badge.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-badge",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   "fluid-breadcrumb": {
     categories: undefined,
     component: React.lazy(async () => {
@@ -1000,6 +1024,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "fluid-combobox",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "fluid-dialog": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-dialog.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-dialog.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-dialog",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -1147,6 +1195,30 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "fluid-progress": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-progress.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-progress.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-progress",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   "fluid-radio-group": {
     categories: undefined,
     component: React.lazy(async () => {
@@ -1168,6 +1240,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "fluid-radio-group",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "fluid-scroll-area": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-scroll-area.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-scroll-area.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-scroll-area",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -1267,6 +1363,54 @@ export const Index: Record<string, any> = {
     registryDependencies: undefined,
     type: "registry:ui",
   },
+  "fluid-skeleton": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-skeleton.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-skeleton.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-skeleton",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "fluid-slider": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-slider.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-slider.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-slider",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
   "fluid-switch": {
     categories: undefined,
     component: React.lazy(async () => {
@@ -1288,6 +1432,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "fluid-switch",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "fluid-table": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-table.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-table.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-table",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -1384,6 +1552,30 @@ export const Index: Record<string, any> = {
     ],
     meta: undefined,
     name: "fluid-toggle-group",
+    registryDependencies: undefined,
+    type: "registry:ui",
+  },
+  "fluid-tooltip": {
+    categories: undefined,
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/ui/fluid-tooltip.tsx");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "",
+    files: [
+      {
+        path: "registry/default/ui/fluid-tooltip.tsx",
+        target: "",
+        type: "registry:ui",
+      },
+    ],
+    meta: undefined,
+    name: "fluid-tooltip",
     registryDependencies: undefined,
     type: "registry:ui",
   },
@@ -7072,6 +7264,32 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/fluid-avatar"],
     type: "registry:block",
   },
+  "p-fluid-badge-1": {
+    categories: ["fluid badge"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-badge-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid badge",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-badge-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-badge-1",
+    registryDependencies: ["@pixa/fluid-badge"],
+    type: "registry:block",
+  },
   "p-fluid-breadcrumb-1": {
     categories: ["fluid breadcrumb"],
     component: React.lazy(async () => {
@@ -7200,6 +7418,32 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-fluid-combobox-1",
     registryDependencies: ["@pixa/fluid-combobox"],
+    type: "registry:block",
+  },
+  "p-fluid-dialog-1": {
+    categories: ["fluid dialog"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-dialog-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid dialog",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-dialog-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-dialog-1",
+    registryDependencies: ["@pixa/fluid-dialog"],
     type: "registry:block",
   },
   "p-fluid-empty-1": {
@@ -7358,6 +7602,32 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/fluid-popover"],
     type: "registry:block",
   },
+  "p-fluid-progress-1": {
+    categories: ["fluid progress"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-progress-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid progress",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-progress-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-progress-1",
+    registryDependencies: ["@pixa/fluid-progress"],
+    type: "registry:block",
+  },
   "p-fluid-radio-group-1": {
     categories: ["fluid radio group"],
     component: React.lazy(async () => {
@@ -7382,6 +7652,32 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-fluid-radio-group-1",
     registryDependencies: ["@pixa/fluid-radio-group"],
+    type: "registry:block",
+  },
+  "p-fluid-scroll-area-1": {
+    categories: ["fluid scroll area"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-scroll-area-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid scroll area",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-scroll-area-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-scroll-area-1",
+    registryDependencies: ["@pixa/fluid-scroll-area"],
     type: "registry:block",
   },
   "p-fluid-select-1": {
@@ -7488,6 +7784,58 @@ export const Index: Record<string, any> = {
     registryDependencies: ["@pixa/fluid-sidebar"],
     type: "registry:block",
   },
+  "p-fluid-skeleton-1": {
+    categories: ["fluid skeleton"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-skeleton-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid skeleton",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-skeleton-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-skeleton-1",
+    registryDependencies: ["@pixa/fluid-skeleton"],
+    type: "registry:block",
+  },
+  "p-fluid-slider-1": {
+    categories: ["fluid slider"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-slider-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid slider",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-slider-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-slider-1",
+    registryDependencies: ["@pixa/fluid-slider"],
+    type: "registry:block",
+  },
   "p-fluid-switch-1": {
     categories: ["fluid switch"],
     component: React.lazy(async () => {
@@ -7512,6 +7860,32 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-fluid-switch-1",
     registryDependencies: ["@pixa/fluid-switch"],
+    type: "registry:block",
+  },
+  "p-fluid-table-1": {
+    categories: ["fluid table"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-table-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid table",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-table-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-table-1",
+    registryDependencies: ["@pixa/fluid-table"],
     type: "registry:block",
   },
   "p-fluid-tabs-1": {
@@ -7616,6 +7990,32 @@ export const Index: Record<string, any> = {
     meta: undefined,
     name: "p-fluid-toggle-group-1",
     registryDependencies: ["@pixa/fluid-toggle-group"],
+    type: "registry:block",
+  },
+  "p-fluid-tooltip-1": {
+    categories: ["fluid tooltip"],
+    component: React.lazy(async () => {
+      const mod = await import(
+        "@/registry/default/particles/p-fluid-tooltip-1.tsx"
+      );
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object",
+        ) || item.name;
+      return { default: mod.default || mod[exportName] };
+    }),
+    description: "Fluid tooltip",
+    files: [
+      {
+        path: "registry/default/particles/p-fluid-tooltip-1.tsx",
+        target: "",
+        type: "registry:block",
+      },
+    ],
+    meta: undefined,
+    name: "p-fluid-tooltip-1",
+    registryDependencies: ["@pixa/fluid-tooltip"],
     type: "registry:block",
   },
   "p-form-1": {

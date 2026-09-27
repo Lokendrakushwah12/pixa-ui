@@ -1365,4 +1365,92 @@ export const ui: Registry["items"] = [
     name: "fluid-toggle-group",
     type: "registry:ui",
   },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-badge.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-badge",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-dialog.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-dialog",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-progress",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-scroll-area.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-scroll-area",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-skeleton.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-skeleton",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-slider.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-slider",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-table.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-table",
+    type: "registry:ui",
+  },
+  {
+    dependencies: ["@pixa/ui"],
+    files: [
+      {
+        path: "ui/fluid-tooltip.tsx",
+        type: "registry:ui",
+      },
+    ],
+    name: "fluid-tooltip",
+    type: "registry:ui",
+  },
 ];
